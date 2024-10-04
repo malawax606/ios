@@ -65,8 +65,6 @@ class _FormWidgetState extends State<FormWidget> {
 
     _model.aboutmeTextController ??= TextEditingController();
     _model.aboutmeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

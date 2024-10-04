@@ -65,7 +65,6 @@ class _MessageWidgetState extends State<MessageWidget> {
     _model.messageTextController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
     _model.messageFocusNode!.addListener(() => safeSetState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1020,8 +1019,6 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                           'user_b':
                                                               widget.userId,
                                                           'Mesage_seen': false,
-                                                          'Message_Num':
-                                                              _model.messageNum,
                                                           'Message Un': '',
                                                         },
                                                         matchingRows: (rows) =>
