@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -70,7 +71,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
           centerTitle: true,
           elevation: 0.0,
         ),
-        body: const SafeArea(
+        body: SafeArea(
           top: true,
           child: SizedBox(
             width: double.infinity,
@@ -81,9 +82,9 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
               appID: 593542377,
               appSign:
                   '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
-              userID: '22',
+              userID: currentUserUid,
               userName: 'Ahmed',
-              liveID: '1',
+              liveID: '1234',
               isHost: true,
             ),
           ),
