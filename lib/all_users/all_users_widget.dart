@@ -24,6 +24,8 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllUsersModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -175,6 +177,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                 'Profile': gridViewNoUserRow.profilePic,
                                 'Username': gridViewNoUserRow.username,
                                 'Country': gridViewNoUserRow.country,
+                                'Gender': gridViewNoUserRow.gender,
                               });
                             },
                             child: Column(

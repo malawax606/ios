@@ -50,6 +50,8 @@ class _CheckWidgetState extends State<CheckWidget> {
         );
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

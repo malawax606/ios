@@ -95,6 +95,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -180,19 +181,38 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                     ],
                   ),
-                  Text(
-                    valueOrDefault<String>(
-                      CountryCall.country(
-                        (_model.country?.jsonBody ?? ''),
-                      ),
-                      '.',
-                    ),
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Inter Tight',
-                          color: const Color(0xFF95A1AC),
-                          fontSize: 24.0,
-                          letterSpacing: 0.0,
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'Users-NoProfile',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: const TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 0),
+                          ),
+                        },
+                      );
+                    },
+                    child: Text(
+                      valueOrDefault<String>(
+                        CountryCall.country(
+                          (_model.country?.jsonBody ?? ''),
                         ),
+                        '.',
+                      ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Inter Tight',
+                                color: const Color(0xFF95A1AC),
+                                fontSize: 24.0,
+                                letterSpacing: 0.0,
+                              ),
+                    ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -209,8 +229,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed(
+                            'All_Users',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
                         },
                       ),
                     ],

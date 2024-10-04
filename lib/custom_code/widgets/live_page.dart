@@ -34,9 +34,6 @@ class LivePage extends StatefulWidget {
   final String liveID;
   final bool isHost;
 
-  const LivePage({Key? key, required this.liveID, this.isHost = false})
-      : super(key: key);
-
   @override
   State<LivePage> createState() => _LivePageState();
 }

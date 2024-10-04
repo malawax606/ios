@@ -21,8 +21,8 @@ class UserNoProfileRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String? get userID => getField<String>('UserID');
-  set userID(String? value) => setField<String>('UserID', value);
+  String get userID => getField<String>('UserID')!;
+  set userID(String value) => setField<String>('UserID', value);
 
   String? get profile => getField<String>('Profile');
   set profile(String? value) => setField<String>('Profile', value);
@@ -32,4 +32,10 @@ class UserNoProfileRow extends SupabaseDataRow {
 
   String? get country => getField<String>('Country');
   set country(String? value) => setField<String>('Country', value);
+
+  String? get age => getField<String>('Age');
+  set age(String? value) => setField<String>('Age', value);
+
+  String? get gender => getField<String>('Gender');
+  set gender(String? value) => setField<String>('Gender', value);
 }
