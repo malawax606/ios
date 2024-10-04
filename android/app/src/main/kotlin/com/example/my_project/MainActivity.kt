@@ -1,4 +1,4 @@
-package com.soomates.dating
+package com.shukansi.som
 
 import io.flutter.embedding.android.FlutterActivity
 

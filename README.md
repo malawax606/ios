@@ -1,4 +1,4 @@
-# Soomates-dating
+# Soomates
 
 A new Flutter project.
 

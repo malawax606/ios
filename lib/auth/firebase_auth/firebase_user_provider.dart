@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class SoomatesDatingFirebaseUser extends BaseAuthUser {
-  SoomatesDatingFirebaseUser(this.user);
+class SoomatesFirebaseUser extends BaseAuthUser {
+  SoomatesFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -55,17 +55,17 @@ class SoomatesDatingFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      SoomatesDatingFirebaseUser(user);
+      SoomatesFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> soomatesDatingFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> soomatesFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = SoomatesDatingFirebaseUser(user);
+        currentUser = SoomatesFirebaseUser(user);
         return currentUser!;
       },
     );
