@@ -57,7 +57,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         keyTarget: textFieldB8gqurx7,
         enableOverlayTab: true,
         alignSkip: Alignment.bottomRight,
-        shape: ShapeLightFocus.Circle,
+        shape: ShapeLightFocus.RRect,
         color: Colors.black,
         contents: [
           TargetContent(

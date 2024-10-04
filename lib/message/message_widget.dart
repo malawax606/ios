@@ -1038,6 +1038,11 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                           widget.chatID,
                                                         ),
                                                       );
+                                                      safeSetState(() {
+                                                        _model
+                                                            .messageTextController
+                                                            ?.clear();
+                                                      });
                                                     },
                                                     child: Icon(
                                                       Icons.send_outlined,
