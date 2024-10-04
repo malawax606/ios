@@ -52,7 +52,7 @@ class _MessageWidgetState extends State<MessageWidget> {
       if (widget.sender != currentUserUid) {
         await ChatTable().update(
           data: {
-            'Message_Num': 0,
+            'Mesage_seen': true,
           },
           matchingRows: (rows) => rows.eq(
             'Chat_ID',
@@ -205,7 +205,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                       ),
                                 ),
                               ),
-                              if (rowUserRow.verify ?? true)
+                              if (rowUserRow.vipProfilee ?? true)
                                 const Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       3.0, 0.0, 0.0, 0.0),

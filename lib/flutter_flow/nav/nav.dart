@@ -193,6 +193,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Email',
           path: '/email',
           builder: (context, params) => const EmailWidget(),
+        ),
+        FFRoute(
+          name: 'All_Users',
+          path: '/allUsers',
+          builder: (context, params) => const AllUsersWidget(),
+        ),
+        FFRoute(
+          name: 'Live_Audio',
+          path: '/liveAudio',
+          builder: (context, params) => const LiveAudioWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -3,7 +3,6 @@ import '/components/email_verify_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'security_model.dart';
 export 'security_model.dart';
@@ -286,7 +285,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                     ),
                                   ],
                                 ),
-                                Switch(
+                                Switch.adaptive(
                                   value: _model.switchValue2!,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -327,7 +326,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                     ),
                                   ],
                                 ),
-                                Switch(
+                                Switch.adaptive(
                                   value: _model.switchValue3!,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -559,32 +558,6 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               ].divide(const SizedBox(width: 16.0)),
                             ),
                           ].divide(const SizedBox(height: 16.0)),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Save Changes',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 3.0,
                         ),
                       ),
                     ),

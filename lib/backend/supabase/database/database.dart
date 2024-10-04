@@ -15,6 +15,7 @@ export 'tables/stories.dart';
 export 'tables/email.dart';
 export 'tables/online.dart';
 export 'tables/message.dart';
+export 'tables/user_no_profile.dart';
 export 'tables/friends.dart';
 export 'tables/message_room.dart';
 export 'tables/subscription.dart';

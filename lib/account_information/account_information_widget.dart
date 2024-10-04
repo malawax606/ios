@@ -198,7 +198,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                   ),
                                   Text(
                                     valueOrDefault<String>(
-                                      accountInformationUserRow?.fullName,
+                                      accountInformationUserRow?.username,
                                       'User',
                                     ).maybeHandleOverflow(maxChars: 23),
                                     style: FlutterFlowTheme.of(context)

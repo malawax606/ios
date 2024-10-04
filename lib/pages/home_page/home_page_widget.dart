@@ -161,18 +161,32 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
                         icon: const Icon(
-                          Icons.person_rounded,
+                          Icons.tv_outlined,
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed(
+                            'Live_Audio',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
                         },
                       ),
                     ],
                   ),
                   Text(
-                    'Soomates',
+                    valueOrDefault<String>(
+                      CountryCall.country(
+                        (_model.country?.jsonBody ?? ''),
+                      ),
+                      '.',
+                    ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Inter Tight',
                           color: const Color(0xFF95A1AC),
@@ -984,16 +998,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          if (listViewChatRow
-                                                                  .messageNum >
-                                                              0)
+                                                          if ((listViewChatRow
+                                                                      .lastMessageSentBy !=
+                                                                  currentUserUid) &&
+                                                              (listViewChatRow
+                                                                      .mesageSeen ==
+                                                                  false))
                                                             Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Container(
-                                                                width: 20.0,
-                                                                height: 20.0,
+                                                                width: 10.0,
+                                                                height: 10.0,
                                                                 decoration:
                                                                     const BoxDecoration(
                                                                   color: Color(
@@ -1005,24 +1022,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
-                                                                child: Text(
-                                                                  listViewChatRow
-                                                                      .messageNum
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
                                                               ),
                                                             ),
                                                           Padding(
