@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math' as math;
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'login_model.dart';
@@ -84,88 +83,6 @@ class _LoginWidgetState extends State<LoginWidget>
                       scaleY: 1.2,
                       child: Transform.rotate(
                         angle: 11.0 * (math.pi / 180),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 250.0,
-                          child: CarouselSlider(
-                            items: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1645389411992-e9ec49b158e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxsb3ZlfGVufDB8fHx8MTcwMjU0MDYyNHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1535615615570-3b839f4359be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw3fHxsb3ZlfGVufDB8fHx8MTcwMjU0MDYyNHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1531747056595-07f6cbbe10ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMnx8bG92ZXxlbnwwfHx8fDE2OTI4NzA5NTh8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1525206809752-65312b959c88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMnx8ZGF0aW5nfGVufDB8fHx8MTY5Mjg3MDk0MHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1617788472008-1e524a74cf25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxkYXRpbmd8ZW58MHx8fHwxNjkyODcwOTM5fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1426543881949-cbd9a76740a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8bG92ZXxlbnwwfHx8fDE2OTI4NzA5NTh8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                            carouselController: _model.carouselController ??=
-                                CarouselController(),
-                            options: CarouselOptions(
-                              initialPage: 1,
-                              viewportFraction: 0.6,
-                              disableCenter: true,
-                              enlargeCenterPage: true,
-                              enlargeFactor: 0.25,
-                              enableInfiniteScroll: true,
-                              scrollDirection: Axis.horizontal,
-                              autoPlay: true,
-                              autoPlayAnimationDuration:
-                                  const Duration(milliseconds: 800),
-                              autoPlayInterval:
-                                  const Duration(milliseconds: (800 + 4000)),
-                              autoPlayCurve: Curves.linear,
-                              pauseAutoPlayInFiniteScroll: true,
-                              onPageChanged: (index, _) =>
-                                  _model.carouselCurrentIndex = index,
-                            ),
-                          ),
-                        ),
                       ),
                     ).animateOnPageLoad(
                         animationsMap['transformOnPageLoadAnimation']!),
