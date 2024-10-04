@@ -993,14 +993,6 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      _model.messageNum = _model
-                                                              .messageNum! +
-                                                          widget.messageNum!;
-                                                      safeSetState(() {});
-                                                      _model.messageNum =
-                                                          _model.messageNum! +
-                                                              1;
-                                                      safeSetState(() {});
                                                       await MessageTable()
                                                           .insert({
                                                         'User': currentUserUid,
