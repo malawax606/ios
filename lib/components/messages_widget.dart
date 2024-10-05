@@ -36,8 +36,6 @@ class _MessagesWidgetState extends State<MessagesWidget> {
 
     _model.messageTextController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

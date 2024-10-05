@@ -95,7 +95,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -944,7 +943,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           color:
                                                                               Color(0xFF0992F9),
                                                                           size:
-                                                                              16.0,
+                                                                              15.0,
                                                                         ),
                                                                       ),
                                                                   ],
@@ -1007,6 +1006,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           listViewChatRow
                                                                               .lastMessage,
                                                                           '.',
+                                                                        ).maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              20,
+                                                                          replacement:
+                                                                              '…',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -1544,7 +1548,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               .clearRedirectLocation();
 
                                           context.goNamedAuth(
-                                              'Login', context.mounted);
+                                              'Auth1', context.mounted);
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,

@@ -24,8 +24,6 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllUsersModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -125,6 +123,10 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                           'Account Ban',
                           false,
                         )
+                        .eq(
+                          'No Profile',
+                          false,
+                        )
                         .order('Online'),
                   ),
                   builder: (context, snapshot) {
@@ -172,6 +174,15 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await UserTable().update(
+                                data: {
+                                  'No Profile': true,
+                                },
+                                matchingRows: (rows) => rows.eq(
+                                  'id',
+                                  gridViewNoUserRow.id,
+                                ),
+                              );
                               await UserNoProfileTable().insert({
                                 'UserID': gridViewNoUserRow.id,
                                 'Profile': gridViewNoUserRow.profilePic,

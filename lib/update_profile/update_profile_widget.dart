@@ -42,8 +42,6 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     _model.fullNameFocusNode ??= FocusNode();
 
     _model.aboutmeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -284,6 +282,17 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
 
                                                       await deleteSupabaseFileFromPublicUrl(
                                                           _model.url!);
+                                                      await UserTable().update(
+                                                        data: {
+                                                          'Profile_Pic': _model
+                                                              .uploadedFileUrl,
+                                                        },
+                                                        matchingRows: (rows) =>
+                                                            rows.eq(
+                                                          'id',
+                                                          currentUserUid,
+                                                        ),
+                                                      );
                                                     },
                                                     child: Container(
                                                       width: 120.0,
@@ -821,12 +830,34 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                   safeSetState(() =>
                                                       _model.genderValue = val);
                                                   if (_model.genderValue ==
-                                                      'Male') {
-                                                    _model.looking = 'Female';
-                                                    safeSetState(() {});
+                                                      'Lab (Rag)') {
+                                                    await UserTable().update(
+                                                      data: {
+                                                        'Gender':
+                                                            _model.genderValue,
+                                                        'LookingFor':
+                                                            'Dheddig (Dumar)',
+                                                      },
+                                                      matchingRows: (rows) =>
+                                                          rows.eq(
+                                                        'id',
+                                                        currentUserUid,
+                                                      ),
+                                                    );
                                                   } else {
-                                                    _model.looking = 'Male';
-                                                    safeSetState(() {});
+                                                    await UserTable().update(
+                                                      data: {
+                                                        'Gender':
+                                                            _model.genderValue,
+                                                        'LookingFor':
+                                                            'Lab (Rag)',
+                                                      },
+                                                      matchingRows: (rows) =>
+                                                          rows.eq(
+                                                        'id',
+                                                        currentUserUid,
+                                                      ),
+                                                    );
                                                   }
                                                 },
                                                 width: double.infinity,
@@ -1185,8 +1216,6 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
 
                                         await UserTable().update(
                                           data: {
-                                            'Profile_Pic':
-                                                _model.uploadedFileUrl,
                                             'Full_Name': _model
                                                 .fullNameTextController.text,
                                             'Username': _model

@@ -65,8 +65,6 @@ class _FormWidgetState extends State<FormWidget> {
 
     _model.aboutmeTextController ??= TextEditingController();
     _model.aboutmeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -689,11 +687,12 @@ class _FormWidgetState extends State<FormWidget> {
                                         onChanged: (val) async {
                                           safeSetState(
                                               () => _model.genderValue = val);
-                                          if (_model.genderValue == 'Male') {
-                                            _model.looking = 'Female';
+                                          if (_model.genderValue ==
+                                              'Lab (Rag)') {
+                                            _model.looking = 'Dheddig (Dumar)';
                                             safeSetState(() {});
                                           } else {
-                                            _model.looking = 'Male';
+                                            _model.looking = 'Lab (Rag)';
                                             safeSetState(() {});
                                           }
                                         },

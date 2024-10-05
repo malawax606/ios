@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -23,8 +22,6 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LiveAudioModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -79,13 +76,8 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
             child: custom_widgets.LivePage(
               width: double.infinity,
               height: double.infinity,
-              appID: 593542377,
-              appSign:
-                  '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
-              userID: currentUserUid,
-              userName: 'Ahmed',
-              liveID: '1234',
-              isHost: true,
+              roomID: '2345',
+              isHost: _model.host,
             ),
           ),
         ),

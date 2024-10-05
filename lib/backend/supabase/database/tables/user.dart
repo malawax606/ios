@@ -235,4 +235,7 @@ class UserRow extends SupabaseDataRow {
 
   String? get aboutMe => getField<String>('About Me');
   set aboutMe(String? value) => setField<String>('About Me', value);
+
+  bool? get noProfile => getField<bool>('No Profile');
+  set noProfile(bool? value) => setField<bool>('No Profile', value);
 }
