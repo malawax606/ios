@@ -104,13 +104,13 @@ class SupabaseUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User',
       apiUrl:
-          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(User_Id.ilike.*$searchString*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnRpb2ZvZnZzcWN0Z29vdGZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3MjE5MjAsImV4cCI6MjA0MzI5NzkyMH0.Cl-5-eIUMWlxGSs5wU0Ilgbxm-YXmCcaApeO8q_v3DE',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
         'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZnRpb2ZvZnZzcWN0Z29vdGZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3MjE5MjAsImV4cCI6MjA0MzI5NzkyMH0.Cl-5-eIUMWlxGSs5wU0Ilgbxm-YXmCcaApeO8q_v3DE',
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
       },
       params: {},
       returnBody: true,
@@ -176,6 +176,36 @@ class SupabaseUserProfileCall {
   static String? userId(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$[:].User_Id''',
+      ));
+}
+
+class ImageUploadCall {
+  static Future<ApiCallResponse> call({
+    String? image = '',
+    String? key = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Image Upload',
+      apiUrl: 'https://api.imgbb.com/1/upload',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'image': image,
+        'key': key,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? url(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.image.url''',
       ));
 }
 

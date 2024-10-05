@@ -19,6 +19,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   Completer<List<UserRow>>? requestCompleter1;
   Completer<List<UserRow>>? requestCompleter2;
+  // Stores action output result for [Backend Call - API (Image Upload)] action in IconButton widget.
+  ApiCallResponse? image;
 
   @override
   void initState(BuildContext context) {}

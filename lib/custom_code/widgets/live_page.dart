@@ -21,6 +21,7 @@ class LivePage extends StatefulWidget {
     required this.appSign,
     required this.userID,
     required this.userName,
+    required this.userAvatarUrl,
     required this.roomID,
     required this.isHost,
   });
@@ -31,6 +32,7 @@ class LivePage extends StatefulWidget {
   final String appSign;
   final String userID;
   final String userName;
+  final String userAvatarUrl;
   final String roomID;
   final bool isHost;
 
@@ -43,17 +45,17 @@ class _LivePageState extends State<LivePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ZegoUIKitPrebuiltLiveAudioRoom(
-        appID: widget
-            .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
-        appSign: widget
-            .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
-        userID: widget.appSign,
-        userName: widget.userName,
-        roomID: widget.roomID,
-        config: widget.isHost
-            ? ZegoUIKitPrebuiltLiveAudioRoomConfig.host()
-            : ZegoUIKitPrebuiltLiveAudioRoomConfig.audience(),
-      ),
+          appID: widget
+              .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
+          appSign: widget
+              .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
+          userID: widget.appSign,
+          userName: widget.userName,
+          roomID: widget.roomID,
+          config: widget.isHost
+              ? ZegoUIKitPrebuiltLiveAudioRoomConfig.host()
+              : ZegoUIKitPrebuiltLiveAudioRoomConfig.audience()
+            ..userAvatarUrl = widget.userAvatarUrl),
     );
   }
 }

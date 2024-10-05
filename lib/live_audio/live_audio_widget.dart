@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -11,9 +10,13 @@ class LiveAudioWidget extends StatefulWidget {
   const LiveAudioWidget({
     super.key,
     required this.id,
+    required this.host,
+    required this.url,
   });
 
   final int? id;
+  final bool? host;
+  final String? url;
 
   @override
   State<LiveAudioWidget> createState() => _LiveAudioWidgetState();
@@ -44,36 +47,6 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Text(
-            'Live',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Inter Tight',
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
-          ),
-          actions: const [],
-          centerTitle: true,
-          elevation: 0.0,
-        ),
         body: SafeArea(
           top: true,
           child: SizedBox(
@@ -83,12 +56,13 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
               width: double.infinity,
               height: double.infinity,
               roomID: '2345',
-              isHost: true,
+              isHost: widget.host!,
               userID: currentUserUid,
               appID: 593542377,
               appSign:
                   '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
               userName: widget.id!.toString(),
+              userAvatarUrl: widget.url!,
             ),
           ),
         ),

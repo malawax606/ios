@@ -17,9 +17,6 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
-      _Profile = prefs.getString('ff_Profile') ?? _Profile;
-    });
-    _safeInit(() {
       _Username = prefs.getString('ff_Username') ?? _Username;
     });
     _safeInit(() {
@@ -30,6 +27,9 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _Done = prefs.getBool('ff_Done') ?? _Done;
+    });
+    _safeInit(() {
+      _Profile = prefs.getString('ff_Profile') ?? _Profile;
     });
   }
 
@@ -82,14 +82,6 @@ class FFAppState extends ChangeNotifier {
     mes.insert(index, value);
   }
 
-  String _Profile =
-      'https://intubuvndadrxutcpxnl.supabase.co/storage/v1/object/public/images/Profile/1720182360112000.jpg';
-  String get Profile => _Profile;
-  set Profile(String value) {
-    _Profile = value;
-    prefs.setString('ff_Profile', value);
-  }
-
   String _Username = 'Ahmed';
   String get Username => _Username;
   set Username(String value) {
@@ -116,6 +108,13 @@ class FFAppState extends ChangeNotifier {
   set Done(bool value) {
     _Done = value;
     prefs.setBool('ff_Done', value);
+  }
+
+  String _Profile = '';
+  String get Profile => _Profile;
+  set Profile(String value) {
+    _Profile = value;
+    prefs.setString('ff_Profile', value);
   }
 }
 

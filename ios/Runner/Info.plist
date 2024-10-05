@@ -62,7 +62,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>o</string>
 	<key>NSMicrophoneUsageDescription</key>
-    <string>m</string>
+    <string>Please enable it</string>
 
 
 	<key>UILaunchStoryboardName</key>

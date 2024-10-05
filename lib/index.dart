@@ -22,3 +22,4 @@ export '/live_audio/live_audio_widget.dart' show LiveAudioWidget;
 export '/users_no_profile/users_no_profile_widget.dart'
     show UsersNoProfileWidget;
 export '/call_join/call_join_widget.dart' show CallJoinWidget;
+export '/search/search_widget.dart' show SearchWidget;

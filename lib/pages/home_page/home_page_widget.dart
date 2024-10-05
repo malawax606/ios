@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -161,27 +162,101 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
                         icon: const Icon(
-                          Icons.tv_outlined,
+                          Icons.mic_none,
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
                         onPressed: () async {
-                          context.pushNamed(
-                            'Live_Audio',
-                            queryParameters: {
-                              'id': serializeParam(
-                                homePageUserRow?.userId,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
+                          _model.image = await ImageUploadCall.call(
+                            image: homePageUserRow?.profilePic != null &&
+                                    homePageUserRow?.profilePic != ''
+                                ? homePageUserRow?.profilePic
+                                : (homePageUserRow?.gender == 'Lab (Rag)'
+                                    ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
+                                    : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                            key: '70de3bbf96ca7056ee937df625795bd8',
                           );
+
+                          if (homePageUserRow?.userId == null) {
+                            await UserTable().update(
+                              data: {
+                                'USER ID': random_data.randomInteger(
+                                    20000000, 29999999),
+                              },
+                              matchingRows: (rows) => rows.eq(
+                                'id',
+                                currentUserUid,
+                              ),
+                            );
+
+                            context.pushNamed(
+                              'Call_Join',
+                              queryParameters: {
+                                'url': serializeParam(
+                                  ImageUploadCall.url(
+                                    (_model.image?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.String,
+                                ),
+                                'id': serializeParam(
+                                  homePageUserRow?.userId,
+                                  ParamType.int,
+                                ),
+                                'admin': serializeParam(
+                                  homePageUserRow?.admin,
+                                  ParamType.bool,
+                                ),
+                                'url2': serializeParam(
+                                  ImageUploadCall.url(
+                                    (_model.image?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: const TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          } else {
+                            context.pushNamed(
+                              'Call_Join',
+                              queryParameters: {
+                                'url': serializeParam(
+                                  ImageUploadCall.url(
+                                    (_model.image?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.String,
+                                ),
+                                'id': serializeParam(
+                                  homePageUserRow?.userId,
+                                  ParamType.int,
+                                ),
+                                'admin': serializeParam(
+                                  homePageUserRow?.admin,
+                                  ParamType.bool,
+                                ),
+                                'url2': serializeParam(
+                                  ImageUploadCall.url(
+                                    (_model.image?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: const TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          }
+
+                          safeSetState(() {});
                         },
                       ),
                     ],
@@ -192,24 +267,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed(
-                        'Users-NoProfile',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
+                      if (homePageUserRow?.admin == true) {
+                        context.pushNamed(
+                          'Users-NoProfile',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                      }
                     },
                     child: Text(
-                      valueOrDefault<String>(
-                        CountryCall.country(
-                          (_model.country?.jsonBody ?? ''),
-                        ),
-                        '.',
-                      ),
+                      'Soomates',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Inter Tight',
@@ -235,8 +307,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           size: 22.0,
                         ),
                         onPressed: () async {
+                          if (homePageUserRow?.admin == true) {
+                            context.pushNamed(
+                              'All_Users',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: const TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          }
+
                           context.pushNamed(
-                            'All_Users',
+                            'Search',
                             extra: <String, dynamic>{
                               kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
@@ -1270,6 +1355,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                                 },
                                               );
+
+                                              FFAppState().Profile =
+                                                  homePageUserRow!.profilePic!;
+                                              safeSetState(() {});
                                             },
                                             text: 'Edit Profile',
                                             options: FFButtonOptions(

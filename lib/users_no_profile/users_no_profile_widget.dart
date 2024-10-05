@@ -149,122 +149,145 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                         itemBuilder: (context, gridViewNoIndex) {
                           final gridViewNoUserNoProfileRow =
                               gridViewNoUserNoProfileRowList[gridViewNoIndex];
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Stack(
-                                  alignment: const AlignmentDirectional(0.75, 0.9),
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onLongPress: () async {
+                              await UserNoProfileTable().delete(
+                                matchingRows: (rows) => rows
+                                    .eq(
+                                      'id',
+                                      gridViewNoUserNoProfileRow.id,
+                                    )
+                                    .eq(
+                                      'UserID',
+                                      gridViewNoUserNoProfileRow.userID,
+                                    ),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Stack(
+                                    alignment: const AlignmentDirectional(0.75, 0.9),
+                                    children: [
+                                      Hero(
+                                        tag: gridViewNoUserNoProfileRow
+                                                        .profile !=
+                                                    null &&
+                                                gridViewNoUserNoProfileRow
+                                                        .profile !=
+                                                    ''
+                                            ? gridViewNoUserNoProfileRow
+                                                .profile!
+                                            : (gridViewNoUserNoProfileRow
+                                                        .gender ==
+                                                    'Lab (Rag)'
+                                                ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
+                                                : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                        transitionOnUserGestures: true,
+                                        child: Container(
+                                          width: 70.0,
+                                          height: 70.0,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: CachedNetworkImage(
+                                            fadeInDuration:
+                                                const Duration(milliseconds: 500),
+                                            fadeOutDuration:
+                                                const Duration(milliseconds: 500),
+                                            imageUrl: gridViewNoUserNoProfileRow
+                                                            .profile !=
+                                                        null &&
+                                                    gridViewNoUserNoProfileRow
+                                                            .profile !=
+                                                        ''
+                                                ? gridViewNoUserNoProfileRow
+                                                    .profile!
+                                                : (gridViewNoUserNoProfileRow
+                                                            .gender ==
+                                                        'Lab (Rag)'
+                                                    ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
+                                                    : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Hero(
-                                      tag: gridViewNoUserNoProfileRow.profile !=
-                                                  null &&
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
                                               gridViewNoUserNoProfileRow
-                                                      .profile !=
-                                                  ''
-                                          ? gridViewNoUserNoProfileRow.profile!
-                                          : (gridViewNoUserNoProfileRow
-                                                      .gender ==
-                                                  'Lab (Rag)'
-                                              ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                              : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                      transitionOnUserGestures: true,
-                                      child: Container(
-                                        width: 70.0,
-                                        height: 70.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: CachedNetworkImage(
-                                          fadeInDuration:
-                                              const Duration(milliseconds: 500),
-                                          fadeOutDuration:
-                                              const Duration(milliseconds: 500),
-                                          imageUrl: gridViewNoUserNoProfileRow
-                                                          .profile !=
-                                                      null &&
-                                                  gridViewNoUserNoProfileRow
-                                                          .profile !=
-                                                      ''
-                                              ? gridViewNoUserNoProfileRow
-                                                  .profile!
-                                              : (gridViewNoUserNoProfileRow
-                                                          .gender ==
-                                                      'Lab (Rag)'
-                                                  ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                  : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                          fit: BoxFit.cover,
-                                        ),
+                                                  .username,
+                                              'User',
+                                            ).maybeHandleOverflow(maxChars: 11),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 11.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 1.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              gridViewNoUserNoProfileRow
+                                                  .country,
+                                              'Somalia',
+                                            ).maybeHandleOverflow(maxChars: 12),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 10.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
                                 ),
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            gridViewNoUserNoProfileRow.username,
-                                            'User',
-                                          ).maybeHandleOverflow(maxChars: 11),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 11.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 1.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            gridViewNoUserNoProfileRow.country,
-                                            'Somalia',
-                                          ).maybeHandleOverflow(maxChars: 12),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                              ],
+                            ),
                           );
                         },
                       ),

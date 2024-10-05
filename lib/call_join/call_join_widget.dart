@@ -3,12 +3,24 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'call_join_model.dart';
 export 'call_join_model.dart';
 
 class CallJoinWidget extends StatefulWidget {
   /// Create page for call join all users can join its for dating app
-  const CallJoinWidget({super.key});
+  const CallJoinWidget({
+    super.key,
+    required this.url,
+    required this.id,
+    required this.admin,
+    required this.url2,
+  });
+
+  final String? url;
+  final int? id;
+  final bool? admin;
+  final String? url2;
 
   @override
   State<CallJoinWidget> createState() => _CallJoinWidgetState();
@@ -23,6 +35,17 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CallJoinModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (widget.admin == false) {
+        _model.host = false;
+        safeSetState(() {});
+      } else {
+        _model.host = true;
+        safeSetState(() {});
+      }
+    });
   }
 
   @override
@@ -57,7 +80,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
             },
           ),
           title: Text(
-            'Call',
+            'Live',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -89,7 +112,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100.0),
                         child: Image.network(
-                          'https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?w=200&h=200',
+                          widget.url!,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -98,7 +121,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Calafdon Call',
+                          'Calafdon Live',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
@@ -111,7 +134,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Text(
-                            'Calafdon Call',
+                            'My ID ${widget.id?.toString()}',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
@@ -129,7 +152,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                       child: Text(
-                        'Join the call to connect with other Calafdon People',
+                        'Join the live to connect with other Calafdon People',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
@@ -184,10 +207,26 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          context.pushNamed(
+                            'Live_Audio',
+                            queryParameters: {
+                              'id': serializeParam(
+                                0,
+                                ParamType.int,
+                              ),
+                              'host': serializeParam(
+                                _model.host,
+                                ParamType.bool,
+                              ),
+                              'url': serializeParam(
+                                widget.url2,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
-                        text: 'Join Call',
+                        text: 'Join Live',
                         options: FFButtonOptions(
                           width: 200.0,
                           height: 50.0,
@@ -232,7 +271,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Call Guidelines',
+                          'Live Guidelines',
                           style: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(

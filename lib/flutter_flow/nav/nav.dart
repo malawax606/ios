@@ -207,6 +207,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'id',
               ParamType.int,
             ),
+            host: params.getParam(
+              'host',
+              ParamType.bool,
+            ),
+            url: params.getParam(
+              'url',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -217,7 +225,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Call_Join',
           path: '/callJoin',
-          builder: (context, params) => const CallJoinWidget(),
+          builder: (context, params) => CallJoinWidget(
+            url: params.getParam(
+              'url',
+              ParamType.String,
+            ),
+            id: params.getParam(
+              'id',
+              ParamType.int,
+            ),
+            admin: params.getParam(
+              'admin',
+              ParamType.bool,
+            ),
+            url2: params.getParam(
+              'url2',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Search',
+          path: '/search',
+          builder: (context, params) => const SearchWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

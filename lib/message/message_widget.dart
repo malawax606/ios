@@ -179,62 +179,86 @@ class _MessageWidgetState extends State<MessageWidget> {
                           ),
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    rowUserRow.username,
-                                    'User',
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelLarge
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'User_Profile',
+                            queryParameters: {
+                              'userID': serializeParam(
+                                widget.userId,
+                                ParamType.String,
                               ),
-                              if (rowUserRow.vipProfilee ?? true)
-                                const Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      3.0, 0.0, 0.0, 0.0),
-                                  child: Icon(
-                                    Icons.verified,
-                                    color: Color(0xFF189EFF),
-                                    size: 16.0,
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      6.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      rowUserRow.username,
+                                      'User',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                6.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              dateTimeFormat("relative", rowUserRow.online!),
-                              style: FlutterFlowTheme.of(context)
-                                  .labelLarge
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w200,
+                                if (rowUserRow.vipProfilee ?? true)
+                                  const Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        3.0, 0.0, 0.0, 0.0),
+                                    child: Icon(
+                                      Icons.verified,
+                                      color: Color(0xFF189EFF),
+                                      size: 16.0,
+                                    ),
                                   ),
+                              ],
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  6.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                dateTimeFormat("relative", rowUserRow.online!),
+                                style: FlutterFlowTheme.of(context)
+                                    .labelLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 13.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w200,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -402,26 +426,49 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           7.0,
                                                                           0.0),
                                                                   child:
-                                                                      Container(
-                                                                    width: 35.0,
-                                                                    height:
-                                                                        35.0,
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
-                                                                    decoration:
-                                                                        const BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        CachedNetworkImage(
-                                                                      fadeInDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      fadeOutDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      imageUrl: widget.image != null &&
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await Navigator
+                                                                          .push(
+                                                                        context,
+                                                                        PageTransition(
+                                                                          type:
+                                                                              PageTransitionType.fade,
+                                                                          child:
+                                                                              FlutterFlowExpandedImageView(
+                                                                            image:
+                                                                                CachedNetworkImage(
+                                                                              fadeInDuration: const Duration(milliseconds: 500),
+                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              imageUrl: widget.image != null && widget.image != '' ? widget.image! : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                            allowRotation:
+                                                                                true,
+                                                                            tag: widget.image != null && widget.image != ''
+                                                                                ? widget.image!
+                                                                                : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                                            useHeroAnimation:
+                                                                                true,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                    child: Hero(
+                                                                      tag: widget.image != null &&
                                                                               widget.image !=
                                                                                   ''
                                                                           ? widget
@@ -429,8 +476,34 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           : (widget.gender == 'Lab (Rag)'
                                                                               ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
                                                                               : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            35.0,
+                                                                        height:
+                                                                            35.0,
+                                                                        clipBehavior:
+                                                                            Clip.antiAlias,
+                                                                        decoration:
+                                                                            const BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                        child:
+                                                                            CachedNetworkImage(
+                                                                          fadeInDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          fadeOutDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          imageUrl: widget.image != null && widget.image != ''
+                                                                              ? widget.image!
+                                                                              : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -605,30 +678,76 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   child:
-                                                                      Container(
-                                                                    width: 35.0,
-                                                                    height:
-                                                                        35.0,
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
-                                                                    decoration:
-                                                                        const BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        CachedNetworkImage(
-                                                                      fadeInDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      fadeOutDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      imageUrl:
-                                                                          pageUserRow!
-                                                                              .profilePic!,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await Navigator
+                                                                          .push(
+                                                                        context,
+                                                                        PageTransition(
+                                                                          type:
+                                                                              PageTransitionType.fade,
+                                                                          child:
+                                                                              FlutterFlowExpandedImageView(
+                                                                            image:
+                                                                                CachedNetworkImage(
+                                                                              fadeInDuration: const Duration(milliseconds: 500),
+                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              imageUrl: pageUserRow.profilePic!,
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                            allowRotation:
+                                                                                true,
+                                                                            tag:
+                                                                                pageUserRow.profilePic!,
+                                                                            useHeroAnimation:
+                                                                                true,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                    child: Hero(
+                                                                      tag: pageUserRow!
+                                                                          .profilePic!,
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            35.0,
+                                                                        height:
+                                                                            35.0,
+                                                                        clipBehavior:
+                                                                            Clip.antiAlias,
+                                                                        decoration:
+                                                                            const BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                        child:
+                                                                            CachedNetworkImage(
+                                                                          fadeInDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          fadeOutDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          imageUrl:
+                                                                              pageUserRow.profilePic!,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
