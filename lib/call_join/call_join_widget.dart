@@ -23,6 +23,8 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CallJoinModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

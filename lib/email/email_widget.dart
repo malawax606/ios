@@ -24,6 +24,8 @@ class _EmailWidgetState extends State<EmailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmailModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

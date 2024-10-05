@@ -61,6 +61,8 @@
     <string>j</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>o</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>m</string>
 
 
 	<key>UILaunchStoryboardName</key>

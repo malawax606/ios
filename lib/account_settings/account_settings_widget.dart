@@ -38,6 +38,7 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
     _model.switchValue1 = true;
     _model.switchValue2 = true;
     _model.switchValue3 = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

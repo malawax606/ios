@@ -24,6 +24,8 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UsersNoProfileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

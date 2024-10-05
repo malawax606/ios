@@ -202,7 +202,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Live_Audio',
           path: '/liveAudio',
-          builder: (context, params) => const LiveAudioWidget(),
+          builder: (context, params) => LiveAudioWidget(
+            id: params.getParam(
+              'id',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Users-NoProfile',

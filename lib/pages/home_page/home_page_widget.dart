@@ -95,6 +95,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -168,6 +169,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         onPressed: () async {
                           context.pushNamed(
                             'Live_Audio',
+                            queryParameters: {
+                              'id': serializeParam(
+                                homePageUserRow?.userId,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
