@@ -45,7 +45,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -64,7 +64,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
             },
           ),
           title: Text(
-            'Page Title',
+            'Live',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: FlutterFlowTheme.of(context).primaryText,
