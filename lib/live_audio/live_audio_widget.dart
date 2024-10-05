@@ -28,8 +28,6 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LiveAudioModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -42,8 +42,6 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     _model.fullNameFocusNode ??= FocusNode();
 
     _model.aboutmeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
