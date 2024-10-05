@@ -1643,7 +1643,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               .clearRedirectLocation();
 
                                           context.goNamedAuth(
-                                              'Auth1', context.mounted);
+                                              'Login', context.mounted);
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
