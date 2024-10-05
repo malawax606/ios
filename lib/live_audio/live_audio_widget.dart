@@ -87,7 +87,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
               roomID: '2345',
               isHost: true,
               userID: currentUserUid,
-              appID: '593542377',
+              appID: 593542377,
               appSign:
                   '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
               userName: widget.id!.toString(),

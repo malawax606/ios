@@ -27,7 +27,7 @@ class LivePage extends StatefulWidget {
 
   final double? width;
   final double? height;
-  final String appID;
+  final int appID;
   final String appSign;
   final String userID;
   final String userName;
@@ -46,7 +46,7 @@ class _LivePageState extends State<LivePage> {
         appID: widget
             .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
         appSign: widget
-            .r, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
+            .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
         userID: widget.appSign,
         userName: widget.userName,
         roomID: widget.roomID,
