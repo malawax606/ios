@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/permissions_util.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -166,84 +165,38 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           size: 22.0,
                         ),
                         onPressed: () async {
-                          if (homePageUserRow?.userId == null) {
-                            await UserTable().update(
-                              data: {
-                                'USER ID': random_data.randomInteger(
-                                    20000000, 29999999),
-                              },
-                              matchingRows: (rows) => rows.eq(
-                                'id',
-                                currentUserUid,
+                          context.pushNamed(
+                            'Call_Join',
+                            queryParameters: {
+                              'url': serializeParam(
+                                ImageUploadCall.url(
+                                  (_model.imageee?.jsonBody ?? ''),
+                                ),
+                                ParamType.String,
                               ),
-                            );
-
-                            context.pushNamed(
-                              'Call_Join',
-                              queryParameters: {
-                                'url': serializeParam(
-                                  ImageUploadCall.url(
-                                    (_model.imageee?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.String,
+                              'id': serializeParam(
+                                homePageUserRow?.userId,
+                                ParamType.int,
+                              ),
+                              'admin': serializeParam(
+                                homePageUserRow?.admin,
+                                ParamType.bool,
+                              ),
+                              'url2': serializeParam(
+                                ImageUploadCall.url(
+                                  (_model.imageee?.jsonBody ?? ''),
                                 ),
-                                'id': serializeParam(
-                                  homePageUserRow?.userId,
-                                  ParamType.int,
-                                ),
-                                'admin': serializeParam(
-                                  homePageUserRow?.admin,
-                                  ParamType.bool,
-                                ),
-                                'url2': serializeParam(
-                                  ImageUploadCall.url(
-                                    (_model.imageee?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                ),
-                              },
-                            );
-                          } else {
-                            context.pushNamed(
-                              'Call_Join',
-                              queryParameters: {
-                                'url': serializeParam(
-                                  ImageUploadCall.url(
-                                    (_model.imageee?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  homePageUserRow?.userId,
-                                  ParamType.int,
-                                ),
-                                'admin': serializeParam(
-                                  homePageUserRow?.admin,
-                                  ParamType.bool,
-                                ),
-                                'url2': serializeParam(
-                                  ImageUploadCall.url(
-                                    (_model.imageee?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                ),
-                              },
-                            );
-                          }
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
                         },
                       ),
                     ],
