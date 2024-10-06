@@ -31,7 +31,7 @@ class LivePage extends StatefulWidget {
   final int appID;
   final String appSign;
   final String userID;
-  final int userName;
+  final String userName;
   final String userAvatarUrl;
   final String roomID;
   final bool isHost;
@@ -55,6 +55,8 @@ class _LivePageState extends State<LivePage> {
           config: widget.isHost
               ? ZegoUIKitPrebuiltLiveAudioRoomConfig.host()
               : ZegoUIKitPrebuiltLiveAudioRoomConfig.audience()
+
+            ///  The userAvatarUrl must be within 64 bytes. If exceeds, the default background is displayed.
             ..userAvatarUrl = widget.userAvatarUrl),
     );
   }

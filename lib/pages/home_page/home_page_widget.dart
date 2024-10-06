@@ -175,7 +175,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.bool,
                               ),
                               'url2': serializeParam(
-                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                'https://i.ibb.co/VV6sjzm/1720080359169130.jpg',
                                 ParamType.String,
                               ),
                             }.withoutNulls,

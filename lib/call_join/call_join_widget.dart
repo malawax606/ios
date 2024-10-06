@@ -212,7 +212,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                             'Live_Audio',
                             queryParameters: {
                               'id': serializeParam(
-                                0,
+                                widget.id,
                                 ParamType.int,
                               ),
                               'host': serializeParam(
