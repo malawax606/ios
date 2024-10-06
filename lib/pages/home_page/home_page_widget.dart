@@ -66,27 +66,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
           currentUserUid,
         ),
       );
-      _model.imageee = await ImageUploadCall.call(
-        image: homePageUserRow?.profilePic != null &&
-                homePageUserRow?.profilePic != ''
-            ? homePageUserRow?.profilePic
-            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-        key: '70de3bbf96ca7056ee937df625795bd8',
-      );
-
       await requestPermission(microphonePermission);
-      if (!(valueOrDefault(currentUserDocument?.gender, '') != '')) {
-        context.goNamed(
-          'Form',
-          extra: <String, dynamic>{
-            kTransitionInfoKey: const TransitionInfo(
-              hasTransition: true,
-              transitionType: PageTransitionType.fade,
-              duration: Duration(milliseconds: 0),
-            ),
-          },
-        );
+      if (valueOrDefault(currentUserDocument?.gender, '') != '') {
+        return;
       }
+
+      context.goNamed(
+        'Form',
+        extra: <String, dynamic>{
+          kTransitionInfoKey: const TransitionInfo(
+            hasTransition: true,
+            transitionType: PageTransitionType.fade,
+            duration: Duration(milliseconds: 0),
+          ),
+        },
+      );
     });
 
     _model.tabBarController = TabController(
@@ -169,9 +163,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             'Call_Join',
                             queryParameters: {
                               'url': serializeParam(
-                                ImageUploadCall.url(
-                                  (_model.imageee?.jsonBody ?? ''),
-                                ),
+                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                 ParamType.String,
                               ),
                               'id': serializeParam(
@@ -183,9 +175,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.bool,
                               ),
                               'url2': serializeParam(
-                                ImageUploadCall.url(
-                                  (_model.imageee?.jsonBody ?? ''),
-                                ),
+                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                 ParamType.String,
                               ),
                             }.withoutNulls,

@@ -12,8 +12,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? country;
   // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
   ApiCallResponse? flg;
-  // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage widget.
-  ApiCallResponse? imageee;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
