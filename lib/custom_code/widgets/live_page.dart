@@ -49,7 +49,7 @@ class _LivePageState extends State<LivePage> {
               .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
           appSign: widget
               .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
-          userID: widget.appSign,
+          userID: widget.userID,
           userName: widget.userName,
           roomID: widget.roomID,
           config: widget.isHost
