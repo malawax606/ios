@@ -67,20 +67,38 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ),
       );
       await requestPermission(microphonePermission);
-      if (valueOrDefault(currentUserDocument?.gender, '') != '') {
-        return;
-      }
-
-      context.goNamed(
-        'Form',
-        extra: <String, dynamic>{
-          kTransitionInfoKey: const TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.fade,
-            duration: Duration(milliseconds: 0),
-          ),
-        },
+      _model.user = await SupabaseUserCall.call(
+        searchString: currentUserUid,
       );
+
+      _model.url = await ImageUploadCall.call(
+        image: SupabaseUserCall.profile(
+                      (_model.user?.jsonBody ?? ''),
+                    ) !=
+                    null &&
+                SupabaseUserCall.profile(
+                      (_model.user?.jsonBody ?? ''),
+                    ) !=
+                    ''
+            ? SupabaseUserCall.profile(
+                (_model.user?.jsonBody ?? ''),
+              )
+            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+        key: '70de3bbf96ca7056ee937df625795bd8',
+      );
+
+      if (!(valueOrDefault(currentUserDocument?.gender, '') != '')) {
+        context.goNamed(
+          'Form',
+          extra: <String, dynamic>{
+            kTransitionInfoKey: const TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.fade,
+              duration: Duration(milliseconds: 0),
+            ),
+          },
+        );
+      }
     });
 
     _model.tabBarController = TabController(
@@ -163,7 +181,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             'Call_Join',
                             queryParameters: {
                               'url': serializeParam(
-                                'https://i.ibb.co/VV6sjzm/1720080359169130.jpg',
+                                ImageUploadCall.url(
+                                  (_model.url?.jsonBody ?? ''),
+                                ),
                                 ParamType.String,
                               ),
                               'id': serializeParam(
@@ -175,7 +195,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.bool,
                               ),
                               'url2': serializeParam(
-                                'https://i.ibb.co/VV6sjzm/1720080359169130.jpg',
+                                ImageUploadCall.url(
+                                  (_model.url?.jsonBody ?? ''),
+                                ),
                                 ParamType.String,
                               ),
                             }.withoutNulls,

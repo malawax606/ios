@@ -111,12 +111,12 @@ class CountryFalgCall {
       ));
 }
 
-class SupabaseUserCall {
+class SupabaseUserIDCall {
   static Future<ApiCallResponse> call({
     String? searchString = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'Supabase User',
+      callName: 'Supabase User ID',
       apiUrl:
           'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
@@ -193,10 +193,54 @@ class SupabaseUserProfileCall {
       ));
 }
 
+class SupabaseUserCall {
+  static Future<ApiCallResponse> call({
+    String? searchString = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Supabase User',
+      apiUrl:
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=( id.ilike.*$searchString*)&select=*',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? profile(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Profile_Pic''',
+      ));
+  static String? username(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Username''',
+      ));
+  static String? looking(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Looking''',
+      ));
+  static String? userId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].User_Id''',
+      ));
+}
+
 class ImageUploadCall {
   static Future<ApiCallResponse> call({
     String? image = '',
     String? key = '',
+    int? expiration,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Image Upload',
@@ -206,6 +250,7 @@ class ImageUploadCall {
       params: {
         'image': image,
         'key': key,
+        'expiration': expiration,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,

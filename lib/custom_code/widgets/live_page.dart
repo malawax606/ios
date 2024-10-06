@@ -43,7 +43,7 @@ class LivePage extends StatefulWidget {
 class _LivePageState extends State<LivePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
       child: ZegoUIKitPrebuiltLiveAudioRoom(
           appID: widget
               .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
