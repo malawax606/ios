@@ -9,7 +9,7 @@ class ChatTable extends SupabaseTable<ChatRow> {
 }
 
 class ChatRow extends SupabaseDataRow {
-  ChatRow(Map<String, dynamic> data) : super(data);
+  ChatRow(super.data);
 
   @override
   SupabaseTable get table => ChatTable();

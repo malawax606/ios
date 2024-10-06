@@ -9,7 +9,7 @@ class VideoCallTable extends SupabaseTable<VideoCallRow> {
 }
 
 class VideoCallRow extends SupabaseDataRow {
-  VideoCallRow(Map<String, dynamic> data) : super(data);
+  VideoCallRow(super.data);
 
   @override
   SupabaseTable get table => VideoCallTable();

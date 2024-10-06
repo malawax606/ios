@@ -9,7 +9,7 @@ class MessageRoomTable extends SupabaseTable<MessageRoomRow> {
 }
 
 class MessageRoomRow extends SupabaseDataRow {
-  MessageRoomRow(Map<String, dynamic> data) : super(data);
+  MessageRoomRow(super.data);
 
   @override
   SupabaseTable get table => MessageRoomTable();

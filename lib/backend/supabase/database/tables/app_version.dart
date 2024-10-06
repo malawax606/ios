@@ -9,7 +9,7 @@ class AppVersionTable extends SupabaseTable<AppVersionRow> {
 }
 
 class AppVersionRow extends SupabaseDataRow {
-  AppVersionRow(Map<String, dynamic> data) : super(data);
+  AppVersionRow(super.data);
 
   @override
   SupabaseTable get table => AppVersionTable();

@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'messages_model.dart';
 export 'messages_model.dart';
 
@@ -53,7 +51,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
       future: UserTable().querySingleRow(
         queryFn: (q) => q.eq(
           'id',
-          widget!.user?.id,
+          widget.user?.id,
         ),
       ),
       builder: (context, snapshot) {
@@ -116,7 +114,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -127,7 +125,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                               .headlineLarge
                               .override(
                                 fontFamily: 'PT Sans',
-                                color: Color(0xFFFF0000),
+                                color: const Color(0xFFFF0000),
                                 letterSpacing: 0.0,
                               ),
                         ),
@@ -137,24 +135,24 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                   Stack(
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 30.0, 65.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: 100.0,
                                 height: 100.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xFFFF0000),
                                   shape: BoxShape.circle,
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 98.0,
                                     height: 98.0,
@@ -163,12 +161,12 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                       shape: BoxShape.circle,
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 90.0,
                                       height: 90.0,
                                       clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.network(
@@ -184,24 +182,24 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             65.0, 30.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: 100.0,
                                 height: 100.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xFFFF0000),
                                   shape: BoxShape.circle,
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 98.0,
                                     height: 98.0,
@@ -210,12 +208,12 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                       shape: BoxShape.circle,
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 90.0,
                                       height: 90.0,
                                       clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.network(
@@ -234,7 +232,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 50.0, 15.0, 24.0),
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 50.0, 15.0, 24.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: BackdropFilter(
@@ -248,17 +246,17 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(6.0),
+                            padding: const EdgeInsets.all(6.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Stack(
-                                      alignment: AlignmentDirectional(1.0, 1.0),
+                                      alignment: const AlignmentDirectional(1.0, 1.0),
                                       children: [
                                         TextFormField(
                                           controller:
@@ -267,7 +265,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.messageTextController',
-                                            Duration(milliseconds: 1),
+                                            const Duration(milliseconds: 1),
                                             () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
@@ -298,7 +296,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00DADADA),
                                                 width: 1.0,
                                               ),
@@ -306,7 +304,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                   BorderRadius.circular(0.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -314,7 +312,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                   BorderRadius.circular(0.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -323,7 +321,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -331,7 +329,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                   BorderRadius.circular(0.0),
                                             ),
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 55.0, 8.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -357,7 +355,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 5.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -365,24 +363,24 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      _model.addToUsers(widget!.user!.id);
-                                      _model.myChats = columnMeUserRow!.chatsIds
+                                      _model.addToUsers(widget.user!.id);
+                                      _model.myChats = columnMeUserRow.chatsIds
                                           .toList()
                                           .cast<String>();
-                                      _model.hisChat = containerUserRow!
+                                      _model.hisChat = containerUserRow
                                           .chatsIds
                                           .toList()
                                           .cast<String>();
                                       _model.myChatNum =
-                                          columnMeUserRow?.chatsNum;
+                                          columnMeUserRow.chatsNum;
                                       _model.hisChatNum =
-                                          containerUserRow?.chatsNum;
+                                          containerUserRow.chatsNum;
                                       safeSetState(() {});
                                       _model.addToUsers(currentUserUid);
                                       _model.addToMyChats(
-                                          '${currentUserUid}${widget!.user?.id}');
+                                          '$currentUserUid${widget.user?.id}');
                                       _model.addToHisChat(
-                                          '${currentUserUid}${widget!.user?.id}');
+                                          '$currentUserUid${widget.user?.id}');
                                       _model.myChatNum = _model.myChatNum! + 1;
                                       _model.hisChatNum =
                                           _model.hisChatNum! + 1;
@@ -396,11 +394,11 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                         'last_message_sent_by': currentUserUid,
                                         'last_message_seen_by': '',
                                         'user_a': currentUserUid,
-                                        'user_b': widget!.user?.id,
-                                        'user_chated': widget!.user?.id,
+                                        'user_b': widget.user?.id,
+                                        'user_chated': widget.user?.id,
                                         'Mesage_seen': false,
                                         'Chat_ID':
-                                            '${currentUserUid}${widget!.user?.id}',
+                                            '$currentUserUid${widget.user?.id}',
                                         'Message_Num': 1,
                                         'Users': _model.users,
                                         'Users_Done': true,
@@ -408,24 +406,24 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                             supaSerialize<DateTime>(
                                                 getCurrentTimestamp),
                                         'Profile2': containerUserRow
-                                                        ?.profilePic !=
+                                                        .profilePic !=
                                                     null &&
-                                                containerUserRow?.profilePic !=
+                                                containerUserRow.profilePic !=
                                                     ''
-                                            ? containerUserRow?.profilePic
-                                            : (columnMeUserRow?.gender ==
+                                            ? containerUserRow.profilePic
+                                            : (columnMeUserRow.gender ==
                                                     'Lab (Rag)'
                                                 ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
                                                 : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                        'Username1': columnMeUserRow?.username,
-                                        'Username2': containerUserRow?.username,
+                                        'Username1': columnMeUserRow.username,
+                                        'Username2': containerUserRow.username,
                                         'Profile1': columnMeUserRow
-                                                        ?.profilePic !=
+                                                        .profilePic !=
                                                     null &&
-                                                columnMeUserRow?.profilePic !=
+                                                columnMeUserRow.profilePic !=
                                                     ''
-                                            ? columnMeUserRow?.profilePic
-                                            : (columnMeUserRow?.gender ==
+                                            ? columnMeUserRow.profilePic
+                                            : (columnMeUserRow.gender ==
                                                     'Lab (Rag)'
                                                 ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
                                                 : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
@@ -453,7 +451,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                         },
                                         matchingRows: (rows) => rows.eq(
                                           'id',
-                                          widget!.user?.id,
+                                          widget.user?.id,
                                         ),
                                       );
 
@@ -465,7 +463,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0xFF6B0BF8),
+                                            color: const Color(0xFF6B0BF8),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                           ),

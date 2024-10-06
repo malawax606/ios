@@ -3,10 +3,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'account_information_model.dart';
 export 'account_information_model.dart';
 
@@ -102,7 +99,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -113,7 +110,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 20.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -132,7 +129,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 0.0,
@@ -146,7 +143,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -439,7 +436,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(height: 16.0)),
+                            ].divide(const SizedBox(height: 16.0)),
                           ),
                         ),
                       ),

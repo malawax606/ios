@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -20,11 +18,11 @@ class NotificationCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "to": "${token}",
+  "to": "$token",
   "notification": {
-    "title": "${title}",
-    "body": "${body}",
-    "image": "${image}"
+    "title": "$title",
+    "body": "$body",
+    "image": "$image"
   },
   "priority": "high",
   "importance": "max",
@@ -92,7 +90,7 @@ class CountryFalgCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Country Falg',
-      apiUrl: 'https://restcountries.com/v3.1/alpha/${code}',
+      apiUrl: 'https://restcountries.com/v3.1/alpha/$code',
       callType: ApiCallType.GET,
       headers: {},
       params: {
@@ -120,7 +118,7 @@ class SupabaseUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*${searchString}*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -159,7 +157,7 @@ class SupabaseUserProfileCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User Profile',
       apiUrl:
-          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*${searchString}*)&select=*',
+          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

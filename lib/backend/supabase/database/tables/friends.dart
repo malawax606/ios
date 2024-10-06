@@ -9,7 +9,7 @@ class FriendsTable extends SupabaseTable<FriendsRow> {
 }
 
 class FriendsRow extends SupabaseDataRow {
-  FriendsRow(Map<String, dynamic> data) : super(data);
+  FriendsRow(super.data);
 
   @override
   SupabaseTable get table => FriendsTable();
