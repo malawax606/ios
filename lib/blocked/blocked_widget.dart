@@ -6,6 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'blocked_model.dart';
 export 'blocked_model.dart';
 
@@ -101,7 +103,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -160,7 +162,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -251,10 +253,10 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                     options: FFButtonOptions(
                                       width: 100.0,
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context).info,
                                       textStyle: FlutterFlowTheme.of(context)
@@ -269,7 +271,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 12.0)),
+                                ].divide(SizedBox(width: 12.0)),
                               ),
                             ),
                           );

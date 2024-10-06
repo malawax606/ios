@@ -2,9 +2,12 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -71,20 +74,20 @@ class _SearchWidgetState extends State<SearchWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 50.0,
@@ -96,15 +99,15 @@ class _SearchWidgetState extends State<SearchWidget> {
                         width: 1.0,
                       ),
                     ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                7.0, 0.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,
@@ -141,8 +144,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 5.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 7.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -217,7 +220,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                             ),
                           }.withoutNulls,
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
+                            kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                               duration: Duration(milliseconds: 0),
@@ -237,7 +240,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -260,9 +263,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       borderRadius: BorderRadius.circular(30.0),
                                       child: CachedNetworkImage(
                                         fadeInDuration:
-                                            const Duration(milliseconds: 0),
+                                            Duration(milliseconds: 0),
                                         fadeOutDuration:
-                                            const Duration(milliseconds: 0),
+                                            Duration(milliseconds: 0),
                                         imageUrl: containerUserRow
                                                         ?.profilePic !=
                                                     null &&
@@ -310,7 +313,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 16.0)),
+                                ].divide(SizedBox(width: 16.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -335,16 +338,16 @@ class _SearchWidgetState extends State<SearchWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                ].divide(const SizedBox(width: 8.0)),
+                                ].divide(SizedBox(width: 8.0)),
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                            ].divide(SizedBox(height: 16.0)),
                           ),
                         ),
                       ),
                     );
                   },
                 ),
-              ].divide(const SizedBox(height: 24.0)),
+              ].divide(SizedBox(height: 24.0)),
             ),
           ),
         ),

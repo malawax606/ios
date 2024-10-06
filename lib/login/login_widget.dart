@@ -3,9 +3,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math' as math;
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -38,8 +41,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -60.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -60.0),
+            end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
@@ -70,33 +73,39 @@ class _LoginWidgetState extends State<LoginWidget>
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: SizedBox(
+            padding: EdgeInsets.all(2.0),
+            child: Container(
               width: double.infinity,
               height: double.infinity,
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(1.0, -0.8),
+                    alignment: AlignmentDirectional(1.0, -0.8),
                     child: Transform.scale(
                       scaleX: 1.2,
                       scaleY: 1.2,
-                      child: Transform.rotate(
-                        angle: 11.0 * (math.pi / 180),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          'https://picsum.photos/seed/759/600',
+                          width: double.infinity,
+                          height: MediaQuery.sizeOf(context).height * 0.4,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ).animateOnPageLoad(
                         animationsMap['transformOnPageLoadAnimation']!),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, 1.0),
+                    alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Padding(
-                      padding: const EdgeInsets.all(24.0),
+                      padding: EdgeInsets.all(24.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Meet new people from all over World.',
@@ -116,7 +125,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Chat with other singles and get to know them better.',
@@ -130,7 +139,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 32.0, 0.0, 15.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -142,12 +151,15 @@ class _LoginWidgetState extends State<LoginWidget>
                                 }
                                 if (valueOrDefault(
                                             currentUserDocument?.gender, '') !=
+                                        null &&
+                                    valueOrDefault(
+                                            currentUserDocument?.gender, '') !=
                                         '') {
                                   context.goNamedAuth(
                                     'HomePage',
                                     context.mounted,
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 0),
@@ -159,7 +171,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     'Form',
                                     context.mounted,
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 0),
@@ -172,11 +184,11 @@ class _LoginWidgetState extends State<LoginWidget>
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 55.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFF6F61EF),
+                                color: Color(0xFF6F61EF),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -185,7 +197,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 0.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -194,7 +206,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 5.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -213,7 +225,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -230,7 +242,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFFE90A0A),
+                                            color: Color(0xFFE90A0A),
                                             fontSize: 11.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -238,7 +250,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'and',
@@ -254,7 +266,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -271,7 +283,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFFE90A0A),
+                                            color: Color(0xFFE90A0A),
                                             fontSize: 11.0,
                                             letterSpacing: 0.0,
                                           ),

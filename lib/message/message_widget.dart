@@ -1,13 +1,18 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'message_model.dart';
 export 'message_model.dart';
 
@@ -49,14 +54,14 @@ class _MessageWidgetState extends State<MessageWidget> {
       safeSetState(() {});
       _model.addToUsers(currentUserUid);
       safeSetState(() {});
-      if (widget.sender != currentUserUid) {
+      if (widget!.sender != currentUserUid) {
         await ChatTable().update(
           data: {
             'Mesage_seen': true,
           },
           matchingRows: (rows) => rows.eq(
             'Chat_ID',
-            widget.chatID,
+            widget!.chatID,
           ),
         );
       }
@@ -88,7 +93,7 @@ class _MessageWidgetState extends State<MessageWidget> {
             future: UserTable().querySingleRow(
               queryFn: (q) => q.eq(
                 'id',
-                widget.userId,
+                widget!.userId,
               ),
             ),
             builder: (context, snapshot) {
@@ -138,7 +143,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -151,28 +156,52 @@ class _MessageWidgetState extends State<MessageWidget> {
                                 type: PageTransitionType.fade,
                                 child: FlutterFlowExpandedImageView(
                                   image: Image.network(
-                                    rowUserRow.profilePic!,
+                                    valueOrDefault<String>(
+                                      rowUserRow?.profilePic != null &&
+                                              rowUserRow?.profilePic != ''
+                                          ? rowUserRow?.profilePic
+                                          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                    ),
                                     fit: BoxFit.contain,
                                   ),
                                   allowRotation: false,
-                                  tag: rowUserRow.profilePic!,
+                                  tag: valueOrDefault<String>(
+                                    rowUserRow?.profilePic != null &&
+                                            rowUserRow?.profilePic != ''
+                                        ? rowUserRow?.profilePic
+                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                  ),
                                   useHeroAnimation: true,
                                 ),
                               ),
                             );
                           },
                           child: Hero(
-                            tag: rowUserRow!.profilePic!,
+                            tag: valueOrDefault<String>(
+                              rowUserRow?.profilePic != null &&
+                                      rowUserRow?.profilePic != ''
+                                  ? rowUserRow?.profilePic
+                                  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                              'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                            ),
                             transitionOnUserGestures: true,
                             child: Container(
                               width: 35.0,
                               height: 35.0,
                               clipBehavior: Clip.antiAlias,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
-                                rowUserRow.profilePic!,
+                                valueOrDefault<String>(
+                                  rowUserRow?.profilePic != null &&
+                                          rowUserRow?.profilePic != ''
+                                      ? rowUserRow?.profilePic
+                                      : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                  'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                ),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -189,12 +218,12 @@ class _MessageWidgetState extends State<MessageWidget> {
                             'User_Profile',
                             queryParameters: {
                               'userID': serializeParam(
-                                widget.userId,
+                                widget!.userId,
                                 ParamType.String,
                               ),
                             }.withoutNulls,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -210,11 +239,11 @@ class _MessageWidgetState extends State<MessageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      rowUserRow.username,
+                                      rowUserRow?.username,
                                       'User',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -228,8 +257,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                         ),
                                   ),
                                 ),
-                                if (rowUserRow.vipProfilee ?? true)
-                                  const Padding(
+                                if (rowUserRow?.vipProfilee ?? true)
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         3.0, 0.0, 0.0, 0.0),
                                     child: Icon(
@@ -241,10 +270,10 @@ class _MessageWidgetState extends State<MessageWidget> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                dateTimeFormat("relative", rowUserRow.online!),
+                                dateTimeFormat("relative", rowUserRow!.online!),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
                                     .override(
@@ -268,7 +297,7 @@ class _MessageWidgetState extends State<MessageWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -308,10 +337,10 @@ class _MessageWidgetState extends State<MessageWidget> {
                   ),
                 );
               }
-              List<UserRow> pageUserRowList = snapshot.data!;
+              List<UserRow> pageMeUserRowList = snapshot.data!;
 
-              final pageUserRow =
-                  pageUserRowList.isNotEmpty ? pageUserRowList.first : null;
+              final pageMeUserRow =
+                  pageMeUserRowList.isNotEmpty ? pageMeUserRowList.first : null;
 
               return Column(
                 mainAxisSize: MainAxisSize.max,
@@ -319,297 +348,149 @@ class _MessageWidgetState extends State<MessageWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0x43BABABA),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: const BoxDecoration(),
-                      child: Stack(
-                        alignment: const AlignmentDirectional(1.0, 0.5),
-                        children: [
-                          Stack(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: FutureBuilder<List<UserRow>>(
+                      future: UserTable().querySingleRow(
+                        queryFn: (q) => q.eq(
+                          'id',
+                          widget!.userId,
+                        ),
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<UserRow> bodyUserRowList = snapshot.data!;
+
+                        final bodyUserRow = bodyUserRowList.isNotEmpty
+                            ? bodyUserRowList.first
+                            : null;
+
+                        return Container(
+                          width: double.infinity,
+                          height: 100.0,
+                          decoration: BoxDecoration(),
+                          child: Stack(
+                            alignment: AlignmentDirectional(1.0, 0.5),
                             children: [
                               Stack(
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 5.0, 10.0, 95.0),
-                                      child: FutureBuilder<List<MessageRow>>(
-                                        future: MessageTable().queryRows(
-                                          queryFn: (q) => q
-                                              .eq(
-                                                'Chat_ID',
-                                                widget.chatID,
-                                              )
-                                              .order('created_at'),
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                  Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 5.0, 10.0, 95.0),
+                                          child:
+                                              FutureBuilder<List<MessageRow>>(
+                                            future: MessageTable().queryRows(
+                                              queryFn: (q) => q
+                                                  .eq(
+                                                    'Chat_ID',
+                                                    widget!.chatID,
+                                                  )
+                                                  .order('created_at'),
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          List<MessageRow>
-                                              messagesMessageRowList =
-                                              snapshot.data!;
+                                                );
+                                              }
+                                              List<MessageRow>
+                                                  messagesMessageRowList =
+                                                  snapshot.data!;
 
-                                          return ListView.separated(
-                                            padding: EdgeInsets.zero,
-                                            reverse: true,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                messagesMessageRowList.length,
-                                            separatorBuilder: (_, __) =>
-                                                const SizedBox(height: 13.0),
-                                            itemBuilder:
-                                                (context, messagesIndex) {
-                                              final messagesMessageRow =
-                                                  messagesMessageRowList[
-                                                      messagesIndex];
-                                              return Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  if (messagesMessageRow.user !=
-                                                      currentUserUid)
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    45.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            Row(
+                                              return ListView.separated(
+                                                padding: EdgeInsets.zero,
+                                                reverse: true,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount:
+                                                    messagesMessageRowList
+                                                        .length,
+                                                separatorBuilder: (_, __) =>
+                                                    SizedBox(height: 13.0),
+                                                itemBuilder:
+                                                    (context, messagesIndex) {
+                                                  final messagesMessageRow =
+                                                      messagesMessageRowList[
+                                                          messagesIndex];
+                                                  return Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      if (messagesMessageRow
+                                                              .user !=
+                                                          currentUserUid)
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        45.0,
+                                                                        0.0),
+                                                            child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               crossAxisAlignment:
                                                                   CrossAxisAlignment
-                                                                      .center,
+                                                                      .end,
                                                               children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           7.0,
                                                                           0.0),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      await Navigator
-                                                                          .push(
-                                                                        context,
-                                                                        PageTransition(
-                                                                          type:
-                                                                              PageTransitionType.fade,
-                                                                          child:
-                                                                              FlutterFlowExpandedImageView(
-                                                                            image:
-                                                                                CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
-                                                                              imageUrl: widget.image != null && widget.image != '' ? widget.image! : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                                              fit: BoxFit.contain,
-                                                                            ),
-                                                                            allowRotation:
-                                                                                true,
-                                                                            tag: widget.image != null && widget.image != ''
-                                                                                ? widget.image!
-                                                                                : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                                            useHeroAnimation:
-                                                                                true,
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                    child: Hero(
-                                                                      tag: widget.image != null &&
-                                                                              widget.image !=
-                                                                                  ''
-                                                                          ? widget
-                                                                              .image!
-                                                                          : (widget.gender == 'Lab (Rag)'
-                                                                              ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                                              : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                                      transitionOnUserGestures:
-                                                                          true,
                                                                       child:
-                                                                          Container(
-                                                                        width:
-                                                                            35.0,
-                                                                        height:
-                                                                            35.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
-                                                                        decoration:
-                                                                            const BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child:
-                                                                            CachedNetworkImage(
-                                                                          fadeInDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          fadeOutDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          imageUrl: widget.image != null && widget.image != ''
-                                                                              ? widget.image!
-                                                                              : (widget.gender == 'Lab (Rag)' ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg' : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Flexible(
-                                                                  child: Stack(
-                                                                    children: [
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Flexible(
-                                                                            child:
-                                                                                InkWell(
-                                                                              splashColor: Colors.transparent,
-                                                                              focusColor: Colors.transparent,
-                                                                              hoverColor: Colors.transparent,
-                                                                              highlightColor: Colors.transparent,
-                                                                              onLongPress: () async {
-                                                                                _model.more = !(_model.more ?? true);
-                                                                                _model.id = null;
-                                                                                _model.love = true;
-                                                                                _model.loveID = messagesMessageRow.id;
-                                                                                safeSetState(() {});
-                                                                              },
-                                                                              child: Container(
-                                                                                decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).editProfile,
-                                                                                  borderRadius: BorderRadius.circular(10.0),
-                                                                                ),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsets.all(8.0),
-                                                                                  child: Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsets.all(5.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            messagesMessageRow.text,
-                                                                                            '.',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                fontSize: 15.5,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w500,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  if (messagesMessageRow.user ==
-                                                      currentUserUid)
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    45.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .end,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Flexible(
-                                                                  child: Stack(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            1.0,
-                                                                            1.0),
-                                                                    children: [
-                                                                      InkWell(
+                                                                          InkWell(
                                                                         splashColor:
                                                                             Colors.transparent,
                                                                         focusColor:
@@ -618,366 +499,514 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                             Colors.transparent,
                                                                         highlightColor:
                                                                             Colors.transparent,
-                                                                        onLongPress:
+                                                                        onTap:
                                                                             () async {
-                                                                          _model.more =
-                                                                              true;
-                                                                          _model.id =
-                                                                              messagesMessageRow.id;
-                                                                          safeSetState(
-                                                                              () {});
+                                                                          await Navigator
+                                                                              .push(
+                                                                            context,
+                                                                            PageTransition(
+                                                                              type: PageTransitionType.fade,
+                                                                              child: FlutterFlowExpandedImageView(
+                                                                                image: CachedNetworkImage(
+                                                                                  fadeInDuration: Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  imageUrl: valueOrDefault<String>(
+                                                                                    widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                  ),
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                                allowRotation: true,
+                                                                                tag: valueOrDefault<String>(
+                                                                                  widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                  'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                ),
+                                                                                useHeroAnimation: true,
+                                                                              ),
+                                                                            ),
+                                                                          );
                                                                         },
                                                                         child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                const Color(0xFFB2F5EF),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10.0),
+                                                                            Hero(
+                                                                          tag: valueOrDefault<
+                                                                              String>(
+                                                                            widget!.image != null && widget!.image != ''
+                                                                                ? widget!.image
+                                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' +
+                                                                                '$messagesIndex',
                                                                           ),
+                                                                          transitionOnUserGestures:
+                                                                              true,
                                                                           child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(8.0),
+                                                                              Container(
+                                                                            width:
+                                                                                35.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            clipBehavior:
+                                                                                Clip.antiAlias,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                            ),
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                              crossAxisAlignment: CrossAxisAlignment.end,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: const EdgeInsets.all(5.0),
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      messagesMessageRow.text,
-                                                                                      '.',
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Inter',
-                                                                                          color: Colors.black,
-                                                                                          fontSize: 15.5,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w500,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
+                                                                                CachedNetworkImage(
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              imageUrl: valueOrDefault<String>(
+                                                                                widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                              ),
+                                                                              fit: BoxFit.cover,
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ],
-                                                                  ),
+                                                                    ),
+                                                                    Flexible(
+                                                                      child:
+                                                                          Stack(
+                                                                        children: [
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Flexible(
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onLongPress: () async {
+                                                                                    _model.more = !(_model.more ?? true);
+                                                                                    _model.id = null;
+                                                                                    _model.love = true;
+                                                                                    _model.loveID = messagesMessageRow.id;
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).editProfile,
+                                                                                      borderRadius: BorderRadius.circular(10.0),
+                                                                                    ),
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsets.all(8.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                            padding: EdgeInsets.all(5.0),
+                                                                                            child: Text(
+                                                                                              valueOrDefault<String>(
+                                                                                                messagesMessageRow.text,
+                                                                                                '.',
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Inter',
+                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    fontSize: 15.5,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.w500,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (messagesMessageRow
+                                                              .user ==
+                                                          currentUserUid)
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        45.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Flexible(
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: AlignmentDirectional(
+                                                                            1.0,
+                                                                            1.0),
+                                                                        children: [
+                                                                          InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onLongPress:
+                                                                                () async {
+                                                                              _model.more = true;
+                                                                              _model.id = messagesMessageRow.id;
+                                                                              safeSetState(() {});
+                                                                            },
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(
+                                                                                color: Color(0xFFB2F5EF),
+                                                                                borderRadius: BorderRadius.circular(10.0),
+                                                                              ),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsets.all(8.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: EdgeInsets.all(5.0),
+                                                                                      child: Text(
+                                                                                        valueOrDefault<String>(
+                                                                                          messagesMessageRow.text,
+                                                                                          '.',
+                                                                                        ),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: Colors.black,
+                                                                                              fontSize: 15.5,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w500,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           7.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      await Navigator
-                                                                          .push(
-                                                                        context,
-                                                                        PageTransition(
-                                                                          type:
-                                                                              PageTransitionType.fade,
-                                                                          child:
-                                                                              FlutterFlowExpandedImageView(
-                                                                            image:
-                                                                                CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
-                                                                              imageUrl: pageUserRow.profilePic!,
-                                                                              fit: BoxFit.contain,
-                                                                            ),
-                                                                            allowRotation:
-                                                                                true,
-                                                                            tag:
-                                                                                pageUserRow.profilePic!,
-                                                                            useHeroAnimation:
-                                                                                true,
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                    child: Hero(
-                                                                      tag: pageUserRow!
-                                                                          .profilePic!,
-                                                                      transitionOnUserGestures:
-                                                                          true,
                                                                       child:
-                                                                          Container(
-                                                                        width:
-                                                                            35.0,
-                                                                        height:
-                                                                            35.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
-                                                                        decoration:
-                                                                            const BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          await Navigator
+                                                                              .push(
+                                                                            context,
+                                                                            PageTransition(
+                                                                              type: PageTransitionType.fade,
+                                                                              child: FlutterFlowExpandedImageView(
+                                                                                image: CachedNetworkImage(
+                                                                                  fadeInDuration: Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  imageUrl: valueOrDefault<String>(
+                                                                                    pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                  ),
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                                allowRotation: true,
+                                                                                tag: valueOrDefault<String>(
+                                                                                  pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                  'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                ),
+                                                                                useHeroAnimation: true,
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
                                                                         child:
-                                                                            CachedNetworkImage(
-                                                                          fadeInDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          fadeOutDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          imageUrl:
-                                                                              pageUserRow.profilePic!,
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                                            Hero(
+                                                                          tag: valueOrDefault<
+                                                                              String>(
+                                                                            pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != ''
+                                                                                ? pageMeUserRow?.profilePic
+                                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' +
+                                                                                '$messagesIndex',
+                                                                          ),
+                                                                          transitionOnUserGestures:
+                                                                              true,
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                35.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            clipBehavior:
+                                                                                Clip.antiAlias,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            child:
+                                                                                CachedNetworkImage(
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              imageUrl: valueOrDefault<String>(
+                                                                                pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                              ),
+                                                                              fit: BoxFit.cover,
+                                                                            ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ),
+                                                                  ],
                                                                 ),
-                                                              ],
-                                                            ),
-                                                            if ((_model.more ==
-                                                                    true) &&
-                                                                (_model.id ==
-                                                                    messagesMessageRow
-                                                                        .id))
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
+                                                                if ((_model.more ==
+                                                                        true) &&
+                                                                    (_model.id ==
+                                                                        messagesMessageRow
+                                                                            .id))
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             7.0,
                                                                             7.0,
                                                                             10.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 250.0,
-                                                                  height: 130.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            10.0),
-                                                                  ),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          250.0,
+                                                                      height:
+                                                                          130.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(10.0),
+                                                                      ),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             15.0,
                                                                             0.0,
                                                                             0.0),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'Edit',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Inter',
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'Edit',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Icon(
+                                                                                    Icons.mode_edit_outline_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    size: 24.0,
+                                                                                  ),
+                                                                                ],
                                                                               ),
-                                                                              Icon(
-                                                                                Icons.mode_edit_outline_outlined,
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                size: 24.0,
+                                                                            ),
+                                                                            Divider(
+                                                                              thickness: 1.0,
+                                                                              color: FlutterFlowTheme.of(context).accent4,
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'Delete',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Icon(
+                                                                                    Icons.delete_sweep_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    size: 24.0,
+                                                                                  ),
+                                                                                ],
                                                                               ),
-                                                                            ],
-                                                                          ),
+                                                                            ),
+                                                                            Divider(
+                                                                              thickness: 1.0,
+                                                                              color: FlutterFlowTheme.of(context).accent4,
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'Copy',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Icon(
+                                                                                    Icons.file_copy_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    size: 24.0,
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                        Divider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).accent4,
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'Delete',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Inter',
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Icon(
-                                                                                Icons.delete_sweep_outlined,
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                size: 24.0,
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Divider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).accent4,
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'Copy',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Inter',
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Icon(
-                                                                                Icons.file_copy_outlined,
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                size: 24.0,
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ],
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                          ],
+                                                              ],
+                                                            ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ),
-                                                ],
+                                                    ],
+                                                  );
+                                                },
                                               );
                                             },
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Stack(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 24.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: BackdropFilter(
-                                        filter: ImageFilter.blur(
-                                          sigmaX: 10.0,
-                                          sigmaY: 10.0,
-                                        ),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .editProfile,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
                                           ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(6.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Stack(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              1.0, 1.0),
-                                                      children: [
-                                                        TextFormField(
-                                                          controller: _model
-                                                              .messageTextController,
-                                                          focusNode: _model
-                                                              .messageFocusNode,
-                                                          onChanged: (_) =>
-                                                              EasyDebounce
-                                                                  .debounce(
-                                                            '_model.messageTextController',
-                                                            const Duration(
-                                                                milliseconds:
-                                                                    1),
-                                                            () => safeSetState(
-                                                                () {}),
-                                                          ),
-                                                          autofocus: false,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            labelStyle:
-                                                                FlutterFlowTheme.of(
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 24.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          child: BackdropFilter(
+                                            filter: ImageFilter.blur(
+                                              sigmaX: 10.0,
+                                              sigmaY: 10.0,
+                                            ),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .editProfile,
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(6.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          children: [
+                                                            TextFormField(
+                                                              controller: _model
+                                                                  .messageTextController,
+                                                              focusNode: _model
+                                                                  .messageFocusNode,
+                                                              onChanged: (_) =>
+                                                                  EasyDebounce
+                                                                      .debounce(
+                                                                '_model.messageTextController',
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        1),
+                                                                () =>
+                                                                    safeSetState(
+                                                                        () {}),
+                                                              ),
+                                                              autofocus: false,
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                labelStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
@@ -989,10 +1018,9 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
-                                                            hintText:
-                                                                'Message...',
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
+                                                                hintText:
+                                                                    'Message...',
+                                                                hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
@@ -1009,181 +1037,316 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           FontWeight
                                                                               .normal,
                                                                     ),
-                                                            enabledBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00DADADA),
-                                                                width: 1.0,
+                                                                enabledBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0x00DADADA),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                ),
+                                                                focusedBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0x00000000),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                ),
+                                                                errorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0x00000000),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                ),
+                                                                focusedErrorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0x00000000),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                ),
+                                                                contentPadding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            55.0,
+                                                                            8.0),
                                                               ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          0.0),
-                                                            ),
-                                                            focusedBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          0.0),
-                                                            ),
-                                                            errorBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          0.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          0.0),
-                                                            ),
-                                                            contentPadding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
                                                                         0.0,
-                                                                        8.0,
-                                                                        55.0,
-                                                                        8.0),
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    lineHeight:
+                                                                        1.5,
+                                                                  ),
+                                                              maxLines: 5,
+                                                              minLines: 1,
+                                                              validator: _model
+                                                                  .messageTextControllerValidator
+                                                                  .asValidator(
+                                                                      context),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  7.0,
+                                                                  0.0),
+                                                      child: FutureBuilder<
+                                                          List<ChatRow>>(
+                                                        future: ChatTable()
+                                                            .querySingleRow(
+                                                          queryFn: (q) => q
+                                                              .eq(
+                                                                'Chat_ID',
+                                                                widget!.chatID,
+                                                              )
+                                                              .contains(
+                                                                'Users',
+                                                                '{${currentUserUid}}',
+                                                              ),
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                child:
+                                                                    CircularProgressIndicator(
+                                                                  valueColor:
+                                                                      AlwaysStoppedAnimation<
+                                                                          Color>(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<ChatRow>
+                                                              yesChatRowList =
+                                                              snapshot.data!;
+
+                                                          final yesChatRow =
+                                                              yesChatRowList
+                                                                      .isNotEmpty
+                                                                  ? yesChatRowList
+                                                                      .first
+                                                                  : null;
+
+                                                          return InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await MessageTable()
+                                                                  .insert({
+                                                                'User':
+                                                                    currentUserUid,
+                                                                'Text': _model
+                                                                    .messageTextController
+                                                                    .text,
+                                                                'Chat_ID':
+                                                                    widget!
+                                                                        .chatID,
+                                                              });
+                                                              await ChatTable()
+                                                                  .update(
+                                                                data: {
+                                                                  'last_mesage_sent_time':
+                                                                      supaSerialize<
+                                                                              DateTime>(
+                                                                          getCurrentTimestamp),
+                                                                  'User':
+                                                                      currentUserUid,
+                                                                  'last_message':
+                                                                      _model
+                                                                          .messageTextController
+                                                                          .text,
+                                                                  'last_message_sent_by':
+                                                                      currentUserUid,
+                                                                  'user_a':
+                                                                      currentUserUid,
+                                                                  'user_b':
+                                                                      widget!
+                                                                          .userId,
+                                                                  'Mesage_seen':
+                                                                      false,
+                                                                  'Message Un':
+                                                                      '',
+                                                                },
+                                                                matchingRows:
+                                                                    (rows) =>
+                                                                        rows.eq(
+                                                                  'Chat_ID',
+                                                                  widget!
+                                                                      .chatID,
+                                                                ),
+                                                              );
+                                                              _model.message =
+                                                                  _model
+                                                                      .messageTextController
+                                                                      .text;
+                                                              safeSetState(
+                                                                  () {});
+                                                              safeSetState(() {
+                                                                _model
+                                                                    .messageTextController
+                                                                    ?.clear();
+                                                              });
+                                                              if ((yesChatRow?.profile1 !=
+                                                                          null &&
+                                                                      yesChatRow
+                                                                              ?.profile1 !=
+                                                                          '') ||
+                                                                  (yesChatRow?.profile2 !=
+                                                                          null &&
+                                                                      yesChatRow
+                                                                              ?.profile2 !=
+                                                                          '')) {
+                                                                await ChatTable()
+                                                                    .update(
+                                                                  data: {
+                                                                    'Profile1': pageMeUserRow?.profilePic !=
+                                                                                null &&
+                                                                            pageMeUserRow?.profilePic !=
+                                                                                ''
+                                                                        ? pageMeUserRow
+                                                                            ?.profilePic
+                                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                    'Profile2': bodyUserRow?.profilePic !=
+                                                                                null &&
+                                                                            bodyUserRow?.profilePic !=
+                                                                                ''
+                                                                        ? bodyUserRow
+                                                                            ?.profilePic
+                                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                    'Username1':
+                                                                        pageMeUserRow
+                                                                            ?.username,
+                                                                    'Username2':
+                                                                        '',
+                                                                  },
+                                                                  matchingRows:
+                                                                      (rows) => rows
+                                                                          .eq(
+                                                                            'Chat_ID',
+                                                                            widget!.chatID,
+                                                                          )
+                                                                          .contains(
+                                                                            'Users',
+                                                                            '{${currentUserUid}}',
+                                                                          ),
+                                                                );
+                                                              }
+                                                              _model.apiResult17x =
+                                                                  await NotificationCall
+                                                                      .call(
+                                                                token: bodyUserRow
+                                                                    ?.fcmToken,
+                                                                title: pageMeUserRow
+                                                                    ?.fullName,
+                                                                body: _model
+                                                                    .message,
+                                                              );
+
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
+                                                            child: Icon(
+                                                              Icons
+                                                                  .send_outlined,
+                                                              color:
+                                                                  valueOrDefault<
+                                                                      Color>(
+                                                                _model.messageTextController.text !=
+                                                                            null &&
+                                                                        _model.messageTextController.text !=
+                                                                            ''
+                                                                    ? Color(
+                                                                        0xFFFF0000)
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                lineHeight: 1.5,
                                                               ),
-                                                          maxLines: 5,
-                                                          minLines: 1,
-                                                          validator: _model
-                                                              .messageTextControllerValidator
-                                                              .asValidator(
-                                                                  context),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 7.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await MessageTable()
-                                                          .insert({
-                                                        'User': currentUserUid,
-                                                        'Text': _model
-                                                            .messageTextController
-                                                            .text,
-                                                        'Chat_ID':
-                                                            widget.chatID,
-                                                      });
-                                                      await ChatTable().update(
-                                                        data: {
-                                                          'last_mesage_sent_time':
-                                                              supaSerialize<
-                                                                      DateTime>(
-                                                                  getCurrentTimestamp),
-                                                          'User':
-                                                              currentUserUid,
-                                                          'last_message': _model
-                                                              .messageTextController
-                                                              .text,
-                                                          'last_message_sent_by':
-                                                              currentUserUid,
-                                                          'user_a':
-                                                              currentUserUid,
-                                                          'user_b':
-                                                              widget.userId,
-                                                          'Mesage_seen': false,
-                                                          'Message Un': '',
+                                                              size: 24.0,
+                                                            ),
+                                                          );
                                                         },
-                                                        matchingRows: (rows) =>
-                                                            rows.eq(
-                                                          'Chat_ID',
-                                                          widget.chatID,
-                                                        ),
-                                                      );
-                                                      safeSetState(() {
-                                                        _model
-                                                            .messageTextController
-                                                            ?.clear();
-                                                      });
-                                                    },
-                                                    child: Icon(
-                                                      Icons.send_outlined,
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        _model.messageTextController
-                                                                        .text !=
-                                                                    ''
-                                                            ? const Color(0xFFFF0000)
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
                                                       ),
-                                                      size: 24.0,
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
-                                              ],
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                   ),
                 ],

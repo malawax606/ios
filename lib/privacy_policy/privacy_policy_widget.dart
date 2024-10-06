@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'privacy_policy_model.dart';
 export 'privacy_policy_model.dart';
 
@@ -63,7 +66,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -73,7 +76,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -95,7 +98,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   Flexible(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                       child: Text(
                         'Privacy Policy This privacy policy explains how Soomluv collects, uses, and protects your personal information.',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -109,7 +112,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -127,7 +130,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     'We may collect personal information such as your name, email, location, and other details to improve your user experience.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -139,7 +142,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -157,7 +160,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     'Your information is used to personalize your experience, improve Soomluv, and send you relevant updates.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -169,7 +172,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -187,7 +190,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     ' We take appropriate measures to secure your personal information. However, no method of transmission over the internet is 100% secure.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -199,7 +202,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -217,7 +220,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     'We may update this privacy policy from time to time. You will be notified of any changes on this page.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -229,7 +232,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -247,7 +250,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     'If you have any questions about this privacy policy, please contact us at +254715738646',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

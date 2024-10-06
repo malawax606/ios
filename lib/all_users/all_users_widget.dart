@@ -3,8 +3,11 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'all_users_model.dart';
 export 'all_users_model.dart';
 
@@ -96,14 +99,14 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: FutureBuilder<List<UserRow>>(
                   future: UserTable().queryRows(
                     queryFn: (q) => q
@@ -149,13 +152,13 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                     return RefreshIndicator(
                       onRefresh: () async {},
                       child: GridView.builder(
-                        padding: const EdgeInsets.fromLTRB(
+                        padding: EdgeInsets.fromLTRB(
                           0,
                           3.0,
                           0,
                           0,
                         ),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 25.0,
@@ -197,9 +200,9 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Stack(
-                                    alignment: const AlignmentDirectional(0.75, 0.9),
+                                    alignment: AlignmentDirectional(0.75, 0.9),
                                     children: [
                                       Hero(
                                         tag: gridViewNoUserRow.profilePic !=
@@ -216,14 +219,14 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           width: 70.0,
                                           height: 70.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: CachedNetworkImage(
                                             fadeInDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             fadeOutDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             imageUrl: gridViewNoUserRow
                                                             .profilePic !=
                                                         null &&
@@ -244,12 +247,12 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                         Container(
                                           width: 10.0,
                                           height: 10.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF00FF5E),
                                             shape: BoxShape.circle,
                                           ),
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                         ),
                                     ],
                                   ),
@@ -258,7 +261,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -284,7 +287,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           if (!gridViewNoUserRow.vipProfilee! &&
                                               gridViewNoUserRow.verify! &&
                                               !gridViewNoUserRow.tick)
-                                            const Padding(
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(3.0, 0.0, 0.0, 0.0),
                                               child: Icon(
@@ -296,7 +299,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           if (gridViewNoUserRow.vipProfilee! &&
                                               !gridViewNoUserRow.verify! &&
                                               !gridViewNoUserRow.tick)
-                                            const Icon(
+                                            Icon(
                                               Icons.verified,
                                               color: Color(0xFF189EFF),
                                               size: 14.0,
@@ -304,7 +307,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           if (!gridViewNoUserRow.vipProfilee! &&
                                               !gridViewNoUserRow.verify! &&
                                               gridViewNoUserRow.tick)
-                                            const Icon(
+                                            Icon(
                                               Icons.verified,
                                               color: Color(0xFF189EFF),
                                               size: 14.0,
@@ -313,7 +316,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 1.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -339,7 +342,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     3.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(

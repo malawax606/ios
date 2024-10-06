@@ -1,13 +1,18 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'help_center_widget.dart' show HelpCenterWidget;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'live_audio_copy_widget.dart' show LiveAudioCopyWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class HelpCenterModel extends FlutterFlowModel<HelpCenterWidget> {
+class LiveAudioCopyModel extends FlutterFlowModel<LiveAudioCopyWidget> {
+  ///  Local state fields for this page.
+
+  bool host = false;
+
   @override
   void initState(BuildContext context) {}
 

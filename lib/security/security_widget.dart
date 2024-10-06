@@ -3,7 +3,10 @@ import '/components/email_verify_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'security_model.dart';
 export 'security_model.dart';
 
@@ -71,7 +74,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -83,7 +86,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
             scrollDirection: Axis.vertical,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +104,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -133,7 +136,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                     0.0, 0.0)
                                                 .resolve(
                                                     Directionality.of(context)),
@@ -141,7 +144,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               onTap: () =>
                                                   FocusScope.of(dialogContext)
                                                       .unfocus(),
-                                              child: const SizedBox(
+                                              child: Container(
                                                 height: 270.0,
                                                 width: 320.0,
                                                 child: EmailVerifyWidget(),
@@ -189,7 +192,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         ),
                                       if (currentUserEmailVerified == true)
                                         AuthUserStreamWidget(
-                                          builder: (context) => const Icon(
+                                          builder: (context) => Icon(
                                             Icons.check_circle,
                                             color: Color(0xFF399BD2),
                                             size: 24.0,
@@ -197,17 +200,17 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         ),
                                       if (currentUserEmailVerified == false)
                                         AuthUserStreamWidget(
-                                          builder: (context) => const Icon(
+                                          builder: (context) => Icon(
                                             Icons.clear,
                                             color: Color(0xFFF60207),
                                             size: 24.0,
                                           ),
                                         ),
-                                    ].divide(const SizedBox(width: 16.0)),
+                                    ].divide(SizedBox(width: 16.0)),
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                            ].divide(SizedBox(height: 16.0)),
                           ),
                         ),
                       ),
@@ -219,7 +222,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -248,7 +251,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   value: _model.switchValue1!,
                                   onChanged: (newValue) async {
                                     safeSetState(
-                                        () => _model.switchValue1 = newValue);
+                                        () => _model.switchValue1 = newValue!);
                                   },
                                   activeColor:
                                       FlutterFlowTheme.of(context).primary,
@@ -260,7 +263,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   inactiveThumbColor:
                                       FlutterFlowTheme.of(context).alternate,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                             Divider(
                               thickness: 1.0,
@@ -289,7 +292,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   value: _model.switchValue2!,
                                   onChanged: (newValue) async {
                                     safeSetState(
-                                        () => _model.switchValue2 = newValue);
+                                        () => _model.switchValue2 = newValue!);
                                   },
                                   activeColor:
                                       FlutterFlowTheme.of(context).primary,
@@ -301,7 +304,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   inactiveThumbColor:
                                       FlutterFlowTheme.of(context).alternate,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                             Divider(
                               thickness: 1.0,
@@ -330,7 +333,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   value: _model.switchValue3!,
                                   onChanged: (newValue) async {
                                     safeSetState(
-                                        () => _model.switchValue3 = newValue);
+                                        () => _model.switchValue3 = newValue!);
                                   },
                                   activeColor:
                                       FlutterFlowTheme.of(context).primary,
@@ -342,9 +345,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   inactiveThumbColor:
                                       FlutterFlowTheme.of(context).alternate,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
-                          ].divide(const SizedBox(height: 16.0)),
+                          ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),
@@ -355,7 +358,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -389,7 +392,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                             Divider(
                               thickness: 1.0,
@@ -404,7 +407,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                 context.pushNamed(
                                   'Blocked',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -432,7 +435,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         .secondaryText,
                                     size: 24.0,
                                   ),
-                                ].divide(const SizedBox(width: 16.0)),
+                                ].divide(SizedBox(width: 16.0)),
                               ),
                             ),
                             Divider(
@@ -458,9 +461,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
-                          ].divide(const SizedBox(height: 16.0)),
+                          ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),
@@ -471,7 +474,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -505,7 +508,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                             Divider(
                               thickness: 1.0,
@@ -530,7 +533,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                             Divider(
                               thickness: 1.0,
@@ -555,13 +558,13 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
-                          ].divide(const SizedBox(height: 16.0)),
+                          ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(height: 24.0)),
+                  ].divide(SizedBox(height: 24.0)),
                 ),
               ),
             ],

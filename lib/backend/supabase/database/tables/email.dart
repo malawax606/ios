@@ -9,7 +9,7 @@ class EmailTable extends SupabaseTable<EmailRow> {
 }
 
 class EmailRow extends SupabaseDataRow {
-  EmailRow(super.data);
+  EmailRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => EmailTable();

@@ -8,6 +8,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'user_profile_model.dart';
 export 'user_profile_model.dart';
 
@@ -36,9 +39,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.chat1 = '$currentUserUid${widget.userID}';
-      _model.chat2 = '${widget.userID}$currentUserUid';
-      _model.addToUssers(widget.userID!);
+      _model.chat1 = '${currentUserUid}${widget!.userID}';
+      _model.chat2 = '${widget!.userID}${currentUserUid}';
+      _model.addToUssers(widget!.userID!);
       safeSetState(() {});
       _model.addToUssers(currentUserUid);
       safeSetState(() {});
@@ -58,7 +61,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
       future: UserTable().querySingleRow(
         queryFn: (q) => q.eq(
           'id',
-          widget.userID,
+          widget!.userID,
         ),
       ),
       builder: (context, snapshot) {
@@ -170,7 +173,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Material(
                             color: Colors.transparent,
@@ -200,23 +203,42 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       type: PageTransitionType.fade,
                                       child: FlutterFlowExpandedImageView(
                                         image: Image.network(
-                                          userProfileUserRow.profilePic!,
+                                          userProfileUserRow?.profilePic !=
+                                                      null &&
+                                                  userProfileUserRow
+                                                          ?.profilePic !=
+                                                      ''
+                                              ? userProfileUserRow!.profilePic!
+                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                           fit: BoxFit.contain,
                                         ),
                                         allowRotation: false,
-                                        tag: userProfileUserRow.profilePic!,
+                                        tag: userProfileUserRow?.profilePic !=
+                                                    null &&
+                                                userProfileUserRow
+                                                        ?.profilePic !=
+                                                    ''
+                                            ? userProfileUserRow!.profilePic!
+                                            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                         useHeroAnimation: true,
                                       ),
                                     ),
                                   );
                                 },
                                 child: Hero(
-                                  tag: userProfileUserRow!.profilePic!,
+                                  tag: userProfileUserRow?.profilePic != null &&
+                                          userProfileUserRow?.profilePic != ''
+                                      ? userProfileUserRow!.profilePic!
+                                      : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                   transitionOnUserGestures: true,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(75.0),
                                     child: Image.network(
-                                      userProfileUserRow.profilePic!,
+                                      userProfileUserRow?.profilePic != null &&
+                                              userProfileUserRow?.profilePic !=
+                                                  ''
+                                          ? userProfileUserRow!.profilePic!
+                                          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -226,10 +248,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Text(
-                            '@${userProfileUserRow.username}'
+                            '@${userProfileUserRow?.username}'
                                 .maybeHandleOverflow(maxChars: 25),
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
@@ -244,16 +266,16 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               if (columnUserRow!.chatsIds.contains(
-                                      '$currentUserUid${widget.userID}') ||
-                                  userProfileUserRow.chatsIds.contains(
-                                      '${widget.userID}$currentUserUid'))
+                                      '${currentUserUid}${widget!.userID}') ||
+                                  userProfileUserRow!.chatsIds.contains(
+                                      '${widget!.userID}${currentUserUid}'))
                                 FutureBuilder<List<ChatRow>>(
                                   future: ChatTable().querySingleRow(
                                     queryFn: (q) => q
@@ -263,10 +285,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         )
                                         .eq(
                                           'Chat_ID',
-                                          '$currentUserUid${widget.userID}' ==
-                                                  '$currentUserUid${widget.userID}'
-                                              ? '$currentUserUid${widget.userID}'
-                                              : '${widget.userID}$currentUserUid',
+                                          '${currentUserUid}${widget!.userID}' ==
+                                                  '${currentUserUid}${widget!.userID}'
+                                              ? '${currentUserUid}${widget!.userID}'
+                                              : '${widget!.userID}${currentUserUid}',
                                         ),
                                   ),
                                   builder: (context, snapshot) {
@@ -307,7 +329,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               ParamType.String,
                                             ),
                                             'userId': serializeParam(
-                                              widget.userID,
+                                              widget!.userID,
                                               ParamType.String,
                                             ),
                                             'messageNum': serializeParam(
@@ -315,11 +337,11 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               ParamType.int,
                                             ),
                                             'image': serializeParam(
-                                              userProfileUserRow.profilePic,
+                                              userProfileUserRow?.profilePic,
                                               ParamType.String,
                                             ),
                                             'gender': serializeParam(
-                                              userProfileUserRow.gender,
+                                              userProfileUserRow?.gender,
                                               ParamType.String,
                                             ),
                                             'sender': serializeParam(
@@ -328,7 +350,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
+                                            kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -344,10 +366,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 0.45,
                                         height: 50.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color:
                                             FlutterFlowTheme.of(context).info,
@@ -367,10 +389,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                     );
                                   },
                                 ),
-                              if (!(columnUserRow.chatsIds.contains(
-                                      '$currentUserUid${widget.userID}') ||
-                                  userProfileUserRow.chatsIds.contains(
-                                      '${widget.userID}$currentUserUid')))
+                              if (!(columnUserRow!.chatsIds.contains(
+                                      '${currentUserUid}${widget!.userID}') ||
+                                  userProfileUserRow!.chatsIds.contains(
+                                      '${widget!.userID}${currentUserUid}')))
                                 Builder(
                                   builder: (context) =>
                                       FutureBuilder<List<ChatRow>>(
@@ -382,10 +404,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           )
                                           .eq(
                                             'Chat_ID',
-                                            '$currentUserUid${widget.userID}' ==
-                                                    '$currentUserUid${widget.userID}'
-                                                ? '$currentUserUid${widget.userID}'
-                                                : '${widget.userID}$currentUserUid',
+                                            '${currentUserUid}${widget!.userID}' ==
+                                                    '${currentUserUid}${widget!.userID}'
+                                                ? '${currentUserUid}${widget!.userID}'
+                                                : '${widget!.userID}${currentUserUid}',
                                           ),
                                     ),
                                     builder: (context, snapshot) {
@@ -423,7 +445,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                         0.0, 0.0)
                                                     .resolve(Directionality.of(
                                                         context)),
@@ -431,7 +453,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                   onTap: () => FocusScope.of(
                                                           dialogContext)
                                                       .unfocus(),
-                                                  child: SizedBox(
+                                                  child: Container(
                                                     height: 450.0,
                                                     width: 350.0,
                                                     child: MessagesWidget(
@@ -450,10 +472,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                   0.45,
                                           height: 50.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color:
                                               FlutterFlowTheme.of(context).info,
@@ -475,11 +497,11 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                     },
                                   ),
                                 ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 20.0, 20.0, 20.0),
                           child: Material(
                             color: Colors.transparent,
@@ -494,7 +516,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -518,7 +540,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.fullName,
+                                            userProfileUserRow?.fullName,
                                             'User',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -552,7 +574,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.age,
+                                            userProfileUserRow?.age,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -586,7 +608,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.gender,
+                                            userProfileUserRow?.gender,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -620,7 +642,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.job,
+                                            userProfileUserRow?.job,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -654,7 +676,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.skinColor,
+                                            userProfileUserRow?.skinColor,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -688,7 +710,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.marriedStatus,
+                                            userProfileUserRow?.marriedStatus,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -722,7 +744,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.country,
+                                            userProfileUserRow?.country,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -756,7 +778,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow.city,
+                                            userProfileUserRow?.city,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -771,16 +793,16 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(const SizedBox(height: 16.0)),
+                                  ].divide(SizedBox(height: 16.0)),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        if (userProfileUserRow.aboutMe != null &&
-                            userProfileUserRow.aboutMe != '')
+                        if (userProfileUserRow?.aboutMe != null &&
+                            userProfileUserRow?.aboutMe != '')
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 20.0),
                             child: Material(
                               color: Colors.transparent,
@@ -795,7 +817,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 16.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -814,7 +836,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          userProfileUserRow.aboutMe,
+                                          userProfileUserRow?.aboutMe,
                                           '.',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -827,13 +849,13 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 16.0)),
+                                    ].divide(SizedBox(height: 16.0)),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                      ].divide(const SizedBox(height: 20.0)),
+                      ].divide(SizedBox(height: 20.0)),
                     ),
                   );
                 },

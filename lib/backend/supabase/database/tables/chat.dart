@@ -9,7 +9,7 @@ class ChatTable extends SupabaseTable<ChatRow> {
 }
 
 class ChatRow extends SupabaseDataRow {
-  ChatRow(super.data);
+  ChatRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => ChatTable();
@@ -65,4 +65,16 @@ class ChatRow extends SupabaseDataRow {
 
   bool get usersDone => getField<bool>('Users_Done')!;
   set usersDone(bool value) => setField<bool>('Users_Done', value);
+
+  String? get profile1 => getField<String>('Profile1');
+  set profile1(String? value) => setField<String>('Profile1', value);
+
+  String? get profile2 => getField<String>('Profile2');
+  set profile2(String? value) => setField<String>('Profile2', value);
+
+  String? get username1 => getField<String>('Username1');
+  set username1(String? value) => setField<String>('Username1', value);
+
+  String? get username2 => getField<String>('Username2');
+  set username2(String? value) => setField<String>('Username2', value);
 }

@@ -6,11 +6,11 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'live_audio_model.dart';
-export 'live_audio_model.dart';
+import 'live_audio_copy_model.dart';
+export 'live_audio_copy_model.dart';
 
-class LiveAudioWidget extends StatefulWidget {
-  const LiveAudioWidget({
+class LiveAudioCopyWidget extends StatefulWidget {
+  const LiveAudioCopyWidget({
     super.key,
     required this.id,
     required this.host,
@@ -22,18 +22,18 @@ class LiveAudioWidget extends StatefulWidget {
   final String? url;
 
   @override
-  State<LiveAudioWidget> createState() => _LiveAudioWidgetState();
+  State<LiveAudioCopyWidget> createState() => _LiveAudioCopyWidgetState();
 }
 
-class _LiveAudioWidgetState extends State<LiveAudioWidget> {
-  late LiveAudioModel _model;
+class _LiveAudioCopyWidgetState extends State<LiveAudioCopyWidget> {
+  late LiveAudioCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LiveAudioModel());
+    _model = createModel(context, () => LiveAudioCopyModel());
   }
 
   @override
@@ -59,7 +59,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
               width: double.infinity,
               height: double.infinity,
               roomID: '2345',
-              isHost: true,
+              isHost: false,
               userID: currentUserUid,
               appID: 593542377,
               appSign:

@@ -9,7 +9,7 @@ class CommentsTable extends SupabaseTable<CommentsRow> {
 }
 
 class CommentsRow extends SupabaseDataRow {
-  CommentsRow(super.data);
+  CommentsRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => CommentsTable();

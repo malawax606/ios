@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -10,22 +12,36 @@ export 'api_manager.dart' show ApiCallResponse;
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class NotificationCall {
-  static Future<ApiCallResponse> call() async {
-    const ffApiRequestBody = '''
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? title = '',
+    String? body = '',
+    String? image = '',
+  }) async {
+    final ffApiRequestBody = '''
 {
-  "message": {
-    "token": "bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
-    "notification": {
-      "body": "This is an FCM notification message!",
-      "title": "FCM Message"
-    }
-  }
+  "to": "${token}",
+  "notification": {
+    "title": "${title}",
+    "body": "${body}",
+    "image": "${image}"
+  },
+  "priority": "high",
+  "importance": "max",
+  "collapse_key": "my_key",
+  "time_to_live": 3600,
+  "android_channel_id": "random_channel_id",
+  "color": "#rrggbb"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Notification',
-      apiUrl: 'https://fcm.googleapis.com/v1/projects/moha-e5574/messages:send',
+      apiUrl: 'https://fcm.googleapis.com/fcm/send',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'Authorization':
+            'key=AAAAg8f7bX0:APA91bHU3YDIv0ZTxHHkhhv244j-d0c03A-mjv3FzNZ8zU-jrT2LHtlhT3Or3SoPBFlZK54m3sqt_RDc2gMQSh0igSS4STlyoGe4RVtfhjhs7VH6FxVZRbR-oKLUOrveBInuQDNfIEMv',
+        'Content-Type': 'application/json',
+      },
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -76,7 +92,7 @@ class CountryFalgCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Country Falg',
-      apiUrl: 'https://restcountries.com/v3.1/alpha/$code',
+      apiUrl: 'https://restcountries.com/v3.1/alpha/${code}',
       callType: ApiCallType.GET,
       headers: {},
       params: {
@@ -104,7 +120,7 @@ class SupabaseUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*$searchString*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*${searchString}*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -143,7 +159,7 @@ class SupabaseUserProfileCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User Profile',
       apiUrl:
-          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*$searchString*)&select=*',
+          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*${searchString}*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

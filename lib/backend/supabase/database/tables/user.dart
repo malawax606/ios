@@ -9,7 +9,7 @@ class UserTable extends SupabaseTable<UserRow> {
 }
 
 class UserRow extends SupabaseDataRow {
-  UserRow(super.data);
+  UserRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => UserTable();
@@ -192,8 +192,8 @@ class UserRow extends SupabaseDataRow {
   bool get Admin2 => getField<bool>('Admin2')!;
   set Admin2(bool value) => setField<bool>('Admin2', value);
 
-  dynamic get rejected => getField<dynamic>('Rejected');
-  set rejected(dynamic value) => setField<dynamic>('Rejected', value);
+  dynamic? get rejected => getField<dynamic>('Rejected');
+  set rejected(dynamic? value) => setField<dynamic>('Rejected', value);
 
   DateTime? get buyDate => getField<DateTime>('Buy_Date');
   set buyDate(DateTime? value) => setField<DateTime>('Buy_Date', value);
@@ -236,6 +236,6 @@ class UserRow extends SupabaseDataRow {
   String? get aboutMe => getField<String>('About Me');
   set aboutMe(String? value) => setField<String>('About Me', value);
 
-  bool? get noProfile => getField<bool>('No Profile');
-  set noProfile(bool? value) => setField<bool>('No Profile', value);
+  bool get noProfile => getField<bool>('No Profile')!;
+  set noProfile(bool value) => setField<bool>('No Profile', value);
 }

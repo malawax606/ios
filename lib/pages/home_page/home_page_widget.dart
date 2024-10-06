@@ -8,12 +8,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/permissions_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -66,22 +70,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
           currentUserUid,
         ),
       );
-      if (valueOrDefault(currentUserDocument?.gender, '') != '') {
-        context.goNamed(
-          'HomePage',
-          extra: <String, dynamic>{
-            kTransitionInfoKey: const TransitionInfo(
-              hasTransition: true,
-              transitionType: PageTransitionType.fade,
-              duration: Duration(milliseconds: 0),
-            ),
-          },
-        );
-      } else {
+      _model.imageee = await ImageUploadCall.call(
+        image: homePageUserRow?.profilePic != null &&
+                homePageUserRow?.profilePic != ''
+            ? homePageUserRow?.profilePic
+            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+        key: '70de3bbf96ca7056ee937df625795bd8',
+      );
+
+      await requestPermission(microphonePermission);
+      if (!(valueOrDefault(currentUserDocument?.gender, '') != null &&
+          valueOrDefault(currentUserDocument?.gender, '') != '')) {
         context.goNamed(
           'Form',
           extra: <String, dynamic>{
-            kTransitionInfoKey: const TransitionInfo(
+            kTransitionInfoKey: TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.fade,
               duration: Duration(milliseconds: 0),
@@ -161,22 +164,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         borderWidth: 1.0,
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.mic_none,
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
                         onPressed: () async {
-                          _model.image = await ImageUploadCall.call(
-                            image: homePageUserRow?.profilePic != null &&
-                                    homePageUserRow?.profilePic != ''
-                                ? homePageUserRow?.profilePic
-                                : (homePageUserRow?.gender == 'Lab (Rag)'
-                                    ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                    : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                            key: '70de3bbf96ca7056ee937df625795bd8',
-                          );
-
                           if (homePageUserRow?.userId == null) {
                             await UserTable().update(
                               data: {
@@ -194,7 +187,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               queryParameters: {
                                 'url': serializeParam(
                                   ImageUploadCall.url(
-                                    (_model.image?.jsonBody ?? ''),
+                                    (_model.imageee?.jsonBody ?? ''),
                                   ),
                                   ParamType.String,
                                 ),
@@ -208,13 +201,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                                 'url2': serializeParam(
                                   ImageUploadCall.url(
-                                    (_model.image?.jsonBody ?? ''),
+                                    (_model.imageee?.jsonBody ?? ''),
                                   ),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
@@ -227,7 +220,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               queryParameters: {
                                 'url': serializeParam(
                                   ImageUploadCall.url(
-                                    (_model.image?.jsonBody ?? ''),
+                                    (_model.imageee?.jsonBody ?? ''),
                                   ),
                                   ParamType.String,
                                 ),
@@ -241,13 +234,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                                 'url2': serializeParam(
                                   ImageUploadCall.url(
-                                    (_model.image?.jsonBody ?? ''),
+                                    (_model.imageee?.jsonBody ?? ''),
                                   ),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
@@ -255,8 +248,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               },
                             );
                           }
-
-                          safeSetState(() {});
                         },
                       ),
                     ],
@@ -271,7 +262,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         context.pushNamed(
                           'Users-NoProfile',
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
+                            kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                               duration: Duration(milliseconds: 0),
@@ -285,7 +276,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Inter Tight',
-                                color: const Color(0xFF95A1AC),
+                                color: Color(0xFF95A1AC),
                                 fontSize: 24.0,
                                 letterSpacing: 0.0,
                               ),
@@ -301,7 +292,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         borderWidth: 1.0,
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.search,
                           color: Color(0x41000000),
                           size: 22.0,
@@ -311,7 +302,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             context.pushNamed(
                               'All_Users',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
@@ -323,7 +314,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           context.pushNamed(
                             'Search',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -336,7 +327,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                 ],
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -349,7 +340,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: Alignment(0.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: true,
                             labelStyle: FlutterFlowTheme.of(context)
@@ -378,11 +369,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             borderWidth: 2.0,
                             borderRadius: 8.0,
                             elevation: 0.0,
-                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                            buttonMargin: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
-                            tabs: const [
+                            tabs: [
                               Tab(
                                 text: 'Explore',
                               ),
@@ -405,7 +396,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             children: [
                               KeepAliveWidgetWrapper(
                                 builder: (context) => Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: FutureBuilder<List<UserRow>>(
                                     future: (_model.requestCompleter1 ??=
@@ -465,14 +456,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               _model.requestCompleter2 = null);
                                         },
                                         child: GridView.builder(
-                                          padding: const EdgeInsets.fromLTRB(
+                                          padding: EdgeInsets.fromLTRB(
                                             0,
                                             3.0,
                                             0,
                                             0,
                                           ),
                                           gridDelegate:
-                                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                              SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 4,
                                             crossAxisSpacing: 10.0,
                                             mainAxisSpacing: 25.0,
@@ -505,7 +496,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        const TransitionInfo(
+                                                        TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -525,11 +516,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Stack(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.75, 0.9),
                                                       children: [
                                                         Hero(
@@ -541,11 +532,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       ''
                                                               ? gridViewNoUserRow
                                                                   .profilePic!
-                                                              : (gridViewNoUserRow
-                                                                          .gender ==
-                                                                      'Lab (Rag)'
-                                                                  ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                                  : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                           transitionOnUserGestures:
                                                               true,
                                                           child: Container(
@@ -554,18 +541,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                const BoxDecoration(
+                                                                BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
                                                             child:
                                                                 CachedNetworkImage(
                                                               fadeInDuration:
-                                                                  const Duration(
+                                                                  Duration(
                                                                       milliseconds:
                                                                           500),
                                                               fadeOutDuration:
-                                                                  const Duration(
+                                                                  Duration(
                                                                       milliseconds:
                                                                           500),
                                                               imageUrl: gridViewNoUserRow
@@ -576,11 +563,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           ''
                                                                   ? gridViewNoUserRow
                                                                       .profilePic!
-                                                                  : (gridViewNoUserRow
-                                                                              .gender ==
-                                                                          'Lab (Rag)'
-                                                                      ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                                      : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                                  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -592,14 +575,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             width: 10.0,
                                                             height: 10.0,
                                                             decoration:
-                                                                const BoxDecoration(
+                                                                BoxDecoration(
                                                               color: Color(
                                                                   0xFF00FF5E),
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                           ),
                                                       ],
@@ -611,7 +594,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     5.0,
@@ -653,7 +636,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .verify! &&
                                                                 !gridViewNoUserRow
                                                                     .tick)
-                                                              const Padding(
+                                                              Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -675,7 +658,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .verify! &&
                                                                 !gridViewNoUserRow
                                                                     .tick)
-                                                              const Icon(
+                                                              Icon(
                                                                 Icons.verified,
                                                                 color: Color(
                                                                     0xFF189EFF),
@@ -687,7 +670,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .verify! &&
                                                                 gridViewNoUserRow
                                                                     .tick)
-                                                              const Icon(
+                                                              Icon(
                                                                 Icons.verified,
                                                                 color: Color(
                                                                     0xFF189EFF),
@@ -698,7 +681,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     1.0,
@@ -739,7 +722,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           3.0,
                                                                           0.0,
@@ -793,7 +776,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     queryFn: (q) => q
                                         .contains(
                                           'Users',
-                                          '{$currentUserUid}',
+                                          '{${currentUserUid}}',
                                         )
                                         .order('last_mesage_sent_time'),
                                   ),
@@ -823,13 +806,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewChatRowList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 5.0),
+                                          SizedBox(height: 5.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewChatRow =
                                             listViewChatRowList[listViewIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 15.0, 10.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -887,41 +870,87 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Container(
-                                                            width: 55.0,
-                                                            height: 55.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                const BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                CachedNetworkImage(
-                                                              fadeInDuration:
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              fadeOutDuration:
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              imageUrl: rowUserUserRow
-                                                                              ?.profilePic !=
-                                                                          null &&
-                                                                      rowUserUserRow
-                                                                              ?.profilePic !=
-                                                                          ''
-                                                                  ? rowUserUserRow!
-                                                                      .profilePic!
-                                                                  : (rowUserUserRow
-                                                                              ?.gender ==
-                                                                          'Lab (Rag)'
-                                                                      ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                                      : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                                          Stack(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            children: [
+                                                              Container(
+                                                                width: 55.0,
+                                                                height: 55.0,
+                                                                clipBehavior: Clip
+                                                                    .antiAlias,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  fadeOutDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  imageUrl:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    rowUserUserRow?.profilePic !=
+                                                                                null &&
+                                                                            rowUserUserRow?.profilePic !=
+                                                                                ''
+                                                                        ? rowUserUserRow
+                                                                            ?.profilePic
+                                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                  ),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              if ((listViewChatRow
+                                                                          .lastMessageSentBy !=
+                                                                      currentUserUid) &&
+                                                                  (listViewChatRow
+                                                                          .mesageSeen ==
+                                                                      false))
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          12.0,
+                                                                      height:
+                                                                          12.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: Color(
+                                                                            0xFFF80606),
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                      ),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                            ],
                                                           ),
                                                           InkWell(
                                                             splashColor: Colors
@@ -997,7 +1026,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           7.0,
                                                                           0.0,
                                                                           0.0,
@@ -1021,7 +1050,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     if (rowUserUserRow
                                                                             ?.vipProfilee ??
                                                                         true)
-                                                                      const Padding(
+                                                                      Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             3.0,
                                                                             0.0,
@@ -1048,7 +1077,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             true) &&
                                                                         (listViewChatRow.lastMessageSentBy ==
                                                                             currentUserUid))
-                                                                      const Padding(
+                                                                      Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             7.0,
                                                                             0.0,
@@ -1069,7 +1098,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         (listViewChatRow.lastMessageSentBy ==
                                                                             currentUserUid))
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             7.0,
                                                                             0.0,
                                                                             0.0,
@@ -1085,7 +1114,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ),
                                                                       ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           7.0,
                                                                           0.0,
                                                                           0.0,
@@ -1099,7 +1128,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           '.',
                                                                         ).maybeHandleOverflow(
                                                                           maxChars:
-                                                                              20,
+                                                                              26,
                                                                           replacement:
                                                                               '…',
                                                                         ),
@@ -1122,38 +1151,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          if ((listViewChatRow
-                                                                      .lastMessageSentBy !=
-                                                                  currentUserUid) &&
-                                                              (listViewChatRow
-                                                                      .mesageSeen ==
-                                                                  false))
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Container(
-                                                                width: 10.0,
-                                                                height: 10.0,
-                                                                decoration:
-                                                                    const BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFFF80606),
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                              ),
-                                                            ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         7.0,
-                                                                        4.0,
+                                                                        0.0,
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
@@ -1180,7 +1183,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   );
                                                 },
                                               ),
-                                            ].divide(const SizedBox(height: 15.0)),
+                                            ].divide(SizedBox(height: 15.0)),
                                           ),
                                         );
                                       },
@@ -1193,7 +1196,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 15.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1213,82 +1216,78 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   child:
                                                       FlutterFlowExpandedImageView(
                                                     image: CachedNetworkImage(
-                                                      fadeInDuration: const Duration(
+                                                      fadeInDuration: Duration(
                                                           milliseconds: 500),
-                                                      fadeOutDuration: const Duration(
+                                                      fadeOutDuration: Duration(
                                                           milliseconds: 500),
-                                                      imageUrl: homePageUserRow
-                                                                      ?.profilePic !=
+                                                      imageUrl: valueOrDefault<
+                                                          String>(
+                                                        homePageUserRow?.profilePic !=
+                                                                    null &&
+                                                                homePageUserRow
+                                                                        ?.profilePic !=
+                                                                    ''
+                                                            ? homePageUserRow
+                                                                ?.profilePic
+                                                            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                      ),
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                    allowRotation: true,
+                                                    tag: valueOrDefault<String>(
+                                                      homePageUserRow?.profilePic !=
                                                                   null &&
                                                               homePageUserRow
                                                                       ?.profilePic !=
                                                                   ''
-                                                          ? homePageUserRow!
-                                                              .profilePic!
-                                                          : (homePageUserRow
-                                                                      ?.gender ==
-                                                                  'Lab (Rag)'
-                                                              ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                              : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                                      fit: BoxFit.contain,
+                                                          ? homePageUserRow
+                                                              ?.profilePic
+                                                          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                     ),
-                                                    allowRotation: true,
-                                                    tag: homePageUserRow
-                                                                    ?.profilePic !=
-                                                                null &&
-                                                            homePageUserRow
-                                                                    ?.profilePic !=
-                                                                ''
-                                                        ? homePageUserRow!
-                                                            .profilePic!
-                                                        : (homePageUserRow
-                                                                    ?.gender ==
-                                                                'Lab (Rag)'
-                                                            ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                            : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
                                                     useHeroAnimation: true,
                                                   ),
                                                 ),
                                               );
                                             },
                                             child: Hero(
-                                              tag: homePageUserRow
-                                                              ?.profilePic !=
-                                                          null &&
-                                                      homePageUserRow
-                                                              ?.profilePic !=
-                                                          ''
-                                                  ? homePageUserRow!.profilePic!
-                                                  : (homePageUserRow?.gender ==
-                                                          'Lab (Rag)'
-                                                      ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                      : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                              tag: valueOrDefault<String>(
+                                                homePageUserRow?.profilePic !=
+                                                            null &&
+                                                        homePageUserRow
+                                                                ?.profilePic !=
+                                                            ''
+                                                    ? homePageUserRow
+                                                        ?.profilePic
+                                                    : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                              ),
                                               transitionOnUserGestures: true,
                                               child: Container(
                                                 width: 100.0,
                                                 height: 100.0,
                                                 clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: CachedNetworkImage(
-                                                  fadeInDuration: const Duration(
+                                                  fadeInDuration: Duration(
                                                       milliseconds: 500),
-                                                  fadeOutDuration: const Duration(
+                                                  fadeOutDuration: Duration(
                                                       milliseconds: 500),
-                                                  imageUrl: homePageUserRow
-                                                                  ?.profilePic !=
-                                                              null &&
-                                                          homePageUserRow
-                                                                  ?.profilePic !=
-                                                              ''
-                                                      ? homePageUserRow!
-                                                          .profilePic!
-                                                      : (homePageUserRow
-                                                                  ?.gender ==
-                                                              'Lab (Rag)'
-                                                          ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                          : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                  imageUrl:
+                                                      valueOrDefault<String>(
+                                                    homePageUserRow?.profilePic !=
+                                                                null &&
+                                                            homePageUserRow
+                                                                    ?.profilePic !=
+                                                                ''
+                                                        ? homePageUserRow
+                                                            ?.profilePic
+                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                  ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -1298,7 +1297,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1315,7 +1314,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 'Form',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      const TransitionInfo(
+                                                      TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -1342,7 +1341,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           ),
                                           if (homePageUserRow?.vipProfilee ??
                                               true)
-                                            const Padding(
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(3.0, 0.0, 0.0, 0.0),
                                               child: Icon(
@@ -1355,7 +1354,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 30.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1368,7 +1367,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 'Update_Profile',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      const TransitionInfo(
+                                                      TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -1386,10 +1385,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             options: FFButtonOptions(
                                               width: 150.0,
                                               height: 45.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1415,7 +1414,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 30.0, 0.0, 30.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1434,7 +1433,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1446,7 +1445,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'Account_Information',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -1460,7 +1459,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 7.0, 0.0),
                                               child: Icon(
                                                 Icons.person_outline,
@@ -1488,7 +1487,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 20.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1500,7 +1499,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'Security',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -1514,7 +1513,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 7.0, 0.0),
                                               child: Icon(
                                                 Icons.security,
@@ -1542,7 +1541,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 20.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1554,7 +1553,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'HelpCenter',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -1568,7 +1567,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 7.0, 0.0),
                                               child: Icon(
                                                 Icons.help_outline_rounded,
@@ -1596,7 +1595,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 20.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1608,7 +1607,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'Privacy_Policy',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -1622,7 +1621,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 7.0, 0.0),
                                               child: Icon(
                                                 Icons.privacy_tip_outlined,
@@ -1650,7 +1649,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 20.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1671,7 +1670,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 7.0, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.powerOff,
