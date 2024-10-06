@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (country)] action in HomePage widget.
-  ApiCallResponse? country;
-  // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
-  ApiCallResponse? flg;
   // Stores action output result for [Backend Call - API (Supabase User)] action in HomePage widget.
   ApiCallResponse? user;
   // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage widget.
   ApiCallResponse? url;
+  // Stores action output result for [Backend Call - API (country)] action in HomePage widget.
+  ApiCallResponse? country;
+  // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
+  ApiCallResponse? flg;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

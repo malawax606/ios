@@ -37,36 +37,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.desconectar(
-        'chat',
-      );
-      await actions.supaRealtime(
-        'chat',
-        () async {},
-      );
-      _model.country = await CountryCall.call();
-
-      _model.flg = await CountryFalgCall.call(
-        code: CountryCall.code(
-          (_model.country?.jsonBody ?? ''),
-        ),
-      );
-
-      await UserTable().update(
-        data: {
-          'Country': CountryCall.country(
-            (_model.country?.jsonBody ?? ''),
-          ),
-          'City': CountryCall.city(
-            (_model.country?.jsonBody ?? ''),
-          ),
-        },
-        matchingRows: (rows) => rows.eq(
-          'id',
-          currentUserUid,
-        ),
-      );
-      await requestPermission(microphonePermission);
       _model.user = await SupabaseUserCall.call(
         searchString: currentUserUid,
       );
@@ -87,6 +57,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
         key: '70de3bbf96ca7056ee937df625795bd8',
       );
 
+      await actions.desconectar(
+        'chat',
+      );
+      await actions.supaRealtime(
+        'chat',
+        () async {},
+      );
+      _model.country = await CountryCall.call();
+
+      await UserTable().update(
+        data: {
+          'Country': CountryCall.country(
+            (_model.country?.jsonBody ?? ''),
+          ),
+          'City': CountryCall.city(
+            (_model.country?.jsonBody ?? ''),
+          ),
+        },
+        matchingRows: (rows) => rows.eq(
+          'id',
+          currentUserUid,
+        ),
+      );
+      _model.flg = await CountryFalgCall.call(
+        code: CountryCall.code(
+          (_model.country?.jsonBody ?? ''),
+        ),
+      );
+
+      await requestPermission(microphonePermission);
       if (!(valueOrDefault(currentUserDocument?.gender, '') != '')) {
         context.goNamed(
           'Form',
