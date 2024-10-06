@@ -61,7 +61,7 @@ class _LiveAudioCopyWidgetState extends State<LiveAudioCopyWidget> {
               appID: 593542377,
               appSign:
                   '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
-              userName: widget.id!.toString(),
+              userName: widget.id!,
               userAvatarUrl: widget.url!,
             ),
           ),

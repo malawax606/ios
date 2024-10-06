@@ -31,7 +31,7 @@ class LivePage extends StatefulWidget {
   final int appID;
   final String appSign;
   final String userID;
-  final String userName;
+  final int userName;
   final String userAvatarUrl;
   final String roomID;
   final bool isHost;

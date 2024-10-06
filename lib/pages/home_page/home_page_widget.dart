@@ -163,7 +163,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             'Call_Join',
                             queryParameters: {
                               'url': serializeParam(
-                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                'https://i.ibb.co/VV6sjzm/1720080359169130.jpg',
                                 ParamType.String,
                               ),
                               'id': serializeParam(
