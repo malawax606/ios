@@ -215,6 +215,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'url',
               ParamType.String,
             ),
+            appId: params.getParam(
+              'appId',
+              ParamType.int,
+            ),
+            appSign: params.getParam(
+              'appSign',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -263,6 +271,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             url: params.getParam(
               'url',
+              ParamType.String,
+            ),
+            appId: params.getParam(
+              'appId',
+              ParamType.int,
+            ),
+            appSign: params.getParam(
+              'appSign',
               ParamType.String,
             ),
           ),

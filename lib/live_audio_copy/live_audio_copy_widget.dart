@@ -12,11 +12,15 @@ class LiveAudioCopyWidget extends StatefulWidget {
     required this.id,
     required this.host,
     required this.url,
+    required this.appId,
+    required this.appSign,
   });
 
   final int? id;
   final bool? host;
   final String? url;
+  final int? appId;
+  final String? appSign;
 
   @override
   State<LiveAudioCopyWidget> createState() => _LiveAudioCopyWidgetState();
@@ -58,9 +62,8 @@ class _LiveAudioCopyWidgetState extends State<LiveAudioCopyWidget> {
               roomID: '2345',
               isHost: false,
               userID: currentUserUid,
-              appID: 593542377,
-              appSign:
-                  '11d5ec816463541a48ba7aac238ccfcc022d2728d3f5e5e8da423857d4686a3b',
+              appID: widget.appId!,
+              appSign: widget.appSign!,
               userName: widget.id!.toString(),
               userAvatarUrl: widget.url!,
             ),
