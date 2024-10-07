@@ -155,7 +155,7 @@ class _FormWidgetState extends State<FormWidget> {
                                             onTap: () async {
                                               final selectedMedia =
                                                   await selectMedia(
-                                                storageFolderPath: 'Profiles',
+                                                storageFolderPath: 'Profile',
                                                 mediaSource:
                                                     MediaSource.photoGallery,
                                                 multiImage: false,
@@ -199,7 +199,7 @@ class _FormWidgetState extends State<FormWidget> {
 
                                                   downloadUrls =
                                                       await uploadSupabaseStorageFiles(
-                                                    bucketName: 'Users',
+                                                    bucketName: 'images',
                                                     selectedFiles:
                                                         selectedMedia,
                                                   );
@@ -247,15 +247,20 @@ class _FormWidgetState extends State<FormWidget> {
                                                 ),
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Icon(
-                                                  Icons.upload_outlined,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 36.0,
+                                              child: Visibility(
+                                                visible: _model.uploadedFileUrl ==
+                                                        '',
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.upload_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 36.0,
+                                                  ),
                                                 ),
                                               ),
                                             ),

@@ -1271,9 +1271,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 .fullNameTextController.text,
                                             'Username': _model
                                                 .usernameTextController.text,
-                                            'Gender': _model.genderValue,
                                             'Age': _model.ageValue,
-                                            'LookingFor': _model.looking,
                                             'Country': CountryCall.country(
                                               (_model.country?.jsonBody ?? ''),
                                             ),
