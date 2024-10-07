@@ -206,49 +206,51 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                         ].divide(const SizedBox(width: 16.0)),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            'Live_Audio',
-                            queryParameters: {
-                              'id': serializeParam(
-                                widget.id,
-                                ParamType.int,
-                              ),
-                              'host': serializeParam(
-                                true,
-                                ParamType.bool,
-                              ),
-                              'url': serializeParam(
-                                widget.url2,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        text: 'Join Live',
-                        options: FFButtonOptions(
-                          width: 200.0,
-                          height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).info,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Colors.black,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(25.0),
+                    if (widget.admin == true)
+                      Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed(
+                              'Live_Audio',
+                              queryParameters: {
+                                'id': serializeParam(
+                                  widget.id,
+                                  ParamType.int,
+                                ),
+                                'host': serializeParam(
+                                  true,
+                                  ParamType.bool,
+                                ),
+                                'url': serializeParam(
+                                  widget.url2,
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          text: 'Join Live',
+                          options: FFButtonOptions(
+                            width: 200.0,
+                            height: 50.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).info,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Inter Tight',
+                                  color: Colors.black,
+                                  letterSpacing: 0.0,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
                         ),
                       ),
-                    ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),

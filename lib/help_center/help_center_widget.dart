@@ -136,7 +136,7 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              await launchURL('https://wa.link/qbgg5i');
+                              await launchURL('https://wa.link/oza9i1');
                             },
                             text: 'Open WhatsApp',
                             options: FFButtonOptions(

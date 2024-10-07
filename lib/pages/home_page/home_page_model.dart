@@ -12,6 +12,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? user;
   // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage widget.
   ApiCallResponse? url;
+  Completer<List<UserRow>>? requestCompleter2;
   // Stores action output result for [Backend Call - API (country)] action in HomePage widget.
   ApiCallResponse? country;
   // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
@@ -22,7 +23,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
       tabBarController != null ? tabBarController!.index : 0;
 
   Completer<List<UserRow>>? requestCompleter1;
-  Completer<List<UserRow>>? requestCompleter2;
 
   @override
   void initState(BuildContext context) {}
@@ -33,21 +33,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   }
 
   /// Additional helper methods.
-  Future waitForRequestCompleted1({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter1?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
   Future waitForRequestCompleted2({
     double minWait = 0,
     double maxWait = double.infinity,
@@ -57,6 +42,21 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
       await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = requestCompleter2?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForRequestCompleted1({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter1?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

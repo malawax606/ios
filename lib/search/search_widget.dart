@@ -104,7 +104,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                7.0, 0.0, 0.0, 0.0),
+                                10.0, 0.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,
