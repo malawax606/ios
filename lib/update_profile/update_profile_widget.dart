@@ -343,14 +343,14 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Visibility(
-                                                        visible: (updateProfileUserRow
+                                                        visible: !((updateProfileUserRow
                                                                         .profilePic ==
                                                                     null ||
                                                                 updateProfileUserRow
                                                                         .profilePic ==
                                                                     '') ||
                                                             (_model.uploadedFileUrl ==
-                                                                    ''),
+                                                                    '')),
                                                         child: Align(
                                                           alignment:
                                                               const AlignmentDirectional(
