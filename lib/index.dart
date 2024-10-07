@@ -25,3 +25,5 @@ export '/call_join/call_join_widget.dart' show CallJoinWidget;
 export '/search/search_widget.dart' show SearchWidget;
 export '/live_audio_copy/live_audio_copy_widget.dart' show LiveAudioCopyWidget;
 export '/test/test_widget.dart' show TestWidget;
+export '/user_profile_update/user_profile_update_widget.dart'
+    show UserProfileUpdateWidget;

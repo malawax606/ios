@@ -196,8 +196,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.String,
                               ),
                               'id': serializeParam(
-                                homePageUserRow?.userId,
-                                ParamType.int,
+                                homePageUserRow?.username != null &&
+                                        homePageUserRow?.username != ''
+                                    ? homePageUserRow?.username
+                                    : 'User',
+                                ParamType.String,
                               ),
                               'admin': serializeParam(
                                 homePageUserRow?.admin,

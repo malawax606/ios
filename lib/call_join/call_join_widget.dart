@@ -20,7 +20,7 @@ class CallJoinWidget extends StatefulWidget {
   });
 
   final String? url;
-  final int? id;
+  final String? id;
   final bool? admin;
   final String? url2;
 
@@ -166,7 +166,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Text(
-                                'My ID ${widget.id?.toString()}',
+                                'My ID ${widget.id}',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
@@ -249,7 +249,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   queryParameters: {
                                     'id': serializeParam(
                                       widget.id,
-                                      ParamType.int,
+                                      ParamType.String,
                                     ),
                                     'host': serializeParam(
                                       true,
@@ -291,58 +291,59 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                               ),
                             ),
                           ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed(
-                                'Live_AudioCopy',
-                                queryParameters: {
-                                  'id': serializeParam(
-                                    widget.id,
-                                    ParamType.int,
-                                  ),
-                                  'host': serializeParam(
-                                    false,
-                                    ParamType.bool,
-                                  ),
-                                  'url': serializeParam(
-                                    widget.url2,
-                                    ParamType.String,
-                                  ),
-                                  'appId': serializeParam(
-                                    callJoinVideoCallRow?.appID,
-                                    ParamType.int,
-                                  ),
-                                  'appSign': serializeParam(
-                                    callJoinVideoCallRow?.appSign,
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            text: 'Join Live',
-                            options: FFButtonOptions(
-                              width: 200.0,
-                              height: 50.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).info,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Colors.black,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(25.0),
+                        if (widget.admin == false)
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'Live_AudioCopy',
+                                  queryParameters: {
+                                    'id': serializeParam(
+                                      widget.id,
+                                      ParamType.String,
+                                    ),
+                                    'host': serializeParam(
+                                      false,
+                                      ParamType.bool,
+                                    ),
+                                    'url': serializeParam(
+                                      widget.url2,
+                                      ParamType.String,
+                                    ),
+                                    'appId': serializeParam(
+                                      callJoinVideoCallRow?.appID,
+                                      ParamType.int,
+                                    ),
+                                    'appSign': serializeParam(
+                                      callJoinVideoCallRow?.appSign,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              text: 'Join Live',
+                              options: FFButtonOptions(
+                                width: 200.0,
+                                height: 50.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).info,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Inter Tight',
+                                      color: Colors.black,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
                             ),
                           ),
-                        ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),

@@ -16,7 +16,7 @@ class LiveAudioCopyWidget extends StatefulWidget {
     required this.appSign,
   });
 
-  final int? id;
+  final String? id;
   final bool? host;
   final String? url;
   final int? appId;
@@ -64,7 +64,7 @@ class _LiveAudioCopyWidgetState extends State<LiveAudioCopyWidget> {
               userID: currentUserUid,
               appID: widget.appId!,
               appSign: widget.appSign!,
-              userName: widget.id!.toString(),
+              userName: widget.id!,
               userAvatarUrl: widget.url!,
             ),
           ),

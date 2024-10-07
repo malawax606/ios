@@ -16,7 +16,7 @@ class LiveAudioWidget extends StatefulWidget {
     required this.appSign,
   });
 
-  final int? id;
+  final String? id;
   final bool? host;
   final String? url;
   final int? appId;
@@ -64,7 +64,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
               userID: currentUserUid,
               appID: widget.appId!,
               appSign: widget.appSign!,
-              userName: widget.id!.toString(),
+              userName: widget.id!,
               userAvatarUrl: widget.url!,
             ),
           ),

@@ -205,7 +205,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LiveAudioWidget(
             id: params.getParam(
               'id',
-              ParamType.int,
+              ParamType.String,
             ),
             host: params.getParam(
               'host',
@@ -240,7 +240,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             id: params.getParam(
               'id',
-              ParamType.int,
+              ParamType.String,
             ),
             admin: params.getParam(
               'admin',
@@ -263,7 +263,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LiveAudioCopyWidget(
             id: params.getParam(
               'id',
-              ParamType.int,
+              ParamType.String,
             ),
             host: params.getParam(
               'host',
@@ -287,6 +287,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Test',
           path: '/test',
           builder: (context, params) => const TestWidget(),
+        ),
+        FFRoute(
+          name: 'User_Profile-Update',
+          path: '/userProfileUpdate',
+          builder: (context, params) => UserProfileUpdateWidget(
+            userID: params.getParam(
+              'userID',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
