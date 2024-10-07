@@ -28,7 +28,7 @@ class _CheckWidgetState extends State<CheckWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault(currentUserDocument?.country, '') != '') {
         context.goNamed(
-          'HomePage',
+          'HomePage2',
           extra: <String, dynamic>{
             kTransitionInfoKey: const TransitionInfo(
               hasTransition: true,

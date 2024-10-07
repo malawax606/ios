@@ -13,26 +13,26 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'home_page2_model.dart';
+export 'home_page2_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+class HomePage2Widget extends StatefulWidget {
+  const HomePage2Widget({super.key});
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<HomePage2Widget> createState() => _HomePage2WidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget>
+class _HomePage2WidgetState extends State<HomePage2Widget>
     with TickerProviderStateMixin {
-  late HomePageModel _model;
+  late HomePage2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => HomePage2Model());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -153,10 +153,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ),
           );
         }
-        List<UserRow> homePageUserRowList = snapshot.data!;
+        List<UserRow> homePage2UserRowList = snapshot.data!;
 
-        final homePageUserRow =
-            homePageUserRowList.isNotEmpty ? homePageUserRowList.first : null;
+        final homePage2UserRow =
+            homePage2UserRowList.isNotEmpty ? homePage2UserRowList.first : null;
 
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -196,14 +196,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.String,
                               ),
                               'id': serializeParam(
-                                homePageUserRow?.username != null &&
-                                        homePageUserRow?.username != ''
-                                    ? homePageUserRow?.username
+                                homePage2UserRow?.username != null &&
+                                        homePage2UserRow?.username != ''
+                                    ? homePage2UserRow?.username
                                     : 'User',
                                 ParamType.String,
                               ),
                               'admin': serializeParam(
-                                homePageUserRow?.admin,
+                                homePage2UserRow?.admin,
                                 ParamType.bool,
                               ),
                               'url2': serializeParam(
@@ -231,7 +231,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      if (homePageUserRow?.admin == true) {
+                      if (homePage2UserRow?.admin == true) {
                         context.pushNamed(
                           'Users-NoProfile',
                           extra: <String, dynamic>{
@@ -271,7 +271,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           size: 22.0,
                         ),
                         onPressed: () async {
-                          if (homePageUserRow?.admin == true) {
+                          if (homePage2UserRow?.admin == true) {
                             context.pushNamed(
                               'All_Users',
                               extra: <String, dynamic>{
@@ -327,7 +327,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 queryFn: (q) => q
                                                     .eq(
                                                       'Gender',
-                                                      homePageUserRow
+                                                      homePage2UserRow
                                                           ?.lookingFor,
                                                     )
                                                     .eq(
@@ -1135,12 +1135,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 BorderRadius.circular(60.0),
                                             child: Image.network(
                                               valueOrDefault<String>(
-                                                homePageUserRow?.profilePic !=
+                                                homePage2UserRow?.profilePic !=
                                                             null &&
-                                                        homePageUserRow
+                                                        homePage2UserRow
                                                                 ?.profilePic !=
                                                             ''
-                                                    ? homePageUserRow
+                                                    ? homePage2UserRow
                                                         ?.profilePic
                                                     : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -1160,7 +1160,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           children: [
                                             Text(
                                               valueOrDefault<String>(
-                                                homePageUserRow?.username,
+                                                homePage2UserRow?.username,
                                                 'User',
                                               ),
                                               style: FlutterFlowTheme.of(
@@ -1176,16 +1176,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
-                                            if (homePageUserRow!.vipProfilee! &&
-                                                !homePageUserRow.verify!)
+                                            if (homePage2UserRow!
+                                                    .vipProfilee! &&
+                                                !homePage2UserRow.verify!)
                                               const Icon(
                                                 Icons.verified,
                                                 color: Color(0xFF1D7BFD),
                                                 size: 19.0,
                                               ),
-                                            if (!homePageUserRow
+                                            if (!homePage2UserRow
                                                     .vipProfilee! &&
-                                                homePageUserRow.verify!)
+                                                homePage2UserRow.verify!)
                                               const Icon(
                                                 Icons.verified,
                                                 color: Color(0xFFB305F9),
@@ -1599,19 +1600,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         width: 300.0,
                                                         child: LogOutWidget(
                                                           username:
-                                                              homePageUserRow
+                                                              homePage2UserRow
                                                                   .username!,
                                                           email:
                                                               currentUserEmail,
                                                           pictur:
                                                               valueOrDefault<
                                                                   String>(
-                                                            homePageUserRow.profilePic !=
+                                                            homePage2UserRow.profilePic !=
                                                                         null &&
-                                                                    homePageUserRow
+                                                                    homePage2UserRow
                                                                             .profilePic !=
                                                                         ''
-                                                                ? homePageUserRow
+                                                                ? homePage2UserRow
                                                                     .profilePic
                                                                 : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                             'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',

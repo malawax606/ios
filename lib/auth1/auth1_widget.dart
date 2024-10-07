@@ -540,7 +540,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                       }
 
                                                       context.goNamedAuth(
-                                                        'HomePage',
+                                                        'HomePage2',
                                                         context.mounted,
                                                         extra: <String,
                                                             dynamic>{

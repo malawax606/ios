@@ -2,20 +2,20 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'home_page2_widget.dart' show HomePage2Widget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class HomePage2Model extends FlutterFlowModel<HomePage2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (Supabase User)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (Supabase User)] action in HomePage2 widget.
   ApiCallResponse? user;
-  // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage2 widget.
   ApiCallResponse? url;
   Completer<List<UserRow>>? requestCompleter2;
-  // Stores action output result for [Backend Call - API (country)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (country)] action in HomePage2 widget.
   ApiCallResponse? country;
-  // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage2 widget.
   ApiCallResponse? flg;
   // State field(s) for TabBar widget.
   TabController? tabBarController;

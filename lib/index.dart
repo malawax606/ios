@@ -1,5 +1,5 @@
 // Export pages
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
+export '/pages/home_page2/home_page2_widget.dart' show HomePage2Widget;
 export '/login/login_widget.dart' show LoginWidget;
 export '/user_profile/user_profile_widget.dart' show UserProfileWidget;
 export '/message/message_widget.dart' show MessageWidget;
@@ -27,3 +27,6 @@ export '/live_audio_copy/live_audio_copy_widget.dart' show LiveAudioCopyWidget;
 export '/test/test_widget.dart' show TestWidget;
 export '/user_profile_update/user_profile_update_widget.dart'
     show UserProfileUpdateWidget;
+export '/chat_page/chat_page_widget.dart' show ChatPageWidget;
+export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export '/home_page/home_page_widget.dart' show HomePageWidget;

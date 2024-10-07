@@ -9,6 +9,7 @@ import '/backend/schema/structs/index.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -75,19 +76,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const Auth1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const Auth1Widget(),
         ),
         FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
+          name: 'HomePage2',
+          path: '/homePage2',
           requireAuth: true,
-          builder: (context, params) => const HomePageWidget(),
+          builder: (context, params) => const HomePage2Widget(),
         ),
         FFRoute(
           name: 'Login',
@@ -297,6 +298,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'ChatPage',
+          path: '/chatPage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ChatPage')
+              : const ChatPageWidget(),
+        ),
+        FFRoute(
+          name: 'ProfilePage',
+          path: '/profilePage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ProfilePage')
+              : const ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'HomePage',
+          path: '/homePage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'HomePage')
+              : const HomePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -163,7 +163,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                           currentUserDocument?.gender, '') !=
                                       '') {
                                 context.goNamedAuth(
-                                  'HomePage',
+                                  'HomePage2',
                                   context.mounted,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: const TransitionInfo(
