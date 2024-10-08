@@ -14,11 +14,14 @@ class ChatPageWidget extends StatefulWidget {
   State<ChatPageWidget> createState() => _ChatPageWidgetState();
 }
 
-class _ChatPageWidgetState extends State<ChatPageWidget> {
+class _ChatPageWidgetState extends State<ChatPageWidget> with AutomaticKeepAliveClientMixin<ChatPageWidget> {
   late ChatPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  @override
+  bool get wantKeepAlive => true;
+  
   @override
   void initState() {
     super.initState();
@@ -34,6 +37,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context); // Add this to ensure state 
+    
     return FutureBuilder<List<UserRow>>(
       future: UserTable().querySingleRow(
         queryFn: (q) => q.eq(
