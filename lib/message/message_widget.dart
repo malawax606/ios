@@ -66,6 +66,7 @@ class _MessageWidgetState extends State<MessageWidget> {
     _model.messageTextController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
     _model.messageFocusNode!.addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -126,9 +127,9 @@ class _MessageWidgetState extends State<MessageWidget> {
                         onTap: () async {
                           context.safePop();
                         },
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                        child: const Icon(
+                          FFIcons.kaltArrowLeftSvgrepoCom,
+                          color: Color(0xFFB4BBB8),
                           size: 24.0,
                         ),
                       ),

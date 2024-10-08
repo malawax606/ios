@@ -24,6 +24,8 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllUsersModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

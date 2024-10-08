@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/log_out_widget.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,26 +12,26 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'home_page2_model.dart';
-export 'home_page2_model.dart';
+import 'home_page_model.dart';
+export 'home_page_model.dart';
 
-class HomePage2Widget extends StatefulWidget {
-  const HomePage2Widget({super.key});
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({super.key});
 
   @override
-  State<HomePage2Widget> createState() => _HomePage2WidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
-class _HomePage2WidgetState extends State<HomePage2Widget>
+class _HomePageWidgetState extends State<HomePageWidget>
     with TickerProviderStateMixin {
-  late HomePage2Model _model;
+  late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePage2Model());
+    _model = createModel(context, () => HomePageModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -154,10 +153,10 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
             ),
           );
         }
-        List<UserRow> homePage2UserRowList = snapshot.data!;
+        List<UserRow> homePageUserRowList = snapshot.data!;
 
-        final homePage2UserRow =
-            homePage2UserRowList.isNotEmpty ? homePage2UserRowList.first : null;
+        final homePageUserRow =
+            homePageUserRowList.isNotEmpty ? homePageUserRowList.first : null;
 
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -182,7 +181,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
                         icon: const Icon(
-                          Icons.mic_none,
+                          FFIcons.kphoneCallingSvgrepoCom,
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
@@ -197,14 +196,14 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                 ParamType.String,
                               ),
                               'id': serializeParam(
-                                homePage2UserRow?.username != null &&
-                                        homePage2UserRow?.username != ''
-                                    ? homePage2UserRow?.username
+                                homePageUserRow?.username != null &&
+                                        homePageUserRow?.username != ''
+                                    ? homePageUserRow?.username
                                     : 'User',
                                 ParamType.String,
                               ),
                               'admin': serializeParam(
-                                homePage2UserRow?.admin,
+                                homePageUserRow?.admin,
                                 ParamType.bool,
                               ),
                               'url2': serializeParam(
@@ -232,7 +231,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      if (homePage2UserRow?.admin == true) {
+                      if (homePageUserRow?.admin == true) {
                         context.pushNamed(
                           'Users-NoProfile',
                           extra: <String, dynamic>{
@@ -267,12 +266,12 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                         buttonSize: 40.0,
                         fillColor: FlutterFlowTheme.of(context).info,
                         icon: const Icon(
-                          Icons.search,
+                          FFIcons.kmagniferSvgrepoCom2,
                           color: Color(0x41000000),
                           size: 22.0,
                         ),
                         onPressed: () async {
-                          if (homePage2UserRow?.admin == true) {
+                          if (homePageUserRow?.admin == true) {
                             context.pushNamed(
                               'All_Users',
                               extra: <String, dynamic>{
@@ -328,7 +327,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                 queryFn: (q) => q
                                                     .eq(
                                                       'Gender',
-                                                      homePage2UserRow
+                                                      homePageUserRow
                                                           ?.lookingFor,
                                                     )
                                                     .eq(
@@ -1136,12 +1135,12 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                 BorderRadius.circular(60.0),
                                             child: Image.network(
                                               valueOrDefault<String>(
-                                                homePage2UserRow?.profilePic !=
+                                                homePageUserRow?.profilePic !=
                                                             null &&
-                                                        homePage2UserRow
+                                                        homePageUserRow
                                                                 ?.profilePic !=
                                                             ''
-                                                    ? homePage2UserRow
+                                                    ? homePageUserRow
                                                         ?.profilePic
                                                     : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -1161,7 +1160,7 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                           children: [
                                             Text(
                                               valueOrDefault<String>(
-                                                homePage2UserRow?.username,
+                                                homePageUserRow?.username,
                                                 'User',
                                               ),
                                               style: FlutterFlowTheme.of(
@@ -1177,17 +1176,16 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
-                                            if (homePage2UserRow!
-                                                    .vipProfilee! &&
-                                                !homePage2UserRow.verify!)
+                                            if (homePageUserRow!.vipProfilee! &&
+                                                !homePageUserRow.verify!)
                                               const Icon(
                                                 Icons.verified,
                                                 color: Color(0xFF1D7BFD),
                                                 size: 19.0,
                                               ),
-                                            if (!homePage2UserRow
+                                            if (!homePageUserRow
                                                     .vipProfilee! &&
-                                                homePage2UserRow.verify!)
+                                                homePageUserRow.verify!)
                                               const Icon(
                                                 Icons.verified,
                                                 color: Color(0xFFB305F9),
@@ -1304,12 +1302,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Icon(
-                                                            Icons
-                                                                .person_outline,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
+                                                          const Icon(
+                                                            FFIcons
+                                                                .kuserCheckRoundedSvgrepoCom,
+                                                            color: Color(
+                                                                0xFFB4BBB8),
                                                             size: 24.0,
                                                           ),
                                                           Text(
@@ -1380,11 +1377,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Icon(
-                                                            Icons.security,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
+                                                          const Icon(
+                                                            FFIcons
+                                                                .klockKeyholeUnlockedSvgrepoCom2,
+                                                            color: Color(
+                                                                0xFFB4BBB8),
                                                             size: 24.0,
                                                           ),
                                                           Text(
@@ -1455,11 +1452,10 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Icon(
-                                                            Icons.help_outline,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
+                                                          const Icon(
+                                                            Icons.help_outlined,
+                                                            color: Color(
+                                                                0xFFB4BBB8),
                                                             size: 24.0,
                                                           ),
                                                           Text(
@@ -1530,12 +1526,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Icon(
-                                                            Icons
-                                                                .privacy_tip_outlined,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
+                                                          const Icon(
+                                                            FFIcons
+                                                                .kdocumentsMinimalisticSvgrepoCom,
+                                                            color: Color(
+                                                                0xFFB4BBB8),
                                                             size: 24.0,
                                                           ),
                                                           Text(
@@ -1601,19 +1596,19 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                         width: 300.0,
                                                         child: LogOutWidget(
                                                           username:
-                                                              homePage2UserRow
+                                                              homePageUserRow
                                                                   .username!,
                                                           email:
                                                               currentUserEmail,
                                                           pictur:
                                                               valueOrDefault<
                                                                   String>(
-                                                            homePage2UserRow.profilePic !=
+                                                            homePageUserRow.profilePic !=
                                                                         null &&
-                                                                    homePage2UserRow
+                                                                    homePageUserRow
                                                                             .profilePic !=
                                                                         ''
-                                                                ? homePage2UserRow
+                                                                ? homePageUserRow
                                                                     .profilePic
                                                                 : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                             'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -1661,47 +1656,45 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                         ),
                         Align(
                           alignment: const Alignment(0.0, 0),
-                          child: FlutterFlowButtonTabBar(
-                            useToggleButtonStyle: true,
+                          child: TabBar(
+                            labelColor: const Color(0xFF0DBC8C),
+                            unselectedLabelColor: const Color(0xFFB4BBB8),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
                                   fontFamily: 'Inter Tight',
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
                                 ),
                             unselectedLabelStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
                                   fontFamily: 'Inter Tight',
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
                                 ),
-                            labelColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            unselectedLabelColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).accent1,
-                            unselectedBackgroundColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            borderColor: FlutterFlowTheme.of(context).primary,
-                            unselectedBorderColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            borderWidth: 2.0,
-                            borderRadius: 8.0,
-                            elevation: 0.0,
-                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                            indicatorColor:
+                                FlutterFlowTheme.of(context).primary,
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 5.0),
                             tabs: const [
                               Tab(
                                 text: 'Explore',
+                                icon: Icon(
+                                  FFIcons.khomeSvgrepoCom2,
+                                ),
                               ),
                               Tab(
                                 text: 'Chat',
+                                icon: Icon(
+                                  FFIcons.kchatRoundSvgrepoCom2,
+                                ),
                               ),
                               Tab(
                                 text: 'Profile',
+                                icon: Icon(
+                                  FFIcons.kuserCircleSvgrepoCom2,
+                                ),
                               ),
                             ],
                             controller: _model.tabBarController,

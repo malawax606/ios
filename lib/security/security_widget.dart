@@ -29,6 +29,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
     _model.switchValue1 = true;
     _model.switchValue2 = true;
     _model.switchValue3 = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -53,9 +54,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
+            icon: const Icon(
+              FFIcons.kaltArrowLeftSvgrepoCom,
+              color: Color(0xFFB4BBB8),
               size: 30.0,
             ),
             onPressed: () async {
@@ -66,7 +67,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
             'Security',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: const Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),

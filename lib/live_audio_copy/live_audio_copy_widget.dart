@@ -35,6 +35,8 @@ class _LiveAudioCopyWidgetState extends State<LiveAudioCopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LiveAudioCopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

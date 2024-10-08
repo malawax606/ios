@@ -31,6 +31,15 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Profile = prefs.getString('ff_Profile') ?? _Profile;
     });
+    _safeInit(() {
+      _HomePage = prefs.getBool('ff_HomePage') ?? _HomePage;
+    });
+    _safeInit(() {
+      _ChatPage = prefs.getBool('ff_ChatPage') ?? _ChatPage;
+    });
+    _safeInit(() {
+      _ProfilePage = prefs.getBool('ff_ProfilePage') ?? _ProfilePage;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -115,6 +124,27 @@ class FFAppState extends ChangeNotifier {
   set Profile(String value) {
     _Profile = value;
     prefs.setString('ff_Profile', value);
+  }
+
+  bool _HomePage = true;
+  bool get HomePage => _HomePage;
+  set HomePage(bool value) {
+    _HomePage = value;
+    prefs.setBool('ff_HomePage', value);
+  }
+
+  bool _ChatPage = false;
+  bool get ChatPage => _ChatPage;
+  set ChatPage(bool value) {
+    _ChatPage = value;
+    prefs.setBool('ff_ChatPage', value);
+  }
+
+  bool _ProfilePage = false;
+  bool get ProfilePage => _ProfilePage;
+  set ProfilePage(bool value) {
+    _ProfilePage = value;
+    prefs.setBool('ff_ProfilePage', value);
   }
 }
 

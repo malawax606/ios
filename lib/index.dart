@@ -27,6 +27,4 @@ export '/live_audio_copy/live_audio_copy_widget.dart' show LiveAudioCopyWidget;
 export '/test/test_widget.dart' show TestWidget;
 export '/user_profile_update/user_profile_update_widget.dart'
     show UserProfileUpdateWidget;
-export '/chat_page/chat_page_widget.dart' show ChatPageWidget;
-export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
-export '/home_page/home_page_widget.dart' show HomePageWidget;
+export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
