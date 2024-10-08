@@ -15,11 +15,14 @@ class HomePageWidget extends StatefulWidget {
   State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageWidgetState extends State<HomePageWidget> with AutomaticKeepAliveClientMixin<HomePageWidget> {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  @override
+  bool get wantKeepAlive => true;
+  
   @override
   void initState() {
     super.initState();
@@ -35,6 +38,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context); // Add this to ensure state 
     return FutureBuilder<List<UserRow>>(
       future: (_model.requestCompleter2 ??= Completer<List<UserRow>>()
             ..complete(UserTable().querySingleRow(
