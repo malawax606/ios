@@ -72,14 +72,32 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
             appBar: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              title: Text(
-                'Chat',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Inter Tight',
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+              title: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed(
+                    'HomePage',
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: const TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.fade,
+                        duration: Duration(milliseconds: 0),
+                      ),
+                    },
+                  );
+                },
+                child: Text(
+                  'Chat',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Inter Tight',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
               actions: const [],
               centerTitle: true,

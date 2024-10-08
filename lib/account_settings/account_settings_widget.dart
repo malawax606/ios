@@ -16,14 +16,11 @@ class AccountSettingsWidget extends StatefulWidget {
   State<AccountSettingsWidget> createState() => _AccountSettingsWidgetState();
 }
 
-class _AccountSettingsWidgetState extends State<AccountSettingsWidget> with AutomaticKeepAliveClientMixin<AccountSettingsWidget> {
+class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
   late AccountSettingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
-  bool get wantKeepAlive => true;  // Ensures the page stays alive and is not rebuilt
-  
   @override
   void initState() {
     super.initState();
@@ -52,8 +49,6 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> with Auto
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);  // Ensures state persistence
-    
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
