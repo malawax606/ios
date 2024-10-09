@@ -115,7 +115,6 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -25,8 +25,6 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AccountInformationModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

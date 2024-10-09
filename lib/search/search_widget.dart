@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'search_model.dart';
 export 'search_model.dart';
@@ -32,8 +31,6 @@ class _SearchWidgetState extends State<SearchWidget> {
 
     _model.ageTextController ??= TextEditingController();
     _model.ageFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -220,13 +217,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              _model.username =
-                                  _model.uSernameTextController.text;
-                              _model.age = _model.ageTextController.text;
-                              safeSetState(() {});
-                              safeSetState(
-                                  () => _model.requestCompleter = null);
-                              await _model.waitForRequestCompleted();
+                              if ((_model.uSernameTextController.text !=
+                                          '') &&
+                                  (_model.ageTextController.text != '')) {
+                                _model.username =
+                                    _model.uSernameTextController.text;
+                                _model.age = _model.ageTextController.text;
+                                safeSetState(() {});
+                              }
                             },
                             text: 'Search',
                             options: FFButtonOptions(
@@ -253,20 +251,17 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ),
                 ),
                 FutureBuilder<List<UserRow>>(
-                  future:
-                      (_model.requestCompleter ??= Completer<List<UserRow>>()
-                            ..complete(UserTable().querySingleRow(
-                              queryFn: (q) => q
-                                  .eq(
-                                    'Username',
-                                    _model.username,
-                                  )
-                                  .eq(
-                                    'Age',
-                                    _model.age,
-                                  ),
-                            )))
-                          .future,
+                  future: UserTable().querySingleRow(
+                    queryFn: (q) => q
+                        .eq(
+                          'Username',
+                          _model.username,
+                        )
+                        .eq(
+                          'Age',
+                          _model.age,
+                        ),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -342,8 +337,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       width: 60.0,
                                       height: 60.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: Image.network(
@@ -357,19 +350,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                                           ).image,
                                         ),
                                         shape: BoxShape.circle,
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          'JD',
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .override(
-                                                fontFamily: 'Inter Tight',
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
                                       ),
                                     ),
                                     Expanded(

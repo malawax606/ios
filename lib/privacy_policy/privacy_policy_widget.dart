@@ -21,8 +21,6 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PrivacyPolicyModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

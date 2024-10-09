@@ -50,8 +50,6 @@ class _LoginWidgetState extends State<LoginWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

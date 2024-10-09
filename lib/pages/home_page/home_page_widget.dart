@@ -115,7 +115,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -468,17 +467,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
-                                                  },
                                                 );
                                               },
                                               child: Column(

@@ -48,8 +48,6 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
         safeSetState(() {});
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
