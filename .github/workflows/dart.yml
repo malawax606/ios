@@ -17,6 +17,7 @@ jobs:
       - run: flutter pub get
       - run: flutter pub outdated
       - run: flutter pub upgrade
+      - run: flutter pub get dart run flutter_launcher_icons
       
 
       - run: pod repo update
