@@ -168,7 +168,10 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Text(
-                                'My ID ${widget.id}',
+                                valueOrDefault<String>(
+                                  widget.id,
+                                  '.',
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall

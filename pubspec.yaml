@@ -1,4 +1,4 @@
-name: soomates
+name: alafdoon
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -49,11 +49,15 @@ dependencies:
   firebase_performance: 0.9.4+5
   firebase_performance_platform_interface: 0.1.4+33
   firebase_performance_web: 0.1.6+5
+  firebase_remote_config: 4.4.5
+  firebase_remote_config_platform_interface: 1.4.33
+  firebase_remote_config_web: 1.6.5
   firebase_storage: 11.7.5
   firebase_storage_platform_interface: 5.1.20
   firebase_storage_web: 3.9.5
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.3.1
+  flutter_native_splash: 2.3.1
   flutter_plugin_android_lifecycle: 2.0.20
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
@@ -104,6 +108,7 @@ dependencies:
   supabase_flutter: 1.10.24
   timeago: 3.6.1
   tutorial_coach_mark: 1.2.11
+  universal_io: 2.2.2
   url_launcher: 6.3.0
   url_launcher_android: 6.3.4
   url_launcher_ios: 6.3.1
@@ -117,6 +122,7 @@ dependencies:
   webview_flutter_android: 3.15.0
   webview_flutter_platform_interface: 2.10.0
   webview_flutter_wkwebview: 3.12.0
+  xml: 6.5.0
   zego_uikit_prebuilt_live_audio_room: ^3.14.2
 
   # The following adds the Cupertino Icons font to your application.
@@ -130,10 +136,22 @@ dependency_overrides:
   win32: 5.5.1
 
 dev_dependencies:
+  flutter_launcher_icons: 0.13.1
   flutter_lints: 4.0.0
+  image: 4.0.17
   lints: 4.0.0
   flutter_test:
     sdk: flutter
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  web:
+    generate: true
+  image_path: 'assets/images/app_launcher_icon.jpg'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

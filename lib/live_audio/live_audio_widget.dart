@@ -50,24 +50,27 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primary,
-        body: SafeArea(
-          top: true,
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: custom_widgets.LivePage(
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          body: SafeArea(
+            top: true,
+            child: SizedBox(
               width: double.infinity,
               height: double.infinity,
-              roomID: '2345',
-              isHost: true,
-              userID: currentUserUid,
-              appID: widget.appId!,
-              appSign: widget.appSign!,
-              userName: widget.id!,
-              userAvatarUrl: widget.url!,
+              child: custom_widgets.LivePage(
+                width: double.infinity,
+                height: double.infinity,
+                roomID: '2345',
+                isHost: true,
+                userID: currentUserUid,
+                appID: widget.appId!,
+                appSign: widget.appSign!,
+                userName: widget.id!,
+                userAvatarUrl: widget.url!,
+              ),
             ),
           ),
         ),

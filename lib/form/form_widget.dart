@@ -997,8 +997,7 @@ class _FormWidgetState extends State<FormWidget> {
                             16.0, 0.0, 16.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if ((_model.uploadedFileUrl != '') &&
-                                (_model.usernameTextController.text != '') &&
+                            if ((_model.usernameTextController.text != '') &&
                                 (_model.fullNameTextController.text != '') &&
                                 (_model.ageValue != null &&
                                     _model.ageValue != '') &&
@@ -1099,8 +1098,8 @@ class _FormWidgetState extends State<FormWidget> {
                                 ),
                               ));
 
-                              context.pushNamed(
-                                'HomePage2',
+                              context.goNamed(
+                                'HomePage',
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,

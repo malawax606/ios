@@ -9,7 +9,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -75,13 +74,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginEmailWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginEmailWidget(),
         ),
         FFRoute(
           name: 'HomePage2',
@@ -188,11 +187,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Blocked',
           path: '/blocked',
           builder: (context, params) => const BlockedWidget(),
-        ),
-        FFRoute(
-          name: 'Email',
-          path: '/email',
-          builder: (context, params) => const EmailWidget(),
         ),
         FFRoute(
           name: 'All_Users',
@@ -303,6 +297,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           requireAuth: true,
           builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'Search_Test',
+          path: '/searchTest',
+          builder: (context, params) => const SearchTestWidget(),
+        ),
+        FFRoute(
+          name: 'Email_Change',
+          path: '/emailChange',
+          builder: (context, params) => const EmailChangeWidget(),
+        ),
+        FFRoute(
+          name: 'Login_Email',
+          path: '/loginEmail',
+          builder: (context, params) => const LoginEmailWidget(),
+        ),
+        FFRoute(
+          name: 'Create_Account',
+          path: '/createAccount',
+          builder: (context, params) => const CreateAccountWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -475,7 +489,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/loginEmail';
           }
           return null;
         },
@@ -489,14 +503,14 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+              ? Container(
+                  color: Colors.white,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/IMG_6766.jpg',
+                      width: 300.0,
+                      height: 300.0,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 )

@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/log_out_widget.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -198,7 +199,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               'id': serializeParam(
                                 homePageUserRow?.username != null &&
                                         homePageUserRow?.username != ''
-                                    ? homePageUserRow?.username
+                                    ? '${homePageUserRow?.username} ${homePageUserRow?.age}'
                                     : 'User',
                                 ParamType.String,
                               ),
@@ -213,13 +214,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ParamType.String,
                               ),
                             }.withoutNulls,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
                           );
                         },
                       ),
@@ -245,7 +239,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       }
                     },
                     child: Text(
-                      'Soomates',
+                      'Alafdoon',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Inter Tight',
@@ -284,16 +278,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             );
                           }
 
-                          context.pushNamed(
-                            'Search',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
-                          );
+                          context.pushNamed('Search');
                         },
                       ),
                     ],
@@ -309,50 +294,73 @@ class _HomePageWidgetState extends State<HomePageWidget>
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 5.0),
-                    child: Material(
-                      color: Colors.transparent,
-                      elevation: 0.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).info,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Text(
-                                      'CityCityCityCityCityCityCityCityCityCityCityCityCityCityCityCityCity',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ],
+                  if ((getRemoteConfigBool('News') == true) ||
+                      (getRemoteConfigBool('News_Link') == true))
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 7.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (getRemoteConfigBool('News_Link') == true) {
+                            await launchURL(getRemoteConfigString('Link_News'));
+                          }
+                        },
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 0.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: colorFromCssString(
+                                getRemoteConfigString('Ogeysis_Color_BG'),
+                                defaultColor: FlutterFlowTheme.of(context).info,
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Text(
+                                          getRemoteConfigString('News_Text'),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color: colorFromCssString(
+                                                  getRemoteConfigString(
+                                                      'Ogeysis_Color_TX'),
+                                                  defaultColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                ),
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ].divide(const SizedBox(height: 16.0)),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
                   Expanded(
                     child: Column(
                       children: [
@@ -363,7 +371,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               KeepAliveWidgetWrapper(
                                 builder: (context) => Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0.0, 5.0, 0.0, 0.0),
                                   child: FutureBuilder<List<UserRow>>(
                                     future: (_model.requestCompleter1 ??=
                                             Completer<List<UserRow>>()
@@ -490,15 +498,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               0.75, 0.9),
                                                       children: [
                                                         Hero(
-                                                          tag: gridViewNoUserRow
-                                                                          .profilePic !=
-                                                                      null &&
-                                                                  gridViewNoUserRow
-                                                                          .profilePic !=
-                                                                      ''
-                                                              ? gridViewNoUserRow
-                                                                  .profilePic!
-                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                          tag: valueOrDefault<
+                                                              String>(
+                                                            gridViewNoUserRow
+                                                                            .profilePic !=
+                                                                        null &&
+                                                                    gridViewNoUserRow
+                                                                            .profilePic !=
+                                                                        ''
+                                                                ? gridViewNoUserRow
+                                                                    .profilePic
+                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$gridViewNoIndex',
+                                                          ),
                                                           transitionOnUserGestures:
                                                               true,
                                                           child: Container(
@@ -521,15 +533,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   const Duration(
                                                                       milliseconds:
                                                                           500),
-                                                              imageUrl: gridViewNoUserRow
-                                                                              .profilePic !=
-                                                                          null &&
-                                                                      gridViewNoUserRow
-                                                                              .profilePic !=
-                                                                          ''
-                                                                  ? gridViewNoUserRow
-                                                                      .profilePic!
-                                                                  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                              imageUrl:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                gridViewNoUserRow.profilePic !=
+                                                                            null &&
+                                                                        gridViewNoUserRow.profilePic !=
+                                                                            ''
+                                                                    ? gridViewNoUserRow
+                                                                        .profilePic
+                                                                    : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                              ),
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -841,29 +856,60 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 const AlignmentDirectional(
                                                                     1.0, -1.0),
                                                             children: [
-                                                              Container(
-                                                                width: 55.0,
-                                                                height: 55.0,
-                                                                clipBehavior: Clip
-                                                                    .antiAlias,
-                                                                decoration:
-                                                                    const BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child:
-                                                                    CachedNetworkImage(
-                                                                  fadeInDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  fadeOutDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  imageUrl:
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await Navigator
+                                                                      .push(
+                                                                    context,
+                                                                    PageTransition(
+                                                                      type: PageTransitionType
+                                                                          .fade,
+                                                                      child:
+                                                                          FlutterFlowExpandedImageView(
+                                                                        image:
+                                                                            CachedNetworkImage(
+                                                                          fadeInDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          fadeOutDuration:
+                                                                              const Duration(milliseconds: 500),
+                                                                          imageUrl:
+                                                                              valueOrDefault<String>(
+                                                                            rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
+                                                                                ? rowUserUserRow?.profilePic
+                                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                          ),
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                        allowRotation:
+                                                                            true,
+                                                                        tag: valueOrDefault<
+                                                                            String>(
+                                                                          rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
+                                                                              ? rowUserUserRow?.profilePic
+                                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                          'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
+                                                                        ),
+                                                                        useHeroAnimation:
+                                                                            true,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Hero(
+                                                                  tag: valueOrDefault<
+                                                                      String>(
                                                                     rowUserUserRow?.profilePic !=
                                                                                 null &&
                                                                             rowUserUserRow?.profilePic !=
@@ -871,10 +917,43 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ? rowUserUserRow
                                                                             ?.profilePic
                                                                         : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
                                                                   ),
-                                                                  fit: BoxFit
-                                                                      .cover,
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      Container(
+                                                                    width: 55.0,
+                                                                    height:
+                                                                        55.0,
+                                                                    clipBehavior:
+                                                                        Clip.antiAlias,
+                                                                    decoration:
+                                                                        const BoxDecoration(
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    child:
+                                                                        CachedNetworkImage(
+                                                                      fadeInDuration:
+                                                                          const Duration(
+                                                                              milliseconds: 500),
+                                                                      fadeOutDuration:
+                                                                          const Duration(
+                                                                              milliseconds: 500),
+                                                                      imageUrl:
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                        rowUserUserRow?.profilePic != null &&
+                                                                                rowUserUserRow?.profilePic != ''
+                                                                            ? rowUserUserRow?.profilePic
+                                                                            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                      ),
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                               if ((listViewChatRow
@@ -1243,19 +1322,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             0.0, 0.0, 0.0, 20.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            context.pushNamed(
-                                              'Update_Profile',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
-                                                ),
-                                              },
-                                            );
+                                            context.pushNamed('Update_Profile');
                                           },
                                           text: 'Edit Profile',
                                           options: FFButtonOptions(
@@ -1321,19 +1388,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                      'Account_Information',
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 0),
-                                                        ),
-                                                      },
-                                                    );
+                                                        'Account_Information');
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -1395,20 +1450,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed(
-                                                      'Security',
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 0),
-                                                        ),
-                                                      },
-                                                    );
+                                                    context
+                                                        .pushNamed('Security');
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -1471,19 +1514,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                      'HelpCenter',
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 0),
-                                                        ),
-                                                      },
-                                                    );
+                                                        'HelpCenter');
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -1545,19 +1576,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                      'Privacy_Policy',
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 0),
-                                                        ),
-                                                      },
-                                                    );
+                                                        'Privacy_Policy');
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -1688,6 +1707,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                             ),
+                                            showLoadingIndicator: false,
                                           ),
                                         ),
                                       ),

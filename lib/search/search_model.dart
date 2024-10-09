@@ -9,12 +9,20 @@ class SearchModel extends FlutterFlowModel<SearchWidget> {
 
   int? id;
 
+  String? username;
+
+  String? age;
+
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for USername widget.
+  FocusNode? uSernameFocusNode;
+  TextEditingController? uSernameTextController;
+  String? Function(BuildContext, String?)? uSernameTextControllerValidator;
+  // State field(s) for Age widget.
+  FocusNode? ageFocusNode;
+  TextEditingController? ageTextController;
+  String? Function(BuildContext, String?)? ageTextControllerValidator;
   Completer<List<UserRow>>? requestCompleter;
 
   @override
@@ -22,8 +30,11 @@ class SearchModel extends FlutterFlowModel<SearchWidget> {
 
   @override
   void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    uSernameFocusNode?.dispose();
+    uSernameTextController?.dispose();
+
+    ageFocusNode?.dispose();
+    ageTextController?.dispose();
   }
 
   /// Additional helper methods.

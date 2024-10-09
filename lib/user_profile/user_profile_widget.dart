@@ -124,9 +124,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   borderRadius: 8.0,
                   buttonSize: 40.0,
                   fillColor: FlutterFlowTheme.of(context).primary,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.more_vert_sharp,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: Color(0xFFB4BBB8),
                     size: 24.0,
                   ),
                   onPressed: () {
@@ -349,15 +349,6 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 0),
-                                            ),
-                                          },
                                         );
                                       },
                                       text: 'Message',

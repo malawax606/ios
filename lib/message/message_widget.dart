@@ -292,15 +292,15 @@ class _MessageWidgetState extends State<MessageWidget> {
               );
             },
           ),
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Icon(
                     Icons.more_vert,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: Color(0xFFB4BBB8),
                     size: 26.0,
                   ),
                 ],
@@ -1178,8 +1178,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                   () {});
                                                             },
                                                             child: Icon(
-                                                              Icons
-                                                                  .send_outlined,
+                                                              FFIcons
+                                                                  .kplainSvgrepoCom2,
                                                               color:
                                                                   valueOrDefault<
                                                                       Color>(

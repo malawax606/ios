@@ -111,14 +111,15 @@ class CountryFalgCall {
       ));
 }
 
-class SupabaseUserIDCall {
+class SupabaseUsernameCall {
   static Future<ApiCallResponse> call({
     String? searchString = '',
+    String? age = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'Supabase User ID',
+      callName: 'Supabase Username',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(USER ID.ilike.*$searchString*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(Username.ilike.*$searchString*)&select=* &Deleted=eq.false&select=* &Age=eq.$age&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

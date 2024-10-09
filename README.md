@@ -1,4 +1,4 @@
-# Soomates
+# Alafdoon
 
 A new Flutter project.
 
