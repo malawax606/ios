@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/messages_widget.dart';
+import '/components/report_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -127,8 +128,30 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                     color: Color(0xFFB4BBB8),
                     size: 24.0,
                   ),
-                  onPressed: () {
-                    print('IconButton pressed ...');
+                  onPressed: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      useSafeArea: true,
+                      context: context,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () => FocusScope.of(context).unfocus(),
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: SizedBox(
+                              height: 600.0,
+                              child: ReportWidget(
+                                id: widget.userID!,
+                                image: userProfileUserRow!.profilePic!,
+                                username: userProfileUserRow.username!,
+                                fullName: userProfileUserRow.fullName!,
+                                userID: userProfileUserRow.userId!.toString(),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ).then((value) => safeSetState(() {}));
                   },
                 ),
               ],
@@ -344,6 +367,19 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             ),
                                             'sender': serializeParam(
                                               buttonChatRow?.lastMessageSentBy,
+                                              ParamType.String,
+                                            ),
+                                            'username': serializeParam(
+                                              userProfileUserRow?.username,
+                                              ParamType.String,
+                                            ),
+                                            'fullName': serializeParam(
+                                              userProfileUserRow?.fullName,
+                                              ParamType.String,
+                                            ),
+                                            'uSERID': serializeParam(
+                                              userProfileUserRow?.userId
+                                                  ?.toString(),
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,

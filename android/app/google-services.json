@@ -67,6 +67,14 @@
           }
         },
         {
+          "client_id": "565995859325-2194c869jviiuep6opjn8hl121t777sq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shukansi.som",
+            "certificate_hash": "29a726b7fa5d2c79010aa88fd5303158ad69ef04"
+          }
+        },
+        {
           "client_id": "565995859325-p8nmlp0lmimrd20brhnbd32jd8ukla9c.apps.googleusercontent.com",
           "client_type": 3
         }

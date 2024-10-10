@@ -272,6 +272,8 @@ dynamic deserializeParam<T>(
             return OnlineRow(data);
           case MessageRow:
             return MessageRow(data);
+          case ReportRow:
+            return ReportRow(data);
           case UserNoProfileRow:
             return UserNoProfileRow(data);
           case FriendsRow:

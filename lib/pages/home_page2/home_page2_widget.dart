@@ -931,6 +931,26 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                                     ParamType
                                                                         .int,
                                                                   ),
+                                                                  'username':
+                                                                      serializeParam(
+                                                                    rowUserUserRow
+                                                                        ?.username,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'fullName':
+                                                                      serializeParam(
+                                                                    rowUserUserRow
+                                                                        ?.fullName,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'uSERID':
+                                                                      serializeParam(
+                                                                    '',
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             },

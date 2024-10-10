@@ -15,8 +15,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
-  final appState = FFAppState(); // Initialize FFAppState
-  await appState.initializePersistedState();
 
   await initFirebase();
 
@@ -25,6 +23,9 @@ void main() async {
   // End initial custom actions code
 
   await SupaFlow.initialize();
+
+  final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
 
   await initializeFirebaseRemoteConfig();
 

@@ -1042,6 +1042,28 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     ParamType
                                                                         .int,
                                                                   ),
+                                                                  'username':
+                                                                      serializeParam(
+                                                                    rowUserUserRow
+                                                                        ?.username,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'fullName':
+                                                                      serializeParam(
+                                                                    rowUserUserRow
+                                                                        ?.fullName,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'uSERID':
+                                                                      serializeParam(
+                                                                    rowUserUserRow
+                                                                        ?.userId
+                                                                        ?.toString(),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             },
@@ -1180,35 +1202,45 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           ),
                                                         ],
                                                       ),
-                                                      Column(
+                                                      Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        7.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  "relative",
-                                                                  listViewChatRow
-                                                                      .lastMesageSentTime),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            7.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      "relative",
+                                                                      listViewChatRow
+                                                                          .lastMesageSentTime),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ],
                                                       ),
@@ -1241,11 +1273,51 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 .primary,
                                             shape: BoxShape.circle,
                                           ),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(60.0),
-                                            child: Image.network(
-                                              valueOrDefault<String>(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                PageTransition(
+                                                  type: PageTransitionType.fade,
+                                                  child:
+                                                      FlutterFlowExpandedImageView(
+                                                    image: Image.network(
+                                                      valueOrDefault<String>(
+                                                        homePageUserRow?.profilePic !=
+                                                                    null &&
+                                                                homePageUserRow
+                                                                        ?.profilePic !=
+                                                                    ''
+                                                            ? homePageUserRow
+                                                                ?.profilePic
+                                                            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                      ),
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                    allowRotation: false,
+                                                    tag: valueOrDefault<String>(
+                                                      homePageUserRow?.profilePic !=
+                                                                  null &&
+                                                              homePageUserRow
+                                                                      ?.profilePic !=
+                                                                  ''
+                                                          ? homePageUserRow
+                                                              ?.profilePic
+                                                          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                    ),
+                                                    useHeroAnimation: true,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                            child: Hero(
+                                              tag: valueOrDefault<String>(
                                                 homePageUserRow?.profilePic !=
                                                             null &&
                                                         homePageUserRow
@@ -1256,7 +1328,25 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                               ),
-                                              fit: BoxFit.cover,
+                                              transitionOnUserGestures: true,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(60.0),
+                                                child: Image.network(
+                                                  valueOrDefault<String>(
+                                                    homePageUserRow?.profilePic !=
+                                                                null &&
+                                                            homePageUserRow
+                                                                    ?.profilePic !=
+                                                                ''
+                                                        ? homePageUserRow
+                                                            ?.profilePic
+                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                  ),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),

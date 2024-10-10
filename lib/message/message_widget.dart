@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/report_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,6 +22,9 @@ class MessageWidget extends StatefulWidget {
     required this.image,
     required this.gender,
     required this.sender,
+    required this.username,
+    required this.fullName,
+    required this.uSERID,
   });
 
   final String? chatID;
@@ -29,6 +33,9 @@ class MessageWidget extends StatefulWidget {
   final String? image;
   final String? gender;
   final String? sender;
+  final String? username;
+  final String? fullName;
+  final String? uSERID;
 
   @override
   State<MessageWidget> createState() => _MessageWidgetState();
@@ -291,18 +298,49 @@ class _MessageWidgetState extends State<MessageWidget> {
               );
             },
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Icon(
-                    Icons.more_vert,
-                    color: Color(0xFFB4BBB8),
-                    size: 26.0,
-                  ),
-                ],
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    useSafeArea: true,
+                    context: context,
+                    builder: (context) {
+                      return GestureDetector(
+                        onTap: () => FocusScope.of(context).unfocus(),
+                        child: Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: SizedBox(
+                            height: 600.0,
+                            child: ReportWidget(
+                              id: widget.userId!,
+                              image: widget.image!,
+                              username: widget.username!,
+                              fullName: widget.fullName!,
+                              userID: widget.uSERID!,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ).then((value) => safeSetState(() {}));
+                },
+                child: const Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Icon(
+                      Icons.more_vert,
+                      color: Color(0xFFB4BBB8),
+                      size: 26.0,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

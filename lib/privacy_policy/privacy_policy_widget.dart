@@ -249,7 +249,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    'If you have any questions about this privacy policy, please contact us at +254715738646',
+                    'If you have any questions about this privacy policy, please contact us at +252770601699',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,

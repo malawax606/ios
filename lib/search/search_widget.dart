@@ -224,6 +224,21 @@ class _SearchWidgetState extends State<SearchWidget> {
                                     _model.uSernameTextController.text;
                                 _model.age = _model.ageTextController.text;
                                 safeSetState(() {});
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Username io Da,da qofka gali',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: const Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
                               }
                             },
                             text: 'Search',
@@ -251,7 +266,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ),
                 ),
                 FutureBuilder<List<UserRow>>(
-                  future: UserTable().querySingleRow(
+                  future: UserTable().queryRows(
                     queryFn: (q) => q
                         .eq(
                           'Username',
@@ -279,20 +294,15 @@ class _SearchWidgetState extends State<SearchWidget> {
                     }
                     List<UserRow> listViewUserRowList = snapshot.data!;
 
-                    // Return an empty Container when the item does not exist.
-                    if (snapshot.data!.isEmpty) {
-                      return Container();
-                    }
-                    final listViewUserRow = listViewUserRowList.isNotEmpty
-                        ? listViewUserRowList.first
-                        : null;
-
-                    return ListView(
+                    return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      children: [
-                        InkWell(
+                      itemCount: listViewUserRowList.length,
+                      itemBuilder: (context, listViewIndex) {
+                        final listViewUserRow =
+                            listViewUserRowList[listViewIndex];
+                        return InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
@@ -302,7 +312,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               'User_Profile',
                               queryParameters: {
                                 'userID': serializeParam(
-                                  listViewUserRow?.id,
+                                  listViewUserRow.id,
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -340,12 +350,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: Image.network(
-                                            listViewUserRow?.profilePic !=
+                                            listViewUserRow.profilePic !=
                                                         null &&
                                                     listViewUserRow
-                                                            ?.profilePic !=
+                                                            .profilePic !=
                                                         ''
-                                                ? listViewUserRow!.profilePic!
+                                                ? listViewUserRow.profilePic!
                                                 : 'h',
                                           ).image,
                                         ),
@@ -360,7 +370,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                         children: [
                                           Text(
                                             valueOrDefault<String>(
-                                              listViewUserRow?.fullName,
+                                              listViewUserRow.fullName,
                                               'User',
                                             ).maybeHandleOverflow(maxChars: 25),
                                             style: FlutterFlowTheme.of(context)
@@ -371,7 +381,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'Age: ${listViewUserRow?.age}',
+                                            'Age: ${listViewUserRow.age}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -383,7 +393,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'Country: ${listViewUserRow?.country}',
+                                            'Country: ${listViewUserRow.country}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -402,8 +412,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     );
                   },
                 ),
