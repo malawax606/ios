@@ -209,6 +209,20 @@ class _MoreWidgetState extends State<MoreWidget> {
                                   '',
                                 ),
                               );
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'You have been blocked',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor: const Color(0xFF38DBC8),
+                                ),
+                              );
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -256,6 +270,20 @@ class _MoreWidgetState extends State<MoreWidget> {
                                 matchingRows: (rows) => rows.eq(
                                   'id',
                                   '',
+                                ),
+                              );
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'You have been blocked',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor: const Color(0xFF38DBC8),
                                 ),
                               );
                             },
