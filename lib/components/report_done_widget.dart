@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -33,7 +34,14 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Navigator.pop(context);
+      _model.instantTimer = InstantTimer.periodic(
+        duration: const Duration(milliseconds: 350),
+        callback: (timer) async {
+          _model.instantTimer?.cancel();
+          Navigator.pop(context);
+        },
+        startImmediately: true,
+      );
     });
 
     animationsMap.addAll({

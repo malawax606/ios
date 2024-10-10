@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - appVersion] action in HomePage widget.
+  String? version;
+  // Stores action output result for [Backend Call - API (Supabase App Vesrion)] action in HomePage widget.
+  ApiCallResponse? versionApi;
   // Stores action output result for [Backend Call - API (Supabase User)] action in HomePage widget.
   ApiCallResponse? user;
   // Stores action output result for [Backend Call - API (Image Upload)] action in HomePage widget.

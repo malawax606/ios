@@ -237,6 +237,37 @@ class SupabaseUserCall {
       ));
 }
 
+class SupabaseAppVesrionCall {
+  static Future<ApiCallResponse> call({
+    String? searchString = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Supabase App Vesrion',
+      apiUrl:
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/App_Version?or=( idd.ilike.*$searchString*)&select=*',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? version(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Version''',
+      ));
+}
+
 class ImageUploadCall {
   static Future<ApiCallResponse> call({
     String? image = '',

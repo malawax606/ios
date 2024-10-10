@@ -61,7 +61,7 @@ class _ReportWidgetState extends State<ReportWidget> {
         width: double.infinity,
         height: 600.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: FlutterFlowTheme.of(context).primary,
           borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),

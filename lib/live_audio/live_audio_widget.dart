@@ -68,6 +68,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
                 appSign: widget.appSign!,
                 userName: widget.id!,
                 userAvatarUrl: widget.url!,
+                backgroundImage: 'https://picsum.photos/seed/585/600',
               ),
             ),
           ),

@@ -144,7 +144,10 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               child: const SizedBox(
                                                 height: 270.0,
                                                 width: 320.0,
-                                                child: EmailVerifyWidget(),
+                                                child: EmailVerifyWidget(
+                                                  text:
+                                                      'We\'ve sent a verification email to your registered email address. Please check your inbox and click the verification link to complete the process.',
+                                                ),
                                               ),
                                             ),
                                           );

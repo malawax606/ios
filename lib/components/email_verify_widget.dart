@@ -5,7 +5,12 @@ import 'email_verify_model.dart';
 export 'email_verify_model.dart';
 
 class EmailVerifyWidget extends StatefulWidget {
-  const EmailVerifyWidget({super.key});
+  const EmailVerifyWidget({
+    super.key,
+    required this.text,
+  });
+
+  final String? text;
 
   @override
   State<EmailVerifyWidget> createState() => _EmailVerifyWidgetState();
@@ -67,22 +72,15 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
-              'We\'ve sent a verification email to your registered email address. Please check your inbox and click the verification link to complete the process.',
+              valueOrDefault<String>(
+                widget.text,
+                '.',
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
                     letterSpacing: 0.0,
                   ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-            child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.9,
-              height: 1.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).alternate,
-              ),
             ),
           ),
           Padding(

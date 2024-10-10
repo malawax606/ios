@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/email_verify_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -130,7 +131,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color(0x00000000),
+                        color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -182,7 +183,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color(0x00000000),
+                        color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -234,7 +235,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color(0x00000000),
+                        color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -263,46 +264,76 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                       .asValidator(context),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    if (_model.newEmailTextController.text ==
-                        _model.confirmEmailTextController.text) {
-                      if (_model.newEmailTextController.text.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Email required!',
+              Builder(
+                builder: (context) => Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      if (_model.newEmailTextController.text ==
+                          _model.confirmEmailTextController.text) {
+                        if (_model.newEmailTextController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Email required!',
+                              ),
                             ),
-                          ),
-                        );
-                        return;
-                      }
+                          );
+                          return;
+                        }
 
-                      await authManager.updateEmail(
-                        email: _model.newEmailTextController.text,
-                        context: context,
-                      );
-                      safeSetState(() {});
-                    }
-                  },
-                  text: 'Update Email',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 50.0,
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF6F61EF),
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter Tight',
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                        ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(8.0),
+                        await authManager.updateEmail(
+                          email: _model.newEmailTextController.text,
+                          context: context,
+                        );
+                        safeSetState(() {});
+
+                        await authManager.sendEmailVerification();
+                        await showDialog(
+                          context: context,
+                          builder: (dialogContext) {
+                            return Dialog(
+                              elevation: 0,
+                              insetPadding: EdgeInsets.zero,
+                              backgroundColor: Colors.transparent,
+                              alignment: const AlignmentDirectional(0.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              child: GestureDetector(
+                                onTap: () =>
+                                    FocusScope.of(dialogContext).unfocus(),
+                                child: const SizedBox(
+                                  height: 270.0,
+                                  width: 320.0,
+                                  child: EmailVerifyWidget(
+                                    text:
+                                        'We\'ve sent a verification email to your new email address. Please check your inbox and click the verification link to complete the process.',
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      }
+                    },
+                    text: 'Update Email',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 50.0,
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: const Color(0xFF6F61EF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
               ),

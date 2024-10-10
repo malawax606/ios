@@ -7,7 +7,8 @@ import 'test_model.dart';
 export 'test_model.dart';
 
 class TestWidget extends StatefulWidget {
-  /// Create page to show user the app needs update and tell them to update
+  /// Create page for dating app for Security also shos if the email verify  and
+  /// options need on dating apps
   const TestWidget({super.key});
 
   @override
@@ -78,12 +79,6 @@ class _TestWidgetState extends State<TestWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.network(
-                  'https://images.unsplash.com/photo-1727542908410-de6c65a4c93a?w=500&h=500',
-                  width: 200.0,
-                  height: 200.0,
-                  fit: BoxFit.contain,
-                ),
                 Text(
                   'New Version Available',
                   textAlign: TextAlign.center,
@@ -108,17 +103,27 @@ class _TestWidgetState extends State<TestWidget> {
                   options: FFButtonOptions(
                     width: 200.0,
                     height: 50.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: const Color(0xFF6F61EF),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Inter Tight',
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),
-                    elevation: 2.0,
-                    borderRadius: BorderRadius.circular(25.0),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    'https://picsum.photos/seed/585/600',
+                    width: 200.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ].divide(const SizedBox(height: 24.0)),

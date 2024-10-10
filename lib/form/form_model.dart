@@ -13,6 +13,8 @@ class FormModel extends FlutterFlowModel<FormWidget> {
 
   String? looking;
 
+  String? countryy = 'Somalia';
+
   ///  State fields for stateful widgets in this page.
 
   TutorialCoachMark? fromController;

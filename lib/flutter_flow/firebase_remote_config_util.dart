@@ -12,6 +12,7 @@ Future initializeFirebaseRemoteConfig() async {
     'Ogeysis_Color_BG': '',
     'Ogeysis_Color_TX': '',
     'Link_News': '',
+    'App_Version_Check': '',
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }
