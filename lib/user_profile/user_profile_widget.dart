@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/messages_widget.dart';
-import '/components/report_widget.dart';
+import '/components/more_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -131,7 +131,8 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   onPressed: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
-                      useSafeArea: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
                       context: context,
                       builder: (context) {
                         return GestureDetector(
@@ -139,13 +140,13 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: SizedBox(
-                              height: 600.0,
-                              child: ReportWidget(
+                              height: 200.0,
+                              child: MoreWidget(
                                 id: widget.userID!,
                                 image: userProfileUserRow!.profilePic!,
                                 username: userProfileUserRow.username!,
                                 fullName: userProfileUserRow.fullName!,
-                                userID: userProfileUserRow.userId!.toString(),
+                                userID: '',
                               ),
                             ),
                           ),

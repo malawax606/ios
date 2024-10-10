@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/report_widget.dart';
+import '/components/more_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -317,9 +317,9 @@ class _MessageWidgetState extends State<MessageWidget> {
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: SizedBox(
-                            height: 600.0,
-                            child: ReportWidget(
-                              id: widget.userId!,
+                            height: 200.0,
+                            child: MoreWidget(
+                              id: '',
                               image: widget.image!,
                               username: widget.username!,
                               fullName: widget.fullName!,

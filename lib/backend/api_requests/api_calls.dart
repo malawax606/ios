@@ -266,6 +266,10 @@ class SupabaseAppVesrionCall {
         response,
         r'''$[:].Version''',
       ));
+  static String? url(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].UpdateUrl''',
+      ));
 }
 
 class ImageUploadCall {

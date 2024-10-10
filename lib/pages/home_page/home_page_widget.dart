@@ -1913,8 +1913,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                             ),
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                await launchURL(SupabaseAppVesrionCall.url(
+                                  (_model.versionApi?.jsonBody ?? ''),
+                                )!);
                               },
                               text: 'Update Now',
                               options: FFButtonOptions(
