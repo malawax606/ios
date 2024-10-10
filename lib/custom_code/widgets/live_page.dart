@@ -47,21 +47,19 @@ class _LivePageState extends State<LivePage> {
   Widget build(BuildContext context) {
     return Container(
       child: ZegoUIKitPrebuiltLiveAudioRoom(
-        appID: widget
-            .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
-        appSign: widget
-            .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
-        userID: widget.userID,
-        userName: widget.userName,
-        roomID: widget.roomID,
-        config: widget.isHost
-            ? ZegoUIKitPrebuiltLiveAudioRoomConfig.host()
-            : ZegoUIKitPrebuiltLiveAudioRoomConfig.audience()
+          appID: widget
+              .appID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
+          appSign: widget
+              .appSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
+          userID: widget.userID,
+          userName: widget.userName,
+          roomID: widget.roomID,
+          config: widget.isHost
+              ? ZegoUIKitPrebuiltLiveAudioRoomConfig.host()
+              : ZegoUIKitPrebuiltLiveAudioRoomConfig.audience()
 
-          ///  The userAvatarUrl must be within 64 bytes. If exceeds, the default background is displayed.
-          ..userAvatarUrl = widget.userAvatarUrl
-          ..background = widget.backgroundImage,
-      ),
+            ///  The userAvatarUrl must be within 64 bytes. If exceeds, the default background is displayed.
+            ..userAvatarUrl = widget.userAvatarUrl),
     );
   }
 }
