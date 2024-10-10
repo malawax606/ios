@@ -60,20 +60,8 @@ class _LivePageState extends State<LivePage> {
 
           ///  The userAvatarUrl must be within 64 bytes. If exceeds, the default background is displayed.
           ..userAvatarUrl = widget.userAvatarUrl
-          ..background = background(),
+          ..background = widget.backgroundImage(),
       ),
     );
   }
-}
-
-Widget background() {
-  return Stack(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          image: widget.backgroundImage(), // Adjust the fit as needed
-        ),
-      ),
-    ],
-  );
 }
