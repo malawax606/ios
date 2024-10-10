@@ -7,8 +7,7 @@ import 'test_model.dart';
 export 'test_model.dart';
 
 class TestWidget extends StatefulWidget {
-  /// Create report page for user to report someone slecting reason for  ther
-  /// report example. profile image for sexy something or chat message and more
+  /// Create page to show user the app needs update and tell them to update
   const TestWidget({super.key});
 
   @override
@@ -24,9 +23,6 @@ class _TestWidgetState extends State<TestWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -75,330 +71,54 @@ class _TestWidgetState extends State<TestWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Why are you reporting this user?',
-                            style: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: 'Inter Tight',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          Text(
-                            'Please select a reason for your report. This information will be kept confidential.',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ].divide(const SizedBox(height: 16.0)),
-                      ),
-                    ),
-                  ),
+                Image.network(
+                  'https://images.unsplash.com/photo-1727542908410-de6c65a4c93a?w=500&h=500',
+                  width: 200.0,
+                  height: 200.0,
+                  fit: BoxFit.contain,
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    Icons.person_outline,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  Text(
-                                    'Inappropriate Profile Picture',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 16.0)),
-                              ),
-                              Icon(
-                                Icons.chevron_right,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
+                Text(
+                  'New Version Available',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                        fontFamily: 'Inter Tight',
+                        letterSpacing: 0.0,
                       ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    Icons.content_copy,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  Text(
-                                    'Fake Profile',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 16.0)),
-                              ),
-                              Icon(
-                                Icons.chevron_right,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    Icons.keyboard_control,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  Text(
-                                    'Other',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 16.0)),
-                              ),
-                              Icon(
-                                Icons.chevron_right,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ].divide(const SizedBox(height: 16.0)),
-                  ),
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Additional Information',
-                            style: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: 'Inter Tight',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          Text(
-                            'Please provide any additional details that may help us investigate this report.',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          TextFormField(
-                            controller: _model.textController,
-                            focusNode: _model.textFieldFocusNode,
-                            autofocus: false,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              hintText: 'Type your message here...',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
-                            maxLines: 5,
-                            validator: _model.textControllerValidator
-                                .asValidator(context),
-                          ),
-                        ].divide(const SizedBox(height: 16.0)),
+                Text(
+                  'We\'ve added exciting new features and fixed some bugs. Please update to continue using the app.',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        letterSpacing: 0.0,
                       ),
-                    ),
-                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Submit Report',
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 50.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
-                                color: FlutterFlowTheme.of(context).info,
-                                letterSpacing: 0.0,
-                              ),
-                      elevation: 2.0,
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
+                FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: 'Update Now',
+                  options: FFButtonOptions(
+                    width: 200.0,
+                    height: 50.0,
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                        ),
+                    elevation: 2.0,
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
                 ),
               ].divide(const SizedBox(height: 24.0)),
