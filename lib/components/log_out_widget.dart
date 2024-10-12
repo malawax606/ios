@@ -139,7 +139,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     await authManager.signOut();
                     GoRouter.of(context).clearRedirectLocation();
 
-                    context.goNamedAuth('Login', context.mounted);
+                    context.goNamedAuth('Test', context.mounted);
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'test_model.dart';
 export 'test_model.dart';
@@ -26,12 +25,6 @@ class _TestWidgetState extends State<TestWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.token = await actions.getAccessToken();
-      _model.fcm = await actions.getFCM();
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -81,7 +74,7 @@ class _TestWidgetState extends State<TestWidget> {
             child: Text(
               valueOrDefault<String>(
                 _model.getToken,
-                '9',
+                '7777',
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Inter Tight',
@@ -94,68 +87,6 @@ class _TestWidgetState extends State<TestWidget> {
           actions: const [],
           centerTitle: true,
           elevation: 0.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Fcm\n',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
-                    ),
-              ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await Clipboard.setData(ClipboardData(text: _model.fcm!));
-                },
-                child: Text(
-                  valueOrDefault<String>(
-                    _model.fcm,
-                    '000',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
-              Text(
-                'Token\n',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
-                    ),
-              ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await Clipboard.setData(ClipboardData(text: _model.token!));
-                },
-                child: Text(
-                  valueOrDefault<String>(
-                    _model.token,
-                    '9999',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
