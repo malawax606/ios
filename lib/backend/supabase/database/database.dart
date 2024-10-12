@@ -5,8 +5,10 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
+export 'tables/access_token.dart';
 export 'tables/app_version.dart';
 export 'tables/comments.dart';
+export 'tables/update.dart';
 export 'tables/chat.dart';
 export 'tables/user.dart';
 export 'tables/chat_room.dart';

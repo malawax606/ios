@@ -9,50 +9,6 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class NotificationCall {
-  static Future<ApiCallResponse> call({
-    String? token = '',
-    String? title = '',
-    String? body = '',
-    String? image = '',
-  }) async {
-    final ffApiRequestBody = '''
-{
-  "to": "$token",
-  "notification": {
-    "title": "$title",
-    "body": "$body",
-    "image": "$image"
-  },
-  "priority": "high",
-  "importance": "max",
-  "collapse_key": "my_key",
-  "time_to_live": 3600,
-  "android_channel_id": "random_channel_id",
-  "color": "#rrggbb"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Notification',
-      apiUrl: 'https://fcm.googleapis.com/fcm/send',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'key=AAAAg8f7bX0:APA91bHU3YDIv0ZTxHHkhhv244j-d0c03A-mjv3FzNZ8zU-jrT2LHtlhT3Or3SoPBFlZK54m3sqt_RDc2gMQSh0igSS4STlyoGe4RVtfhjhs7VH6FxVZRbR-oKLUOrveBInuQDNfIEMv',
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class CountryCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
@@ -308,14 +264,16 @@ class NotificationnssCall {
   static Future<ApiCallResponse> call({
     String? fcm = '',
     String? token = '',
+    String? title = '',
+    String? body = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "message": {
     "token": "$fcm",
     "notification": {
-      "body": "This is an FCM notification message!",
-      "title": "FCM Message"
+      "body": "$body",
+      "title": "$title"
     }
   }
 }''';

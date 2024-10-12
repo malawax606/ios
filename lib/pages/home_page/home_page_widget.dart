@@ -113,6 +113,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
           },
         );
       }
+      _model.fcm = await actions.getFCM();
+      await UserTable().update(
+        data: {
+          'FCM_TOKEN': _model.fcm,
+        },
+        matchingRows: (rows) => rows.eq(
+          'id',
+          currentUserUid,
+        ),
+      );
     });
 
     _model.tabBarController = TabController(
@@ -514,6 +524,24 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                           }.withoutNulls,
                                                         );
+
+                                                        _model.token =
+                                                            await actions
+                                                                .getAccessToken();
+                                                        await AccessTokenTable()
+                                                            .update(
+                                                          data: {
+                                                            'Token':
+                                                                _model.token,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows.eq(
+                                                            'id',
+                                                            1,
+                                                          ),
+                                                        );
+
+                                                        safeSetState(() {});
                                                       },
                                                       child: Column(
                                                         mainAxisSize:
@@ -1070,6 +1098,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           ),
                                                                         }.withoutNulls,
                                                                       );
+
+                                                                      _model.token4 =
+                                                                          await actions
+                                                                              .getAccessToken();
+                                                                      await AccessTokenTable()
+                                                                          .update(
+                                                                        data: {
+                                                                          'Token':
+                                                                              _model.token4,
+                                                                        },
+                                                                        matchingRows:
+                                                                            (rows) =>
+                                                                                rows.eq(
+                                                                          'id',
+                                                                          1,
+                                                                        ),
+                                                                      );
+
+                                                                      safeSetState(
+                                                                          () {});
                                                                     },
                                                                     child:
                                                                         Column(
@@ -1869,9 +1917,51 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     controller: _model.tabBarController,
                                     onTap: (i) async {
                                       [
-                                        () async {},
-                                        () async {},
-                                        () async {}
+                                        () async {
+                                          _model.token1 =
+                                              await actions.getAccessToken();
+                                          await AccessTokenTable().update(
+                                            data: {
+                                              'Token': _model.token1,
+                                            },
+                                            matchingRows: (rows) => rows.eq(
+                                              'id',
+                                              1,
+                                            ),
+                                          );
+
+                                          safeSetState(() {});
+                                        },
+                                        () async {
+                                          _model.token2 =
+                                              await actions.getAccessToken();
+                                          await AccessTokenTable().update(
+                                            data: {
+                                              'Token': _model.token2,
+                                            },
+                                            matchingRows: (rows) => rows.eq(
+                                              'id',
+                                              1,
+                                            ),
+                                          );
+
+                                          safeSetState(() {});
+                                        },
+                                        () async {
+                                          _model.token3 =
+                                              await actions.getAccessToken();
+                                          await AccessTokenTable().update(
+                                            data: {
+                                              'Token': _model.token3,
+                                            },
+                                            matchingRows: (rows) => rows.eq(
+                                              'id',
+                                              1,
+                                            ),
+                                          );
+
+                                          safeSetState(() {});
+                                        }
                                       ][i]();
                                     },
                                   ),

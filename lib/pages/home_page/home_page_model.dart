@@ -21,12 +21,24 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? country;
   // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
   ApiCallResponse? flg;
+  // Stores action output result for [Custom Action - getFCM] action in HomePage widget.
+  String? fcm;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  // Stores action output result for [Custom Action - getAccessToken] action in Tab widget.
+  String? token1;
   Completer<List<UserRow>>? requestCompleter1;
+  // Stores action output result for [Custom Action - getAccessToken] action in Column widget.
+  String? token;
+  // Stores action output result for [Custom Action - getAccessToken] action in Tab widget.
+  String? token2;
+  // Stores action output result for [Custom Action - getAccessToken] action in Column widget.
+  String? token4;
+  // Stores action output result for [Custom Action - getAccessToken] action in Tab widget.
+  String? token3;
 
   @override
   void initState(BuildContext context) {}

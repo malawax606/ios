@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'messages_widget.dart' show MessagesWidget;
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,9 @@ class MessagesModel extends FlutterFlowModel<MessagesWidget> {
   String? Function(BuildContext, String?)? messageTextControllerValidator;
   // Stores action output result for [Backend Call - Insert Row] action in Text widget.
   ChatRow? doneee;
+  Completer<List<AccessTokenRow>>? requestCompleter;
+  // Stores action output result for [Custom Action - getAccessToken] action in Text widget.
+  String? accessToken;
 
   @override
   void initState(BuildContext context) {}
@@ -55,5 +59,21 @@ class MessagesModel extends FlutterFlowModel<MessagesWidget> {
   void dispose() {
     messageFocusNode?.dispose();
     messageTextController?.dispose();
+  }
+
+  /// Additional helper methods.
+  Future waitForRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
   }
 }

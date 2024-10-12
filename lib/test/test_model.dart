@@ -9,10 +9,10 @@ class TestModel extends FlutterFlowModel<TestWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - getFCM] action in Test widget.
-  String? fcm;
   // Stores action output result for [Custom Action - getAccessToken] action in Test widget.
   String? token;
+  // Stores action output result for [Custom Action - getFCM] action in Test widget.
+  String? fcm;
   // Stores action output result for [Custom Action - getAccessToken] action in Text widget.
   String? getToken;
 

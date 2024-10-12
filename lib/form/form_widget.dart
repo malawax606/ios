@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/walkthroughs/from.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -1169,6 +1170,27 @@ class _FormWidgetState extends State<FormWidget> {
                                   ),
                                 },
                               );
+
+                              _model.fcm = await actions.getFCM();
+                              await UserTable().update(
+                                data: {
+                                  'FCM_TOKEN': _model.fcm,
+                                },
+                                matchingRows: (rows) => rows.eq(
+                                  'id',
+                                  currentUserUid,
+                                ),
+                              );
+                              _model.token = await actions.getAccessToken();
+                              await AccessTokenTable().update(
+                                data: {
+                                  'Token': _model.token,
+                                },
+                                matchingRows: (rows) => rows.eq(
+                                  'id',
+                                  1,
+                                ),
+                              );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -1185,6 +1207,8 @@ class _FormWidgetState extends State<FormWidget> {
                                 ),
                               );
                             }
+
+                            safeSetState(() {});
                           },
                           text: 'Done',
                           options: FFButtonOptions(

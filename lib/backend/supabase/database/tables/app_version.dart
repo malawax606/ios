@@ -25,4 +25,10 @@ class AppVersionRow extends SupabaseDataRow {
 
   DateTime? get time => getField<DateTime>('time');
   set time(DateTime? value) => setField<DateTime>('time', value);
+
+  String? get idd => getField<String>('idd');
+  set idd(String? value) => setField<String>('idd', value);
+
+  String? get updateUrl => getField<String>('UpdateUrl');
+  set updateUrl(String? value) => setField<String>('UpdateUrl', value);
 }

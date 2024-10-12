@@ -97,6 +97,11 @@ class FormModel extends FlutterFlowModel<FormWidget> {
     return null;
   }
 
+  // Stores action output result for [Custom Action - getFCM] action in Button_ios widget.
+  String? fcm;
+  // Stores action output result for [Custom Action - getAccessToken] action in Button_ios widget.
+  String? token;
+
   @override
   void initState(BuildContext context) {
     usernameTextControllerValidator = _usernameTextControllerValidator;

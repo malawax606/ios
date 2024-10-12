@@ -29,8 +29,8 @@ class _TestWidgetState extends State<TestWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.fcm = await actions.getFCM();
       _model.token = await actions.getAccessToken();
+      _model.fcm = await actions.getFCM();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

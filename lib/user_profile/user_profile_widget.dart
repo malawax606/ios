@@ -289,141 +289,20 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (columnUserRow!.chatsIds.contains(
-                                      '$currentUserUid${widget.userID}') ||
-                                  userProfileUserRow!.chatsIds.contains(
-                                      '${widget.userID}$currentUserUid'))
-                                FutureBuilder<List<ChatRow>>(
-                                  future: ChatTable().querySingleRow(
-                                    queryFn: (q) => q
-                                        .overlaps(
-                                          'Users',
-                                          _model.ussers,
-                                        )
-                                        .eq(
-                                          'Chat_ID',
-                                          '$currentUserUid${widget.userID}' ==
-                                                  '$currentUserUid${widget.userID}'
-                                              ? '$currentUserUid${widget.userID}'
-                                              : '${widget.userID}$currentUserUid',
-                                        ),
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    List<ChatRow> buttonChatRowList =
-                                        snapshot.data!;
-
-                                    final buttonChatRow =
-                                        buttonChatRowList.isNotEmpty
-                                            ? buttonChatRowList.first
-                                            : null;
-
-                                    return FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          'Message',
-                                          queryParameters: {
-                                            'chatID': serializeParam(
-                                              buttonChatRow?.chatID ==
-                                                      _model.chat1
-                                                  ? _model.chat1
-                                                  : _model.chat2,
-                                              ParamType.String,
-                                            ),
-                                            'userId': serializeParam(
-                                              widget.userID,
-                                              ParamType.String,
-                                            ),
-                                            'messageNum': serializeParam(
-                                              buttonChatRow?.messageNum,
-                                              ParamType.int,
-                                            ),
-                                            'image': serializeParam(
-                                              userProfileUserRow?.profilePic,
-                                              ParamType.String,
-                                            ),
-                                            'gender': serializeParam(
-                                              userProfileUserRow?.gender,
-                                              ParamType.String,
-                                            ),
-                                            'sender': serializeParam(
-                                              buttonChatRow?.lastMessageSentBy,
-                                              ParamType.String,
-                                            ),
-                                            'username': serializeParam(
-                                              userProfileUserRow?.username,
-                                              ParamType.String,
-                                            ),
-                                            'fullName': serializeParam(
-                                              userProfileUserRow?.fullName,
-                                              ParamType.String,
-                                            ),
-                                            'uSERID': serializeParam(
-                                              userProfileUserRow?.userId
-                                                  ?.toString(),
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      text: 'Message',
-                                      options: FFButtonOptions(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.45,
-                                        height: 50.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              fontFamily: 'Inter Tight',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        elevation: 0.0,
-                                      ),
-                                      showLoadingIndicator: false,
-                                    );
-                                  },
-                                ),
-                              if (!(columnUserRow.chatsIds.contains(
-                                      '$currentUserUid${widget.userID}') ||
-                                  userProfileUserRow!.chatsIds.contains(
-                                      '${widget.userID}$currentUserUid')))
-                                Builder(
-                                  builder: (context) =>
-                                      FutureBuilder<List<ChatRow>>(
+                        if (!userProfileUserRow!.blocked
+                            .contains(currentUserUid))
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 20.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                if (columnUserRow!.chatsIds.contains(
+                                        '$currentUserUid${widget.userID}') ||
+                                    userProfileUserRow.chatsIds.contains(
+                                        '${widget.userID}$currentUserUid'))
+                                  FutureBuilder<List<ChatRow>>(
                                     future: ChatTable().querySingleRow(
                                       queryFn: (q) => q
                                           .overlaps(
@@ -465,32 +344,51 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
 
                                       return FFButtonWidget(
                                         onPressed: () async {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (dialogContext) {
-                                              return Dialog(
-                                                elevation: 0,
-                                                insetPadding: EdgeInsets.zero,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                alignment: const AlignmentDirectional(
-                                                        0.0, 0.0)
-                                                    .resolve(Directionality.of(
-                                                        context)),
-                                                child: GestureDetector(
-                                                  onTap: () => FocusScope.of(
-                                                          dialogContext)
-                                                      .unfocus(),
-                                                  child: SizedBox(
-                                                    height: 450.0,
-                                                    width: 350.0,
-                                                    child: MessagesWidget(
-                                                      user: userProfileUserRow,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            },
+                                          context.pushNamed(
+                                            'Message',
+                                            queryParameters: {
+                                              'chatID': serializeParam(
+                                                buttonChatRow?.chatID ==
+                                                        _model.chat1
+                                                    ? _model.chat1
+                                                    : _model.chat2,
+                                                ParamType.String,
+                                              ),
+                                              'userId': serializeParam(
+                                                widget.userID,
+                                                ParamType.String,
+                                              ),
+                                              'messageNum': serializeParam(
+                                                buttonChatRow?.messageNum,
+                                                ParamType.int,
+                                              ),
+                                              'image': serializeParam(
+                                                userProfileUserRow.profilePic,
+                                                ParamType.String,
+                                              ),
+                                              'gender': serializeParam(
+                                                userProfileUserRow.gender,
+                                                ParamType.String,
+                                              ),
+                                              'sender': serializeParam(
+                                                buttonChatRow
+                                                    ?.lastMessageSentBy,
+                                                ParamType.String,
+                                              ),
+                                              'username': serializeParam(
+                                                userProfileUserRow.username,
+                                                ParamType.String,
+                                              ),
+                                              'fullName': serializeParam(
+                                                userProfileUserRow.fullName,
+                                                ParamType.String,
+                                              ),
+                                              'uSERID': serializeParam(
+                                                userProfileUserRow.userId
+                                                    ?.toString(),
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
                                           );
                                         },
                                         text: 'Message',
@@ -524,10 +422,121 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       );
                                     },
                                   ),
-                                ),
-                            ].divide(const SizedBox(width: 16.0)),
+                                if (!(columnUserRow.chatsIds.contains(
+                                        '$currentUserUid${widget.userID}') ||
+                                    userProfileUserRow.chatsIds.contains(
+                                        '${widget.userID}$currentUserUid')))
+                                  Builder(
+                                    builder: (context) =>
+                                        FutureBuilder<List<ChatRow>>(
+                                      future: ChatTable().querySingleRow(
+                                        queryFn: (q) => q
+                                            .overlaps(
+                                              'Users',
+                                              _model.ussers,
+                                            )
+                                            .eq(
+                                              'Chat_ID',
+                                              '$currentUserUid${widget.userID}' ==
+                                                      '$currentUserUid${widget.userID}'
+                                                  ? '$currentUserUid${widget.userID}'
+                                                  : '${widget.userID}$currentUserUid',
+                                            ),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<ChatRow> buttonChatRowList =
+                                            snapshot.data!;
+
+                                        final buttonChatRow =
+                                            buttonChatRowList.isNotEmpty
+                                                ? buttonChatRowList.first
+                                                : null;
+
+                                        return FFButtonWidget(
+                                          onPressed: () async {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (dialogContext) {
+                                                return Dialog(
+                                                  elevation: 0,
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  child: GestureDetector(
+                                                    onTap: () => FocusScope.of(
+                                                            dialogContext)
+                                                        .unfocus(),
+                                                    child: SizedBox(
+                                                      height: 450.0,
+                                                      width: 350.0,
+                                                      child: MessagesWidget(
+                                                        user:
+                                                            userProfileUserRow,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                          text: 'Message',
+                                          options: FFButtonOptions(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.45,
+                                            height: 50.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            textStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily: 'Inter Tight',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            elevation: 0.0,
+                                          ),
+                                          showLoadingIndicator: false,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                              ].divide(const SizedBox(width: 16.0)),
+                            ),
                           ),
-                        ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 20.0, 20.0, 20.0),
@@ -568,7 +577,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.fullName,
+                                            userProfileUserRow.fullName,
                                             'User',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -602,7 +611,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.age,
+                                            userProfileUserRow.age,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -636,7 +645,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.gender,
+                                            userProfileUserRow.gender,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -670,7 +679,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.job,
+                                            userProfileUserRow.job,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -704,7 +713,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.skinColor,
+                                            userProfileUserRow.skinColor,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -738,7 +747,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.marriedStatus,
+                                            userProfileUserRow.marriedStatus,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -772,7 +781,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.country,
+                                            userProfileUserRow.country,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -806,7 +815,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            userProfileUserRow?.city,
+                                            userProfileUserRow.city,
                                             'Empty',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -827,8 +836,8 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             ),
                           ),
                         ),
-                        if (userProfileUserRow?.aboutMe != null &&
-                            userProfileUserRow?.aboutMe != '')
+                        if (userProfileUserRow.aboutMe != null &&
+                            userProfileUserRow.aboutMe != '')
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 20.0),
@@ -864,7 +873,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          userProfileUserRow?.aboutMe,
+                                          userProfileUserRow.aboutMe,
                                           '.',
                                         ),
                                         style: FlutterFlowTheme.of(context)
