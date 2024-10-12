@@ -40,6 +40,8 @@ class _MoreWidgetState extends State<MoreWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MoreModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -206,7 +208,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                                 },
                                 matchingRows: (rows) => rows.eq(
                                   'id',
-                                  '',
+                                  currentUserUid,
                                 ),
                               );
                               Navigator.pop(context);
@@ -269,7 +271,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                                 },
                                 matchingRows: (rows) => rows.eq(
                                   'id',
-                                  '',
+                                  currentUserUid,
                                 ),
                               );
                               Navigator.pop(context);

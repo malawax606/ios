@@ -304,6 +304,41 @@ class ImageUploadCall {
       ));
 }
 
+class NotificationnssCall {
+  static Future<ApiCallResponse> call({
+    String? fcm = '',
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "message": {
+    "token": "$fcm",
+    "notification": {
+      "body": "This is an FCM notification message!",
+      "title": "FCM Message"
+    }
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Notificationnss',
+      apiUrl: 'https://fcm.googleapis.com/v1/projects/deating332/messages:send',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

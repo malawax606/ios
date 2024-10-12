@@ -27,6 +27,8 @@ class _BlockedWidgetState extends State<BlockedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BlockedModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

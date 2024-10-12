@@ -35,6 +35,8 @@ class _LogOutWidgetState extends State<LogOutWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LogOutModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -137,7 +139,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     await authManager.signOut();
                     GoRouter.of(context).clearRedirectLocation();
 
-                    context.goNamedAuth('Login', context.mounted);
+                    context.goNamedAuth('Test', context.mounted);
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(

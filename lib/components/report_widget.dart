@@ -44,6 +44,8 @@ class _ReportWidgetState extends State<ReportWidget> {
 
     _model.reportTextTextController ??= TextEditingController();
     _model.reportTextFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

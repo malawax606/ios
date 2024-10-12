@@ -31,6 +31,8 @@ class _SearchWidgetState extends State<SearchWidget> {
 
     _model.ageTextController ??= TextEditingController();
     _model.ageFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

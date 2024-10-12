@@ -34,6 +34,8 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
 
     _model.confirmEmailTextController ??= TextEditingController();
     _model.confirmEmailFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

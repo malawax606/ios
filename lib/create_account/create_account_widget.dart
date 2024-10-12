@@ -61,6 +61,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

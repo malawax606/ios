@@ -3,26 +3,18 @@ import 'test_widget.dart' show TestWidget;
 import 'package:flutter/material.dart';
 
 class TestModel extends FlutterFlowModel<TestWidget> {
+  ///  Local state fields for this page.
+
+  String tokens = '0';
+
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Switch widget.
-  bool? switchValue1;
-  // State field(s) for Switch widget.
-  bool? switchValue2;
-  // State field(s) for Switch widget.
-  bool? switchValue3;
-  // State field(s) for Switch widget.
-  bool? switchValue4;
-  // State field(s) for Switch widget.
-  bool? switchValue5;
-  // State field(s) for Switch widget.
-  bool? switchValue6;
-  // State field(s) for Switch widget.
-  bool? switchValue7;
-  // State field(s) for Switch widget.
-  bool? switchValue8;
-  // State field(s) for Switch widget.
-  bool? switchValue9;
+  // Stores action output result for [Custom Action - getFCM] action in Test widget.
+  String? fcm;
+  // Stores action output result for [Custom Action - getAccessToken] action in Test widget.
+  String? token;
+  // Stores action output result for [Custom Action - getAccessToken] action in Text widget.
+  String? getToken;
 
   @override
   void initState(BuildContext context) {}

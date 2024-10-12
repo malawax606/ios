@@ -29,6 +29,8 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmailVerifyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

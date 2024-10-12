@@ -40,7 +40,7 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
           _model.instantTimer?.cancel();
           Navigator.pop(context);
         },
-        startImmediately: true,
+        startImmediately: false,
       );
     });
 
@@ -60,6 +60,8 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

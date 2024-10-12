@@ -44,6 +44,8 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
       _model.addToUssers(currentUserUid);
       safeSetState(() {});
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
