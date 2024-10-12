@@ -7,27 +7,27 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'test_model.dart';
-export 'test_model.dart';
+import 'test_copy_model.dart';
+export 'test_copy_model.dart';
 
-class TestWidget extends StatefulWidget {
+class TestCopyWidget extends StatefulWidget {
   /// Create Security page for dating app add eveything that dating app needs
   /// and social media app need for security user to change
-  const TestWidget({super.key});
+  const TestCopyWidget({super.key});
 
   @override
-  State<TestWidget> createState() => _TestWidgetState();
+  State<TestCopyWidget> createState() => _TestCopyWidgetState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
-  late TestModel _model;
+class _TestCopyWidgetState extends State<TestCopyWidget> {
+  late TestCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestModel());
+    _model = createModel(context, () => TestCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }

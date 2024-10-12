@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
+import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -146,6 +148,20 @@ class FFAppState extends ChangeNotifier {
     _ProfilePage = value;
     prefs.setBool('ff_ProfilePage', value);
   }
+
+  final _iiManager = FutureRequestManager<List<UserRow>>();
+  Future<List<UserRow>> ii({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<UserRow>> Function() requestFn,
+  }) =>
+      _iiManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearIiCache() => _iiManager.clear();
+  void clearIiCacheKey(String? uniqueKey) => _iiManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
-import 'test_widget.dart' show TestWidget;
+import 'test_copy_widget.dart' show TestCopyWidget;
 import 'package:flutter/material.dart';
 
-class TestModel extends FlutterFlowModel<TestWidget> {
+class TestCopyModel extends FlutterFlowModel<TestCopyWidget> {
   ///  Local state fields for this page.
 
   String tokens = '0';

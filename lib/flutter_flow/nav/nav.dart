@@ -9,6 +9,7 @@ import '/backend/schema/structs/index.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -74,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const TestWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const TestWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage2',
@@ -292,7 +293,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Test',
           path: '/test',
-          builder: (context, params) => const TestWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Test')
+              : const NavBarPage(
+                  initialPage: 'Test',
+                  page: TestWidget(),
+                ),
         ),
         FFRoute(
           name: 'User_Profile-Update',
@@ -324,6 +330,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Create_Account',
           path: '/createAccount',
           builder: (context, params) => const CreateAccountWidget(),
+        ),
+        FFRoute(
+          name: 'TestCopy',
+          path: '/testCopy',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'TestCopy')
+              : const NavBarPage(
+                  initialPage: 'TestCopy',
+                  page: TestCopyWidget(),
+                ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -496,7 +512,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/test';
+            return '/login';
           }
           return null;
         },
