@@ -23,11 +23,12 @@ export '/users_no_profile/users_no_profile_widget.dart'
 export '/call_join/call_join_widget.dart' show CallJoinWidget;
 export '/search/search_widget.dart' show SearchWidget;
 export '/live_audio_copy/live_audio_copy_widget.dart' show LiveAudioCopyWidget;
-export '/test/test_widget.dart' show TestWidget;
+export '/home_test/home_test_widget.dart' show HomeTestWidget;
 export '/user_profile_update/user_profile_update_widget.dart'
     show UserProfileUpdateWidget;
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
 export '/email_change/email_change_widget.dart' show EmailChangeWidget;
 export '/login_email/login_email_widget.dart' show LoginEmailWidget;
 export '/create_account/create_account_widget.dart' show CreateAccountWidget;
-export '/test_copy/test_copy_widget.dart' show TestCopyWidget;
+export '/chat_test/chat_test_widget.dart' show ChatTestWidget;
+export '/profile_test/profile_test_widget.dart' show ProfileTestWidget;

@@ -7,27 +7,27 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'test_model.dart';
-export 'test_model.dart';
+import 'home_test_model.dart';
+export 'home_test_model.dart';
 
-class TestWidget extends StatefulWidget {
+class HomeTestWidget extends StatefulWidget {
   /// Create Security page for dating app add eveything that dating app needs
   /// and social media app need for security user to change
-  const TestWidget({super.key});
+  const HomeTestWidget({super.key});
 
   @override
-  State<TestWidget> createState() => _TestWidgetState();
+  State<HomeTestWidget> createState() => _HomeTestWidgetState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
-  late TestModel _model;
+class _HomeTestWidgetState extends State<HomeTestWidget> {
+  late HomeTestModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestModel());
+    _model = createModel(context, () => HomeTestModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -45,7 +45,7 @@ class _TestWidgetState extends State<TestWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -75,10 +75,7 @@ class _TestWidgetState extends State<TestWidget> {
               safeSetState(() {});
             },
             child: Text(
-              valueOrDefault<String>(
-                _model.getToken,
-                '7777',
-              ),
+              'Home',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Inter Tight',
                     color: FlutterFlowTheme.of(context).primaryText,

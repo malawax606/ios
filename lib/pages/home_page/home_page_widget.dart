@@ -1386,8 +1386,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        context
-                                                            .pushNamed('Test');
+                                                        context.pushNamed(
+                                                            'HomeTest');
                                                       },
                                                       child: Text(
                                                         valueOrDefault<String>(

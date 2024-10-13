@@ -291,13 +291,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Test',
-          path: '/test',
+          name: 'HomeTest',
+          path: '/homeTest',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Test')
+              ? const NavBarPage(initialPage: 'HomeTest')
               : const NavBarPage(
-                  initialPage: 'Test',
-                  page: TestWidget(),
+                  initialPage: 'HomeTest',
+                  page: HomeTestWidget(),
                 ),
         ),
         FFRoute(
@@ -332,13 +332,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateAccountWidget(),
         ),
         FFRoute(
-          name: 'TestCopy',
-          path: '/testCopy',
+          name: 'ChatTest',
+          path: '/chatTest',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'TestCopy')
+              ? const NavBarPage(initialPage: 'ChatTest')
               : const NavBarPage(
-                  initialPage: 'TestCopy',
-                  page: TestCopyWidget(),
+                  initialPage: 'ChatTest',
+                  page: ChatTestWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'ProfileTest',
+          path: '/profileTest',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ProfileTest')
+              : const NavBarPage(
+                  initialPage: 'ProfileTest',
+                  page: ProfileTestWidget(),
                 ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

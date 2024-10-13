@@ -162,6 +162,34 @@ class FFAppState extends ChangeNotifier {
       );
   void clearIiCache() => _iiManager.clear();
   void clearIiCacheKey(String? uniqueKey) => _iiManager.clearRequest(uniqueKey);
+
+  final _hhManager = FutureRequestManager<List<ChatRow>>();
+  Future<List<ChatRow>> hh({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ChatRow>> Function() requestFn,
+  }) =>
+      _hhManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearHhCache() => _hhManager.clear();
+  void clearHhCacheKey(String? uniqueKey) => _hhManager.clearRequest(uniqueKey);
+
+  final _kkManager = FutureRequestManager<List<UserRow>>();
+  Future<List<UserRow>> kk({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<UserRow>> Function() requestFn,
+  }) =>
+      _kkManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearKkCache() => _kkManager.clear();
+  void clearKkCacheKey(String? uniqueKey) => _kkManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {
