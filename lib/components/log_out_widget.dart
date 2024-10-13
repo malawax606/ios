@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'log_out_model.dart';
 export 'log_out_model.dart';
 
@@ -59,13 +61,13 @@ class _LogOutWidgetState extends State<LogOutWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Container(
                     width: 120.0,
                     height: 120.0,
@@ -80,7 +82,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(60.0),
                       child: Image.network(
-                        widget.pictur!,
+                        widget!.pictur!,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -91,7 +93,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                   children: [
                     Text(
                       valueOrDefault<String>(
-                        widget.username,
+                        widget!.username,
                         'User',
                       ).maybeHandleOverflow(maxChars: 15),
                       style:
@@ -104,7 +106,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                       child: Text(
                         currentUserEmail.maybeHandleOverflow(maxChars: 30),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -116,7 +118,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     ),
                   ],
                 ),
-              ].divide(const SizedBox(height: 16.0)),
+              ].divide(SizedBox(height: 16.0)),
             ),
           ),
           Column(
@@ -134,7 +136,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     GoRouter.of(context).prepareAuthEvent();
@@ -149,9 +151,9 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).error,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Inter Tight',
@@ -162,7 +164,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                   ),
                 ),
               ),
-            ].divide(const SizedBox(height: 24.0)),
+            ].divide(SizedBox(height: 24.0)),
           ),
         ],
       ),

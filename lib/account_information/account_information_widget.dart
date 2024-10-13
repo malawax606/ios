@@ -3,7 +3,10 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'account_information_model.dart';
 export 'account_information_model.dart';
 
@@ -83,7 +86,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   FFIcons.kaltArrowLeftSvgrepoCom,
                   color: Color(0xFFB4BBB8),
                   size: 30.0,
@@ -98,12 +101,12 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
-                      color: const Color(0xFFB4BBB8),
+                      color: Color(0xFFB4BBB8),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -114,7 +117,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 20.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -135,7 +138,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 0.0,
@@ -149,7 +152,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -460,7 +463,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                            ].divide(SizedBox(height: 16.0)),
                           ),
                         ),
                       ),

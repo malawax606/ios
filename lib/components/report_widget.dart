@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'report_model.dart';
 export 'report_model.dart';
 
@@ -62,7 +64,7 @@ class _ReportWidgetState extends State<ReportWidget> {
       height: 600.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primary,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(30.0),
@@ -75,7 +77,7 @@ class _ReportWidgetState extends State<ReportWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -88,7 +90,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                     onTap: () async {
                       Navigator.pop(context);
                     },
-                    child: const Icon(
+                    child: Icon(
                       Icons.close_outlined,
                       color: Color(0x4A2F2C2C),
                       size: 35.0,
@@ -98,7 +100,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'u8l3zcfi' /* Doro Sababta ad report u dhahe... */,
@@ -113,7 +115,7 @@ class _ReportWidgetState extends State<ReportWidget> {
             ),
             Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -123,10 +125,10 @@ class _ReportWidgetState extends State<ReportWidget> {
                     await ReportTable().insert({
                       'created_at':
                           supaSerialize<DateTime>(getCurrentTimestamp),
-                      'USER ID': widget.userID,
-                      'Reported ID': widget.id,
+                      'USER ID': widget!.userID,
+                      'Reported ID': widget!.id,
                       'Reporter ID': currentUserUid,
-                      'Profile': widget.image,
+                      'Profile': widget!.image,
                       'Checked': false,
                     });
                     Navigator.pop(context);
@@ -137,9 +139,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                           elevation: 0,
                           insetPadding: EdgeInsets.zero,
                           backgroundColor: Colors.transparent,
-                          alignment: const AlignmentDirectional(0.0, 0.0)
+                          alignment: AlignmentDirectional(0.0, 0.0)
                               .resolve(Directionality.of(context)),
-                          child: const SizedBox(
+                          child: Container(
                             height: 300.0,
                             width: 300.0,
                             child: ReportDoneWidget(),
@@ -159,7 +161,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -186,7 +188,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       letterSpacing: 0.0,
                                     ),
                               ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ],
                       ),
@@ -197,7 +199,7 @@ class _ReportWidgetState extends State<ReportWidget> {
             ),
             Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -207,12 +209,12 @@ class _ReportWidgetState extends State<ReportWidget> {
                     await ReportTable().insert({
                       'created_at':
                           supaSerialize<DateTime>(getCurrentTimestamp),
-                      'USER ID': widget.userID,
-                      'Reported ID': widget.id,
+                      'USER ID': widget!.userID,
+                      'Reported ID': widget!.id,
                       'Reporter ID': currentUserUid,
-                      'Username': widget.username,
+                      'Username': widget!.username,
                       'Checked': false,
-                      'Full Name': widget.fullName,
+                      'Full Name': widget!.fullName,
                     });
                     Navigator.pop(context);
                     await showDialog(
@@ -222,9 +224,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                           elevation: 0,
                           insetPadding: EdgeInsets.zero,
                           backgroundColor: Colors.transparent,
-                          alignment: const AlignmentDirectional(0.0, 0.0)
+                          alignment: AlignmentDirectional(0.0, 0.0)
                               .resolve(Directionality.of(context)),
-                          child: const SizedBox(
+                          child: Container(
                             height: 300.0,
                             width: 300.0,
                             child: ReportDoneWidget(),
@@ -244,7 +246,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -271,7 +273,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       letterSpacing: 0.0,
                                     ),
                               ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ],
                       ),
@@ -281,7 +283,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'i7tv7fat' /* Sabab kle ban Report u dhahaya */,
@@ -295,7 +297,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'ygbk6ywy' /* Inta ku qor sababta */,
@@ -308,7 +310,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: TextFormField(
                 controller: _model.reportTextTextController,
                 focusNode: _model.reportTextFocusNode,
@@ -330,21 +332,21 @@ class _ReportWidgetState extends State<ReportWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
@@ -362,15 +364,16 @@ class _ReportWidgetState extends State<ReportWidget> {
             ),
             Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    if (_model.reportTextTextController.text != '') {
+                    if (_model.reportTextTextController.text != null &&
+                        _model.reportTextTextController.text != '') {
                       await ReportTable().insert({
                         'created_at':
                             supaSerialize<DateTime>(getCurrentTimestamp),
-                        'USER ID': widget.userID,
-                        'Reported ID': widget.id,
+                        'USER ID': widget!.userID,
+                        'Reported ID': widget!.id,
                         'Reporter ID': currentUserUid,
                         'Reason Reported': _model.reportTextTextController.text,
                         'Checked': false,
@@ -383,9 +386,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                             elevation: 0,
                             insetPadding: EdgeInsets.zero,
                             backgroundColor: Colors.transparent,
-                            alignment: const AlignmentDirectional(0.0, 0.0)
+                            alignment: AlignmentDirectional(0.0, 0.0)
                                 .resolve(Directionality.of(context)),
-                            child: const SizedBox(
+                            child: Container(
                               height: 300.0,
                               width: 300.0,
                               child: ReportDoneWidget(),
@@ -402,10 +405,10 @@ class _ReportWidgetState extends State<ReportWidget> {
                     width: double.infinity,
                     height: 50.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF6F61EF),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF6F61EF),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Inter Tight',
                           color: Colors.white,
@@ -417,7 +420,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 24.0)),
+          ].divide(SizedBox(height: 24.0)),
         ),
       ),
     );

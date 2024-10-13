@@ -1,8 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'live_audio_model.dart';
 export 'live_audio_model.dart';
 
@@ -57,7 +60,7 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           body: SafeArea(
             top: true,
-            child: SizedBox(
+            child: Container(
               width: double.infinity,
               height: double.infinity,
               child: custom_widgets.LivePage(
@@ -66,10 +69,10 @@ class _LiveAudioWidgetState extends State<LiveAudioWidget> {
                 roomID: '2345',
                 isHost: true,
                 userID: currentUserUid,
-                appID: widget.appId!,
-                appSign: widget.appSign!,
-                userName: widget.id!,
-                userAvatarUrl: widget.url!,
+                appID: widget!.appId!,
+                appSign: widget!.appSign!,
+                userName: widget!.id!,
+                userAvatarUrl: widget!.url!,
                 backgroundImage: 'https://picsum.photos/seed/585/600',
               ),
             ),

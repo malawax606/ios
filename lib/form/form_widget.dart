@@ -14,10 +14,13 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'form_model.dart';
 export 'form_model.dart';
 
@@ -102,7 +105,7 @@ class _FormWidgetState extends State<FormWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -113,21 +116,21 @@ class _FormWidgetState extends State<FormWidget> {
             scrollDirection: Axis.vertical,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(16.0),
                           child: Form(
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.always,
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 14.0, 0.0, 24.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -142,7 +145,7 @@ class _FormWidgetState extends State<FormWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 7.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -161,7 +164,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 1.0),
+                                                AlignmentDirectional(0.0, 1.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -269,11 +272,14 @@ class _FormWidgetState extends State<FormWidget> {
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Visibility(
-                                                  visible: _model.uploadedFileUrl ==
+                                                  visible: _model
+                                                              .uploadedFileUrl ==
+                                                          null ||
+                                                      _model.uploadedFileUrl ==
                                                           '',
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Icon(
                                                       Icons.upload_outlined,
@@ -293,16 +299,16 @@ class _FormWidgetState extends State<FormWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(width: 24.0)),
+                                    ].divide(SizedBox(width: 24.0)),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: SizedBox(
+                                          child: Container(
                                             width: 100.0,
                                             child: TextFormField(
                                               controller:
@@ -310,7 +316,7 @@ class _FormWidgetState extends State<FormWidget> {
                                               focusNode:
                                                   _model.usernameFocusNode,
                                               autofocus: false,
-                                              autofillHints: const [
+                                              autofillHints: [
                                                 AutofillHints.givenName
                                               ],
                                               textCapitalization:
@@ -415,7 +421,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           ),
                                         ),
                                         Expanded(
-                                          child: SizedBox(
+                                          child: Container(
                                             width: 100.0,
                                             child: TextFormField(
                                               controller:
@@ -423,7 +429,7 @@ class _FormWidgetState extends State<FormWidget> {
                                               focusNode:
                                                   _model.countryFocusNode,
                                               autofocus: false,
-                                              autofillHints: const [
+                                              autofillHints: [
                                                 AutofillHints.familyName
                                               ],
                                               textCapitalization:
@@ -521,7 +527,7 @@ class _FormWidgetState extends State<FormWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 12.0)),
+                                      ].divide(SizedBox(width: 12.0)),
                                     ),
                                   ),
                                   Column(
@@ -529,7 +535,7 @@ class _FormWidgetState extends State<FormWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(
+                                      Container(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -538,7 +544,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.fullNameTextController',
-                                            const Duration(milliseconds: 400),
+                                            Duration(milliseconds: 400),
                                             () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
@@ -635,7 +641,7 @@ class _FormWidgetState extends State<FormWidget> {
                                         textFieldB8gqurx7,
                                         _model.fromController,
                                       ),
-                                    ].divide(const SizedBox(height: 12.0)),
+                                    ].divide(SizedBox(height: 12.0)),
                                   ),
                                   Material(
                                     color: Colors.transparent,
@@ -790,7 +796,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           borderWidth: 0.0,
                                           borderRadius: 10.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -863,7 +869,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           borderWidth: 0.0,
                                           borderRadius: 10.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -925,7 +931,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           borderWidth: 0.0,
                                           borderRadius: 10.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -990,7 +996,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           borderWidth: 0.0,
                                           borderRadius: 10.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -1058,7 +1064,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           borderWidth: 0.0,
                                           borderRadius: 10.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -1075,7 +1081,7 @@ class _FormWidgetState extends State<FormWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(
+                                      Container(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -1084,7 +1090,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.aboutmeTextController',
-                                            const Duration(milliseconds: 400),
+                                            Duration(milliseconds: 400),
                                             () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
@@ -1182,21 +1188,23 @@ class _FormWidgetState extends State<FormWidget> {
                                         textFieldK0ygfipj,
                                         _model.fromController,
                                       ),
-                                    ].divide(const SizedBox(height: 12.0)),
+                                    ].divide(SizedBox(height: 12.0)),
                                   ),
-                                ].divide(const SizedBox(height: 20.0)),
+                                ].divide(SizedBox(height: 20.0)),
                               ),
                             ),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if ((_model.usernameTextController.text != '') &&
-                                (_model.fullNameTextController.text != '') &&
+                            if ((_model.usernameTextController.text != null &&
+                                    _model.usernameTextController.text != '') &&
+                                (_model.fullNameTextController.text != null &&
+                                    _model.fullNameTextController.text != '') &&
                                 (_model.ageValue != null &&
                                     _model.ageValue != '') &&
                                 (_model.genderValue != null &&
@@ -1300,7 +1308,7 @@ class _FormWidgetState extends State<FormWidget> {
                               context.goNamed(
                                 'HomePage',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -1338,7 +1346,7 @@ class _FormWidgetState extends State<FormWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -1353,11 +1361,11 @@ class _FormWidgetState extends State<FormWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 55.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF6F61EF),
+                            color: Color(0xFF6F61EF),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -1367,7 +1375,7 @@ class _FormWidgetState extends State<FormWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -1376,9 +1384,9 @@ class _FormWidgetState extends State<FormWidget> {
                         ),
                       ),
                     ]
-                        .divide(const SizedBox(height: 12.0))
-                        .addToStart(const SizedBox(height: 24.0))
-                        .addToEnd(const SizedBox(height: 32.0)),
+                        .divide(SizedBox(height: 12.0))
+                        .addToStart(SizedBox(height: 24.0))
+                        .addToEnd(SizedBox(height: 32.0)),
                   ),
                 ),
               ),

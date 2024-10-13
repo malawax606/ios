@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'email_change_model.dart';
 export 'email_change_model.dart';
 
@@ -60,7 +62,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               FFIcons.kaltArrowLeftSvgrepoCom,
               color: Color(0xFFB4BBB8),
               size: 30.0,
@@ -75,12 +77,12 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: const Color(0xFFB4BBB8),
+                  color: Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -90,7 +92,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'knmk75rs' /* Update your email address */,
@@ -103,7 +105,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '8yk87oh0' /* Enter your new email address b... */,
@@ -116,7 +118,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 15.0, 16.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 15.0, 16.0, 10.0),
                 child: TextFormField(
                   controller: _model.textController1,
                   focusNode: _model.textFieldFocusNode,
@@ -140,21 +142,21 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
@@ -171,7 +173,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 10.0),
                 child: TextFormField(
                   controller: _model.newEmailTextController,
                   focusNode: _model.newEmailFocusNode,
@@ -194,21 +196,21 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
@@ -225,7 +227,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: TextFormField(
                   controller: _model.confirmEmailTextController,
                   focusNode: _model.confirmEmailFocusNode,
@@ -248,21 +250,21 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0xFF6F61EF),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0x00000000),
                         width: 1.0,
                       ),
@@ -281,14 +283,14 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
               Builder(
                 builder: (context) => Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       if (_model.newEmailTextController.text ==
                           _model.confirmEmailTextController.text) {
                         if (_model.newEmailTextController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Email required!',
                               ),
@@ -311,12 +313,12 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                               elevation: 0,
                               insetPadding: EdgeInsets.zero,
                               backgroundColor: Colors.transparent,
-                              alignment: const AlignmentDirectional(0.0, 0.0)
+                              alignment: AlignmentDirectional(0.0, 0.0)
                                   .resolve(Directionality.of(context)),
                               child: GestureDetector(
                                 onTap: () =>
                                     FocusScope.of(dialogContext).unfocus(),
-                                child: const SizedBox(
+                                child: Container(
                                   height: 270.0,
                                   width: 320.0,
                                   child: EmailVerifyWidget(
@@ -337,10 +339,10 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                       width: double.infinity,
                       height: 50.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFF6F61EF),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFF6F61EF),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Inter Tight',
@@ -354,7 +356,7 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'ls20aqfh' /* Note: Changing your email may ... */,

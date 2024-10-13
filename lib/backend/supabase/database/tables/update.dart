@@ -9,7 +9,7 @@ class UpdateTable extends SupabaseTable<UpdateRow> {
 }
 
 class UpdateRow extends SupabaseDataRow {
-  UpdateRow(super.data);
+  UpdateRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => UpdateTable();

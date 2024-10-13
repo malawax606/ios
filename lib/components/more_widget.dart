@@ -4,6 +4,8 @@ import '/components/report_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'more_model.dart';
 export 'more_model.dart';
 
@@ -86,7 +88,7 @@ class _MoreWidgetState extends State<MoreWidget> {
           height: 200.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(30.0),
@@ -98,7 +100,7 @@ class _MoreWidgetState extends State<MoreWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 15.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 15.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -114,14 +116,14 @@ class _MoreWidgetState extends State<MoreWidget> {
                       builder: (context) {
                         return Padding(
                           padding: MediaQuery.viewInsetsOf(context),
-                          child: SizedBox(
+                          child: Container(
                             height: 600.0,
                             child: ReportWidget(
-                              id: widget.id!,
+                              id: widget!.id!,
                               image: '',
-                              username: widget.username!,
-                              fullName: widget.fullName!,
-                              userID: widget.userID!,
+                              username: widget!.username!,
+                              fullName: widget!.fullName!,
+                              userID: widget!.userID!,
                             ),
                           ),
                         );
@@ -139,7 +141,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -166,7 +168,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                                       letterSpacing: 0.0,
                                     ),
                               ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ],
                       ),
@@ -175,7 +177,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   decoration: BoxDecoration(
@@ -188,9 +190,9 @@ class _MoreWidgetState extends State<MoreWidget> {
                   ),
                   child: Builder(
                     builder: (context) {
-                      if (!containerMeUserRow!.blocked.contains(widget.id)) {
+                      if (!containerMeUserRow!.blocked.contains(widget!.id)) {
                         return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -198,11 +200,11 @@ class _MoreWidgetState extends State<MoreWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              _model.myReport = containerMeUserRow.blocked
+                              _model.myReport = containerMeUserRow!.blocked
                                   .toList()
                                   .cast<String>();
                               safeSetState(() {});
-                              _model.addToMyReport(widget.id!);
+                              _model.addToMyReport(widget!.id!);
                               safeSetState(() {});
                               await UserTable().update(
                                 data: {
@@ -223,8 +225,8 @@ class _MoreWidgetState extends State<MoreWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor: const Color(0xFF38DBC8),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0xFF38DBC8),
                                 ),
                               );
                             },
@@ -232,7 +234,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Icon(
+                                Icon(
                                   FFIcons.kuserBlockRoundedSvgrepoCom2,
                                   color: Color(0xFFFF0707),
                                   size: 24.0,
@@ -245,17 +247,17 @@ class _MoreWidgetState extends State<MoreWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: const Color(0xFFFF0707),
+                                        color: Color(0xFFFF0707),
                                         letterSpacing: 0.0,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                           ),
                         );
                       } else {
                         return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -263,11 +265,11 @@ class _MoreWidgetState extends State<MoreWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              _model.myReport = containerMeUserRow.blocked
+                              _model.myReport = containerMeUserRow!.blocked
                                   .toList()
                                   .cast<String>();
                               safeSetState(() {});
-                              _model.removeFromMyReport(widget.id!);
+                              _model.removeFromMyReport(widget!.id!);
                               safeSetState(() {});
                               await UserTable().update(
                                 data: {
@@ -288,8 +290,8 @@ class _MoreWidgetState extends State<MoreWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor: const Color(0xFF38DBC8),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0xFF38DBC8),
                                 ),
                               );
                             },
@@ -316,7 +318,7 @@ class _MoreWidgetState extends State<MoreWidget> {
                                         letterSpacing: 0.0,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 16.0)),
                             ),
                           ),
                         );

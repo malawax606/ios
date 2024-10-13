@@ -12,7 +12,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
-  static List<String> languages() => ['en', 'aa'];
+  static List<String> languages() => ['en', 'sw'];
 
   static late SharedPreferences _prefs;
   static Future initialize() async =>
@@ -38,9 +38,9 @@ class FFLocalizations {
 
   String getVariableText({
     String? enText = '',
-    String? aaText = '',
+    String? swText = '',
   }) =>
-      [enText, aaText][languageIndex] ?? '';
+      [enText, swText][languageIndex] ?? '';
 
   static const Set<String> _languagesWithShortCode = {
     'ar',
@@ -109,1609 +109,1558 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'v4a8ttca': {
       'en': 'Explore',
-      'aa': '',
+      'sw': 'Chunguza',
     },
     'nga9b5ve': {
       'en': 'Chat',
-      'aa': '',
+      'sw': 'Soga',
     },
     'icuctj1e': {
       'en': 'Profile',
-      'aa': '',
+      'sw': 'Wasifu',
     },
     'o1xanfku': {
       'en': 'Edit Profile',
-      'aa': '',
+      'sw': 'Badilisha Wasifu',
     },
     'ztk4ynte': {
       'en': 'Account Information',
-      'aa': '',
+      'sw': 'Taarifa za Akaunti',
     },
     'sprl9xlk': {
       'en': 'Security',
-      'aa': '',
+      'sw': 'Usalama',
     },
     'tb8gwqu5': {
       'en': 'Help Center',
-      'aa': '',
+      'sw': 'Kituo cha Usaidizi',
     },
     'igkwrj2d': {
       'en': 'Privacy Policy',
-      'aa': '',
+      'sw': 'Sera ya Faragha',
     },
     '5lw9vu9l': {
       'en': 'Log Out',
-      'aa': '',
+      'sw': 'Toka nje',
     },
     'ct4rq5hx': {
       'en': 'Soomates',
-      'aa': '',
+      'sw': 'Soomates',
     },
     'rv35f78s': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Login
   {
     'yghkeolh': {
       'en': 'Meet new people from all over World.',
-      'aa': '',
+      'sw': 'Kutana na watu wapya kutoka kote ulimwenguni.',
     },
     'ntx1p7a6': {
       'en': 'Chat with other singles and get to know them better.',
-      'aa': '',
+      'sw': 'Piga gumzo na single nyingine na upate kuzifahamu zaidi.',
     },
     'y3qfv6m0': {
       'en': 'Get Started',
-      'aa': '',
+      'sw': 'Anza',
     },
     'l64m1arj': {
       'en': 'By signing in, your agreeing our',
-      'aa': '',
+      'sw': 'Kwa kuingia, unakubali yetu',
     },
     'g80jlu4d': {
       'en': 'terms',
-      'aa': '',
+      'sw': 'masharti',
     },
     'gtlganvt': {
       'en': 'and',
-      'aa': '',
+      'sw': 'na',
     },
     'h32s4wjz': {
       'en': 'privacy policy',
-      'aa': '',
+      'sw': 'sera ya faragha',
     },
     'rmp024x4': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // User_Profile
   {
     '13km2bdu': {
       'en': 'Message',
-      'aa': '',
+      'sw': 'Ujumbe',
     },
     'mxu5aexj': {
       'en': 'Message',
-      'aa': '',
+      'sw': 'Ujumbe',
     },
     'vgj224bq': {
       'en': 'Full Name',
-      'aa': '',
+      'sw': 'Jina Kamili',
     },
     'fuwrha6t': {
       'en': 'Age',
-      'aa': '',
+      'sw': 'Umri',
     },
     '1v29tcxl': {
       'en': 'Gender',
-      'aa': '',
+      'sw': 'Jinsia',
     },
     'l7gvhns0': {
       'en': 'Job',
-      'aa': '',
+      'sw': 'Kazi',
     },
     'rwicmhcq': {
       'en': 'Skin color',
-      'aa': '',
+      'sw': 'Rangi ya ngozi',
     },
     'gylx52em': {
       'en': 'Married status',
-      'aa': '',
+      'sw': 'Hali ya ndoa',
     },
     '3m6ctzgc': {
       'en': 'Country',
-      'aa': '',
+      'sw': 'Nchi',
     },
     'mjbf2cga': {
       'en': 'City',
-      'aa': '',
+      'sw': 'Jiji',
     },
     'sglxnf0u': {
       'en': 'About Me',
-      'aa': '',
+      'sw': 'Kuhusu Mimi',
     },
     'cwuksexy': {
       'en': 'Profile',
-      'aa': '',
+      'sw': 'Wasifu',
     },
     'abygf1q5': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Message
   {
     'jxtmnjad': {
       'en': 'Message...',
-      'aa': '',
+      'sw': 'Ujumbe...',
     },
     'jc1xg04p': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Form
   {
     'h1qd26l2': {
       'en': 'SELECT PICTURE',
-      'aa': '',
+      'sw': 'CHAGUA PICHA',
     },
     'mdxn4xmm': {
       'en': 'Username...',
-      'aa': '',
+      'sw': 'Jina la mtumiaji...',
     },
     '719cjcyg': {
       'en': 'Country',
-      'aa': '',
+      'sw': 'Nchi',
     },
     'ykmx6dau': {
       'en': 'Full Name',
-      'aa': '',
+      'sw': 'Jina Kamili',
     },
     'c29m5axq': {
       'en': '16',
-      'aa': '',
+      'sw': '16',
     },
     '3fops4eh': {
       'en': '17',
-      'aa': '',
+      'sw': '17',
     },
     'gm76kszg': {
       'en': '18',
-      'aa': '',
+      'sw': '18',
     },
     '0spm4ta3': {
       'en': '19',
-      'aa': '',
+      'sw': '19',
     },
     'j3nji066': {
       'en': '20',
-      'aa': '',
+      'sw': '20',
     },
     'edvlugsx': {
       'en': '21',
-      'aa': '',
+      'sw': '21',
     },
     'wrnlxutr': {
       'en': '22',
-      'aa': '',
+      'sw': '22',
     },
     'gbndv9gn': {
       'en': '23',
-      'aa': '',
+      'sw': '23',
     },
     'quu7b06a': {
       'en': '24',
-      'aa': '',
+      'sw': '24',
     },
     'x3d3h1vn': {
       'en': '25',
-      'aa': '',
+      'sw': '25',
     },
     'gpehbk0z': {
       'en': '26',
-      'aa': '',
+      'sw': '26',
     },
     '1hvtyq4x': {
       'en': '27',
-      'aa': '',
+      'sw': '27',
     },
     'xzrouqal': {
       'en': '28',
-      'aa': '',
+      'sw': '28',
     },
     'sfax4h6s': {
       'en': '29',
-      'aa': '',
+      'sw': '29',
     },
     'w0nv55gw': {
       'en': '30',
-      'aa': '',
+      'sw': '30',
     },
     'zbpef5mx': {
       'en': '31',
-      'aa': '',
+      'sw': '31',
     },
     'gd3w49l7': {
       'en': '32',
-      'aa': '',
+      'sw': '32',
     },
     'fwtd2hyq': {
       'en': '33',
-      'aa': '',
+      'sw': '33',
     },
     'ch2oslrb': {
       'en': '34',
-      'aa': '',
+      'sw': '34',
     },
     'ahbb391j': {
       'en': '35',
-      'aa': '',
+      'sw': '35',
     },
     'hs2q2gcx': {
       'en': '36',
-      'aa': '',
+      'sw': '36',
     },
     '5ufkzjr4': {
       'en': '37',
-      'aa': '',
+      'sw': '37',
     },
     '8i3xplf7': {
       'en': '38',
-      'aa': '',
+      'sw': '38',
     },
     '6zcxckzg': {
       'en': '39',
-      'aa': '',
+      'sw': '39',
     },
     'ichjj16z': {
       'en': '40',
-      'aa': '',
+      'sw': '40',
     },
     'jgr4x695': {
       'en': '41',
-      'aa': '',
+      'sw': '41',
     },
     '4i45g08j': {
       'en': '42',
-      'aa': '',
+      'sw': '42',
     },
     'l4ryfcbe': {
       'en': '43',
-      'aa': '',
+      'sw': '43',
     },
     '0epz2sow': {
       'en': '44',
-      'aa': '',
+      'sw': '44',
     },
     '2yobqf02': {
       'en': '45',
-      'aa': '',
+      'sw': '45',
     },
     'hmp7zs3a': {
       'en': '46',
-      'aa': '',
+      'sw': '46',
     },
     'bagchqvf': {
       'en': '47',
-      'aa': '',
+      'sw': '47',
     },
     'ln6p3gi2': {
       'en': '48',
-      'aa': '',
+      'sw': '48',
     },
     'dgftn7m0': {
       'en': '49',
-      'aa': '',
+      'sw': '49',
     },
     'dl8m3dnw': {
       'en': '50',
-      'aa': '',
+      'sw': '50',
     },
     'vvdrulqb': {
       'en': '51',
-      'aa': '',
+      'sw': '51',
     },
     '3xg8vr8f': {
       'en': 'Age',
-      'aa': '',
+      'sw': 'Umri',
     },
     'wq48ziwk': {
       'en': 'Search',
-      'aa': '',
+      'sw': 'Tafuta',
     },
     'c0w8oyaz': {
       'en': 'Lab (Rag)',
-      'aa': '',
+      'sw': 'Maabara (Rag)',
     },
     '0tddrc2g': {
       'en': 'Dheddig (Dumar)',
-      'aa': '',
+      'sw': 'Dheddig (Dumar)',
     },
     'x386kfen': {
       'en': 'Gender',
-      'aa': '',
+      'sw': 'Jinsia',
     },
     'eaj7gdf1': {
       'en': 'Wan shaqeya',
-      'aa': '',
+      'sw': 'Wan shaqeya',
     },
     'sfltjmcn': {
       'en': 'Mashaqeyi',
-      'aa': '',
+      'sw': 'Mashaqeyi',
     },
     'sxj1gdxj': {
       'en': 'Job',
-      'aa': '',
+      'sw': 'Kazi',
     },
     'vd8tj1le': {
       'en': 'Cadan',
-      'aa': '',
+      'sw': 'Kadani',
     },
     '285joo1h': {
       'en': 'Marin',
-      'aa': '',
+      'sw': 'Marin',
     },
     'r0m17ws8': {
       'en': 'Madow',
-      'aa': '',
+      'sw': 'Madow',
     },
     'q4x1nnb5': {
       'en': 'Skin color',
-      'aa': '',
+      'sw': 'Rangi ya ngozi',
     },
     'zbvoc4x3': {
       'en': 'Single',
-      'aa': '',
+      'sw': 'Mtu mmoja',
     },
     'fre7vpth': {
       'en': 'Divorced',
-      'aa': '',
+      'sw': 'Wameachwa',
     },
     '71z6i5jc': {
       'en': 'Widowed',
-      'aa': '',
+      'sw': 'Mjane',
     },
     'z7yict2m': {
       'en': 'Separated',
-      'aa': '',
+      'sw': 'Imetenganishwa',
     },
     'vxys8391': {
       'en': 'Married Status',
-      'aa': '',
+      'sw': 'Hali ya Ndoa',
     },
     'rzwaiol1': {
       'en': 'About me',
-      'aa': '',
+      'sw': 'Kuhusu mimi',
     },
     'szbcvyur': {
       'en': 'Username is required.',
-      'aa': '',
+      'sw': 'Jina la mtumiaji linahitajika.',
     },
     '2ujl1pcp': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     'a4907i7h': {
       'en': 'Country is required.',
-      'aa': '',
+      'sw': 'Nchi inahitajika.',
     },
     '581imetd': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     '7am0d75q': {
       'en': 'Name is required.',
-      'aa': '',
+      'sw': 'Jina linahitajika.',
     },
     '63014vie': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     '7yvuyji9': {
       'en': 'Field is required',
-      'aa': '',
+      'sw': '',
     },
     'pxi6gmvj': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': '',
     },
     '2grizmef': {
       'en': 'Done',
-      'aa': '',
+      'sw': 'Imekamilika',
     },
     'kh8o1k6d': {
       'en': 'Create Profile',
-      'aa': '',
+      'sw': 'Unda Wasifu',
     },
     '3nd5gr0d': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Update_Profile
   {
     'sulsr8n0': {
       'en': 'SELECT PICTURE',
-      'aa': '',
+      'sw': 'CHAGUA PICHA',
     },
     'wavxj8wu': {
       'en': 'Username...',
-      'aa': '',
+      'sw': 'Jina la mtumiaji...',
     },
     '1suc30wh': {
       'en': 'Country',
-      'aa': '',
+      'sw': 'Nchi',
     },
     'inzjodpa': {
       'en': 'Full Name',
-      'aa': '',
+      'sw': 'Jina Kamili',
     },
     '2ahu2wai': {
       'en': '16',
-      'aa': '',
+      'sw': '16',
     },
     'o51nibld': {
       'en': '17',
-      'aa': '',
+      'sw': '17',
     },
     'j61eplvr': {
       'en': '18',
-      'aa': '',
+      'sw': '18',
     },
     '7bi4mzaa': {
       'en': '19',
-      'aa': '',
+      'sw': '19',
     },
     'fc6co4hq': {
       'en': '20',
-      'aa': '',
+      'sw': '20',
     },
     '6coz2j2e': {
       'en': '21',
-      'aa': '',
+      'sw': '21',
     },
     '7f04cw9i': {
       'en': '22',
-      'aa': '',
+      'sw': '22',
     },
     'rei9t5qk': {
       'en': '23',
-      'aa': '',
+      'sw': '23',
     },
     'nl4f2e6h': {
       'en': '24',
-      'aa': '',
+      'sw': '24',
     },
     'ru1xbo6j': {
       'en': '25',
-      'aa': '',
+      'sw': '25',
     },
     'y2f1uzs2': {
       'en': '26',
-      'aa': '',
+      'sw': '26',
     },
     '1d2hzhpe': {
       'en': '27',
-      'aa': '',
+      'sw': '27',
     },
     '5357cmkx': {
       'en': '28',
-      'aa': '',
+      'sw': '28',
     },
     '04w3xffh': {
       'en': '29',
-      'aa': '',
+      'sw': '29',
     },
     '5iba19y6': {
       'en': '30',
-      'aa': '',
+      'sw': '30',
     },
     '7krue2d9': {
       'en': '31',
-      'aa': '',
+      'sw': '31',
     },
     'liozick2': {
       'en': '32',
-      'aa': '',
+      'sw': '32',
     },
     '4kvu5337': {
       'en': '33',
-      'aa': '',
+      'sw': '33',
     },
     'mg4hcocd': {
       'en': '34',
-      'aa': '',
+      'sw': '34',
     },
     'ji7qsa4u': {
       'en': '35',
-      'aa': '',
+      'sw': '35',
     },
     's493iz2h': {
       'en': '36',
-      'aa': '',
+      'sw': '36',
     },
     'njsv8ow3': {
       'en': '37',
-      'aa': '',
+      'sw': '37',
     },
     'odb2yu2k': {
       'en': '38',
-      'aa': '',
+      'sw': '38',
     },
     'shdeftag': {
       'en': '39',
-      'aa': '',
+      'sw': '39',
     },
     'jrold8t1': {
       'en': '40',
-      'aa': '',
+      'sw': '40',
     },
     'in4fa0rw': {
       'en': '41',
-      'aa': '',
+      'sw': '41',
     },
     'prmpthpc': {
       'en': '42',
-      'aa': '',
+      'sw': '42',
     },
     'y9fk0bbm': {
       'en': '43',
-      'aa': '',
+      'sw': '43',
     },
     'qroca1bv': {
       'en': '44',
-      'aa': '',
+      'sw': '44',
     },
     'gudr79bd': {
       'en': '45',
-      'aa': '',
+      'sw': '45',
     },
     '4vzuxtus': {
       'en': '46',
-      'aa': '',
+      'sw': '46',
     },
     'e65ig8yd': {
       'en': '47',
-      'aa': '',
+      'sw': '47',
     },
     'hd0hrcdb': {
       'en': '48',
-      'aa': '',
+      'sw': '48',
     },
     'sxhfiplw': {
       'en': '49',
-      'aa': '',
+      'sw': '49',
     },
     'nbjqee8f': {
       'en': '50',
-      'aa': '',
+      'sw': '50',
     },
     'qkqbn9xk': {
       'en': '51',
-      'aa': '',
+      'sw': '51',
     },
     '1wvw1fej': {
       'en': 'Age',
-      'aa': '',
+      'sw': 'Umri',
     },
     'cj8roffx': {
       'en': 'Search',
-      'aa': '',
+      'sw': 'Tafuta',
     },
     'uqw5ayq8': {
       'en': 'Lab (Rag)',
-      'aa': '',
+      'sw': 'Maabara (Rag)',
     },
     't9j8lzqe': {
       'en': 'Dheddig (Dumar)',
-      'aa': '',
+      'sw': 'Dheddig (Dumar)',
     },
     's4slxrjd': {
       'en': 'Gender',
-      'aa': '',
+      'sw': 'Jinsia',
     },
     'ew0seqv5': {
       'en': 'Wan shaqeya',
-      'aa': '',
+      'sw': 'Wan shaqeya',
     },
     '335xmxzb': {
       'en': 'Mashaqeyi',
-      'aa': '',
+      'sw': 'Mashaqeyi',
     },
     'bcwbknbp': {
       'en': 'Job',
-      'aa': '',
+      'sw': 'Kazi',
     },
     '99i5m1d0': {
       'en': 'Cadan',
-      'aa': '',
+      'sw': 'Kadani',
     },
     'yrpc8dgt': {
       'en': 'Marin',
-      'aa': '',
+      'sw': 'Marin',
     },
     'szqc54jr': {
       'en': 'Madow',
-      'aa': '',
+      'sw': 'Madow',
     },
     '849t86wo': {
       'en': 'Skin color',
-      'aa': '',
+      'sw': 'Rangi ya ngozi',
     },
     'xvvp0tub': {
       'en': 'Single',
-      'aa': '',
+      'sw': 'Mtu mmoja',
     },
     'ckr0owj7': {
       'en': 'Divorced',
-      'aa': '',
+      'sw': 'Wameachwa',
     },
     'g8oygnvl': {
       'en': 'Widowed',
-      'aa': '',
+      'sw': 'Mjane',
     },
     'mjymnosh': {
       'en': 'Separated',
-      'aa': '',
+      'sw': 'Imetenganishwa',
     },
     '2bbe3ygr': {
       'en': 'Married Status',
-      'aa': '',
+      'sw': 'Hali ya Ndoa',
     },
     'kejgiv4y': {
       'en': 'About me',
-      'aa': '',
+      'sw': 'Kuhusu mimi',
     },
     'jtu38jcc': {
       'en': 'Username is required.',
-      'aa': '',
+      'sw': 'Jina la mtumiaji linahitajika.',
     },
     'cutq92oh': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     'mb1cz8nf': {
       'en': 'Last name is required.',
-      'aa': '',
+      'sw': 'Jina la mwisho linahitajika.',
     },
     'km3k084q': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     'tyohkz4j': {
       'en': 'Name is required.',
-      'aa': '',
+      'sw': 'Jina linahitajika.',
     },
     'isv4ci4c': {
       'en': 'Please choose an option from the dropdown',
-      'aa': '',
+      'sw': 'Tafadhali chagua chaguo kutoka kwenye menyu kunjuzi',
     },
     '1sa3acm1': {
       'en': 'Update',
-      'aa': '',
+      'sw': 'Sasisha',
     },
     'xgycr8ym': {
       'en': 'Update Profile',
-      'aa': '',
+      'sw': 'Sasisha Wasifu',
     },
     '2virojh0': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Privacy_Policy
   {
     '3801b8ck': {
       'en': 'Privacy Policy',
-      'aa': '',
+      'sw': 'Sera ya Faragha',
     },
     'fwa70133': {
       'en': '1. Introduction ',
-      'aa': '',
+      'sw': '1. Utangulizi',
     },
     'difgwzom': {
       'en':
           'Privacy Policy This privacy policy explains how Soomluv collects, uses, and protects your personal information.',
-      'aa': '',
+      'sw':
+          'Sera ya Faragha Sera hii ya faragha inaeleza jinsi Soomluv inavyokusanya, kutumia, na kulinda taarifa zako za kibinafsi.',
     },
     'b7l2wj86': {
       'en': '2. Information We Collect',
-      'aa': '',
+      'sw': '2. Taarifa Tunazokusanya',
     },
     'drjxr3gx': {
       'en':
           'We may collect personal information such as your name, email, location, and other details to improve your user experience.',
-      'aa': '',
+      'sw':
+          'Tunaweza kukusanya taarifa za kibinafsi kama vile jina lako, barua pepe, eneo, na maelezo mengine ili kuboresha matumizi yako.',
     },
     '55k4stl1': {
       'en': '3. How We Use Your Information',
-      'aa': '',
+      'sw': '3. Jinsi Tunavyotumia Taarifa Zako',
     },
     'xyapaa92': {
       'en':
           'Your information is used to personalize your experience, improve Soomluv, and send you relevant updates.',
-      'aa': '',
+      'sw':
+          'Maelezo yako yanatumiwa kubinafsisha matumizi yako, kuboresha Soomluv, na kukutumia masasisho muhimu.',
     },
     'lxex32m4': {
       'en': '4. Security ',
-      'aa': '',
+      'sw': '4. Usalama',
     },
     '8ze3ipvh': {
       'en':
           ' We take appropriate measures to secure your personal information. However, no method of transmission over the internet is 100% secure.',
-      'aa': '',
+      'sw':
+          'Tunachukua hatua zinazofaa ili kupata taarifa zako za kibinafsi. Hata hivyo, hakuna njia ya maambukizi kwenye mtandao ambayo ni salama 100%.',
     },
     'ogzggrjc': {
       'en': '5. Changes to This Policy',
-      'aa': '',
+      'sw': '5. Mabadiliko ya Sera hii',
     },
     '9kb2xfmj': {
       'en':
           'We may update this privacy policy from time to time. You will be notified of any changes on this page.',
-      'aa': '',
+      'sw':
+          'Tunaweza kusasisha sera hii ya faragha mara kwa mara. Utaarifiwa kuhusu mabadiliko yoyote kwenye ukurasa huu.',
     },
     'ol3ndiiz': {
       'en': 'Contact Us',
-      'aa': '',
+      'sw': 'Wasiliana Nasi',
     },
     'nc8qmy64': {
       'en':
           'If you have any questions about this privacy policy, please contact us at +252770601699',
-      'aa': '',
+      'sw':
+          'Ikiwa una maswali yoyote kuhusu sera hii ya faragha, tafadhali wasiliana nasi kwa +252770601699',
     },
     'i59drywk': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // HelpCenter
   {
     'z4m2p0ff': {
       'en': 'How can we help you?',
-      'aa': '',
+      'sw': 'Je, tunaweza kukusaidia vipi?',
     },
     'h40hmatw': {
       'en': 'WhatsApp Support',
-      'aa': '',
+      'sw': 'Usaidizi wa WhatsApp',
     },
     'u7r2cxv1': {
       'en': 'Chat with our support team on WhatsApp for quick assistance.',
-      'aa': '',
+      'sw':
+          'Piga gumzo na timu yetu ya usaidizi kwenye WhatsApp kwa usaidizi wa haraka.',
     },
     '040b1w20': {
       'en': 'Open WhatsApp',
-      'aa': '',
+      'sw': 'Fungua WhatsApp',
     },
     'ueg57inh': {
       'en': 'Email Support',
-      'aa': '',
+      'sw': 'Msaada wa barua pepe',
     },
     'pjdwg0pt': {
       'en': 'Send us an email for more detailed inquiries or feedback.',
-      'aa': '',
+      'sw': 'Tutumie barua pepe kwa maswali au maoni ya kina zaidi.',
     },
     '4fp8cctp': {
       'en': 'Send Email',
-      'aa': '',
+      'sw': 'Tuma Barua Pepe',
     },
     'ijhs9161': {
       'en': 'Frequently Asked Questions',
-      'aa': '',
+      'sw': 'Maswali Yanayoulizwa Mara Kwa Mara',
     },
     '4wcz7y8b': {
       'en': 'How do I reset my password?',
-      'aa': '',
+      'sw': 'Je, ninawezaje kuweka upya nenosiri langu?',
     },
     'n0k1tl1v': {
       'en': 'How can I change my profile picture?',
-      'aa': '',
+      'sw': 'Ninawezaje kubadilisha picha yangu ya wasifu?',
     },
     'tu2zvjop': {
       'en': 'How do I report inappropriate behavior?',
-      'aa': '',
+      'sw': 'Je, ninaripotije tabia isiyofaa?',
     },
     'zzffd790': {
       'en': 'Can I undo a swipe?',
-      'aa': '',
+      'sw': 'Je, ninaweza kutendua kutelezesha kidole?',
     },
     'nfpcxf8p': {
       'en': 'Help Center',
-      'aa': '',
+      'sw': 'Kituo cha Usaidizi',
     },
     'ynurvbbn': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Security
   {
     'ty9gcseu': {
       'en': 'Security',
-      'aa': '',
+      'sw': 'Usalama',
     },
     '4z8kd6tt': {
       'en': 'Email Verification Status',
-      'aa': '',
+      'sw': 'Hali ya Uthibitishaji wa Barua Pepe',
     },
     'zhl7ds69': {
       'en': 'Verified',
-      'aa': '',
+      'sw': 'Imethibitishwa',
     },
     'qjxhlb0a': {
       'en': 'Unverified',
-      'aa': '',
+      'sw': 'Haijathibitishwa',
     },
     'tp2c7ttc': {
       'en': 'Show Online Status',
-      'aa': '',
+      'sw': 'Onyesha Hali ya Mtandaoni',
     },
     'y1w98yko': {
       'en': 'Allow Messages',
-      'aa': '',
+      'sw': 'Ruhusu Ujumbe',
     },
     '3duv53h4': {
       'en': 'Show Last Seen',
-      'aa': '',
+      'sw': 'Onyesha Kuonekana Mara ya Mwisho',
     },
     'fkcme1z2': {
       'en': 'Privacy Options',
-      'aa': '',
+      'sw': 'Chaguzi za Faragha',
     },
     'm84tubbb': {
       'en': 'Profile Visibility',
-      'aa': '',
+      'sw': 'Mwonekano wa Wasifu',
     },
     'q368bdhz': {
       'en': 'Blocked Users',
-      'aa': '',
+      'sw': 'Watumiaji Waliozuiwa',
     },
     'kcmg9nph': {
       'en': 'Message Filtering',
-      'aa': '',
+      'sw': 'Kuchuja Ujumbe',
     },
     'b9yfx4ks': {
       'en': 'Account Security',
-      'aa': '',
+      'sw': 'Usalama wa Akaunti',
     },
     '2qmbh4wb': {
       'en': 'Change Email',
-      'aa': '',
+      'sw': 'Badilisha Barua pepe',
     },
     '300kqupg': {
       'en': 'Login Activity',
-      'aa': '',
+      'sw': 'Shughuli ya Kuingia',
     },
     'ss8tnp7o': {
       'en': 'Linked Accounts',
-      'aa': '',
+      'sw': 'Akaunti Zilizounganishwa',
     },
     'zvhotsug': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Account_Settings
   {
     'h0uwbw9u': {
       'en': 'Page Title',
-      'aa': '',
+      'sw': 'Kichwa cha Ukurasa',
     },
     'seycb2o5': {
       'en': 'Profile Information',
-      'aa': '',
+      'sw': 'Maelezo ya Wasifu',
     },
     '6mkkyfun': {
       'en': 'Full Name',
-      'aa': '',
+      'sw': 'Jina Kamili',
     },
     'tbotu3ud': {
       'en': 'Email',
-      'aa': '',
+      'sw': 'Barua pepe',
     },
     'w6j40sqc': {
       'en': 'Phone Number',
-      'aa': '',
+      'sw': 'Nambari ya Simu',
     },
     '7t0h12zg': {
       'en': 'Account Preferences',
-      'aa': '',
+      'sw': 'Mapendeleo ya Akaunti',
     },
     'hoct3ywf': {
       'en': 'Show me on Cupid',
-      'aa': '',
+      'sw': 'Nionyeshe kwenye Cupid',
     },
     'f1jnndh7': {
       'en': 'Enable notifications',
-      'aa': '',
+      'sw': 'Washa arifa',
     },
     'p29cc161': {
       'en': 'Dark mode',
-      'aa': '',
+      'sw': 'Hali ya giza',
     },
     '8vu4jobt': {
       'en': 'Privacy Settings',
-      'aa': '',
+      'sw': 'Mipangilio ya Faragha',
     },
     'icv19shu': {
       'en': 'Profile visibility',
-      'aa': '',
+      'sw': 'Mwonekano wa wasifu',
     },
     'sfur4nqf': {
       'en': 'Public\" \\ \"Friends\" \\ \"Private',
-      'aa': '',
+      'sw': 'Umma\" \\\"Marafiki\" \\\"Binafsi',
     },
     '6nmfjpnq': {
       'en': 'Allow messaging from',
-      'aa': '',
+      'sw': 'Ruhusu ujumbe kutoka',
     },
     '39n1nwy4': {
       'en': 'Everyone\" \\ \"Matches\" \\ \"No one',
-      'aa': '',
+      'sw': 'Kila mtu\" \\ \"Inalingana\" \\ \"Hakuna mtu',
     },
     'jmmghu1n': {
       'en': 'Save Changes',
-      'aa': '',
+      'sw': 'Hifadhi Mabadiliko',
     },
     'klivl2ex': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Account_Information
   {
     'prk1qrpm': {
       'en': 'Personal info',
-      'aa': '',
+      'sw': 'Taarifa za kibinafsi',
     },
     'apzlmiwp': {
       'en': 'Full Name',
-      'aa': '',
+      'sw': 'Jina Kamili',
     },
     'kryfd5q2': {
       'en': 'Username',
-      'aa': '',
+      'sw': 'Jina la mtumiaji',
     },
     'nkvqyval': {
       'en': 'Age',
-      'aa': '',
+      'sw': 'Umri',
     },
     'oilzqc9s': {
       'en': 'Gender',
-      'aa': '',
+      'sw': 'Jinsia',
     },
     'dx1h01pk': {
       'en': 'Job',
-      'aa': '',
+      'sw': 'Kazi',
     },
     '08hrw8kg': {
       'en': 'Skin color',
-      'aa': '',
+      'sw': 'Rangi ya ngozi',
     },
     'akrgzilf': {
       'en': 'Married status',
-      'aa': '',
+      'sw': 'Hali ya ndoa',
     },
     '6fiihvm4': {
       'en': 'Country',
-      'aa': '',
+      'sw': 'Nchi',
     },
     'tj7wxd1q': {
       'en': 'City',
-      'aa': '',
+      'sw': 'Jiji',
     },
     '4bgicccn': {
       'en': 'Account Information',
-      'aa': '',
+      'sw': 'Taarifa za Akaunti',
     },
     '7lzkv7ma': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Check
   {
     '93j8kbl3': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // ProfileViews
   {
     'ckj0im9z': {
       'en': 'People who viewed your profile',
-      'aa': '',
+      'sw': 'Watu waliotazama wasifu wako',
     },
     'usf4nron': {
       'en': 'Emma Johnson',
-      'aa': '',
+      'sw': 'Emma Johnson',
     },
     'u9mc9evc': {
       'en': 'United States',
-      'aa': '',
+      'sw': 'Marekani',
     },
     'idu6g9ih': {
       'en': 'Liam Chen',
-      'aa': '',
+      'sw': 'Liam Chen',
     },
     'x2kjvwzg': {
       'en': 'China',
-      'aa': '',
+      'sw': 'China',
     },
     'fronywlu': {
       'en': 'Page Title',
-      'aa': '',
+      'sw': 'Kichwa cha Ukurasa',
     },
     'sbm5d2g0': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Blocked
   {
     'dr8ftaaz': {
       'en': 'People you\'ve blocked',
-      'aa': '',
+      'sw': 'Watu ambao umewazuia',
     },
     't735d33u': {
       'en': 'Unblock',
-      'aa': '',
+      'sw': 'Ondoa kizuizi',
     },
     '8o8r2zfq': {
       'en': 'Blocked',
-      'aa': '',
+      'sw': 'Imezuiwa',
     },
     'g1vb37dh': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // All_Users
   {
     'ux9nvp5e': {
       'en': 'Page Title',
-      'aa': '',
+      'sw': 'Kichwa cha Ukurasa',
     },
     '5wrh9cpl': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Live_Audio
   {
     'min5eifq': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Users-NoProfile
   {
     'j6xwkhk9': {
       'en': 'No Profiles',
-      'aa': '',
+      'sw': 'Hakuna Wasifu',
     },
     '0py1n1sl': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Call_Join
   {
     'ttoyno93': {
       'en': 'Calafdon Live',
-      'aa': '',
+      'sw': 'Calafdon Live',
     },
     'bhhiqz8y': {
       'en': 'Join the live to connect with other Calafdon People',
-      'aa': '',
+      'sw': 'Jiunge na moja kwa moja ili kuungana na Watu wengine wa Calafdon',
     },
     'l8h4d4ms': {
       'en': 'Join Live',
-      'aa': '',
+      'sw': 'Jiunge Moja kwa Moja',
     },
     'lcjeyf3h': {
       'en': 'Join Live',
-      'aa': '',
+      'sw': 'Jiunge Moja kwa Moja',
     },
     'nwqs11ak': {
       'en': 'By joining, you agree to our Terms of Service',
-      'aa': '',
+      'sw': 'Kwa kujiunga, unakubali Sheria na Masharti yetu',
     },
     'vpkqpzjz': {
       'en': 'Live Guidelines',
-      'aa': '',
+      'sw': 'Miongozo ya moja kwa moja',
     },
     'eu3nhkwa': {
       'en': '1. Be respectful and courteous',
-      'aa': '',
+      'sw': '1. Kuwa na heshima na adabu',
     },
     'nzufg3vw': {
       'en': '2. Ensure you\'re in a quiet environment',
-      'aa': '',
+      'sw': '2. Hakikisha uko katika mazingira tulivu',
     },
     'yk8i24qu': {
       'en': '3. Have fun and be yourself!',
-      'aa': '',
+      'sw': '3. Furahia na uwe mwenyewe!',
     },
     '9gzq61zo': {
       'en': 'Live',
-      'aa': '',
+      'sw': 'Ishi',
     },
     '69fj5fv6': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Search
   {
     'blsy9504': {
       'en': 'Search',
-      'aa': '',
+      'sw': 'Tafuta',
     },
     'a03nz4wo': {
       'en': 'Enter username',
-      'aa': '',
+      'sw': 'Ingiza jina la mtumiaji',
     },
     'eghpzk8s': {
       'en': 'Enter age',
-      'aa': '',
+      'sw': 'Ingiza umri',
     },
     '19k751mg': {
       'en': 'Search',
-      'aa': '',
+      'sw': 'Tafuta',
     },
     '7b4k9bte': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Live_AudioCopy
   {
     'i4z2oxmw': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // User_Profile-Update
   {
     'b7aimgd9': {
       'en': 'Update\n',
-      'aa': '',
+      'sw': 'Sasisha',
     },
     'f2g2qhim': {
       'en': 'Profile',
-      'aa': '',
+      'sw': 'Wasifu',
     },
     'fxvgs1gx': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // HomePage
   {
     'poood59y': {
       'en': 'Explore',
-      'aa': '',
+      'sw': 'Chunguza',
     },
     '1giy2wio': {
       'en': 'Chat',
-      'aa': '',
+      'sw': 'Soga',
     },
     'qu94a8s5': {
       'en': 'Profile',
-      'aa': '',
+      'sw': 'Wasifu',
     },
     'ko5t9ugq': {
       'en': 'Edit Profile',
-      'aa': '',
+      'sw': 'Badilisha Wasifu',
     },
     'i5w3egzd': {
       'en': 'Account Information',
-      'aa': '',
+      'sw': 'Taarifa za Akaunti',
     },
     'uwluuo5l': {
       'en': 'Security',
-      'aa': '',
+      'sw': 'Usalama',
+    },
+    '8z6sqpp3': {
+      'en': 'Display',
+      'sw': 'Onyesho',
     },
     'dlex6wwg': {
       'en': 'Help Center',
-      'aa': '',
+      'sw': 'Kituo cha Usaidizi',
     },
     '2uqsym08': {
       'en': 'Privacy Policy',
-      'aa': '',
+      'sw': 'Sera ya Faragha',
     },
     'nepdxyob': {
       'en': 'Log Out',
-      'aa': '',
+      'sw': 'Toka nje',
     },
     'umurlsl0': {
       'en': 'New Version Available',
-      'aa': '',
+      'sw': 'Toleo Jipya Linapatikana',
     },
     'zsh8cw9m': {
       'en':
           'We\'ve added exciting new features and fixed some bugs. Please update to continue using the app.',
-      'aa': '',
+      'sw':
+          'Tumeongeza vipengele vipya vya kusisimua na kurekebisha hitilafu kadhaa. Tafadhali sasisha ili kuendelea kutumia programu.',
     },
     'y578yq0d': {
       'en': 'Update Now',
-      'aa': '',
+      'sw': 'Sasisha Sasa',
     },
     'baids9km': {
       'en': 'Alafdoon',
-      'aa': '',
+      'sw': 'Alafdoon',
     },
     '06vzjxv5': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Email_Change
   {
     'knmk75rs': {
       'en': 'Update your email address',
-      'aa': '',
+      'sw': 'Sasisha anwani yako ya barua pepe',
     },
     '8yk87oh0': {
       'en':
           'Enter your new email address below. We\'ll send a verification link to confirm the change.',
-      'aa': '',
+      'sw':
+          'Weka barua pepe yako mpya hapa chini. Tutatuma kiungo cha uthibitishaji ili kuthibitisha mabadiliko.',
     },
     'ohf07foe': {
       'en': 'Current Email',
-      'aa': '',
+      'sw': 'Barua pepe ya Sasa',
     },
     '087dyde7': {
       'en': 'New Email',
-      'aa': '',
+      'sw': 'Barua pepe Mpya',
     },
     'xp07sxm8': {
       'en': 'Confirm New Email',
-      'aa': '',
+      'sw': 'Thibitisha Barua pepe Mpya',
     },
     'ld5g1qpe': {
       'en': 'Update Email',
-      'aa': '',
+      'sw': 'Sasisha Barua pepe',
     },
     'ls20aqfh': {
       'en':
           'Note: Changing your email may require you to verify your account again.',
-      'aa': '',
+      'sw':
+          'Kumbuka: Kubadilisha barua pepe yako kunaweza kukuhitaji uthibitishe akaunti yako tena.',
     },
     'cvg3bp0t': {
       'en': 'Email Update',
-      'aa': '',
+      'sw': 'Sasisho la Barua pepe',
     },
     'haw6gzbb': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
-  // Login_Email
-  {
-    'bwvo8i1n': {
-      'en': 'Login to your account',
-      'aa': '',
-    },
-    'dq63mgt8': {
-      'en': 'Email',
-      'aa': '',
-    },
-    'l7t7vaaf': {
-      'en': 'Password',
-      'aa': '',
-    },
-    '3nxco7ub': {
-      'en': 'Sign In',
-      'aa': '',
-    },
-    'zslzroph': {
-      'en': 'Don’t  have account ? ',
-      'aa': '',
-    },
-    '4gffayb5': {
-      'en': 'Sign Up',
-      'aa': '',
-    },
-    '63ha8utk': {
-      'en': 'Home',
-      'aa': '',
-    },
-  },
-  // Create_Account
-  {
-    'ge9ka76u': {
-      'en': 'Create account',
-      'aa': '',
-    },
-    '3ibj5xf1': {
-      'en': 'Email',
-      'aa': '',
-    },
-    'cxxd0c0b': {
-      'en': 'Password',
-      'aa': '',
-    },
-    'ilhtbu6j': {
-      'en': 'Password',
-      'aa': '',
-    },
-    'i40w3mhg': {
-      'en': 'Sign Up',
-      'aa': '',
-    },
-    'h86y2lpj': {
-      'en': 'i have account ? ',
-      'aa': '',
-    },
-    'dvov2r4j': {
-      'en': 'Sign In',
-      'aa': '',
-    },
-    'xq1wk46p': {
-      'en': 'Home',
-      'aa': '',
-    },
-  },
-  // Test
+  // Display
   {
     'lszfw363': {
       'en': 'Light',
-      'aa': '',
+      'sw': 'Mwanga',
     },
     'l5bp5anm': {
       'en': 'Dark',
-      'aa': '',
+      'sw': 'Giza',
     },
     'jj6028be': {
       'en': 'Language',
-      'aa': '',
+      'sw': 'Lugha',
     },
     'u29rprt5': {
       'en': 'Af-Somali',
-      'aa': '',
+      'sw': 'Af-Somali',
     },
     '85bmcuan': {
       'en': 'English',
-      'aa': '',
+      'sw': 'Kiingereza',
     },
     'vlu7ocwg': {
       'en': 'Display',
-      'aa': '',
+      'sw': 'Onyesho',
     },
     'w5vtg8kh': {
       'en': 'Home',
-      'aa': '',
+      'sw': 'Nyumbani',
     },
   },
   // Messages
   {
     'b7on9534': {
       'en': 'Chat',
-      'aa': '',
+      'sw': 'Soga',
     },
     '5axr0uws': {
       'en': 'Message...',
-      'aa': '',
+      'sw': 'Ujumbe...',
     },
     'f8s0ay9e': {
       'en': 'Send',
-      'aa': '',
+      'sw': 'Tuma',
     },
   },
   // Email_Verify
   {
     'vlnpqmui': {
       'en': 'Verify Your Email',
-      'aa': '',
+      'sw': 'Thibitisha Barua pepe Yako',
     },
     'um3u9fk8': {
       'en': 'Didn\'t receive the email?',
-      'aa': '',
+      'sw': 'Hukupokea barua pepe?',
     },
     't7xn5g8k': {
       'en':
           'Please check your spam folder if you don\'t see the email in your inbox.',
-      'aa': '',
+      'sw':
+          'Tafadhali angalia folda yako ya barua taka ikiwa huoni barua pepe kwenye kikasha chako.',
     },
   },
   // LogOut
   {
     'vij8w91f': {
       'en': 'Are you sure you want to log out?',
-      'aa': '',
+      'sw': 'Je, una uhakika unataka kutoka?',
     },
     'bi3lmgdx': {
       'en': 'Log Out',
-      'aa': '',
+      'sw': 'Toka nje',
     },
   },
   // Report
   {
     'u8l3zcfi': {
       'en': 'Doro Sababta ad report u dhaheysid?',
-      'aa': '',
+      'sw': 'Doro Sababta ad report you dhaheysid?',
     },
     '5hlfxpy1': {
       'en': 'Sawir anshax xumo u saran',
-      'aa': '',
+      'sw': 'Sawir anshax xumo u saran',
     },
     'rnfpug75': {
       'en': 'Magac xun ugu qoran',
-      'aa': '',
+      'sw': 'Magac xun ugu qoran',
     },
     'i7tv7fat': {
       'en': 'Sabab kle ban Report u dhahaya',
-      'aa': '',
+      'sw': 'Sabab kle ban Report u dhahaya',
     },
     'ygbk6ywy': {
       'en': 'Inta ku qor sababta',
-      'aa': '',
+      'sw': 'Inta kwa qor sababta',
     },
     '011yu5fk': {
       'en': 'Type your message here...',
-      'aa': '',
+      'sw': 'Andika ujumbe wako hapa...',
     },
     '2m2wv5r7': {
       'en': 'Submit Report',
-      'aa': '',
+      'sw': 'Wasilisha Ripoti',
     },
   },
   // Report_Done
   {
     'tl4ovidu': {
       'en': 'Thanks for reporting',
-      'aa': '',
+      'sw': 'Asante kwa kuripoti',
     },
   },
   // More
   {
     'uas9hzk2': {
       'en': 'Report',
-      'aa': '',
+      'sw': 'Ripoti',
     },
     'x2w493yh': {
       'en': 'Block',
-      'aa': '',
+      'sw': 'Zuia',
     },
     '51i1hb6s': {
       'en': 'Unblock',
-      'aa': '',
+      'sw': 'Ondoa kizuizi',
     },
   },
   // Miscellaneous
   {
     '7xnzkx31': {
       'en': 'Button',
-      'aa': '',
+      'sw': 'Kitufe',
     },
     'yfglmgmb': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     '29r224mf': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'rxv37cag': {
       'en': 'j',
-      'aa': '',
+      'sw': 'j',
     },
     'b4ai7hvs': {
       'en': 'p',
-      'aa': '',
+      'sw': 'uk',
     },
     'mdqxmh9z': {
       'en': 'o',
-      'aa': '',
+      'sw': 'o',
     },
     'swm1apdr': {
       'en': 'Please enable it',
-      'aa': '',
+      'sw': 'Tafadhali iwashe',
     },
     'cjcy1ihh': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'jx57gt36': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'oh3ls5ij': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'ssh0nbou': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'uf99eevt': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'mnh8gx62': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     '3h5w1sff': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     '6qqzc2k0': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     '6zmbb2l6': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'sayg6369': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     '7bh6phk3': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'qa779h86': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'n22hfl7e': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'r35xgwfy': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'ayi5962e': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'kenycnmu': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'sc57ndvr': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'dfulk025': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'vpeqbxjt': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     's4ebn6tr': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'scqn0ut2': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'xdakg80p': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'fjzmn1hi': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'yyg2m07m': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
     'w90ykgda': {
       'en': '',
-      'aa': '',
+      'sw': '',
     },
   },
 ].reduce((a, b) => a..addAll(b));

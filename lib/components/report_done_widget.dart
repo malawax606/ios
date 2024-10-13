@@ -1,10 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/instant_timer.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'report_done_model.dart';
 export 'report_done_model.dart';
 
@@ -32,18 +34,6 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
     super.initState();
     _model = createModel(context, () => ReportDoneModel());
 
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 450),
-        callback: (timer) async {
-          _model.instantTimer?.cancel();
-          Navigator.pop(context);
-        },
-        startImmediately: true,
-      );
-    });
-
     animationsMap.addAll({
       'iconOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -54,8 +44,8 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(1.0, 1.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -93,7 +83,7 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'tl4ovidu' /* Thanks for reporting */,
@@ -106,7 +96,7 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
                     ),
               ),
             ),
-            const Icon(
+            Icon(
               FFIcons.kcheckCircleSvgrepoCom,
               color: Color(0xFF2FD25D),
               size: 100.0,

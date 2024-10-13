@@ -6,6 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'blocked_model.dart';
 export 'blocked_model.dart';
 
@@ -85,7 +87,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   FFIcons.kaltArrowLeftSvgrepoCom,
                   color: Color(0xFFB4BBB8),
                   size: 30.0,
@@ -100,12 +102,12 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
-                      color: const Color(0xFFB4BBB8),
+                      color: Color(0xFFB4BBB8),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -166,118 +168,164 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25.0),
-                                      child: Image.network(
-                                        listViewUserRow.profilePic != null &&
-                                                listViewUserRow.profilePic != ''
-                                            ? listViewUserRow.profilePic!
-                                            : (listViewUserRow.gender ==
-                                                    'Lab (Rag)'
-                                                ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                              child: FutureBuilder<List<UserRow>>(
+                                future: UserTable().querySingleRow(
+                                  queryFn: (q) => q.eq(
+                                    'id',
+                                    listViewUserRow.id,
                                   ),
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            listViewUserRow.fullName,
-                                            'User',
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyLarge
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
                                         ),
-                                        Text(
-                                          '@${listViewUserRow.username}',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
+                                      ),
+                                    );
+                                  }
+                                  List<UserRow> rowUserRowList = snapshot.data!;
+
+                                  final rowUserRow = rowUserRowList.isNotEmpty
+                                      ? rowUserRowList.first
+                                      : null;
+
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent1,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              rowUserRow?.profilePic != null &&
+                                                      rowUserRow?.profilePic !=
+                                                          ''
+                                                  ? rowUserRow?.profilePic
+                                                  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                              'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              valueOrDefault<String>(
+                                                rowUserRow?.fullName,
+                                                'User',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                            Text(
+                                              '@${rowUserRow?.username}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () async {
+                                          _model.blocked = blockedUserRow!
+                                              .blocked
+                                              .toList()
+                                              .cast<String>();
+                                          safeSetState(() {});
+                                          _model.removeFromBlocked(
+                                              listViewUserRow.id);
+                                          safeSetState(() {});
+                                          await UserTable().update(
+                                            data: {
+                                              'Blocked': _model.blocked,
+                                            },
+                                            matchingRows: (rows) => rows.eq(
+                                              'id',
+                                              currentUserUid,
+                                            ),
+                                          );
+                                          safeSetState(() =>
+                                              _model.requestCompleter2 = null);
+                                          await _model
+                                              .waitForRequestCompleted2();
+                                          safeSetState(() =>
+                                              _model.requestCompleter1 = null);
+                                          await _model
+                                              .waitForRequestCompleted1();
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          't735d33u' /* Unblock */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 100.0,
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                               ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      _model.blocked = blockedUserRow!.blocked
-                                          .toList()
-                                          .cast<String>();
-                                      safeSetState(() {});
-                                      _model.removeFromBlocked(
-                                          listViewUserRow.id);
-                                      safeSetState(() {});
-                                      await UserTable().update(
-                                        data: {
-                                          'Blocked': _model.blocked,
-                                        },
-                                        matchingRows: (rows) => rows.eq(
-                                          'id',
-                                          currentUserUid,
-                                        ),
-                                      );
-                                      safeSetState(() =>
-                                          _model.requestCompleter2 = null);
-                                      await _model.waitForRequestCompleted2();
-                                      safeSetState(() =>
-                                          _model.requestCompleter1 = null);
-                                      await _model.waitForRequestCompleted1();
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      't735d33u' /* Unblock */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 100.0,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context).info,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                  ),
-                                ].divide(const SizedBox(width: 12.0)),
+                                      ),
+                                    ].divide(SizedBox(width: 12.0)),
+                                  );
+                                },
                               ),
                             ),
                           );

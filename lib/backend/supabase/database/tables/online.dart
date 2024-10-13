@@ -9,7 +9,7 @@ class OnlineTable extends SupabaseTable<OnlineRow> {
 }
 
 class OnlineRow extends SupabaseDataRow {
-  OnlineRow(super.data);
+  OnlineRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => OnlineTable();

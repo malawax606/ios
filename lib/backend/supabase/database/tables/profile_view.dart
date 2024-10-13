@@ -9,7 +9,7 @@ class ProfileViewTable extends SupabaseTable<ProfileViewRow> {
 }
 
 class ProfileViewRow extends SupabaseDataRow {
-  ProfileViewRow(super.data);
+  ProfileViewRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => ProfileViewTable();

@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'walk_model.dart';
 export 'walk_model.dart';
 
@@ -43,7 +45,7 @@ class _WalkWidgetState extends State<WalkWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+      padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
       child: Material(
         color: Colors.transparent,
         elevation: 0.0,
@@ -57,7 +59,7 @@ class _WalkWidgetState extends State<WalkWidget> {
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -68,7 +70,7 @@ class _WalkWidgetState extends State<WalkWidget> {
                     Flexible(
                       child: Text(
                         valueOrDefault<String>(
-                          widget.text,
+                          widget!.text,
                           '.',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -81,7 +83,7 @@ class _WalkWidgetState extends State<WalkWidget> {
                     ),
                   ],
                 ),
-              ].divide(const SizedBox(height: 16.0)),
+              ].divide(SizedBox(height: 16.0)),
             ),
           ),
         ),

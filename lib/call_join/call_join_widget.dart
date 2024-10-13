@@ -6,6 +6,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'call_join_model.dart';
 export 'call_join_model.dart';
 
@@ -40,7 +42,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget.admin == false) {
+      if (widget!.admin == false) {
         _model.host = false;
         safeSetState(() {});
       } else {
@@ -102,7 +104,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   FFIcons.kaltArrowLeftSvgrepoCom,
                   color: Color(0xFFB4BBB8),
                   size: 30.0,
@@ -117,12 +119,12 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
-                      color: const Color(0xFFB4BBB8),
+                      color: Color(0xFFB4BBB8),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -146,9 +148,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100.0),
                             child: CachedNetworkImage(
-                              fadeInDuration: const Duration(milliseconds: 0),
-                              fadeOutDuration: const Duration(milliseconds: 0),
-                              imageUrl: widget.url!,
+                              fadeInDuration: Duration(milliseconds: 0),
+                              fadeOutDuration: Duration(milliseconds: 0),
+                              imageUrl: widget!.url!,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -169,11 +171,11 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget.id,
+                                  widget!.id,
                                   '.',
                                 ),
                                 textAlign: TextAlign.center,
@@ -190,7 +192,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -207,14 +209,14 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 16.0)),
+                      ].divide(SizedBox(height: 16.0)),
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -227,7 +229,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   color: FlutterFlowTheme.of(context).accent1,
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.mic,
                                   color: Colors.white,
                                   size: 30.0,
@@ -240,18 +242,18 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   color: FlutterFlowTheme.of(context).accent2,
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.videocam,
                                   color: Colors.white,
                                   size: 30.0,
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ),
-                        if (widget.admin == true)
+                        if (widget!.admin == true)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -259,7 +261,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   'Live_Audio',
                                   queryParameters: {
                                     'id': serializeParam(
-                                      widget.id,
+                                      widget!.id,
                                       ParamType.String,
                                     ),
                                     'host': serializeParam(
@@ -267,7 +269,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                       ParamType.bool,
                                     ),
                                     'url': serializeParam(
-                                      widget.url2,
+                                      widget!.url2,
                                       ParamType.String,
                                     ),
                                     'appId': serializeParam(
@@ -287,26 +289,29 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).info,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
+                                    .labelLarge
                                     .override(
-                                      fontFamily: 'Inter Tight',
-                                      color: Colors.black,
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(25.0),
                               ),
                             ),
                           ),
-                        if (widget.admin == false)
+                        if (widget!.admin == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -314,7 +319,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   'Live_AudioCopy',
                                   queryParameters: {
                                     'id': serializeParam(
-                                      widget.id,
+                                      widget!.id,
                                       ParamType.String,
                                     ),
                                     'host': serializeParam(
@@ -322,7 +327,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                       ParamType.bool,
                                     ),
                                     'url': serializeParam(
-                                      widget.url2,
+                                      widget!.url2,
                                       ParamType.String,
                                     ),
                                     'appId': serializeParam(
@@ -342,16 +347,17 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).info,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
                                       fontFamily: 'Inter Tight',
-                                      color: Colors.black,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 0.0,
@@ -360,7 +366,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -376,14 +382,14 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 24.0)),
+                      ].divide(SizedBox(height: 24.0)),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: Container(
                         width: double.infinity,
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -440,7 +446,7 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                          ].divide(const SizedBox(height: 16.0)),
+                          ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),

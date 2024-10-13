@@ -1,28 +1,32 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'test_model.dart';
-export 'test_model.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'display_model.dart';
+export 'display_model.dart';
 
-class TestWidget extends StatefulWidget {
+class DisplayWidget extends StatefulWidget {
   /// Create page user to change dark to light and language english to somali or
   /// somali to english with beutify full design
-  const TestWidget({super.key});
+  const DisplayWidget({super.key});
 
   @override
-  State<TestWidget> createState() => _TestWidgetState();
+  State<DisplayWidget> createState() => _DisplayWidgetState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
-  late TestModel _model;
+class _DisplayWidgetState extends State<DisplayWidget> {
+  late DisplayModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestModel());
+    _model = createModel(context, () => DisplayModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -51,7 +55,7 @@ class _TestWidgetState extends State<TestWidget> {
             buttonSize: 60.0,
             icon: Icon(
               FFIcons.kaltArrowLeftSvgrepoCom,
-              color: FlutterFlowTheme.of(context).primaryText,
+              color: Color(0xFFB4BBB8),
               size: 30.0,
             ),
             onPressed: () async {
@@ -64,12 +68,12 @@ class _TestWidgetState extends State<TestWidget> {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -79,7 +83,7 @@ class _TestWidgetState extends State<TestWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -97,15 +101,15 @@ class _TestWidgetState extends State<TestWidget> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/209/600',
+                            child: Image.asset(
+                              'assets/images/IMG_7161_(1).jpg',
                               width: 150.0,
                               height: 200.0,
                               fit: BoxFit.cover,
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 15.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -125,7 +129,7 @@ class _TestWidgetState extends State<TestWidget> {
                             Container(
                               width: 25.0,
                               height: 25.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFE70A0A),
                                 shape: BoxShape.circle,
                               ),
@@ -136,7 +140,7 @@ class _TestWidgetState extends State<TestWidget> {
                                   Container(
                                     width: 10.0,
                                     height: 10.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -180,7 +184,7 @@ class _TestWidgetState extends State<TestWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 15.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -200,7 +204,7 @@ class _TestWidgetState extends State<TestWidget> {
                             Container(
                               width: 25.0,
                               height: 25.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFE70A0A),
                                 shape: BoxShape.circle,
                               ),
@@ -211,7 +215,7 @@ class _TestWidgetState extends State<TestWidget> {
                                   Container(
                                     width: 10.0,
                                     height: 10.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -238,7 +242,7 @@ class _TestWidgetState extends State<TestWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -263,32 +267,32 @@ class _TestWidgetState extends State<TestWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        setAppLanguage(context, 'aa');
+                        setAppLanguage(context, 'sw');
                       },
                       child: Container(
                         decoration: BoxDecoration(
                           color:
                               FFLocalizations.of(context).languageCode != 'en'
-                                  ? const Color(0xFF3BE9D4)
+                                  ? Color(0xB480E7DA)
                                   : FlutterFlowTheme.of(context).primary,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
                             color:
                                 FFLocalizations.of(context).languageCode != 'en'
-                                    ? const Color(0x00090909)
-                                    : FlutterFlowTheme.of(context).primary,
+                                    ? FlutterFlowTheme.of(context).info
+                                    : FlutterFlowTheme.of(context).info,
                             width: 1.0,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -302,7 +306,7 @@ class _TestWidgetState extends State<TestWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -328,7 +332,7 @@ class _TestWidgetState extends State<TestWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -341,19 +345,19 @@ class _TestWidgetState extends State<TestWidget> {
                         decoration: BoxDecoration(
                           color:
                               FFLocalizations.of(context).languageCode == 'en'
-                                  ? const Color(0xFF3BE9D4)
+                                  ? Color(0xB480E7DA)
                                   : FlutterFlowTheme.of(context).primary,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
                             color:
                                 FFLocalizations.of(context).languageCode == 'en'
-                                    ? const Color(0x00090909)
-                                    : FlutterFlowTheme.of(context).primary,
+                                    ? Color(0x00090909)
+                                    : FlutterFlowTheme.of(context).info,
                             width: 1.0,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -367,7 +371,7 @@ class _TestWidgetState extends State<TestWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(

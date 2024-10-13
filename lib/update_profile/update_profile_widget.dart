@@ -12,6 +12,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'update_profile_model.dart';
 export 'update_profile_model.dart';
 
@@ -100,7 +102,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   FFIcons.kaltArrowLeftSvgrepoCom,
                   color: Color(0xFFB4BBB8),
                   size: 30.0,
@@ -115,12 +117,12 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
-                      color: const Color(0xFFB4BBB8),
+                      color: Color(0xFFB4BBB8),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -134,19 +136,19 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Form(
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 14.0, 0.0, 24.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -162,7 +164,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 7.0),
                                                   child: Text(
@@ -182,7 +184,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 1.0),
                                                   child: InkWell(
                                                     splashColor:
@@ -196,7 +198,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     onTap: () async {
                                                       _model.url =
                                                           updateProfileUserRow
-                                                              .profilePic;
+                                                              ?.profilePic;
                                                       safeSetState(() {});
                                                       final selectedMedia =
                                                           await selectMedia(
@@ -298,7 +300,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                             rows.eq(
                                                           'Profile1',
                                                           updateProfileUserRow
-                                                              .profilePic,
+                                                              ?.profilePic,
                                                         ),
                                                       );
                                                       await ChatTable().update(
@@ -310,7 +312,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                             rows.eq(
                                                           'Profile2',
                                                           updateProfileUserRow
-                                                              .profilePic,
+                                                              ?.profilePic,
                                                         ),
                                                       );
                                                       await UserTable().update(
@@ -351,16 +353,18 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                       ),
                                                       child: Visibility(
                                                         visible: !((updateProfileUserRow
-                                                                        .profilePic ==
+                                                                        ?.profilePic ==
                                                                     null ||
                                                                 updateProfileUserRow
-                                                                        .profilePic ==
+                                                                        ?.profilePic ==
                                                                     '') ||
                                                             (_model.uploadedFileUrl ==
+                                                                    null ||
+                                                                _model.uploadedFileUrl ==
                                                                     '')),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Icon(
                                                             Icons
@@ -377,29 +381,29 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 ),
                                               ],
                                             ),
-                                          ].divide(const SizedBox(width: 24.0)),
+                                          ].divide(SizedBox(width: 24.0)),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: 100.0,
                                                   child: TextFormField(
                                                     controller: _model
                                                             .usernameTextController ??=
                                                         TextEditingController(
                                                       text: updateProfileUserRow
-                                                          .username,
+                                                          ?.username,
                                                     ),
                                                     focusNode: _model
                                                         .usernameFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.givenName
                                                     ],
                                                     textCapitalization:
@@ -509,19 +513,19 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 ),
                                               ),
                                               Expanded(
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: 100.0,
                                                   child: TextFormField(
                                                     controller: _model
                                                             .countryTextController ??=
                                                         TextEditingController(
                                                       text: updateProfileUserRow
-                                                          .country,
+                                                          ?.country,
                                                     ),
                                                     focusNode:
                                                         _model.countryFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.familyName
                                                     ],
                                                     textCapitalization:
@@ -622,7 +626,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(width: 12.0)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                         ),
                                         Column(
@@ -630,21 +634,21 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
+                                            Container(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
                                                         .fullNameTextController ??=
                                                     TextEditingController(
                                                   text: updateProfileUserRow
-                                                      .fullName,
+                                                      ?.fullName,
                                                 ),
                                                 focusNode:
                                                     _model.fullNameFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.fullNameTextController',
-                                                  const Duration(milliseconds: 400),
+                                                  Duration(milliseconds: 400),
                                                   () => safeSetState(() {}),
                                                 ),
                                                 autofocus: false,
@@ -754,7 +758,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     .asValidator(context),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 12.0)),
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         Material(
                                           color: Colors.transparent,
@@ -777,7 +781,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .ageValueController ??=
                                                     FormFieldController<String>(
                                                   _model.ageValue ??=
-                                                      updateProfileUserRow.age,
+                                                      updateProfileUserRow?.age,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -952,7 +956,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 10.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
@@ -984,7 +988,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.genderValue ??=
                                                       updateProfileUserRow
-                                                          .gender,
+                                                          ?.gender,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1053,7 +1057,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 10.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
@@ -1084,7 +1088,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .jobValueController ??=
                                                     FormFieldController<String>(
                                                   _model.jobValue ??=
-                                                      updateProfileUserRow.job,
+                                                      updateProfileUserRow?.job,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1122,7 +1126,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 10.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
@@ -1154,7 +1158,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.skincolorValue ??=
                                                       updateProfileUserRow
-                                                          .skinColor,
+                                                          ?.skinColor,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1196,7 +1200,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 10.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
@@ -1228,7 +1232,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.marriedValue ??=
                                                       updateProfileUserRow
-                                                          .marriedStatus,
+                                                          ?.marriedStatus,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1274,7 +1278,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 10.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
@@ -1289,21 +1293,21 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
+                                            Container(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
                                                         .aboutmeTextController ??=
                                                     TextEditingController(
                                                   text: updateProfileUserRow
-                                                      .aboutMe,
+                                                      ?.aboutMe,
                                                 ),
                                                 focusNode:
                                                     _model.aboutmeFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.aboutmeTextController',
-                                                  const Duration(milliseconds: 400),
+                                                  Duration(milliseconds: 400),
                                                   () => safeSetState(() {}),
                                                 ),
                                                 autofocus: false,
@@ -1414,9 +1418,9 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     .asValidator(context),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 12.0)),
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
-                                      ].divide(const SizedBox(height: 20.0)),
+                                      ].divide(SizedBox(height: 20.0)),
                                     ),
                                   ),
                                 ),
@@ -1424,7 +1428,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                               Stack(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -1438,7 +1442,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           },
                                           matchingRows: (rows) => rows.eq(
                                             'Username1',
-                                            updateProfileUserRow.username,
+                                            updateProfileUserRow?.username,
                                           ),
                                         );
                                         await ChatTable().update(
@@ -1448,7 +1452,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           },
                                           matchingRows: (rows) => rows.eq(
                                             'Username2',
-                                            updateProfileUserRow.username,
+                                            updateProfileUserRow?.username,
                                           ),
                                         );
                                         await UserTable().update(
@@ -1489,12 +1493,12 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 55.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0xFF6F61EF),
+                                        color: Color(0xFF6F61EF),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -1504,7 +1508,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -1516,9 +1520,9 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                 ],
                               ),
                             ]
-                                .divide(const SizedBox(height: 12.0))
-                                .addToStart(const SizedBox(height: 24.0))
-                                .addToEnd(const SizedBox(height: 32.0)),
+                                .divide(SizedBox(height: 12.0))
+                                .addToStart(SizedBox(height: 24.0))
+                                .addToEnd(SizedBox(height: 32.0)),
                           ),
                         ),
                       ),

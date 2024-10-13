@@ -3,8 +3,11 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'users_no_profile_model.dart';
 export 'users_no_profile_model.dart';
 
@@ -101,14 +104,14 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: FutureBuilder<List<UserNoProfileRow>>(
                   future: UserNoProfileTable().queryRows(
                     queryFn: (q) => q,
@@ -134,13 +137,13 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                     return RefreshIndicator(
                       onRefresh: () async {},
                       child: GridView.builder(
-                        padding: const EdgeInsets.fromLTRB(
+                        padding: EdgeInsets.fromLTRB(
                           0,
                           3.0,
                           0,
                           0,
                         ),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 25.0,
@@ -177,9 +180,9 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Stack(
-                                    alignment: const AlignmentDirectional(0.75, 0.9),
+                                    alignment: AlignmentDirectional(0.75, 0.9),
                                     children: [
                                       Hero(
                                         tag: gridViewNoUserNoProfileRow
@@ -200,14 +203,14 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                                           width: 70.0,
                                           height: 70.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: CachedNetworkImage(
                                             fadeInDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             fadeOutDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             imageUrl: gridViewNoUserNoProfileRow
                                                             .profile !=
                                                         null &&
@@ -232,7 +235,7 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -260,7 +263,7 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 1.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
