@@ -109,39 +109,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'v4a8ttca': {
       'en': 'Explore',
-      'sw': 'Chunguza',
+      'sw': 'Calaf',
     },
     'nga9b5ve': {
       'en': 'Chat',
-      'sw': 'Soga',
+      'sw': 'Qoralada',
     },
     'icuctj1e': {
       'en': 'Profile',
-      'sw': 'Wasifu',
+      'sw': 'Xogta',
     },
     'o1xanfku': {
       'en': 'Edit Profile',
-      'sw': 'Badilisha Wasifu',
+      'sw': 'Wax Kabadal Xogta',
     },
     'ztk4ynte': {
       'en': 'Account Information',
-      'sw': 'Taarifa za Akaunti',
+      'sw': 'Macluumaadka Koontada',
     },
     'sprl9xlk': {
       'en': 'Security',
-      'sw': 'Usalama',
+      'sw': 'Amniga',
     },
     'tb8gwqu5': {
       'en': 'Help Center',
-      'sw': 'Kituo cha Usaidizi',
+      'sw': 'Xarunta Caawinta',
     },
     'igkwrj2d': {
       'en': 'Privacy Policy',
-      'sw': 'Sera ya Faragha',
+      'sw': 'Siyaasadda Qarsoonnimada',
     },
     '5lw9vu9l': {
       'en': 'Log Out',
-      'sw': 'Toka nje',
+      'sw': 'Ka bax',
     },
     'ct4rq5hx': {
       'en': 'Soomates',
@@ -156,35 +156,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'yghkeolh': {
       'en': 'Meet new people from all over World.',
-      'sw': 'Kutana na watu wapya kutoka kote ulimwenguni.',
+      'sw': 'La kulan dad cusub oo ka kala yimid adduunka oo dhan.',
     },
     'ntx1p7a6': {
       'en': 'Chat with other singles and get to know them better.',
-      'sw': 'Piga gumzo na single nyingine na upate kuzifahamu zaidi.',
+      'sw': 'La hadal kuwa kale ee keligood ah oo si fiican u baro iyaga.',
     },
     'y3qfv6m0': {
       'en': 'Get Started',
-      'sw': 'Anza',
+      'sw': 'Bilow',
     },
     'l64m1arj': {
       'en': 'By signing in, your agreeing our',
-      'sw': 'Kwa kuingia, unakubali yetu',
+      'sw': 'Markaad saxiixdo, waad ogolaatay annaga',
     },
     'g80jlu4d': {
       'en': 'terms',
-      'sw': 'masharti',
+      'sw': 'shuruudaha',
     },
     'gtlganvt': {
       'en': 'and',
-      'sw': 'na',
+      'sw': 'iyo',
     },
     'h32s4wjz': {
       'en': 'privacy policy',
-      'sw': 'sera ya faragha',
+      'sw': 'siyaasadda gaarka ah',
     },
     'rmp024x4': {
       'en': 'Home',
-      'sw': 'Nyumbani',
+      'sw': 'Home',
     },
   },
   // User_Profile
@@ -1409,15 +1409,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'lszfw363': {
       'en': 'Light',
-      'sw': 'Mwanga',
+      'sw': 'Iftiin',
     },
     'l5bp5anm': {
       'en': 'Dark',
-      'sw': 'Giza',
+      'sw': 'Madow',
     },
     'jj6028be': {
       'en': 'Language',
-      'sw': 'Lugha',
+      'sw': 'Luuqada',
     },
     'u29rprt5': {
       'en': 'Af-Somali',
@@ -1425,15 +1425,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '85bmcuan': {
       'en': 'English',
-      'sw': 'Kiingereza',
+      'sw': 'Ingiriis',
     },
     'vlu7ocwg': {
       'en': 'Display',
-      'sw': 'Onyesho',
+      'sw': 'Bandhig',
     },
     'w5vtg8kh': {
       'en': 'Home',
-      'sw': 'Nyumbani',
+      'sw': 'Home',
     },
   },
   // Messages
@@ -1540,11 +1540,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'yfglmgmb': {
       'en': '',
-      'sw': '',
+      'sw':
+          'Ili kupiga picha au video, programu hii inahitaji ruhusa ya kufikia kamera.',
     },
     '29r224mf': {
       'en': '',
-      'sw': '',
+      'sw':
+          'Ili kupakia data, programu hii inahitaji ruhusa ya kufikia maktaba ya picha.',
     },
     'rxv37cag': {
       'en': 'j',

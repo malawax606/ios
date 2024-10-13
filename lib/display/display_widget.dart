@@ -98,7 +98,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/IMG_7161_(1).jpg',
+                              'assets/images/5794324853183071834.jpg',
                               width: 150.0,
                               height: 200.0,
                               fit: BoxFit.cover,
@@ -172,8 +172,8 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/209/600',
+                            child: Image.asset(
+                              'assets/images/5794324853183071835.jpg',
                               width: 150.0,
                               height: 200.0,
                               fit: BoxFit.cover,

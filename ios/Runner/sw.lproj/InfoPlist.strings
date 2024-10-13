@@ -1,4 +1,5 @@
 NSCameraUsageDescription = "uk";
+NSPhotoLibraryUsageDescription = "Ili kupakia data, programu hii inahitaji ruhusa ya kufikia maktaba ya picha.";
 PermissionGroupNotification = "j";
 NSLocationWhenInUseUsageDescription = "o";
 NSMicrophoneUsageDescription = "Tafadhali iwashe";
