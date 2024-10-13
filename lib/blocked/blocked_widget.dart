@@ -95,7 +95,9 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 },
               ),
               title: Text(
-                'Blocked',
+                FFLocalizations.of(context).getText(
+                  '8o8r2zfq' /* Blocked */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: const Color(0xFFB4BBB8),
@@ -113,7 +115,9 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'People you\'ve blocked',
+                    FFLocalizations.of(context).getText(
+                      'dr8ftaaz' /* People you've blocked */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -249,7 +253,9 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                           _model.requestCompleter1 = null);
                                       await _model.waitForRequestCompleted1();
                                     },
-                                    text: 'Unblock',
+                                    text: FFLocalizations.of(context).getText(
+                                      't735d33u' /* Unblock */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: 100.0,
                                       height: 40.0,

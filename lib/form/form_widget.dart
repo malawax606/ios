@@ -92,7 +92,9 @@ class _FormWidgetState extends State<FormWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Create Profile',
+            FFLocalizations.of(context).getText(
+              'kh8o1k6d' /* Create Profile */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -143,7 +145,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 7.0),
                                             child: Text(
-                                              'SELECT PICTURE',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'h1qd26l2' /* SELECT PICTURE */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -314,7 +319,11 @@ class _FormWidgetState extends State<FormWidget> {
                                                   TextInputAction.next,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText: 'Username...',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'mdxn4xmm' /* Username... */,
+                                                ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -428,7 +437,11 @@ class _FormWidgetState extends State<FormWidget> {
                                                   (_model.country?.jsonBody ??
                                                       ''),
                                                 ),
-                                                hintText: 'Country',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '719cjcyg' /* Country */,
+                                                ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -534,7 +547,11 @@ class _FormWidgetState extends State<FormWidget> {
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: 'Full Name',
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'ykmx6dau' /* Full Name */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -637,43 +654,115 @@ class _FormWidgetState extends State<FormWidget> {
                                           controller: _model
                                                   .ageValueController ??=
                                               FormFieldController<String>(null),
-                                          options: const [
-                                            '16',
-                                            '17',
-                                            '18',
-                                            '19',
-                                            '20',
-                                            '21',
-                                            '22',
-                                            '23',
-                                            '24',
-                                            '25',
-                                            '26',
-                                            '27',
-                                            '28',
-                                            '29',
-                                            '30',
-                                            '31',
-                                            '32',
-                                            '33',
-                                            '34',
-                                            '35',
-                                            '36',
-                                            '37',
-                                            '38',
-                                            '39',
-                                            '40',
-                                            '41',
-                                            '42',
-                                            '43',
-                                            '44',
-                                            '45',
-                                            '46',
-                                            '47',
-                                            '48',
-                                            '49',
-                                            '50',
-                                            '51'
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'c29m5axq' /* 16 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '3fops4eh' /* 17 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'gm76kszg' /* 18 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '0spm4ta3' /* 19 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'j3nji066' /* 20 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'edvlugsx' /* 21 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'wrnlxutr' /* 22 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'gbndv9gn' /* 23 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'quu7b06a' /* 24 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'x3d3h1vn' /* 25 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'gpehbk0z' /* 26 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '1hvtyq4x' /* 27 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'xzrouqal' /* 28 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'sfax4h6s' /* 29 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'w0nv55gw' /* 30 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'zbpef5mx' /* 31 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'gd3w49l7' /* 32 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'fwtd2hyq' /* 33 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'ch2oslrb' /* 34 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'ahbb391j' /* 35 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'hs2q2gcx' /* 36 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '5ufkzjr4' /* 37 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '8i3xplf7' /* 38 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '6zcxckzg' /* 39 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'ichjj16z' /* 40 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'jgr4x695' /* 41 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '4i45g08j' /* 42 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'l4ryfcbe' /* 43 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '0epz2sow' /* 44 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '2yobqf02' /* 45 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'hmp7zs3a' /* 46 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'bagchqvf' /* 47 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'ln6p3gi2' /* 48 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'dgftn7m0' /* 49 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'dl8m3dnw' /* 50 */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'vvdrulqb' /* 51 */,
+                                            )
                                           ],
                                           onChanged: (val) => safeSetState(
                                               () => _model.ageValue = val),
@@ -689,7 +778,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                          hintText: 'Age',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '3xg8vr8f' /* Age */,
+                                          ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .editProfile,
@@ -727,9 +819,13 @@ class _FormWidgetState extends State<FormWidget> {
                                           controller: _model
                                                   .genderValueController ??=
                                               FormFieldController<String>(null),
-                                          options: const [
-                                            'Lab (Rag)',
-                                            'Dheddig (Dumar)'
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'c0w8oyaz' /* Lab (Rag) */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '0tddrc2g' /* Dheddig (Dumar) */,
+                                            )
                                           ],
                                           onChanged: (val) async {
                                             safeSetState(
@@ -755,7 +851,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                          hintText: 'Gender',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'x386kfen' /* Gender */,
+                                          ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .editProfile,
@@ -793,7 +892,14 @@ class _FormWidgetState extends State<FormWidget> {
                                           controller: _model
                                                   .jobValueController ??=
                                               FormFieldController<String>(null),
-                                          options: const ['Wan shaqeya', 'Mashaqeyi'],
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'eaj7gdf1' /* Wan shaqeya */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'sfltjmcn' /* Mashaqeyi */,
+                                            )
+                                          ],
                                           onChanged: (val) => safeSetState(
                                               () => _model.jobValue = val),
                                           width: double.infinity,
@@ -807,7 +913,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                          hintText: 'Job',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'sxj1gdxj' /* Job */,
+                                          ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .editProfile,
@@ -845,7 +954,17 @@ class _FormWidgetState extends State<FormWidget> {
                                           controller: _model
                                                   .skincolorValueController ??=
                                               FormFieldController<String>(null),
-                                          options: const ['Cadan', 'Marin', 'Madow'],
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'vd8tj1le' /* Cadan */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '285joo1h' /* Marin */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'r0m17ws8' /* Madow */,
+                                            )
+                                          ],
                                           onChanged: (val) => safeSetState(() =>
                                               _model.skincolorValue = val),
                                           width: double.infinity,
@@ -859,7 +978,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                          hintText: 'Skin color',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'q4x1nnb5' /* Skin color */,
+                                          ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .editProfile,
@@ -897,11 +1019,19 @@ class _FormWidgetState extends State<FormWidget> {
                                           controller: _model
                                                   .marriedValueController ??=
                                               FormFieldController<String>(null),
-                                          options: const [
-                                            'Single',
-                                            'Divorced',
-                                            'Widowed',
-                                            'Separated'
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'zbvoc4x3' /* Single */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'fre7vpth' /* Divorced */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '71z6i5jc' /* Widowed */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'z7yict2m' /* Separated */,
+                                            )
                                           ],
                                           onChanged: (val) => safeSetState(
                                               () => _model.marriedValue = val),
@@ -916,7 +1046,10 @@ class _FormWidgetState extends State<FormWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                          hintText: 'Married Status',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'vxys8391' /* Married Status */,
+                                          ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .editProfile,
@@ -960,7 +1093,11 @@ class _FormWidgetState extends State<FormWidget> {
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: 'About me',
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'rzwaiol1' /* About me */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -1210,7 +1347,9 @@ class _FormWidgetState extends State<FormWidget> {
 
                             safeSetState(() {});
                           },
-                          text: 'Done',
+                          text: FFLocalizations.of(context).getText(
+                            '2grizmef' /* Done */,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 55.0,

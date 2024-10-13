@@ -70,7 +70,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
             },
           ),
           title: Text(
-            'Email Update',
+            FFLocalizations.of(context).getText(
+              'cvg3bp0t' /* Email Update */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: const Color(0xFFB4BBB8),
@@ -90,7 +92,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Text(
-                  'Update your email address',
+                  FFLocalizations.of(context).getText(
+                    'knmk75rs' /* Update your email address */,
+                  ),
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Inter Tight',
                         color: FlutterFlowTheme.of(context).primaryText,
@@ -101,7 +105,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Text(
-                  'Enter your new email address below. We\'ll send a verification link to confirm the change.',
+                  FFLocalizations.of(context).getText(
+                    '8yk87oh0' /* Enter your new email address b... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -118,7 +124,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                   readOnly: true,
                   obscureText: false,
                   decoration: InputDecoration(
-                    hintText: 'Current Email',
+                    hintText: FFLocalizations.of(context).getText(
+                      'ohf07foe' /* Current Email */,
+                    ),
                     hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -170,7 +178,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                   autofocus: false,
                   obscureText: false,
                   decoration: InputDecoration(
-                    hintText: 'New Email',
+                    hintText: FFLocalizations.of(context).getText(
+                      '087dyde7' /* New Email */,
+                    ),
                     hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -222,7 +232,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                   autofocus: false,
                   obscureText: false,
                   decoration: InputDecoration(
-                    hintText: 'Confirm New Email',
+                    hintText: FFLocalizations.of(context).getText(
+                      'xp07sxm8' /* Confirm New Email */,
+                    ),
                     hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -318,7 +330,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
                         );
                       }
                     },
-                    text: 'Update Email',
+                    text: FFLocalizations.of(context).getText(
+                      'ld5g1qpe' /* Update Email */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50.0,
@@ -342,7 +356,9 @@ class _EmailChangeWidgetState extends State<EmailChangeWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
                 child: Text(
-                  'Note: Changing your email may require you to verify your account again.',
+                  FFLocalizations.of(context).getText(
+                    'ls20aqfh' /* Note: Changing your email may ... */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily: 'Inter',

@@ -63,7 +63,9 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
-              'Verify Your Email',
+              FFLocalizations.of(context).getText(
+                'vlnpqmui' /* Verify Your Email */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineSmall.override(
                     fontFamily: 'Inter Tight',
@@ -88,7 +90,9 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
-              'Didn\'t receive the email?',
+              FFLocalizations.of(context).getText(
+                'um3u9fk8' /* Didn't receive the email? */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
@@ -99,7 +103,9 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
             child: Text(
-              'Please check your spam folder if you don\'t see the email in your inbox.',
+              FFLocalizations.of(context).getText(
+                't7xn5g8k' /* Please check your spam folder ... */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).labelSmall.override(
                     fontFamily: 'Inter',

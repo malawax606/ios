@@ -259,7 +259,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         }
                       },
                       child: Text(
-                        'Alafdoon',
+                        FFLocalizations.of(context).getText(
+                          'baids9km' /* Alafdoon */,
+                        ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -1256,8 +1258,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         child:
                                                                             Text(
                                                                           dateTimeFormat(
-                                                                              "relative",
-                                                                              listViewChatRow.lastMesageSentTime),
+                                                                            "relative",
+                                                                            listViewChatRow.lastMesageSentTime,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1460,7 +1465,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     context.pushNamed(
                                                         'Update_Profile');
                                                   },
-                                                  text: 'Edit Profile',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'ko5t9ugq' /* Edit Profile */,
+                                                  ),
                                                   options: FFButtonOptions(
                                                     width: 160.0,
                                                     height: 40.0,
@@ -1562,7 +1571,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     size: 24.0,
                                                                   ),
                                                                   Text(
-                                                                    'Account Information',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'i5w3egzd' /* Account Information */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyLarge
@@ -1628,7 +1641,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     size: 24.0,
                                                                   ),
                                                                   Text(
-                                                                    'Security',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'uwluuo5l' /* Security */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyLarge
@@ -1694,7 +1711,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     size: 24.0,
                                                                   ),
                                                                   Text(
-                                                                    'Help Center',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'dlex6wwg' /* Help Center */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyLarge
@@ -1760,7 +1781,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     size: 24.0,
                                                                   ),
                                                                   Text(
-                                                                    'Privacy Policy',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '2uqsym08' /* Privacy Policy */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyLarge
@@ -1850,7 +1875,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         },
                                                       );
                                                     },
-                                                    text: 'Log Out',
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'nepdxyob' /* Log Out */,
+                                                    ),
                                                     options: FFButtonOptions(
                                                       width: 160.0,
                                                       height: 40.0,
@@ -1920,26 +1949,35 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                    indicatorColor:
-                                        FlutterFlowTheme.of(context).primary,
+                                    indicatorColor: const Color(0x02000000),
+                                    indicatorWeight: 0.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 5.0, 5.0),
-                                    tabs: const [
+                                    tabs: [
                                       Tab(
-                                        text: 'Explore',
-                                        icon: Icon(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'poood59y' /* Explore */,
+                                        ),
+                                        icon: const Icon(
                                           FFIcons.khomeSvgrepoCom2,
                                         ),
                                       ),
                                       Tab(
-                                        text: 'Chat',
-                                        icon: Icon(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '1giy2wio' /* Chat */,
+                                        ),
+                                        icon: const Icon(
                                           FFIcons.kchatRoundSvgrepoCom2,
                                         ),
                                       ),
                                       Tab(
-                                        text: 'Profile',
-                                        icon: Icon(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'qu94a8s5' /* Profile */,
+                                        ),
+                                        icon: const Icon(
                                           FFIcons.kuserCircleSvgrepoCom2,
                                         ),
                                       ),
@@ -2014,7 +2052,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'New Version Available',
+                              FFLocalizations.of(context).getText(
+                                'umurlsl0' /* New Version Available */,
+                              ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
@@ -2024,7 +2064,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                             ),
                             Text(
-                              'We\'ve added exciting new features and fixed some bugs. Please update to continue using the app.',
+                              FFLocalizations.of(context).getText(
+                                'zsh8cw9m' /* We've added exciting new featu... */,
+                              ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -2039,7 +2081,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   (_model.versionApi?.jsonBody ?? ''),
                                 )!);
                               },
-                              text: 'Update Now',
+                              text: FFLocalizations.of(context).getText(
+                                'y578yq0d' /* Update Now */,
+                              ),
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,

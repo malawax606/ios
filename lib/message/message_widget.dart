@@ -283,7 +283,12 @@ class _MessageWidgetState extends State<MessageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                dateTimeFormat("relative", rowUserRow!.online!),
+                                dateTimeFormat(
+                                  "relative",
+                                  rowUserRow!.online!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
                                     .override(
@@ -957,7 +962,10 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                 0.0,
                                                                           ),
                                                                       hintText:
-                                                                          'Message...',
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        'jxtmnjad' /* Message... */,
+                                                                      ),
                                                                       hintStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium

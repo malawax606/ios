@@ -73,7 +73,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
             },
           ),
           title: Text(
-            'Page Title',
+            FFLocalizations.of(context).getText(
+              'h0uwbw9u' /* Page Title */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -108,7 +110,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Profile Information',
+                            FFLocalizations.of(context).getText(
+                              'seycb2o5' /* Profile Information */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -124,7 +128,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Full Name',
+                              hintText: FFLocalizations.of(context).getText(
+                                '6mkkyfun' /* Full Name */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -175,7 +181,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Email',
+                              hintText: FFLocalizations.of(context).getText(
+                                'tbotu3ud' /* Email */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -226,7 +234,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Phone Number',
+                              hintText: FFLocalizations.of(context).getText(
+                                'w6j40sqc' /* Phone Number */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -292,7 +302,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Account Preferences',
+                            FFLocalizations.of(context).getText(
+                              '7t0h12zg' /* Account Preferences */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -307,7 +319,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Show me on Cupid',
+                                FFLocalizations.of(context).getText(
+                                  'hoct3ywf' /* Show me on Cupid */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -337,7 +351,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Enable notifications',
+                                FFLocalizations.of(context).getText(
+                                  'f1jnndh7' /* Enable notifications */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -367,7 +383,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Dark mode',
+                                FFLocalizations.of(context).getText(
+                                  'p29cc161' /* Dark mode */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -413,7 +431,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Privacy Settings',
+                            FFLocalizations.of(context).getText(
+                              '8vu4jobt' /* Privacy Settings */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -428,7 +448,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Profile visibility',
+                                FFLocalizations.of(context).getText(
+                                  'icv19shu' /* Profile visibility */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -437,9 +459,10 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                                     ),
                               ),
                               FlutterFlowChoiceChips(
-                                options: const [
-                                  ChipData(
-                                      'Public\" \\ \"Friends\" \\ \"Private')
+                                options: [
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'sfur4nqf' /* Public" \ "Friends" \ "Private */,
+                                  ))
                                 ],
                                 onChanged: (val) => safeSetState(() => _model
                                     .choiceChipsValue1 = val?.firstOrNull),
@@ -495,7 +518,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Allow messaging from',
+                                FFLocalizations.of(context).getText(
+                                  '6nmfjpnq' /* Allow messaging from */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -504,9 +529,10 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                                     ),
                               ),
                               FlutterFlowChoiceChips(
-                                options: const [
-                                  ChipData(
-                                      'Everyone\" \\ \"Matches\" \\ \"No one')
+                                options: [
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    '39n1nwy4' /* Everyone" \ "Matches" \ "No on... */,
+                                  ))
                                 ],
                                 onChanged: (val) => safeSetState(() => _model
                                     .choiceChipsValue2 = val?.firstOrNull),
@@ -568,7 +594,9 @@ class _AccountSettingsWidgetState extends State<AccountSettingsWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Save Changes',
+                    text: FFLocalizations.of(context).getText(
+                      'jmmghu1n' /* Save Changes */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50.0,

@@ -57,7 +57,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             },
           ),
           title: Text(
-            'Privacy Policy',
+            FFLocalizations.of(context).getText(
+              '3801b8ck' /* Privacy Policy */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: const Color(0xFFB4BBB8),
@@ -80,7 +82,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '1. Introduction ',
+                      FFLocalizations.of(context).getText(
+                        'fwa70133' /* 1. Introduction  */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -99,7 +103,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                       child: Text(
-                        'Privacy Policy This privacy policy explains how Soomluv collects, uses, and protects your personal information.',
+                        FFLocalizations.of(context).getText(
+                          'difgwzom' /* Privacy Policy This privacy po... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               fontSize: 14.0,
@@ -116,7 +122,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '2. Information We Collect',
+                      FFLocalizations.of(context).getText(
+                        'b7l2wj86' /* 2. Information We Collect */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -131,7 +139,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    'We may collect personal information such as your name, email, location, and other details to improve your user experience.',
+                    FFLocalizations.of(context).getText(
+                      'drjxr3gx' /* We may collect personal inform... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,
@@ -146,7 +156,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '3. How We Use Your Information',
+                      FFLocalizations.of(context).getText(
+                        '55k4stl1' /* 3. How We Use Your Information */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -161,7 +173,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    'Your information is used to personalize your experience, improve Soomluv, and send you relevant updates.',
+                    FFLocalizations.of(context).getText(
+                      'xyapaa92' /* Your information is used to pe... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,
@@ -176,7 +190,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '4. Security ',
+                      FFLocalizations.of(context).getText(
+                        'lxex32m4' /* 4. Security  */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -191,7 +207,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    ' We take appropriate measures to secure your personal information. However, no method of transmission over the internet is 100% secure.',
+                    FFLocalizations.of(context).getText(
+                      '8ze3ipvh' /*  We take appropriate measures ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,
@@ -206,7 +224,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '5. Changes to This Policy',
+                      FFLocalizations.of(context).getText(
+                        'ogzggrjc' /* 5. Changes to This Policy */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -221,7 +241,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    'We may update this privacy policy from time to time. You will be notified of any changes on this page.',
+                    FFLocalizations.of(context).getText(
+                      '9kb2xfmj' /* We may update this privacy pol... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,
@@ -236,7 +258,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Contact Us',
+                      FFLocalizations.of(context).getText(
+                        'ol3ndiiz' /* Contact Us */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             fontSize: 17.0,
@@ -251,7 +275,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
-                    'If you have any questions about this privacy policy, please contact us at +252770601699',
+                    FFLocalizations.of(context).getText(
+                      'nc8qmy64' /* If you have any questions abou... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 14.0,

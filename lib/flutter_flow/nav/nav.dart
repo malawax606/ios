@@ -74,13 +74,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageCopyWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageCopyWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage2',
@@ -179,11 +179,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Account_Information',
           path: '/accountInformation',
           builder: (context, params) => const AccountInformationWidget(),
-        ),
-        FFRoute(
-          name: 'Auth1',
-          path: '/auth1',
-          builder: (context, params) => const Auth1Widget(),
         ),
         FFRoute(
           name: 'Check',
@@ -321,22 +316,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateAccountWidget(),
         ),
         FFRoute(
-          name: 'HomePageCopy',
-          path: '/homePageCopy',
-          requireAuth: true,
-          builder: (context, params) => const HomePageCopyWidget(),
-        ),
-        FFRoute(
-          name: 'ChatPageCopy',
-          path: '/chatPageCopy',
-          requireAuth: true,
-          builder: (context, params) => const ChatPageCopyWidget(),
-        ),
-        FFRoute(
-          name: 'ProfileCopy',
-          path: '/profileCopy',
-          requireAuth: true,
-          builder: (context, params) => const ProfileCopyWidget(),
+          name: 'Test',
+          path: '/test',
+          builder: (context, params) => const TestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

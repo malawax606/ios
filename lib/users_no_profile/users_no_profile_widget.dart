@@ -91,7 +91,9 @@ class _UsersNoProfileWidgetState extends State<UsersNoProfileWidget> {
                 },
               ),
               title: Text(
-                'No Profiles',
+                FFLocalizations.of(context).getText(
+                  'j6xwkhk9' /* No Profiles */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: FlutterFlowTheme.of(context).primaryText,

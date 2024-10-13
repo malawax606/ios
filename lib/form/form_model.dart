@@ -34,7 +34,9 @@ class FormModel extends FlutterFlowModel<FormWidget> {
   String? Function(BuildContext, String?)? usernameTextControllerValidator;
   String? _usernameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Username is required.';
+      return FFLocalizations.of(context).getText(
+        'szbcvyur' /* Username is required. */,
+      );
     }
 
     if (val.length < 5) {
@@ -57,7 +59,9 @@ class FormModel extends FlutterFlowModel<FormWidget> {
   String? Function(BuildContext, String?)? fullNameTextControllerValidator;
   String? _fullNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Name is required.';
+      return FFLocalizations.of(context).getText(
+        '7am0d75q' /* Name is required. */,
+      );
     }
 
     if (val.length < 5) {
@@ -91,7 +95,9 @@ class FormModel extends FlutterFlowModel<FormWidget> {
   String? Function(BuildContext, String?)? aboutmeTextControllerValidator;
   String? _aboutmeTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '7yvuyji9' /* Field is required */,
+      );
     }
 
     return null;

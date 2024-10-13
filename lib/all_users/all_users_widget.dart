@@ -90,7 +90,9 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                 },
               ),
               title: Text(
-                'Page Title',
+                FFLocalizations.of(context).getText(
+                  'ux9nvp5e' /* Page Title */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: FlutterFlowTheme.of(context).primaryText,

@@ -122,7 +122,9 @@ class _LoginWidgetState extends State<LoginWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
-                            'Meet new people from all over World.',
+                            FFLocalizations.of(context).getText(
+                              'yghkeolh' /* Meet new people from all over ... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
@@ -142,7 +144,9 @@ class _LoginWidgetState extends State<LoginWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
-                            'Chat with other singles and get to know them better.',
+                            FFLocalizations.of(context).getText(
+                              'ntx1p7a6' /* Chat with other singles and ge... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -204,7 +208,9 @@ class _LoginWidgetState extends State<LoginWidget>
 
                               safeSetState(() {});
                             },
-                            text: 'Get Started',
+                            text: FFLocalizations.of(context).getText(
+                              'y3qfv6m0' /* Get Started */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 55.0,
@@ -237,7 +243,9 @@ class _LoginWidgetState extends State<LoginWidget>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'By signing in, your agreeing our',
+                                FFLocalizations.of(context).getText(
+                                  'l64m1arj' /* By signing in, your agreeing o... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -261,7 +269,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                         'https://doc-hosting.flycricket.io/soomates-terms-of-use/6274daba-f944-4c9a-8391-e79ad724d4f8/terms');
                                   },
                                   child: Text(
-                                    'terms',
+                                    FFLocalizations.of(context).getText(
+                                      'g80jlu4d' /* terms */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -277,7 +287,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'and',
+                                  FFLocalizations.of(context).getText(
+                                    'gtlganvt' /* and */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -302,7 +314,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                         'https://doc-hosting.flycricket.io/soomates-privacy-policy/a549ea3b-99ed-441b-957d-e29923bd2e23/privacy');
                                   },
                                   child: Text(
-                                    'privacy policy',
+                                    FFLocalizations.of(context).getText(
+                                      'h32s4wjz' /* privacy policy */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

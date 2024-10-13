@@ -67,7 +67,9 @@ class _SearchWidgetState extends State<SearchWidget> {
             },
           ),
           title: Text(
-            'Search',
+            FFLocalizations.of(context).getText(
+              'blsy9504' /* Search */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: const Color(0xFFB4BBB8),
@@ -115,7 +117,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Enter username',
+                              hintText: FFLocalizations.of(context).getText(
+                                'a03nz4wo' /* Enter username */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -169,7 +173,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Enter age',
+                              hintText: FFLocalizations.of(context).getText(
+                                'eghpzk8s' /* Enter age */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -243,7 +249,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 );
                               }
                             },
-                            text: 'Search',
+                            text: FFLocalizations.of(context).getText(
+                              '19k751mg' /* Search */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50.0,

@@ -107,7 +107,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 16.0),
                       child: Text(
-                        'Create account',
+                        FFLocalizations.of(context).getText(
+                          'ge9ka76u' /* Create account */,
+                        ),
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Inter',
@@ -146,7 +148,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Email',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          '3ibj5xf1' /* Email */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -228,7 +233,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Password',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'cxxd0c0b' /* Password */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -327,7 +335,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                           !_model.passwordComVisibility,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Password',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'ilhtbu6j' /* Password */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -458,7 +469,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                         },
                       );
                     },
-                    text: 'Sign Up',
+                    text: FFLocalizations.of(context).getText(
+                      'i40w3mhg' /* Sign Up */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50.0,
@@ -505,12 +518,16 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                           textScaler: MediaQuery.of(context).textScaler,
                           text: TextSpan(
                             children: [
-                              const TextSpan(
-                                text: 'i have account ? ',
-                                style: TextStyle(),
+                              TextSpan(
+                                text: FFLocalizations.of(context).getText(
+                                  'h86y2lpj' /* i have account ?  */,
+                                ),
+                                style: const TextStyle(),
                               ),
                               TextSpan(
-                                text: 'Sign In',
+                                text: FFLocalizations.of(context).getText(
+                                  'dvov2r4j' /* Sign In */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

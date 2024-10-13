@@ -27,7 +27,9 @@ class UpdateProfileModel extends FlutterFlowModel<UpdateProfileWidget> {
   String? Function(BuildContext, String?)? usernameTextControllerValidator;
   String? _usernameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Username is required.';
+      return FFLocalizations.of(context).getText(
+        'jtu38jcc' /* Username is required. */,
+      );
     }
 
     if (val.length < 5) {
@@ -50,7 +52,9 @@ class UpdateProfileModel extends FlutterFlowModel<UpdateProfileWidget> {
   String? Function(BuildContext, String?)? fullNameTextControllerValidator;
   String? _fullNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Name is required.';
+      return FFLocalizations.of(context).getText(
+        'tyohkz4j' /* Name is required. */,
+      );
     }
 
     if (val.length < 5) {

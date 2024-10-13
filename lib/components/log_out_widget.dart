@@ -124,7 +124,9 @@ class _LogOutWidgetState extends State<LogOutWidget> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Are you sure you want to log out?',
+                FFLocalizations.of(context).getText(
+                  'vij8w91f' /* Are you sure you want to log o... */,
+                ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
                       fontFamily: 'Inter',
@@ -141,7 +143,9 @@ class _LogOutWidgetState extends State<LogOutWidget> {
 
                     context.goNamedAuth('Login', context.mounted);
                   },
-                  text: 'Log Out',
+                  text: FFLocalizations.of(context).getText(
+                    'bi3lmgdx' /* Log Out */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,

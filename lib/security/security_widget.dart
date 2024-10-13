@@ -64,7 +64,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
             },
           ),
           title: Text(
-            'Security',
+            FFLocalizations.of(context).getText(
+              'ty9gcseu' /* Security */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: const Color(0xFFB4BBB8),
@@ -109,7 +111,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Email Verification Status',
+                                FFLocalizations.of(context).getText(
+                                  '4z8kd6tt' /* Email Verification Status */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -164,7 +168,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       if (currentUserEmailVerified == true)
                                         AuthUserStreamWidget(
                                           builder: (context) => Text(
-                                            'Verified',
+                                            FFLocalizations.of(context).getText(
+                                              'zhl7ds69' /* Verified */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .override(
@@ -179,7 +185,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       if (currentUserEmailVerified == false)
                                         AuthUserStreamWidget(
                                           builder: (context) => Text(
-                                            'Unverified',
+                                            FFLocalizations.of(context).getText(
+                                              'qjxhlb0a' /* Unverified */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .override(
@@ -238,7 +246,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Show Online Status',
+                                      FFLocalizations.of(context).getText(
+                                        'tp2c7ttc' /* Show Online Status */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -279,7 +289,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Allow Messages',
+                                      FFLocalizations.of(context).getText(
+                                        'y1w98yko' /* Allow Messages */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -320,7 +332,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Show Last Seen',
+                                      FFLocalizations.of(context).getText(
+                                        '3duv53h4' /* Show Last Seen */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -366,7 +380,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Privacy Options',
+                              FFLocalizations.of(context).getText(
+                                'fkcme1z2' /* Privacy Options */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -379,7 +395,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Profile Visibility',
+                                  FFLocalizations.of(context).getText(
+                                    'm84tubbb' /* Profile Visibility */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -399,51 +417,75 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               thickness: 1.0,
                               color: FlutterFlowTheme.of(context).alternate,
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Blocked Users',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Inter Tight',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Icon(
-                                  Icons.chevron_right,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                              ].divide(const SizedBox(width: 16.0)),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Blocked');
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'q368bdhz' /* Blocked Users */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ].divide(const SizedBox(width: 16.0)),
+                              ),
                             ),
                             Divider(
                               thickness: 1.0,
                               color: FlutterFlowTheme.of(context).alternate,
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Message Filtering',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Inter Tight',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Icon(
-                                  Icons.chevron_right,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                              ].divide(const SizedBox(width: 16.0)),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Test');
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'kcmg9nph' /* Message Filtering */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ].divide(const SizedBox(width: 16.0)),
+                              ),
                             ),
                           ].divide(const SizedBox(height: 16.0)),
                         ),
@@ -463,7 +505,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Account Security',
+                              FFLocalizations.of(context).getText(
+                                'b9yfx4ks' /* Account Security */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -485,7 +529,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Change Email',
+                                    FFLocalizations.of(context).getText(
+                                      '2qmbh4wb' /* Change Email */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -511,7 +557,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Login Activity',
+                                  FFLocalizations.of(context).getText(
+                                    '300kqupg' /* Login Activity */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -536,7 +584,9 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Linked Accounts',
+                                  FFLocalizations.of(context).getText(
+                                    'ss8tnp7o' /* Linked Accounts */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(

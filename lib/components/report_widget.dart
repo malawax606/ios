@@ -100,7 +100,9 @@ class _ReportWidgetState extends State<ReportWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
               child: Text(
-                'Doro Sababta ad report u dhaheysid?',
+                FFLocalizations.of(context).getText(
+                  'u8l3zcfi' /* Doro Sababta ad report u dhahe... */,
+                ),
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Inter Tight',
                       color: FlutterFlowTheme.of(context).primaryText,
@@ -172,7 +174,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Sawir anshax xumo u saran',
+                                FFLocalizations.of(context).getText(
+                                  '5hlfxpy1' /* Sawir anshax xumo u saran */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -255,7 +259,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Magac xun ugu qoran',
+                                FFLocalizations.of(context).getText(
+                                  'rnfpug75' /* Magac xun ugu qoran */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -277,7 +283,9 @@ class _ReportWidgetState extends State<ReportWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
               child: Text(
-                'Sabab kle ban Report u dhahaya',
+                FFLocalizations.of(context).getText(
+                  'i7tv7fat' /* Sabab kle ban Report u dhahaya */,
+                ),
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Inter Tight',
                       color: FlutterFlowTheme.of(context).primaryText,
@@ -289,7 +297,9 @@ class _ReportWidgetState extends State<ReportWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
               child: Text(
-                'Inta ku qor sababta',
+                FFLocalizations.of(context).getText(
+                  'ygbk6ywy' /* Inta ku qor sababta */,
+                ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -305,7 +315,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                 autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
-                  hintText: 'Type your message here...',
+                  hintText: FFLocalizations.of(context).getText(
+                    '011yu5fk' /* Type your message here... */,
+                  ),
                   hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,
@@ -383,7 +395,9 @@ class _ReportWidgetState extends State<ReportWidget> {
                       );
                     }
                   },
-                  text: 'Submit Report',
+                  text: FFLocalizations.of(context).getText(
+                    '2m2wv5r7' /* Submit Report */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,

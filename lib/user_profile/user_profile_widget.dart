@@ -111,7 +111,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                 },
               ),
               title: Text(
-                'Profile',
+                FFLocalizations.of(context).getText(
+                  'cwuksexy' /* Profile */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Inter Tight',
                       color: const Color(0xFFB4BBB8),
@@ -391,7 +393,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             }.withoutNulls,
                                           );
                                         },
-                                        text: 'Message',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '13km2bdu' /* Message */,
+                                        ),
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -502,7 +507,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               },
                                             );
                                           },
-                                          text: 'Message',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'mxu5aexj' /* Message */,
+                                          ),
                                           options: FFButtonOptions(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -564,7 +572,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Full Name',
+                                          FFLocalizations.of(context).getText(
+                                            'vgj224bq' /* Full Name */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -598,7 +608,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Age',
+                                          FFLocalizations.of(context).getText(
+                                            'fuwrha6t' /* Age */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -632,7 +644,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Gender',
+                                          FFLocalizations.of(context).getText(
+                                            '1v29tcxl' /* Gender */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -666,7 +680,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Job',
+                                          FFLocalizations.of(context).getText(
+                                            'l7gvhns0' /* Job */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -700,7 +716,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Skin color',
+                                          FFLocalizations.of(context).getText(
+                                            'rwicmhcq' /* Skin color */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -734,7 +752,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Married status',
+                                          FFLocalizations.of(context).getText(
+                                            'gylx52em' /* Married status */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -768,7 +788,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Country',
+                                          FFLocalizations.of(context).getText(
+                                            '3m6ctzgc' /* Country */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -802,7 +824,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'City',
+                                          FFLocalizations.of(context).getText(
+                                            'mjbf2cga' /* City */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -860,7 +884,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'About Me',
+                                        FFLocalizations.of(context).getText(
+                                          'sglxnf0u' /* About Me */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(

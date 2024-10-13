@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
-import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -41,6 +39,12 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _ProfilePage = prefs.getBool('ff_ProfilePage') ?? _ProfilePage;
+    });
+    _safeInit(() {
+      _Somali = prefs.getBool('ff_Somali') ?? _Somali;
+    });
+    _safeInit(() {
+      _English = prefs.getString('ff_English') ?? _English;
     });
   }
 
@@ -149,35 +153,19 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_ProfilePage', value);
   }
 
-  final _allUsersManager = FutureRequestManager<List<UserRow>>();
-  Future<List<UserRow>> allUsers({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<UserRow>> Function() requestFn,
-  }) =>
-      _allUsersManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearAllUsersCache() => _allUsersManager.clear();
-  void clearAllUsersCacheKey(String? uniqueKey) =>
-      _allUsersManager.clearRequest(uniqueKey);
+  bool _Somali = false;
+  bool get Somali => _Somali;
+  set Somali(bool value) {
+    _Somali = value;
+    prefs.setBool('ff_Somali', value);
+  }
 
-  final _allChatManager = FutureRequestManager<List<ChatRow>>();
-  Future<List<ChatRow>> allChat({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<ChatRow>> Function() requestFn,
-  }) =>
-      _allChatManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearAllChatCache() => _allChatManager.clear();
-  void clearAllChatCacheKey(String? uniqueKey) =>
-      _allChatManager.clearRequest(uniqueKey);
+  String _English = '';
+  String get English => _English;
+  set English(String value) {
+    _English = value;
+    prefs.setString('ff_English', value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

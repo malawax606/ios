@@ -93,7 +93,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                 },
               ),
               title: Text(
-                'Account Information',
+                FFLocalizations.of(context).getText(
+                  '4bgicccn' /* Account Information */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: const Color(0xFFB4BBB8),
@@ -117,7 +119,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Personal info',
+                          FFLocalizations.of(context).getText(
+                            'prk1qrpm' /* Personal info */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -156,7 +160,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Full Name',
+                                    FFLocalizations.of(context).getText(
+                                      'apzlmiwp' /* Full Name */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -188,7 +194,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Username',
+                                    FFLocalizations.of(context).getText(
+                                      'kryfd5q2' /* Username */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -220,7 +228,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Age',
+                                    FFLocalizations.of(context).getText(
+                                      'nkvqyval' /* Age */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -252,7 +262,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Gender',
+                                    FFLocalizations.of(context).getText(
+                                      'oilzqc9s' /* Gender */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -284,7 +296,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Job',
+                                    FFLocalizations.of(context).getText(
+                                      'dx1h01pk' /* Job */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -316,7 +330,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Skin color',
+                                    FFLocalizations.of(context).getText(
+                                      '08hrw8kg' /* Skin color */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -348,7 +364,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Married status',
+                                    FFLocalizations.of(context).getText(
+                                      'akrgzilf' /* Married status */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -380,7 +398,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Country',
+                                    FFLocalizations.of(context).getText(
+                                      '6fiihvm4' /* Country */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -412,7 +432,9 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'City',
+                                    FFLocalizations.of(context).getText(
+                                      'tj7wxd1q' /* City */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

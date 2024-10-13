@@ -59,7 +59,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
             },
           ),
           title: Text(
-            'Page Title',
+            FFLocalizations.of(context).getText(
+              'fronywlu' /* Page Title */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -79,7 +81,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                 child: Text(
-                  'People who viewed your profile',
+                  FFLocalizations.of(context).getText(
+                    'ckj0im9z' /* People who viewed your profile */,
+                  ),
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Inter Tight',
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -139,7 +143,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Emma Johnson',
+                                      FFLocalizations.of(context).getText(
+                                        'usf4nron' /* Emma Johnson */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -148,7 +154,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'United States',
+                                      FFLocalizations.of(context).getText(
+                                        'u9mc9evc' /* United States */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -216,7 +224,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Liam Chen',
+                                      FFLocalizations.of(context).getText(
+                                        'idu6g9ih' /* Liam Chen */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -225,7 +235,9 @@ class _ProfileViewsWidgetState extends State<ProfileViewsWidget> {
                                           ),
                                     ),
                                     Text(
-                                      'China',
+                                      FFLocalizations.of(context).getText(
+                                        'x2kjvwzg' /* China */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(

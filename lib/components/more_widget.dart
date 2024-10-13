@@ -154,7 +154,9 @@ class _MoreWidgetState extends State<MoreWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Report',
+                                FFLocalizations.of(context).getText(
+                                  'uas9hzk2' /* Report */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -236,7 +238,9 @@ class _MoreWidgetState extends State<MoreWidget> {
                                   size: 24.0,
                                 ),
                                 Text(
-                                  'Block',
+                                  FFLocalizations.of(context).getText(
+                                    'x2w493yh' /* Block */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -300,7 +304,9 @@ class _MoreWidgetState extends State<MoreWidget> {
                                   size: 24.0,
                                 ),
                                 Text(
-                                  'Unblock',
+                                  FFLocalizations.of(context).getText(
+                                    '51i1hb6s' /* Unblock */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

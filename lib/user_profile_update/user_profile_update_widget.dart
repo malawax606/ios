@@ -114,7 +114,9 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                 },
               ),
               title: Text(
-                'Profile',
+                FFLocalizations.of(context).getText(
+                  'f2g2qhim' /* Profile */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Inter Tight',
                       fontSize: 20.0,
@@ -310,7 +312,11 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                                   () => _model.requestCompleter = null);
                               await _model.waitForRequestCompleted();
                             },
-                            text: 'Update\n',
+                            text: FFLocalizations.of(context).getText(
+                              'b7aimgd9' /* Update
+ */
+                              ,
+                            ),
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width * 0.45,
                               height: 50.0,

@@ -104,7 +104,9 @@ class _LoginEmailWidgetState extends State<LoginEmailWidget>
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 16.0),
                       child: Text(
-                        'Login to your account',
+                        FFLocalizations.of(context).getText(
+                          'bwvo8i1n' /* Login to your account */,
+                        ),
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Inter',
@@ -143,7 +145,10 @@ class _LoginEmailWidgetState extends State<LoginEmailWidget>
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Email',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'dq63mgt8' /* Email */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -225,7 +230,10 @@ class _LoginEmailWidgetState extends State<LoginEmailWidget>
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Password',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'l7t7vaaf' /* Password */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -345,7 +353,9 @@ class _LoginEmailWidgetState extends State<LoginEmailWidget>
                         },
                       );
                     },
-                    text: 'Sign In',
+                    text: FFLocalizations.of(context).getText(
+                      '3nxco7ub' /* Sign In */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50.0,
@@ -392,12 +402,16 @@ class _LoginEmailWidgetState extends State<LoginEmailWidget>
                           textScaler: MediaQuery.of(context).textScaler,
                           text: TextSpan(
                             children: [
-                              const TextSpan(
-                                text: 'Don’t  have account ? ',
-                                style: TextStyle(),
+                              TextSpan(
+                                text: FFLocalizations.of(context).getText(
+                                  'zslzroph' /* Don’t  have account ?  */,
+                                ),
+                                style: const TextStyle(),
                               ),
                               TextSpan(
-                                text: 'Sign Up',
+                                text: FFLocalizations.of(context).getText(
+                                  '4gffayb5' /* Sign Up */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

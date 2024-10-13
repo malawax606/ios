@@ -59,7 +59,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
             },
           ),
           title: Text(
-            'Help Center',
+            FFLocalizations.of(context).getText(
+              'nfpcxf8p' /* Help Center */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: const Color(0xFFB4BBB8),
@@ -80,7 +82,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                   child: Text(
-                    'How can we help you?',
+                    FFLocalizations.of(context).getText(
+                      'z4m2p0ff' /* How can we help you? */,
+                    ),
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           fontFamily: 'Inter Tight',
                           color: FlutterFlowTheme.of(context).primaryText,
@@ -113,7 +117,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'WhatsApp Support',
+                                FFLocalizations.of(context).getText(
+                                  'h40hmatw' /* WhatsApp Support */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
@@ -126,7 +132,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             ].divide(const SizedBox(width: 12.0)),
                           ),
                           Text(
-                            'Chat with our support team on WhatsApp for quick assistance.',
+                            FFLocalizations.of(context).getText(
+                              'u7r2cxv1' /* Chat with our support team on ... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -140,7 +148,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             onPressed: () async {
                               await launchURL('https://wa.link/oza9i1');
                             },
-                            text: 'Open WhatsApp',
+                            text: FFLocalizations.of(context).getText(
+                              '040b1w20' /* Open WhatsApp */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50.0,
@@ -190,7 +200,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Email Support',
+                                FFLocalizations.of(context).getText(
+                                  'ueg57inh' /* Email Support */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
@@ -203,7 +215,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             ].divide(const SizedBox(width: 12.0)),
                           ),
                           Text(
-                            'Send us an email for more detailed inquiries or feedback.',
+                            FFLocalizations.of(context).getText(
+                              'pjdwg0pt' /* Send us an email for more deta... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -217,7 +231,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'Send Email',
+                            text: FFLocalizations.of(context).getText(
+                              '4fp8cctp' /* Send Email */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50.0,
@@ -246,7 +262,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                   child: Text(
-                    'Frequently Asked Questions',
+                    FFLocalizations.of(context).getText(
+                      'ijhs9161' /* Frequently Asked Questions */,
+                    ),
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           fontFamily: 'Inter Tight',
                           color: FlutterFlowTheme.of(context).primaryText,
@@ -274,7 +292,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'How do I reset my password?',
+                                FFLocalizations.of(context).getText(
+                                  '4wcz7y8b' /* How do I reset my password? */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -296,7 +316,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'How can I change my profile picture?',
+                                FFLocalizations.of(context).getText(
+                                  'n0k1tl1v' /* How can I change my profile pi... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -318,7 +340,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'How do I report inappropriate behavior?',
+                                FFLocalizations.of(context).getText(
+                                  'tu2zvjop' /* How do I report inappropriate ... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -340,7 +364,9 @@ class _HelpCenterWidgetState extends State<HelpCenterWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Can I undo a swipe?',
+                                FFLocalizations.of(context).getText(
+                                  'zzffd790' /* Can I undo a swipe? */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(

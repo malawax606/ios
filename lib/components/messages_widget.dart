@@ -160,7 +160,9 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Chat',
+                                  FFLocalizations.of(context).getText(
+                                    'b7on9534' /* Chat */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(
@@ -333,7 +335,12 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                               .primaryText,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: 'Message...',
+                                                    hintText:
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                      '5axr0uws' /* Message... */,
+                                                    ),
                                                     hintStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
@@ -566,7 +573,10 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                               safeSetState(() {});
                                             },
                                             child: Text(
-                                              'Send',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'f8s0ay9e' /* Send */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium

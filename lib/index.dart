@@ -12,7 +12,6 @@ export '/account_settings/account_settings_widget.dart'
     show AccountSettingsWidget;
 export '/account_information/account_information_widget.dart'
     show AccountInformationWidget;
-export '/auth1/auth1_widget.dart' show Auth1Widget;
 export '/check/check_widget.dart' show CheckWidget;
 export '/profile_views/profile_views_widget.dart' show ProfileViewsWidget;
 export '/blocked/blocked_widget.dart' show BlockedWidget;
@@ -29,8 +28,4 @@ export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
 export '/email_change/email_change_widget.dart' show EmailChangeWidget;
 export '/login_email/login_email_widget.dart' show LoginEmailWidget;
 export '/create_account/create_account_widget.dart' show CreateAccountWidget;
-export '/pages/home_page_copy/home_page_copy_widget.dart'
-    show HomePageCopyWidget;
-export '/pages/chat_page_copy/chat_page_copy_widget.dart'
-    show ChatPageCopyWidget;
-export '/pages/profile_copy/profile_copy_widget.dart' show ProfileCopyWidget;
+export '/test/test_widget.dart' show TestWidget;

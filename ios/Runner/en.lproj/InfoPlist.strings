@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "p";
+PermissionGroupNotification = "j";
+NSLocationWhenInUseUsageDescription = "o";
+NSMicrophoneUsageDescription = "Please enable it";

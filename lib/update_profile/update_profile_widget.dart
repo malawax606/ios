@@ -110,7 +110,9 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                 },
               ),
               title: Text(
-                'Update Profile',
+                FFLocalizations.of(context).getText(
+                  'xgycr8ym' /* Update Profile */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: const Color(0xFFB4BBB8),
@@ -164,7 +166,10 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 7.0),
                                                   child: Text(
-                                                    'SELECT PICTURE',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'sulsr8n0' /* SELECT PICTURE */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelSmall
@@ -404,7 +409,12 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         TextInputAction.next,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      hintText: 'Username...',
+                                                      hintText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'wavxj8wu' /* Username... */,
+                                                      ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -522,7 +532,12 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     readOnly: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      hintText: 'Country',
+                                                      hintText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '1suc30wh' /* Country */,
+                                                      ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -639,7 +654,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     TextInputAction.next,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  hintText: 'Full Name',
+                                                  hintText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'inzjodpa' /* Full Name */,
+                                                  ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -760,43 +779,151 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                   _model.ageValue ??=
                                                       updateProfileUserRow.age,
                                                 ),
-                                                options: const [
-                                                  '16',
-                                                  '17',
-                                                  '18',
-                                                  '19',
-                                                  '20',
-                                                  '21',
-                                                  '22',
-                                                  '23',
-                                                  '24',
-                                                  '25',
-                                                  '26',
-                                                  '27',
-                                                  '28',
-                                                  '29',
-                                                  '30',
-                                                  '31',
-                                                  '32',
-                                                  '33',
-                                                  '34',
-                                                  '35',
-                                                  '36',
-                                                  '37',
-                                                  '38',
-                                                  '39',
-                                                  '40',
-                                                  '41',
-                                                  '42',
-                                                  '43',
-                                                  '44',
-                                                  '45',
-                                                  '46',
-                                                  '47',
-                                                  '48',
-                                                  '49',
-                                                  '50',
-                                                  '51'
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '2ahu2wai' /* 16 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'o51nibld' /* 17 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'j61eplvr' /* 18 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7bi4mzaa' /* 19 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'fc6co4hq' /* 20 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '6coz2j2e' /* 21 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7f04cw9i' /* 22 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'rei9t5qk' /* 23 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'nl4f2e6h' /* 24 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ru1xbo6j' /* 25 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'y2f1uzs2' /* 26 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '1d2hzhpe' /* 27 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '5357cmkx' /* 28 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '04w3xffh' /* 29 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '5iba19y6' /* 30 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7krue2d9' /* 31 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'liozick2' /* 32 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '4kvu5337' /* 33 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'mg4hcocd' /* 34 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ji7qsa4u' /* 35 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    's493iz2h' /* 36 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'njsv8ow3' /* 37 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'odb2yu2k' /* 38 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'shdeftag' /* 39 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'jrold8t1' /* 40 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'in4fa0rw' /* 41 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'prmpthpc' /* 42 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'y9fk0bbm' /* 43 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qroca1bv' /* 44 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'gudr79bd' /* 45 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '4vzuxtus' /* 46 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'e65ig8yd' /* 47 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'hd0hrcdb' /* 48 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'sxhfiplw' /* 49 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'nbjqee8f' /* 50 */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qkqbn9xk' /* 51 */,
+                                                  )
                                                 ],
                                                 onChanged: (val) =>
                                                     safeSetState(() =>
@@ -813,7 +940,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                hintText: 'Age',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '1wvw1fej' /* Age */,
+                                                ),
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .editProfile,
@@ -855,9 +986,15 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                       updateProfileUserRow
                                                           .gender,
                                                 ),
-                                                options: const [
-                                                  'Lab (Rag)',
-                                                  'Dheddig (Dumar)'
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'uqw5ayq8' /* Lab (Rag) */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    't9j8lzqe' /* Dheddig (Dumar) */,
+                                                  )
                                                 ],
                                                 onChanged: (val) async {
                                                   safeSetState(() =>
@@ -904,7 +1041,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                hintText: 'Gender',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  's4slxrjd' /* Gender */,
+                                                ),
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .editProfile,
@@ -945,9 +1086,15 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                   _model.jobValue ??=
                                                       updateProfileUserRow.job,
                                                 ),
-                                                options: const [
-                                                  'Wan shaqeya',
-                                                  'Mashaqeyi'
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ew0seqv5' /* Wan shaqeya */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '335xmxzb' /* Mashaqeyi */,
+                                                  )
                                                 ],
                                                 onChanged: (val) =>
                                                     safeSetState(() =>
@@ -963,7 +1110,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                hintText: 'Job',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'bcwbknbp' /* Job */,
+                                                ),
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .editProfile,
@@ -1005,10 +1156,19 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                       updateProfileUserRow
                                                           .skinColor,
                                                 ),
-                                                options: const [
-                                                  'Cadan',
-                                                  'Marin',
-                                                  'Madow'
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '99i5m1d0' /* Cadan */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'yrpc8dgt' /* Marin */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'szqc54jr' /* Madow */,
+                                                  )
                                                 ],
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
@@ -1024,7 +1184,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                hintText: 'Skin color',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '849t86wo' /* Skin color */,
+                                                ),
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .editProfile,
@@ -1066,11 +1230,23 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                       updateProfileUserRow
                                                           .marriedStatus,
                                                 ),
-                                                options: const [
-                                                  'Single',
-                                                  'Divorced',
-                                                  'Widowed',
-                                                  'Separated'
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'xvvp0tub' /* Single */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ckr0owj7' /* Divorced */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'g8oygnvl' /* Widowed */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'mjymnosh' /* Separated */,
+                                                  )
                                                 ],
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
@@ -1086,7 +1262,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                hintText: 'Married Status',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '2bbe3ygr' /* Married Status */,
+                                                ),
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .editProfile,
@@ -1133,7 +1313,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     TextInputAction.next,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  hintText: 'About me',
+                                                  hintText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'kejgiv4y' /* About me */,
+                                                  ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1299,7 +1483,9 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
 
                                         safeSetState(() {});
                                       },
-                                      text: 'Update',
+                                      text: FFLocalizations.of(context).getText(
+                                        '1sa3acm1' /* Update */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 55.0,

@@ -246,7 +246,9 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                       }
                     },
                     child: Text(
-                      'Soomates',
+                      FFLocalizations.of(context).getText(
+                        'ct4rq5hx' /* Soomates */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Inter Tight',
@@ -1104,9 +1106,13 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                                         0.0),
                                                             child: Text(
                                                               dateTimeFormat(
-                                                                  "relative",
-                                                                  listViewChatRow
-                                                                      .lastMesageSentTime),
+                                                                "relative",
+                                                                listViewChatRow
+                                                                    .lastMesageSentTime,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1235,7 +1241,10 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                               },
                                             );
                                           },
-                                          text: 'Edit Profile',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'o1xanfku' /* Edit Profile */,
+                                          ),
                                           options: FFButtonOptions(
                                             width: 160.0,
                                             height: 40.0,
@@ -1333,7 +1342,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                             size: 24.0,
                                                           ),
                                                           Text(
-                                                            'Account Information',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'ztk4ynte' /* Account Information */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyLarge
@@ -1408,7 +1421,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                             size: 24.0,
                                                           ),
                                                           Text(
-                                                            'Security',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'sprl9xlk' /* Security */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyLarge
@@ -1483,7 +1500,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                             size: 24.0,
                                                           ),
                                                           Text(
-                                                            'Help Center',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'tb8gwqu5' /* Help Center */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyLarge
@@ -1559,7 +1580,11 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                             size: 24.0,
                                                           ),
                                                           Text(
-                                                            'Privacy Policy',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'igkwrj2d' /* Privacy Policy */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyLarge
@@ -1645,7 +1670,10 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                                 },
                                               );
                                             },
-                                            text: 'Log Out',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '5lw9vu9l' /* Log Out */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 160.0,
                                               height: 40.0,
@@ -1713,15 +1741,21 @@ class _HomePage2WidgetState extends State<HomePage2Widget>
                                 8.0, 0.0, 8.0, 0.0),
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 5.0),
-                            tabs: const [
+                            tabs: [
                               Tab(
-                                text: 'Explore',
+                                text: FFLocalizations.of(context).getText(
+                                  'v4a8ttca' /* Explore */,
+                                ),
                               ),
                               Tab(
-                                text: 'Chat',
+                                text: FFLocalizations.of(context).getText(
+                                  'nga9b5ve' /* Chat */,
+                                ),
                               ),
                               Tab(
-                                text: 'Profile',
+                                text: FFLocalizations.of(context).getText(
+                                  'icuctj1e' /* Profile */,
+                                ),
                               ),
                             ],
                             controller: _model.tabBarController,

@@ -112,7 +112,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                 },
               ),
               title: Text(
-                'Live',
+                FFLocalizations.of(context).getText(
+                  '9gzq61zo' /* Live */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: const Color(0xFFB4BBB8),
@@ -155,7 +157,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Calafdon Live',
+                              FFLocalizations.of(context).getText(
+                                'ttoyno93' /* Calafdon Live */,
+                              ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
@@ -189,7 +193,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                           child: Text(
-                            'Join the live to connect with other Calafdon People',
+                            FFLocalizations.of(context).getText(
+                              'bhhiqz8y' /* Join the live to connect with ... */,
+                            ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -275,7 +281,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   }.withoutNulls,
                                 );
                               },
-                              text: 'Join Live',
+                              text: FFLocalizations.of(context).getText(
+                                'l8h4d4ms' /* Join Live */,
+                              ),
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
@@ -328,7 +336,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   }.withoutNulls,
                                 );
                               },
-                              text: 'Join Live',
+                              text: FFLocalizations.of(context).getText(
+                                'lcjeyf3h' /* Join Live */,
+                              ),
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
@@ -353,7 +363,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'By joining, you agree to our Terms of Service',
+                            FFLocalizations.of(context).getText(
+                              'nwqs11ak' /* By joining, you agree to our T... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .override(
@@ -377,7 +389,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Live Guidelines',
+                              FFLocalizations.of(context).getText(
+                                'vpkqpzjz' /* Live Guidelines */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -388,7 +402,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   ),
                             ),
                             Text(
-                              '1. Be respectful and courteous',
+                              FFLocalizations.of(context).getText(
+                                'eu3nhkwa' /* 1. Be respectful and courteous */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -399,7 +415,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   ),
                             ),
                             Text(
-                              '2. Ensure you\'re in a quiet environment',
+                              FFLocalizations.of(context).getText(
+                                'nzufg3vw' /* 2. Ensure you're in a quiet en... */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -410,7 +428,9 @@ class _CallJoinWidgetState extends State<CallJoinWidget> {
                                   ),
                             ),
                             Text(
-                              '3. Have fun and be yourself!',
+                              FFLocalizations.of(context).getText(
+                                'yk8i24qu' /* 3. Have fun and be yourself! */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
