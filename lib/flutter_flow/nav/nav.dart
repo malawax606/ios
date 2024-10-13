@@ -9,7 +9,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -75,13 +74,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageCopyWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageCopyWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage2',
@@ -291,16 +290,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'HomeTest',
-          path: '/homeTest',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomeTest')
-              : const NavBarPage(
-                  initialPage: 'HomeTest',
-                  page: HomeTestWidget(),
-                ),
-        ),
-        FFRoute(
           name: 'User_Profile-Update',
           path: '/userProfileUpdate',
           builder: (context, params) => UserProfileUpdateWidget(
@@ -332,24 +321,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateAccountWidget(),
         ),
         FFRoute(
-          name: 'ChatTest',
-          path: '/chatTest',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChatTest')
-              : const NavBarPage(
-                  initialPage: 'ChatTest',
-                  page: ChatTestWidget(),
-                ),
+          name: 'HomePageCopy',
+          path: '/homePageCopy',
+          requireAuth: true,
+          builder: (context, params) => const HomePageCopyWidget(),
         ),
         FFRoute(
-          name: 'ProfileTest',
-          path: '/profileTest',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ProfileTest')
-              : const NavBarPage(
-                  initialPage: 'ProfileTest',
-                  page: ProfileTestWidget(),
-                ),
+          name: 'ChatPageCopy',
+          path: '/chatPageCopy',
+          requireAuth: true,
+          builder: (context, params) => const ChatPageCopyWidget(),
+        ),
+        FFRoute(
+          name: 'ProfileCopy',
+          path: '/profileCopy',
+          requireAuth: true,
+          builder: (context, params) => const ProfileCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

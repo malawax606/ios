@@ -149,47 +149,35 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_ProfilePage', value);
   }
 
-  final _iiManager = FutureRequestManager<List<UserRow>>();
-  Future<List<UserRow>> ii({
+  final _allUsersManager = FutureRequestManager<List<UserRow>>();
+  Future<List<UserRow>> allUsers({
     String? uniqueQueryKey,
     bool? overrideCache,
     required Future<List<UserRow>> Function() requestFn,
   }) =>
-      _iiManager.performRequest(
+      _allUsersManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,
         overrideCache: overrideCache,
         requestFn: requestFn,
       );
-  void clearIiCache() => _iiManager.clear();
-  void clearIiCacheKey(String? uniqueKey) => _iiManager.clearRequest(uniqueKey);
+  void clearAllUsersCache() => _allUsersManager.clear();
+  void clearAllUsersCacheKey(String? uniqueKey) =>
+      _allUsersManager.clearRequest(uniqueKey);
 
-  final _hhManager = FutureRequestManager<List<ChatRow>>();
-  Future<List<ChatRow>> hh({
+  final _allChatManager = FutureRequestManager<List<ChatRow>>();
+  Future<List<ChatRow>> allChat({
     String? uniqueQueryKey,
     bool? overrideCache,
     required Future<List<ChatRow>> Function() requestFn,
   }) =>
-      _hhManager.performRequest(
+      _allChatManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,
         overrideCache: overrideCache,
         requestFn: requestFn,
       );
-  void clearHhCache() => _hhManager.clear();
-  void clearHhCacheKey(String? uniqueKey) => _hhManager.clearRequest(uniqueKey);
-
-  final _kkManager = FutureRequestManager<List<UserRow>>();
-  Future<List<UserRow>> kk({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<UserRow>> Function() requestFn,
-  }) =>
-      _kkManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearKkCache() => _kkManager.clear();
-  void clearKkCacheKey(String? uniqueKey) => _kkManager.clearRequest(uniqueKey);
+  void clearAllChatCache() => _allChatManager.clear();
+  void clearAllChatCacheKey(String? uniqueKey) =>
+      _allChatManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {
