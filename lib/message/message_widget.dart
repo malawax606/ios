@@ -5,16 +5,12 @@ import '/components/more_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
 import 'message_model.dart';
 export 'message_model.dart';
 
@@ -62,14 +58,14 @@ class _MessageWidgetState extends State<MessageWidget> {
       safeSetState(() {});
       _model.addToUsers(currentUserUid);
       safeSetState(() {});
-      if (widget!.sender != currentUserUid) {
+      if (widget.sender != currentUserUid) {
         await ChatTable().update(
           data: {
             'Mesage_seen': true,
           },
           matchingRows: (rows) => rows.eq(
             'Chat_ID',
-            widget!.chatID,
+            widget.chatID,
           ),
         );
       }
@@ -107,7 +103,7 @@ class _MessageWidgetState extends State<MessageWidget> {
             future: UserTable().querySingleRow(
               queryFn: (q) => q.eq(
                 'id',
-                widget!.userId,
+                widget.userId,
               ),
             ),
             builder: (context, snapshot) {
@@ -144,7 +140,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                         onTap: () async {
                           context.safePop();
                         },
-                        child: Icon(
+                        child: const Icon(
                           FFIcons.kaltArrowLeftSvgrepoCom,
                           color: Color(0xFFB4BBB8),
                           size: 24.0,
@@ -157,7 +153,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -205,7 +201,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                               width: 35.0,
                               height: 35.0,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
@@ -232,12 +228,12 @@ class _MessageWidgetState extends State<MessageWidget> {
                             'User_Profile',
                             queryParameters: {
                               'userID': serializeParam(
-                                widget!.userId,
+                                widget.userId,
                                 ParamType.String,
                               ),
                             }.withoutNulls,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -253,7 +249,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -272,7 +268,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                   ),
                                 ),
                                 if (rowUserRow?.vipProfilee ?? true)
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         3.0, 0.0, 0.0, 0.0),
                                     child: Icon(
@@ -284,7 +280,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 dateTimeFormat(
@@ -316,7 +312,7 @@ class _MessageWidgetState extends State<MessageWidget> {
           ),
           actions: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -332,14 +328,14 @@ class _MessageWidgetState extends State<MessageWidget> {
                         onTap: () => FocusScope.of(context).unfocus(),
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
-                          child: Container(
+                          child: SizedBox(
                             height: 200.0,
                             child: MoreWidget(
                               id: '',
-                              image: widget!.image!,
-                              username: widget!.username!,
-                              fullName: widget!.fullName!,
-                              userID: widget!.uSERID!,
+                              image: widget.image!,
+                              username: widget.username!,
+                              fullName: widget.fullName!,
+                              userID: widget.uSERID!,
                             ),
                           ),
                         ),
@@ -347,7 +343,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                     },
                   ).then((value) => safeSetState(() {}));
                 },
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Icon(
@@ -398,7 +394,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x43BABABA),
                     ),
                   ),
@@ -407,7 +403,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                       future: UserTable().querySingleRow(
                         queryFn: (q) => q.eq(
                           'id',
-                          widget!.userId,
+                          widget.userId,
                         ),
                       ),
                       builder: (context, snapshot) {
@@ -434,7 +430,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                         return Container(
                           width: double.infinity,
                           height: 100.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: FutureBuilder<List<AccessTokenRow>>(
                             future: (_model.requestCompleter ??= Completer<
                                     List<AccessTokenRow>>()
@@ -469,18 +465,18 @@ class _MessageWidgetState extends State<MessageWidget> {
                                       : null;
 
                               return Stack(
-                                alignment: AlignmentDirectional(1.0, 0.5),
+                                alignment: const AlignmentDirectional(1.0, 0.5),
                                 children: [
                                   Stack(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     children: [
                                       Stack(
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 1.0),
+                                                const AlignmentDirectional(0.0, 1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 5.0, 10.0, 95.0),
                                               child: FutureBuilder<
@@ -490,7 +486,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                   queryFn: (q) => q
                                                       .eq(
                                                         'Chat_ID',
-                                                        widget!.chatID,
+                                                        widget.chatID,
                                                       )
                                                       .order('created_at'),
                                                 ),
@@ -528,7 +524,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                         messagesMessageRowList
                                                             .length,
                                                     separatorBuilder: (_, __) =>
-                                                        SizedBox(height: 13.0),
+                                                        const SizedBox(height: 13.0),
                                                     itemBuilder: (context,
                                                         messagesIndex) {
                                                       final messagesMessageRow =
@@ -547,7 +543,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -570,7 +566,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                               .center,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               7.0,
@@ -593,18 +589,18 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                   type: PageTransitionType.fade,
                                                                                   child: FlutterFlowExpandedImageView(
                                                                                     image: CachedNetworkImage(
-                                                                                      fadeInDuration: Duration(milliseconds: 500),
-                                                                                      fadeOutDuration: Duration(milliseconds: 500),
+                                                                                      fadeInDuration: const Duration(milliseconds: 500),
+                                                                                      fadeOutDuration: const Duration(milliseconds: 500),
                                                                                       imageUrl: valueOrDefault<String>(
-                                                                                        widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                        widget.image != null && widget.image != '' ? widget.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                         'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                       ),
                                                                                       fit: BoxFit.contain,
                                                                                     ),
                                                                                     allowRotation: true,
                                                                                     tag: valueOrDefault<String>(
-                                                                                      widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                      widget.image != null && widget.image != '' ? widget.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                                     ),
                                                                                     useHeroAnimation: true,
                                                                                   ),
@@ -614,22 +610,22 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                             child:
                                                                                 Hero(
                                                                               tag: valueOrDefault<String>(
-                                                                                widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                widget.image != null && widget.image != '' ? widget.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                               ),
                                                                               transitionOnUserGestures: true,
                                                                               child: Container(
                                                                                 width: 35.0,
                                                                                 height: 35.0,
                                                                                 clipBehavior: Clip.antiAlias,
-                                                                                decoration: BoxDecoration(
+                                                                                decoration: const BoxDecoration(
                                                                                   shape: BoxShape.circle,
                                                                                 ),
                                                                                 child: CachedNetworkImage(
-                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                   imageUrl: valueOrDefault<String>(
-                                                                                    widget!.image != null && widget!.image != '' ? widget!.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                    widget.image != null && widget.image != '' ? widget.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                     'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                   ),
                                                                                   fit: BoxFit.cover,
@@ -664,14 +660,14 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                           borderRadius: BorderRadius.circular(10.0),
                                                                                         ),
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsets.all(8.0),
+                                                                                          padding: const EdgeInsets.all(8.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsets.all(5.0),
+                                                                                                padding: const EdgeInsets.all(5.0),
                                                                                                 child: Text(
                                                                                                   valueOrDefault<String>(
                                                                                                     messagesMessageRow.text,
@@ -709,7 +705,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             45.0,
                                                                             0.0,
@@ -738,7 +734,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           child:
                                                                               Stack(
                                                                             alignment:
-                                                                                AlignmentDirectional(1.0, 1.0),
+                                                                                const AlignmentDirectional(1.0, 1.0),
                                                                             children: [
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
@@ -752,18 +748,18 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                 },
                                                                                 child: Container(
                                                                                   decoration: BoxDecoration(
-                                                                                    color: Color(0xFFB2F5EF),
+                                                                                    color: const Color(0xFFB2F5EF),
                                                                                     borderRadius: BorderRadius.circular(10.0),
                                                                                   ),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsets.all(8.0),
+                                                                                    padding: const EdgeInsets.all(8.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsets.all(5.0),
+                                                                                          padding: const EdgeInsets.all(5.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               messagesMessageRow.text,
@@ -787,7 +783,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               7.0,
                                                                               0.0,
                                                                               0.0,
@@ -810,8 +806,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                   type: PageTransitionType.fade,
                                                                                   child: FlutterFlowExpandedImageView(
                                                                                     image: CachedNetworkImage(
-                                                                                      fadeInDuration: Duration(milliseconds: 500),
-                                                                                      fadeOutDuration: Duration(milliseconds: 500),
+                                                                                      fadeInDuration: const Duration(milliseconds: 500),
+                                                                                      fadeOutDuration: const Duration(milliseconds: 500),
                                                                                       imageUrl: valueOrDefault<String>(
                                                                                         pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                         'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -821,7 +817,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                     allowRotation: true,
                                                                                     tag: valueOrDefault<String>(
                                                                                       pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                                     ),
                                                                                     useHeroAnimation: true,
                                                                                   ),
@@ -832,19 +828,19 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                                 Hero(
                                                                               tag: valueOrDefault<String>(
                                                                                 pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$messagesIndex',
+                                                                                'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                               ),
                                                                               transitionOnUserGestures: true,
                                                                               child: Container(
                                                                                 width: 35.0,
                                                                                 height: 35.0,
                                                                                 clipBehavior: Clip.antiAlias,
-                                                                                decoration: BoxDecoration(
+                                                                                decoration: const BoxDecoration(
                                                                                   shape: BoxShape.circle,
                                                                                 ),
                                                                                 child: CachedNetworkImage(
-                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                   imageUrl: valueOrDefault<String>(
                                                                                     pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                     'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -875,7 +871,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 15.0, 24.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -900,7 +896,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(6.0),
+                                                          const EdgeInsets.all(6.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -911,7 +907,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -919,7 +915,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           0.0),
                                                               child: Stack(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         1.0,
                                                                         1.0),
                                                                 children: [
@@ -934,7 +930,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.messageTextController',
-                                                                      Duration(
+                                                                      const Duration(
                                                                           milliseconds:
                                                                               1),
                                                                       () => safeSetState(
@@ -988,7 +984,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00DADADA),
                                                                           width:
@@ -1000,7 +996,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -1012,7 +1008,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       errorBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -1024,7 +1020,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       focusedErrorBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -1033,7 +1029,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                         borderRadius:
                                                                             BorderRadius.circular(0.0),
                                                                       ),
-                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           55.0,
@@ -1069,7 +1065,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         0.0,
@@ -1082,12 +1078,12 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                 queryFn: (q) => q
                                                                     .eq(
                                                                       'Chat_ID',
-                                                                      widget!
+                                                                      widget
                                                                           .chatID,
                                                                     )
                                                                     .contains(
                                                                       'Users',
-                                                                      '{${currentUserUid}}',
+                                                                      '{$currentUserUid}',
                                                                     ),
                                                               ),
                                                               builder: (context,
@@ -1146,7 +1142,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           .messageTextController
                                                                           .text,
                                                                       'Chat_ID':
-                                                                          widget!
+                                                                          widget
                                                                               .chatID,
                                                                     });
                                                                     await ChatTable()
@@ -1164,7 +1160,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                         'user_a':
                                                                             currentUserUid,
                                                                         'user_b':
-                                                                            widget!.userId,
+                                                                            widget.userId,
                                                                         'Mesage_seen':
                                                                             false,
                                                                         'Message Un':
@@ -1174,7 +1170,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           (rows) =>
                                                                               rows.eq(
                                                                         'Chat_ID',
-                                                                        widget!
+                                                                        widget
                                                                             .chatID,
                                                                       ),
                                                                     );
@@ -1204,8 +1200,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                           'Profile1': pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != ''
                                                                               ? pageMeUserRow?.profilePic
                                                                               : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                          'Profile2': bodyUserRow?.profilePic != null && bodyUserRow?.profilePic != ''
-                                                                              ? bodyUserRow?.profilePic
+                                                                          'Profile2': bodyUserRow.profilePic != null && bodyUserRow.profilePic != ''
+                                                                              ? bodyUserRow.profilePic
                                                                               : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                           'Username1':
                                                                               pageMeUserRow?.username,
@@ -1215,11 +1211,11 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                         matchingRows: (rows) => rows
                                                                             .eq(
                                                                               'Chat_ID',
-                                                                              widget!.chatID,
+                                                                              widget.chatID,
                                                                             )
                                                                             .contains(
                                                                               'Users',
-                                                                              '{${currentUserUid}}',
+                                                                              '{$currentUserUid}',
                                                                             ),
                                                                       );
                                                                     }
@@ -1233,7 +1229,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                       token: stackTokenAccessTokenRow
                                                                           ?.token,
                                                                       fcm: bodyUserRow
-                                                                          ?.fcmToken,
+                                                                          .fcmToken,
                                                                       title: pageMeUserRow
                                                                           ?.username,
                                                                       body: _model
@@ -1246,10 +1242,8 @@ class _MessageWidgetState extends State<MessageWidget> {
                                                                     color: valueOrDefault<
                                                                         Color>(
                                                                       _model.messageTextController.text !=
-                                                                                  null &&
-                                                                              _model.messageTextController.text !=
                                                                                   ''
-                                                                          ? Color(
+                                                                          ? const Color(
                                                                               0xFFFF0000)
                                                                           : FlutterFlowTheme.of(context)
                                                                               .primaryText,

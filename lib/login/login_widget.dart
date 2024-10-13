@@ -4,13 +4,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -43,8 +39,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -60.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -60.0),
+            end: const Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
@@ -76,13 +72,13 @@ class _LoginWidgetState extends State<LoginWidget>
         backgroundColor: FlutterFlowTheme.of(context).primary,
         body: SafeArea(
           top: true,
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentDirectional(1.0, -1.0),
+                  alignment: const AlignmentDirectional(1.0, -1.0),
                   child: Transform.scale(
                     scaleX: 1.2,
                     scaleY: 1.2,
@@ -103,12 +99,12 @@ class _LoginWidgetState extends State<LoginWidget>
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                Color(0x00FFFFFF),
+                                const Color(0x00FFFFFF),
                                 FlutterFlowTheme.of(context).primary
                               ],
-                              stops: [0.0, 1.0],
-                              begin: AlignmentDirectional(0.0, -1.0),
-                              end: AlignmentDirectional(0, 1.0),
+                              stops: const [0.0, 1.0],
+                              begin: const AlignmentDirectional(0.0, -1.0),
+                              end: const AlignmentDirectional(0, 1.0),
                             ),
                           ),
                         ),
@@ -118,15 +114,15 @@ class _LoginWidgetState extends State<LoginWidget>
                       animationsMap['transformOnPageLoadAnimation']!),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 1.0),
+                  alignment: const AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -148,7 +144,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -164,7 +160,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 32.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -176,15 +172,12 @@ class _LoginWidgetState extends State<LoginWidget>
                               }
                               if (valueOrDefault(
                                           currentUserDocument?.gender, '') !=
-                                      null &&
-                                  valueOrDefault(
-                                          currentUserDocument?.gender, '') !=
                                       '') {
                                 context.pushNamedAuth(
                                   'HomePage',
                                   context.mounted,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -196,7 +189,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   'Form',
                                   context.mounted,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -224,11 +217,11 @@ class _LoginWidgetState extends State<LoginWidget>
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 55.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF6F61EF),
+                              color: const Color(0xFF6F61EF),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -237,7 +230,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 0.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -246,7 +239,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 5.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -267,7 +260,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -286,7 +279,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: Color(0xFFE90A0A),
+                                          color: const Color(0xFFE90A0A),
                                           fontSize: 11.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -294,7 +287,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -312,7 +305,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -331,7 +324,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: Color(0xFFE90A0A),
+                                          color: const Color(0xFFE90A0A),
                                           fontSize: 11.0,
                                           letterSpacing: 0.0,
                                         ),

@@ -9,7 +9,7 @@ class AccessTokenTable extends SupabaseTable<AccessTokenRow> {
 }
 
 class AccessTokenRow extends SupabaseDataRow {
-  AccessTokenRow(Map<String, dynamic> data) : super(data);
+  AccessTokenRow(super.data);
 
   @override
   SupabaseTable get table => AccessTokenTable();

@@ -13,9 +13,6 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -104,12 +101,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
       );
 
       await requestPermission(microphonePermission);
-      if (!(valueOrDefault(currentUserDocument?.gender, '') != null &&
-          valueOrDefault(currentUserDocument?.gender, '') != '')) {
+      if (!(valueOrDefault(currentUserDocument?.gender, '') != '')) {
         context.goNamed(
           'Form',
           extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
+            kTransitionInfoKey: const TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.fade,
               duration: Duration(milliseconds: 0),
@@ -205,7 +201,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           borderWidth: 1.0,
                           buttonSize: 40.0,
                           fillColor: FlutterFlowTheme.of(context).info,
-                          icon: Icon(
+                          icon: const Icon(
                             FFIcons.kphoneCallingSvgrepoCom,
                             color: Color(0xFF95A1AC),
                             size: 22.0,
@@ -253,7 +249,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           context.pushNamed(
                             'Users-NoProfile',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -270,7 +266,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             .headlineMedium
                             .override(
                               fontFamily: 'Inter Tight',
-                              color: Color(0xFF95A1AC),
+                              color: const Color(0xFF95A1AC),
                               fontSize: 24.0,
                               letterSpacing: 0.0,
                             ),
@@ -286,7 +282,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           borderWidth: 1.0,
                           buttonSize: 40.0,
                           fillColor: FlutterFlowTheme.of(context).info,
-                          icon: Icon(
+                          icon: const Icon(
                             FFIcons.kmagniferSvgrepoCom2,
                             color: Color(0xFF95A1AC),
                             size: 22.0,
@@ -296,7 +292,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               context.pushNamed(
                                 'All_Users',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -313,16 +309,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ],
                 ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 0.0,
             ),
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Stack(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   children: [
                     if (_model.version ==
                         SupabaseAppVesrionCall.version(
@@ -334,7 +330,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           if ((getRemoteConfigBool('News') == true) ||
                               (getRemoteConfigBool('News_Link') == true))
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   7.0, 0.0, 7.0, 5.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -365,7 +361,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 16.0, 16.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -399,7 +395,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                             ],
                                           ),
-                                        ].divide(SizedBox(height: 16.0)),
+                                        ].divide(const SizedBox(height: 16.0)),
                                       ),
                                     ),
                                   ),
@@ -416,7 +412,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       KeepAliveWidgetWrapper(
                                         builder: (context) => Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 5.0, 0.0, 0.0),
                                           child: FutureBuilder<List<UserRow>>(
                                             future: (_model
@@ -484,14 +480,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           null);
                                                 },
                                                 child: GridView.builder(
-                                                  padding: EdgeInsets.fromLTRB(
+                                                  padding: const EdgeInsets.fromLTRB(
                                                     0,
                                                     3.0,
                                                     0,
                                                     0,
                                                   ),
                                                   gridDelegate:
-                                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                                      const SliverGridDelegateWithFixedCrossAxisCount(
                                                     crossAxisCount: 4,
                                                     crossAxisSpacing: 10.0,
                                                     mainAxisSpacing: 25.0,
@@ -561,11 +557,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Stack(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       0.75,
                                                                       0.9),
                                                               children: [
@@ -579,8 +575,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ? gridViewNoUserRow
                                                                             .profilePic
                                                                         : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' +
-                                                                        '$gridViewNoIndex',
+                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$gridViewNoIndex',
                                                                   ),
                                                                   transitionOnUserGestures:
                                                                       true,
@@ -592,17 +587,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     clipBehavior:
                                                                         Clip.antiAlias,
                                                                     decoration:
-                                                                        BoxDecoration(
+                                                                        const BoxDecoration(
                                                                       shape: BoxShape
                                                                           .circle,
                                                                     ),
                                                                     child:
                                                                         CachedNetworkImage(
                                                                       fadeInDuration:
-                                                                          Duration(
+                                                                          const Duration(
                                                                               milliseconds: 500),
                                                                       fadeOutDuration:
-                                                                          Duration(
+                                                                          const Duration(
                                                                               milliseconds: 500),
                                                                       imageUrl:
                                                                           valueOrDefault<
@@ -626,14 +621,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     height:
                                                                         10.0,
                                                                     decoration:
-                                                                        BoxDecoration(
+                                                                        const BoxDecoration(
                                                                       color: Color(
                                                                           0xFF00FF5E),
                                                                       shape: BoxShape
                                                                           .circle,
                                                                     ),
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                   ),
@@ -647,7 +642,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -689,7 +684,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .verify! &&
                                                                         !gridViewNoUserRow
                                                                             .tick)
-                                                                      Padding(
+                                                                      const Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             3.0,
                                                                             0.0,
@@ -710,7 +705,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .verify! &&
                                                                         !gridViewNoUserRow
                                                                             .tick)
-                                                                      Icon(
+                                                                      const Icon(
                                                                         Icons
                                                                             .verified,
                                                                         color: Color(
@@ -723,7 +718,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .verify! &&
                                                                         gridViewNoUserRow
                                                                             .tick)
-                                                                      Icon(
+                                                                      const Icon(
                                                                         Icons
                                                                             .verified,
                                                                         color: Color(
@@ -736,7 +731,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             1.0,
@@ -776,7 +771,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           3.0,
                                                                           0.0,
                                                                           0.0,
@@ -822,7 +817,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             queryFn: (q) => q
                                                 .contains(
                                                   'Users',
-                                                  '{${currentUserUid}}',
+                                                  '{$currentUserUid}',
                                                 )
                                                 .order('last_mesage_sent_time'),
                                           ),
@@ -856,14 +851,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               itemCount:
                                                   listViewChatRowList.length,
                                               separatorBuilder: (_, __) =>
-                                                  SizedBox(height: 5.0),
+                                                  const SizedBox(height: 5.0),
                                               itemBuilder:
                                                   (context, listViewIndex) {
                                                 final listViewChatRow =
                                                     listViewChatRowList[
                                                         listViewIndex];
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 15.0,
                                                           10.0, 0.0),
                                                   child: Column(
@@ -933,7 +928,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 children: [
                                                                   Stack(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             1.0,
                                                                             -1.0),
                                                                     children: [
@@ -955,8 +950,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               type: PageTransitionType.fade,
                                                                               child: FlutterFlowExpandedImageView(
                                                                                 image: CachedNetworkImage(
-                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                   imageUrl: valueOrDefault<String>(
                                                                                     rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != '' ? rowUserUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                     'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -966,7 +961,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 allowRotation: true,
                                                                                 tag: valueOrDefault<String>(
                                                                                   rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != '' ? rowUserUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                                  'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' + '$listViewIndex',
+                                                                                  'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
                                                                                 ),
                                                                                 useHeroAnimation: true,
                                                                               ),
@@ -980,8 +975,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
                                                                                 ? rowUserUserRow?.profilePic
                                                                                 : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' +
-                                                                                '$listViewIndex',
+                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
                                                                           ),
                                                                           transitionOnUserGestures:
                                                                               true,
@@ -994,13 +988,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             clipBehavior:
                                                                                 Clip.antiAlias,
                                                                             decoration:
-                                                                                BoxDecoration(
+                                                                                const BoxDecoration(
                                                                               shape: BoxShape.circle,
                                                                             ),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: Duration(milliseconds: 500),
-                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              fadeInDuration: const Duration(milliseconds: 500),
+                                                                              fadeOutDuration: const Duration(milliseconds: 500),
                                                                               imageUrl: valueOrDefault<String>(
                                                                                 rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != '' ? rowUserUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
@@ -1015,12 +1009,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           (listViewChatRow.mesageSeen ==
                                                                               false))
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -1029,11 +1023,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 Container(
                                                                               width: 12.0,
                                                                               height: 12.0,
-                                                                              decoration: BoxDecoration(
+                                                                              decoration: const BoxDecoration(
                                                                                 color: Color(0xFFF80606),
                                                                                 shape: BoxShape.circle,
                                                                               ),
-                                                                              alignment: AlignmentDirectional(0.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(0.0, 0.0),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1136,7 +1130,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               )
                                                                               .contains(
                                                                                 'Users',
-                                                                                '{${currentUserUid}}',
+                                                                                '{$currentUserUid}',
                                                                               ),
                                                                         );
                                                                       }
@@ -1171,7 +1165,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   rowUserUserRow?.username,
@@ -1185,7 +1179,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             ),
                                                                             if (rowUserUserRow?.vipProfilee ??
                                                                                 true)
-                                                                              Padding(
+                                                                              const Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.verified_sharp,
@@ -1201,7 +1195,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           children: [
                                                                             if ((listViewChatRow.mesageSeen == true) &&
                                                                                 (listViewChatRow.lastMessageSentBy == currentUserUid))
-                                                                              Padding(
+                                                                              const Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.done_all_rounded,
@@ -1212,7 +1206,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             if ((listViewChatRow.mesageSeen == false) &&
                                                                                 (listViewChatRow.lastMessageSentBy == currentUserUid))
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.done_all_rounded,
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
@@ -1220,7 +1214,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 ),
                                                                               ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   listViewChatRow.lastMessage,
@@ -1256,7 +1250,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             7.0,
                                                                             0.0,
                                                                             0.0,
@@ -1287,7 +1281,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         },
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 15.0)),
+                                                        const SizedBox(height: 15.0)),
                                                   ),
                                                 );
                                               },
@@ -1408,7 +1402,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 20.0),
                                                 child: Row(
@@ -1458,30 +1452,30 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                     if (homePageUserRow!
                                                             .vipProfilee! &&
-                                                        !homePageUserRow!
+                                                        !homePageUserRow
                                                             .verify!)
-                                                      Icon(
+                                                      const Icon(
                                                         Icons.verified,
                                                         color:
                                                             Color(0xFF1D7BFD),
                                                         size: 19.0,
                                                       ),
-                                                    if (!homePageUserRow!
+                                                    if (!homePageUserRow
                                                             .vipProfilee! &&
-                                                        homePageUserRow!
+                                                        homePageUserRow
                                                             .verify!)
-                                                      Icon(
+                                                      const Icon(
                                                         Icons.verified,
                                                         color:
                                                             Color(0xFFB305F9),
                                                         size: 19.0,
                                                       ),
                                                   ].divide(
-                                                      SizedBox(width: 4.0)),
+                                                      const SizedBox(width: 4.0)),
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: FFButtonWidget(
@@ -1498,11 +1492,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     width: 160.0,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -1551,7 +1545,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 16.0,
@@ -1587,7 +1581,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Icon(
+                                                                  const Icon(
                                                                     FFIcons
                                                                         .kuserCheckRoundedSvgrepoCom,
                                                                     color: Color(
@@ -1610,7 +1604,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         12.0)),
                                                               ),
@@ -1657,7 +1651,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Icon(
+                                                                  const Icon(
                                                                     FFIcons
                                                                         .klockKeyholeUnlockedSvgrepoCom2,
                                                                     color: Color(
@@ -1680,7 +1674,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         12.0)),
                                                               ),
@@ -1727,7 +1721,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Icon(
+                                                                  const Icon(
                                                                     FFIcons
                                                                         .kmoonFogSvgrepoCom2,
                                                                     color: Color(
@@ -1750,7 +1744,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         12.0)),
                                                               ),
@@ -1797,7 +1791,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Icon(
+                                                                  const Icon(
                                                                     Icons
                                                                         .help_outlined,
                                                                     color: Color(
@@ -1820,7 +1814,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         12.0)),
                                                               ),
@@ -1867,7 +1861,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Icon(
+                                                                  const Icon(
                                                                     FFIcons
                                                                         .kdocumentsMinimalisticSvgrepoCom,
                                                                     color: Color(
@@ -1890,7 +1884,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               0.0,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         12.0)),
                                                               ),
@@ -1905,7 +1899,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ],
                                                           ),
                                                         ),
-                                                      ].divide(SizedBox(
+                                                      ].divide(const SizedBox(
                                                           height: 16.0)),
                                                     ),
                                                   ),
@@ -1913,7 +1907,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                               Builder(
                                                 builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
@@ -1929,7 +1923,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             backgroundColor:
                                                                 Colors
                                                                     .transparent,
-                                                            alignment: AlignmentDirectional(
+                                                            alignment: const AlignmentDirectional(
                                                                     0.0, 0.0)
                                                                 .resolve(
                                                                     Directionality.of(
@@ -1940,25 +1934,25 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   FocusScope.of(
                                                                           dialogContext)
                                                                       .unfocus(),
-                                                              child: Container(
+                                                              child: SizedBox(
                                                                 height: 320.0,
                                                                 width: 300.0,
                                                                 child:
                                                                     LogOutWidget(
                                                                   username:
-                                                                      homePageUserRow!
+                                                                      homePageUserRow
                                                                           .username!,
                                                                   email:
                                                                       currentUserEmail,
                                                                   pictur:
                                                                       valueOrDefault<
                                                                           String>(
-                                                                    homePageUserRow?.profilePic !=
+                                                                    homePageUserRow.profilePic !=
                                                                                 null &&
-                                                                            homePageUserRow?.profilePic !=
+                                                                            homePageUserRow.profilePic !=
                                                                                 ''
                                                                         ? homePageUserRow
-                                                                            ?.profilePic
+                                                                            .profilePic
                                                                         : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                     'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                   ),
@@ -1978,14 +1972,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       width: 160.0,
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2024,10 +2018,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: Alignment(0.0, 0),
+                                  alignment: const Alignment(0.0, 0),
                                   child: TabBar(
-                                    labelColor: Color(0xFF0DBC8C),
-                                    unselectedLabelColor: Color(0xFFB4BBB8),
+                                    labelColor: const Color(0xFF0DBC8C),
+                                    unselectedLabelColor: const Color(0xFFB4BBB8),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -2043,9 +2037,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                    indicatorColor: Color(0x02000000),
+                                    indicatorColor: const Color(0x02000000),
                                     indicatorWeight: 0.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 5.0, 5.0),
                                     tabs: [
                                       Tab(
@@ -2053,7 +2047,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             FFLocalizations.of(context).getText(
                                           'poood59y' /* Explore */,
                                         ),
-                                        icon: Icon(
+                                        icon: const Icon(
                                           FFIcons.khomeSvgrepoCom2,
                                         ),
                                       ),
@@ -2062,7 +2056,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             FFLocalizations.of(context).getText(
                                           '1giy2wio' /* Chat */,
                                         ),
-                                        icon: Icon(
+                                        icon: const Icon(
                                           FFIcons.kchatRoundSvgrepoCom2,
                                         ),
                                       ),
@@ -2071,7 +2065,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             FFLocalizations.of(context).getText(
                                           'qu94a8s5' /* Profile */,
                                         ),
-                                        icon: Icon(
+                                        icon: const Icon(
                                           FFIcons.kuserCircleSvgrepoCom2,
                                         ),
                                       ),
@@ -2138,7 +2132,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           (_model.versionApi?.jsonBody ?? ''),
                         ))
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -2181,11 +2175,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF6F61EF),
+                                color: const Color(0xFF6F61EF),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -2197,7 +2191,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ].divide(SizedBox(height: 24.0)),
+                          ].divide(const SizedBox(height: 24.0)),
                         ),
                       ),
                   ],

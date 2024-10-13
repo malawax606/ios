@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -48,7 +46,7 @@ class CountryFalgCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Country Falg',
-      apiUrl: 'https://restcountries.com/v3.1/alpha/${code}',
+      apiUrl: 'https://restcountries.com/v3.1/alpha/$code',
       callType: ApiCallType.GET,
       headers: {},
       params: {
@@ -77,7 +75,7 @@ class SupabaseUsernameCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase Username',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(Username.ilike.*${searchString}*)&select=* &Deleted=eq.false&select=* &Age=eq.${age}&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=(Username.ilike.*$searchString*)&select=* &Deleted=eq.false&select=* &Age=eq.$age&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -116,7 +114,7 @@ class SupabaseUserProfileCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User Profile',
       apiUrl:
-          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*${searchString}*)&select=*',
+          'https://aoftiofofvsqctgootft.supabase.co/rest/v1/User?or=(Profile_Pic.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -159,7 +157,7 @@ class SupabaseUserCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase User',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=( id.ilike.*${searchString}*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/User?or=( id.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -202,7 +200,7 @@ class SupabaseAppVesrionCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Supabase App Vesrion',
       apiUrl:
-          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/App_Version?or=( idd.ilike.*${searchString}*)&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/App_Version?or=( idd.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -272,10 +270,10 @@ class NotificationnssCall {
     final ffApiRequestBody = '''
 {
   "message": {
-    "token": "${fcm}",
+    "token": "$fcm",
     "notification": {
-      "body": "${body}",
-      "title": "${title}"
+      "body": "$body",
+      "title": "$title"
     }
   }
 }''';
@@ -284,7 +282,7 @@ class NotificationnssCall {
       apiUrl: 'https://fcm.googleapis.com/v1/projects/deating332/messages:send',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer ${token}',
+        'Authorization': 'Bearer $token',
       },
       params: {},
       body: ffApiRequestBody,

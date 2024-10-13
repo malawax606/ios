@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -59,7 +57,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               FFIcons.kaltArrowLeftSvgrepoCom,
               color: Color(0xFFB4BBB8),
               size: 30.0,
@@ -74,19 +72,19 @@ class _SearchWidgetState extends State<SearchWidget> {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: Color(0xFFB4BBB8),
+                  color: const Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,11 +101,11 @@ class _SearchWidgetState extends State<SearchWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                       borderRadius: BorderRadius.circular(12.0),
                       border: Border.all(
-                        color: Color(0xFFE6E9EE),
+                        color: const Color(0xFFE6E9EE),
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 16.0, 16.0, 16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -136,27 +134,27 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.search,
                               ),
                             ),
@@ -192,27 +190,27 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.calendar_today,
                               ),
                             ),
@@ -227,11 +225,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              if ((_model.uSernameTextController.text != null &&
-                                      _model.uSernameTextController.text !=
+                              if ((_model.uSernameTextController.text !=
                                           '') &&
-                                  (_model.ageTextController.text != null &&
-                                      _model.ageTextController.text != '')) {
+                                  (_model.ageTextController.text != '')) {
                                 _model.username =
                                     _model.uSernameTextController.text;
                                 _model.age = _model.ageTextController.text;
@@ -246,7 +242,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                             .primaryText,
                                       ),
                                     ),
-                                    duration: Duration(milliseconds: 4000),
+                                    duration: const Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
@@ -259,9 +255,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).secondary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -274,7 +270,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               elevation: 0.0,
                             ),
                           ),
-                        ].divide(SizedBox(height: 16.0)),
+                        ].divide(const SizedBox(height: 16.0)),
                       ),
                     ),
                   ),
@@ -317,7 +313,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         final listViewUserRow =
                             listViewUserRowList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 7.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -334,7 +330,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -355,7 +351,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -427,10 +423,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
-                                          ].divide(SizedBox(height: 4.0)),
+                                          ].divide(const SizedBox(height: 4.0)),
                                         ),
                                       ),
-                                    ].divide(SizedBox(width: 16.0)),
+                                    ].divide(const SizedBox(width: 16.0)),
                                   ),
                                 ),
                               ),
@@ -441,7 +437,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                     );
                   },
                 ),
-              ].divide(SizedBox(height: 24.0)),
+              ].divide(const SizedBox(height: 24.0)),
             ),
           ),
         ),

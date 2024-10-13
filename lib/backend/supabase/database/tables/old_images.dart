@@ -9,7 +9,7 @@ class OldImagesTable extends SupabaseTable<OldImagesRow> {
 }
 
 class OldImagesRow extends SupabaseDataRow {
-  OldImagesRow(Map<String, dynamic> data) : super(data);
+  OldImagesRow(super.data);
 
   @override
   SupabaseTable get table => OldImagesTable();

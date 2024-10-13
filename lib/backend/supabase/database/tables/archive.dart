@@ -9,7 +9,7 @@ class ArchiveTable extends SupabaseTable<ArchiveRow> {
 }
 
 class ArchiveRow extends SupabaseDataRow {
-  ArchiveRow(Map<String, dynamic> data) : super(data);
+  ArchiveRow(super.data);
 
   @override
   SupabaseTable get table => ArchiveTable();

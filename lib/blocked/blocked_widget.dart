@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'blocked_model.dart';
 export 'blocked_model.dart';
 
@@ -87,7 +85,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   FFIcons.kaltArrowLeftSvgrepoCom,
                   color: Color(0xFFB4BBB8),
                   size: 30.0,
@@ -102,12 +100,12 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
-                      color: Color(0xFFB4BBB8),
+                      color: const Color(0xFFB4BBB8),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -168,7 +166,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
                               child: FutureBuilder<List<UserRow>>(
                                 future: UserTable().querySingleRow(
@@ -301,10 +299,10 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                           width: 100.0,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color:
                                               FlutterFlowTheme.of(context).info,
@@ -323,7 +321,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                       ),
-                                    ].divide(SizedBox(width: 12.0)),
+                                    ].divide(const SizedBox(width: 12.0)),
                                   );
                                 },
                               ),

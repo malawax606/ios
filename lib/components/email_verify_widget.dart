@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'email_verify_model.dart';
 export 'email_verify_model.dart';
 
@@ -55,7 +53,7 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 7.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 7.0, 16.0, 0.0),
             child: Icon(
               Icons.email_rounded,
               color: FlutterFlowTheme.of(context).primaryText,
@@ -63,7 +61,7 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 'vlnpqmui' /* Verify Your Email */,
@@ -76,10 +74,10 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
               valueOrDefault<String>(
-                widget!.text,
+                widget.text,
                 '.',
               ),
               textAlign: TextAlign.center,
@@ -90,7 +88,7 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 'um3u9fk8' /* Didn't receive the email? */,
@@ -103,7 +101,7 @@ class _EmailVerifyWidgetState extends State<EmailVerifyWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 't7xn5g8k' /* Please check your spam folder ... */,

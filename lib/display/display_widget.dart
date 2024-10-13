@@ -1,11 +1,7 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'display_model.dart';
 export 'display_model.dart';
 
@@ -53,7 +49,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               FFIcons.kaltArrowLeftSvgrepoCom,
               color: Color(0xFFB4BBB8),
               size: 30.0,
@@ -68,12 +64,12 @@ class _DisplayWidgetState extends State<DisplayWidget> {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: Color(0xFFB4BBB8),
+                  color: const Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -83,7 +79,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,7 +105,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 15.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -129,7 +125,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                             Container(
                               width: 25.0,
                               height: 25.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFE70A0A),
                                 shape: BoxShape.circle,
                               ),
@@ -140,7 +136,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                                   Container(
                                     width: 10.0,
                                     height: 10.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -184,7 +180,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 15.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -204,7 +200,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                             Container(
                               width: 25.0,
                               height: 25.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFE70A0A),
                                 shape: BoxShape.circle,
                               ),
@@ -215,7 +211,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                                   Container(
                                     width: 10.0,
                                     height: 10.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -242,7 +238,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -267,7 +263,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -280,7 +276,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                         decoration: BoxDecoration(
                           color:
                               FFLocalizations.of(context).languageCode != 'en'
-                                  ? Color(0xB480E7DA)
+                                  ? const Color(0xB480E7DA)
                                   : FlutterFlowTheme.of(context).primary,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
@@ -292,7 +288,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -306,7 +302,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -332,7 +328,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -345,19 +341,19 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                         decoration: BoxDecoration(
                           color:
                               FFLocalizations.of(context).languageCode == 'en'
-                                  ? Color(0xB480E7DA)
+                                  ? const Color(0xB480E7DA)
                                   : FlutterFlowTheme.of(context).primary,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
                             color:
                                 FFLocalizations.of(context).languageCode == 'en'
-                                    ? Color(0x00090909)
+                                    ? const Color(0x00090909)
                                     : FlutterFlowTheme.of(context).info,
                             width: 1.0,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -371,7 +367,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(

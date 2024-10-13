@@ -1,10 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'privacy_policy_model.dart';
 export 'privacy_policy_model.dart';
 
@@ -50,7 +47,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               FFIcons.kaltArrowLeftSvgrepoCom,
               color: Color(0xFFB4BBB8),
               size: 30.0,
@@ -65,12 +62,12 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
-                  color: Color(0xFFB4BBB8),
+                  color: const Color(0xFFB4BBB8),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -80,7 +77,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -104,7 +101,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                   Flexible(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'difgwzom' /* Privacy Policy This privacy po... */,
@@ -120,7 +117,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -140,7 +137,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'drjxr3gx' /* We may collect personal inform... */,
@@ -154,7 +151,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -174,7 +171,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'xyapaa92' /* Your information is used to pe... */,
@@ -188,7 +185,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -208,7 +205,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '8ze3ipvh' /*  We take appropriate measures ... */,
@@ -222,7 +219,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -242,7 +239,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '9kb2xfmj' /* We may update this privacy pol... */,
@@ -256,7 +253,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -276,7 +273,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'nc8qmy64' /* If you have any questions abou... */,

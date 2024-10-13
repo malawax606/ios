@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 import '/components/walk_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 // Focus widget keys for this walkthrough
 final containerT2laecnl = GlobalKey();
@@ -30,7 +28,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Inta tabo sad profile ka sawir u sarato',
             ),
           ),
@@ -47,7 +45,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Username Kaga Inta Ku qor',
             ),
           ),
@@ -64,7 +62,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Magacada O Sadaxan Inta Ku Qor',
             ),
           ),
@@ -81,7 +79,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Da,da Jirtid Inta Ka Doro',
             ),
           ),
@@ -98,7 +96,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Rag Ama Dumar Midka Tahay Inta Ka Doro',
             ),
           ),
@@ -115,7 +113,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'hadi ad shaqeysid ama adan shaqeyn inta ka doro',
             ),
           ),
@@ -132,7 +130,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Midibka tahy inta ka doro',
             ),
           ),
@@ -149,7 +147,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Hadi ad horay gur uso marty ama adan somarin inta ka doro',
             ),
           ),
@@ -166,7 +164,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkWidget(
+            builder: (context, __) => const WalkWidget(
               text: 'Wax adi kugu sabsan ama ad ama naftada',
             ),
           ),

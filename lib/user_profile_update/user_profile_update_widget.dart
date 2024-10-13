@@ -9,8 +9,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'user_profile_update_model.dart';
 export 'user_profile_update_model.dart';
 
@@ -40,9 +38,9 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.chat1 = '${currentUserUid}${widget!.userID}';
-      _model.chat2 = '${widget!.userID}${currentUserUid}';
-      _model.addToUssers(widget!.userID!);
+      _model.chat1 = '$currentUserUid${widget.userID}';
+      _model.chat2 = '${widget.userID}$currentUserUid';
+      _model.addToUssers(widget.userID!);
       safeSetState(() {});
       _model.addToUssers(currentUserUid);
       safeSetState(() {});
@@ -65,7 +63,7 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
             ..complete(UserTable().querySingleRow(
               queryFn: (q) => q.eq(
                 'id',
-                widget!.userID,
+                widget.userID,
               ),
             )))
           .future,
@@ -153,7 +151,7 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Material(
                         color: Colors.transparent,
                         elevation: 2.0,
@@ -193,7 +191,7 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Text(
                         '@${userProfileUpdateUserRow?.username}'
                             .maybeHandleOverflow(maxChars: 25),
@@ -208,7 +206,7 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -237,7 +235,7 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -322,9 +320,9 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width * 0.45,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).info,
                               textStyle: FlutterFlowTheme.of(context)
@@ -340,10 +338,10 @@ class _UserProfileUpdateWidgetState extends State<UserProfileUpdateWidget> {
                             ),
                             showLoadingIndicator: false,
                           ),
-                        ].divide(SizedBox(width: 16.0)),
+                        ].divide(const SizedBox(width: 16.0)),
                       ),
                     ),
-                  ].divide(SizedBox(height: 20.0)),
+                  ].divide(const SizedBox(height: 20.0)),
                 ),
               ),
             ),
