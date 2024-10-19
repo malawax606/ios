@@ -663,6 +663,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                   widget
                                                                       .chatID,
                                                                 )
+                                                                .eq(
+                                                                  'Delete',
+                                                                  false,
+                                                                )
                                                                 .order(
                                                                     'created_at'),
                                                           )))
@@ -1170,7 +1174,12 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                             padding: const EdgeInsets.all(5.0),
                                                                                                             child: Text(
                                                                                                               valueOrDefault<String>(
-                                                                                                                messagesMessageRow.text,
+                                                                                                                messagesMessageRow.edit == false
+                                                                                                                    ? valueOrDefault<String>(
+                                                                                                                        messagesMessageRow.text,
+                                                                                                                        '.',
+                                                                                                                      )
+                                                                                                                    : messagesMessageRow.textEdited,
                                                                                                                 '.',
                                                                                                               ),
                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1204,25 +1213,26 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                             alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                                             child: SafeArea(
                                                                                                               child: Container(
-                                                                                                                width: 26.0,
-                                                                                                                height: 26.0,
                                                                                                                 decoration: BoxDecoration(
                                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                                   shape: BoxShape.circle,
                                                                                                                 ),
                                                                                                                 alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                                child: Text(
-                                                                                                                  valueOrDefault<String>(
-                                                                                                                    messagesMessageRow.love,
-                                                                                                                    '👍',
-                                                                                                                  ),
-                                                                                                                  textAlign: TextAlign.center,
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'Inter',
-                                                                                                                        fontSize: 18.0,
-                                                                                                                        letterSpacing: 0.0,
-                                                                                                                      ),
-                                                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
+                                                                                                                child: Padding(
+                                                                                                                  padding: const EdgeInsets.all(3.0),
+                                                                                                                  child: Text(
+                                                                                                                    valueOrDefault<String>(
+                                                                                                                      messagesMessageRow.love,
+                                                                                                                      '👍',
+                                                                                                                    ),
+                                                                                                                    textAlign: TextAlign.center,
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                          fontFamily: 'Inter',
+                                                                                                                          fontSize: 18.0,
+                                                                                                                          letterSpacing: 0.0,
+                                                                                                                        ),
+                                                                                                                  ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
+                                                                                                                ),
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),
@@ -1279,7 +1289,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
                                                                                                                       'Reporter User': currentUserUid,
                                                                                                                       'Reported User': widget.userId,
-                                                                                                                      'Message': _model.test,
+                                                                                                                      'Message': 'o',
                                                                                                                       'Checked': false,
                                                                                                                     });
                                                                                                                     _model.love = false;
@@ -1345,7 +1355,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                   hoverColor: Colors.transparent,
                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                   onTap: () async {
-                                                                                                                    await Clipboard.setData(ClipboardData(text: _model.test!));
+                                                                                                                    await Clipboard.setData(const ClipboardData(text: '00'));
                                                                                                                     _model.love = false;
                                                                                                                     _model.loveID = null;
                                                                                                                     safeSetState(() {});
@@ -1605,7 +1615,12 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                               padding: const EdgeInsets.all(5.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
-                                                                                                  messagesMessageRow.text,
+                                                                                                  messagesMessageRow.edit == false
+                                                                                                      ? valueOrDefault<String>(
+                                                                                                          messagesMessageRow.text,
+                                                                                                          '.',
+                                                                                                        )
+                                                                                                      : messagesMessageRow.textEdited,
                                                                                                   '.',
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
