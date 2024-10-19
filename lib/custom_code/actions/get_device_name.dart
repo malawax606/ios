@@ -19,18 +19,17 @@ Future<String> getDeviceName() async {
   // For Android devices
   if (Platform.isAndroid) {
     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-    deviceName = androidInfo.model; // Model of the device (e.g., "Pixel 4")
+    deviceName = androidInfo.model;
   }
   // For iOS devices
   else if (Platform.isIOS) {
     IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-    deviceName = iosInfo.name; // Name of the device (e.g., "John's iPhone")
+    deviceName = iosInfo.name ?? 'Unknown Device'; // Use null-ish operator
   } else {
     deviceName = 'Unknown Device';
   }
 
   return deviceName;
 }
-
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
