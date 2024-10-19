@@ -1251,12 +1251,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          dateTimeFormat(
-                                                                            "relative",
-                                                                            listViewChatRow.lastMesageSentTime,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
+                                                                          listViewChatRow
+                                                                              .lastMesageSentTime
+                                                                              .toString(),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(

@@ -31,3 +31,4 @@ export '/vpn/vpn_widget.dart' show VpnWidget;
 export '/net/net_widget.dart' show NetWidget;
 export '/payment/payment_widget.dart' show PaymentWidget;
 export '/pay/pay_widget.dart' show PayWidget;
+export '/test/test_widget.dart' show TestWidget;

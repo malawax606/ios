@@ -329,6 +329,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'pay',
           path: '/pay',
           builder: (context, params) => const PayWidget(),
+        ),
+        FFRoute(
+          name: 'Test',
+          path: '/test',
+          builder: (context, params) => const TestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

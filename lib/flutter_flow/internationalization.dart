@@ -1651,6 +1651,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Nyumbani',
     },
   },
+  // Test
+  {
+    'gfya3kta': {
+      'en': 'Hello World',
+      'sw': '',
+    },
+    'rq6kdjxy': {
+      'en': 'Button',
+      'sw': '',
+    },
+    'pfsypg2e': {
+      'en': 'Page Title',
+      'sw': 'Kichwa cha Ukurasa',
+    },
+    'rgy6tfd6': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
   // Messages
   {
     'b7on9534': {
