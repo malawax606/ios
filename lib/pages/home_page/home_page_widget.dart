@@ -1118,15 +1118,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             'Username2':
                                                                                 rowUserUserRow?.username,
                                                                           },
-                                                                          matchingRows: (rows) => rows
-                                                                              .eq(
-                                                                                'Chat_ID',
-                                                                                listViewChatRow.chatID,
-                                                                              )
-                                                                              .contains(
-                                                                                'Users',
-                                                                                '{$currentUserUid}',
-                                                                              ),
+                                                                          matchingRows: (rows) =>
+                                                                              rows.eq(
+                                                                            'Chat_ID',
+                                                                            listViewChatRow.chatID,
+                                                                          ),
                                                                         );
                                                                       }
                                                                       _model.token4 =
