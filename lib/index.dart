@@ -29,3 +29,5 @@ export '/email_change/email_change_widget.dart' show EmailChangeWidget;
 export '/display/display_widget.dart' show DisplayWidget;
 export '/vpn/vpn_widget.dart' show VpnWidget;
 export '/net/net_widget.dart' show NetWidget;
+export '/payment/payment_widget.dart' show PaymentWidget;
+export '/pay/pay_widget.dart' show PayWidget;

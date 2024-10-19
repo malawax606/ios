@@ -1499,6 +1499,122 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Nyumbani',
     },
   },
+  // Payment
+  {
+    '8winfi6x': {
+      'en': 'Premium Features',
+      'sw': '',
+    },
+    '9tkjcg1i': {
+      'en': 'Get Verified',
+      'sw': '',
+    },
+    '2atq5d12': {
+      'en': 'Hide Online Status',
+      'sw': '',
+    },
+    '12gxeych': {
+      'en': 'Read messages without seeing',
+      'sw': '',
+    },
+    'fvrn3bi7': {
+      'en': 'View profiles without knowing you',
+      'sw': '',
+    },
+    '6k13wkuo': {
+      'en': 'Ad-Free Experience',
+      'sw': '',
+    },
+    'dzno9t24': {
+      'en': 'Select Payment Method',
+      'sw': '',
+    },
+    'vyn6pso3': {
+      'en': 'Subscription Plan',
+      'sw': '',
+    },
+    'svdvn7rl': {
+      'en': 'Monthly Plan',
+      'sw': '',
+    },
+    'gxukwazw': {
+      'en': '\$2.99/month',
+      'sw': '',
+    },
+    'psx4jhb8': {
+      'en': 'Cancel anytime',
+      'sw': '',
+    },
+    'tubaaa3w': {
+      'en': 'Subscribe Now',
+      'sw': '',
+    },
+    '57vtov4h': {
+      'en':
+          'By subscribing, you agree to our Terms of Service and Privacy Policy',
+      'sw': '',
+    },
+    'cqllgfp2': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
+  // pay
+  {
+    'fcpqyukc': {
+      'en': 'Choose Your Plan',
+      'sw': '',
+    },
+    'zw6mtipc': {
+      'en': 'Premium',
+      'sw': '',
+    },
+    '37jyvqv6': {
+      'en': '\$9.99/month',
+      'sw': '',
+    },
+    'w2s1q72q': {
+      'en': 'Ad-free experience',
+      'sw': '',
+    },
+    'osqwvb41': {
+      'en': 'Unlimited swipes',
+      'sw': '',
+    },
+    'aqgo82sk': {
+      'en': 'See who likes you',
+      'sw': '',
+    },
+    'vmhbi1cf': {
+      'en': 'Priority matching',
+      'sw': '',
+    },
+    'qeetiptb': {
+      'en': 'Payment Method',
+      'sw': '',
+    },
+    'bt56e2ka': {
+      'en': 'Credit Card',
+      'sw': '',
+    },
+    'vz5bpphm': {
+      'en': 'Subscribe Now',
+      'sw': '',
+    },
+    '4oje1iu7': {
+      'en':
+          'By subscribing, you agree to our Terms of Service and Privacy Policy',
+      'sw': '',
+    },
+    '470m526s': {
+      'en': 'Page Title',
+      'sw': 'Kichwa cha Ukurasa',
+    },
+    'fjpfiyvm': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
   // Messages
   {
     'b7on9534': {

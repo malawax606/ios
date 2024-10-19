@@ -770,14 +770,12 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                           padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 50.0, 0.0),
                                                                                           child: ClipRRect(
                                                                                             child: Container(
-                                                                                              width: MediaQuery.sizeOf(context).width * 0.72,
                                                                                               decoration: const BoxDecoration(),
                                                                                               child: Align(
                                                                                                 alignment: const AlignmentDirectional(1.0, 0.0),
                                                                                                 child: Padding(
                                                                                                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                                                                                                   child: Container(
-                                                                                                    width: MediaQuery.sizeOf(context).width * 0.73,
                                                                                                     height: 50.0,
                                                                                                     decoration: BoxDecoration(
                                                                                                       color: FlutterFlowTheme.of(context).editProfile,
@@ -792,7 +790,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                           children: [
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -819,6 +817,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                   ),
                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
+                                                                                                                        color: const Color(0xFFF20B2B),
                                                                                                                         fontSize: 26.0,
                                                                                                                         letterSpacing: 0.0,
                                                                                                                       ),
@@ -826,7 +825,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -860,7 +859,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -894,7 +893,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -928,7 +927,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation4']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -962,7 +961,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation5']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -996,7 +995,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation6']!),
                                                                                                             ),
                                                                                                             Padding(
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                               child: InkWell(
                                                                                                                 splashColor: Colors.transparent,
                                                                                                                 focusColor: Colors.transparent,
@@ -1029,37 +1028,40 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                 ),
                                                                                                               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation7']!),
                                                                                                             ),
-                                                                                                            InkWell(
-                                                                                                              splashColor: Colors.transparent,
-                                                                                                              focusColor: Colors.transparent,
-                                                                                                              hoverColor: Colors.transparent,
-                                                                                                              highlightColor: Colors.transparent,
-                                                                                                              onTap: () async {
-                                                                                                                await MessageTable().update(
-                                                                                                                  data: {
-                                                                                                                    'Love': '👊',
-                                                                                                                  },
-                                                                                                                  matchingRows: (rows) => rows.eq(
-                                                                                                                    'id',
-                                                                                                                    _model.loveID,
-                                                                                                                  ),
-                                                                                                                );
-                                                                                                                safeSetState(() => _model.requestCompleter1 = null);
-                                                                                                                _model.love = false;
-                                                                                                                _model.loveID = null;
-                                                                                                                safeSetState(() {});
-                                                                                                              },
-                                                                                                              child: Text(
-                                                                                                                FFLocalizations.of(context).getText(
-                                                                                                                  '8thnfpmn' /* 👊 */,
-                                                                                                                ),
-                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                      fontFamily: 'Inter',
-                                                                                                                      fontSize: 26.0,
-                                                                                                                      letterSpacing: 0.0,
+                                                                                                            Padding(
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                              child: InkWell(
+                                                                                                                splashColor: Colors.transparent,
+                                                                                                                focusColor: Colors.transparent,
+                                                                                                                hoverColor: Colors.transparent,
+                                                                                                                highlightColor: Colors.transparent,
+                                                                                                                onTap: () async {
+                                                                                                                  await MessageTable().update(
+                                                                                                                    data: {
+                                                                                                                      'Love': '👊',
+                                                                                                                    },
+                                                                                                                    matchingRows: (rows) => rows.eq(
+                                                                                                                      'id',
+                                                                                                                      _model.loveID,
                                                                                                                     ),
-                                                                                                              ),
-                                                                                                            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation8']!),
+                                                                                                                  );
+                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  _model.love = false;
+                                                                                                                  _model.loveID = null;
+                                                                                                                  safeSetState(() {});
+                                                                                                                },
+                                                                                                                child: Text(
+                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                    '8thnfpmn' /* 👊 */,
+                                                                                                                  ),
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Inter',
+                                                                                                                        fontSize: 26.0,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation8']!),
+                                                                                                            ),
                                                                                                           ],
                                                                                                         ),
                                                                                                       ),
@@ -1149,6 +1151,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                     _model.love = true;
                                                                                                     _model.loveID = messagesMessageRow.id;
                                                                                                     _model.reportMessage = true;
+                                                                                                    _model.test = messagesMessageRow.text;
                                                                                                     safeSetState(() {});
                                                                                                   },
                                                                                                   child: Container(
@@ -1193,28 +1196,37 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                     mainAxisAlignment: MainAxisAlignment.start,
                                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                     children: [
-                                                                                                      Align(
-                                                                                                        alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                        child: Container(
-                                                                                                          width: 26.0,
-                                                                                                          height: 26.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            shape: BoxShape.circle,
-                                                                                                          ),
-                                                                                                          alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                          child: Text(
-                                                                                                            valueOrDefault<String>(
-                                                                                                              messagesMessageRow.love,
-                                                                                                              '👍',
-                                                                                                            ),
-                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                  fontFamily: 'Inter',
-                                                                                                                  fontSize: 18.0,
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                      Row(
+                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                        children: [
+                                                                                                          Align(
+                                                                                                            alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                            child: SafeArea(
+                                                                                                              child: Container(
+                                                                                                                width: 26.0,
+                                                                                                                height: 26.0,
+                                                                                                                decoration: BoxDecoration(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                  shape: BoxShape.circle,
                                                                                                                 ),
-                                                                                                          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
-                                                                                                        ),
+                                                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                                child: Text(
+                                                                                                                  valueOrDefault<String>(
+                                                                                                                    messagesMessageRow.love,
+                                                                                                                    '👍',
+                                                                                                                  ),
+                                                                                                                  textAlign: TextAlign.center,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Inter',
+                                                                                                                        fontSize: 18.0,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
+                                                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ],
                                                                                                       ),
                                                                                                     ],
                                                                                                   ),
@@ -1267,7 +1279,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
                                                                                                                       'Reporter User': currentUserUid,
                                                                                                                       'Reported User': widget.userId,
-                                                                                                                      'Message': messagesMessageRow.text,
+                                                                                                                      'Message': _model.test,
                                                                                                                       'Checked': false,
                                                                                                                     });
                                                                                                                     _model.love = false;
@@ -1333,7 +1345,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                   hoverColor: Colors.transparent,
                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                   onTap: () async {
-                                                                                                                    await Clipboard.setData(ClipboardData(text: messagesMessageRow.text!));
+                                                                                                                    await Clipboard.setData(ClipboardData(text: _model.test!));
                                                                                                                     _model.love = false;
                                                                                                                     _model.loveID = null;
                                                                                                                     safeSetState(() {});
@@ -1425,128 +1437,130 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                         CrossAxisAlignment
                                                                             .end,
                                                                     children: [
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            45.0,
-                                                                            10.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).editProfile,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10.0),
-                                                                          ),
+                                                                      if ((messagesMessageRow.id ==
+                                                                              _model
+                                                                                  .id) &&
+                                                                          (_model.more ==
+                                                                              true))
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              45.0,
+                                                                              10.0),
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    await Clipboard.setData(ClipboardData(text: messagesMessageRow.text!));
-                                                                                    _model.more = false;
-                                                                                    _model.id = null;
-                                                                                    safeSetState(() {});
-                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                      SnackBar(
-                                                                                        content: Text(
-                                                                                          'Message Copied',
-                                                                                          style: TextStyle(
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).editProfile,
+                                                                              borderRadius: BorderRadius.circular(10.0),
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.min,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      await Clipboard.setData(ClipboardData(text: _model.test!));
+                                                                                      _model.more = false;
+                                                                                      _model.id = null;
+                                                                                      safeSetState(() {});
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'Message Copied',
+                                                                                            style: TextStyle(
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: const Duration(milliseconds: 4000),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 7.0, 0.0),
+                                                                                          child: Icon(
+                                                                                            Icons.content_copy,
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            size: 24.0,
                                                                                           ),
                                                                                         ),
-                                                                                        duration: const Duration(milliseconds: 4000),
-                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 7.0, 0.0),
-                                                                                        child: Icon(
-                                                                                          Icons.content_copy,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 24.0,
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            '68qsmidz' /* Copy */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w500,
+                                                                                              ),
                                                                                         ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          '68qsmidz' /* Copy */,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w500,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
+                                                                                      ],
+                                                                                    ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    await MessageTable().update(
-                                                                                      data: {
-                                                                                        'Delete': true,
-                                                                                      },
-                                                                                      matchingRows: (rows) => rows.eq(
-                                                                                        'id',
-                                                                                        _model.id,
-                                                                                      ),
-                                                                                    );
-                                                                                    _model.more = false;
-                                                                                    _model.id = null;
-                                                                                    safeSetState(() {});
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 7.0, 0.0),
-                                                                                        child: Icon(
-                                                                                          Icons.delete_outline,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 24.0,
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      await MessageTable().update(
+                                                                                        data: {
+                                                                                          'Delete': true,
+                                                                                        },
+                                                                                        matchingRows: (rows) => rows.eq(
+                                                                                          'id',
+                                                                                          _model.id,
                                                                                         ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'kbylux12' /* Delete */,
+                                                                                      );
+                                                                                      _model.more = false;
+                                                                                      _model.id = null;
+                                                                                      safeSetState(() {});
+                                                                                    },
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 7.0, 0.0),
+                                                                                          child: Icon(
+                                                                                            Icons.delete_outline,
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            size: 24.0,
+                                                                                          ),
                                                                                         ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w500,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            'kbylux12' /* Delete */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w500,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
                                                                       Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
@@ -1560,55 +1574,55 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                 Stack(
                                                                               alignment: const AlignmentDirectional(1.0, 1.0),
                                                                               children: [
-                                                                                if ((messagesMessageRow.id == _model.id) && (_model.more == true))
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
-                                                                                    child: InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onLongPress: () async {
-                                                                                        _model.more = true;
-                                                                                        _model.id = messagesMessageRow.id;
-                                                                                        _model.love = null;
-                                                                                        _model.loveID = null;
-                                                                                        safeSetState(() {});
-                                                                                      },
-                                                                                      child: Container(
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: const Color(0xFFB2F5EF),
-                                                                                          borderRadius: BorderRadius.circular(10.0),
-                                                                                        ),
-                                                                                        child: Padding(
-                                                                                          padding: const EdgeInsets.all(8.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsets.all(5.0),
-                                                                                                child: Text(
-                                                                                                  valueOrDefault<String>(
-                                                                                                    messagesMessageRow.text,
-                                                                                                    '.',
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Inter',
-                                                                                                        color: Colors.black,
-                                                                                                        fontSize: 15.5,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w500,
-                                                                                                      ),
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onLongPress: () async {
+                                                                                      _model.more = true;
+                                                                                      _model.id = messagesMessageRow.id;
+                                                                                      _model.love = null;
+                                                                                      _model.loveID = null;
+                                                                                      _model.test = messagesMessageRow.text;
+                                                                                      safeSetState(() {});
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: const Color(0xFFB2F5EF),
+                                                                                        borderRadius: BorderRadius.circular(10.0),
+                                                                                      ),
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsets.all(8.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: const EdgeInsets.all(5.0),
+                                                                                              child: Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  messagesMessageRow.text,
+                                                                                                  '.',
                                                                                                 ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: Colors.black,
+                                                                                                      fontSize: 15.5,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                    ),
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
+                                                                                ),
                                                                                 if (messagesMessageRow.love != null && messagesMessageRow.love != '')
                                                                                   Padding(
                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 3.0, 0.0),
@@ -1627,18 +1641,24 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                               shape: BoxShape.circle,
                                                                                             ),
                                                                                             alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                messagesMessageRow.love,
-                                                                                                '👍',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    fontSize: 16.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  valueOrDefault<String>(
+                                                                                                    messagesMessageRow.love,
+                                                                                                    '👍',
                                                                                                   ),
-                                                                                            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation10']!),
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Inter',
+                                                                                                        fontSize: 16.0,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.w500,
+                                                                                                      ),
+                                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation10']!),
+                                                                                              ],
+                                                                                            ),
                                                                                           ),
                                                                                         ),
                                                                                       ],

@@ -319,6 +319,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Net',
           path: '/net',
           builder: (context, params) => const NetWidget(),
+        ),
+        FFRoute(
+          name: 'Payment',
+          path: '/payment',
+          builder: (context, params) => const PaymentWidget(),
+        ),
+        FFRoute(
+          name: 'pay',
+          path: '/pay',
+          builder: (context, params) => const PayWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -41,6 +41,8 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
 
   bool? reportMessage;
 
+  String? test;
+
   ///  State fields for stateful widgets in this page.
 
   Completer<List<MessageRow>>? requestCompleter1;
