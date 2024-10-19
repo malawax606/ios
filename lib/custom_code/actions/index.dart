@@ -7,3 +7,4 @@ export 'get_access_token.dart' show getAccessToken;
 export 'get_f_c_m.dart' show getFCM;
 export 'connect_vpn.dart' show connectVpn;
 export 'connect_net.dart' show connectNet;
+export 'get_device_name.dart' show getDeviceName;

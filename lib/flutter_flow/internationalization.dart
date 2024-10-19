@@ -1561,54 +1561,90 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // pay
   {
-    'fcpqyukc': {
-      'en': 'Choose Your Plan',
+    'pc8y7eix': {
+      'en': 'Recent Login Activity',
       'sw': '',
     },
-    'zw6mtipc': {
-      'en': 'Premium',
+    'g47ezdwj': {
+      'en': 'iPhone 12 Pro',
       'sw': '',
     },
-    '37jyvqv6': {
-      'en': '\$9.99/month',
+    'h10aro7j': {
+      'en': 'New York, USA',
       'sw': '',
     },
-    'w2s1q72q': {
-      'en': 'Ad-free experience',
+    'xwox6cve': {
+      'en': 'Today, 10:30 AM',
       'sw': '',
     },
-    'osqwvb41': {
-      'en': 'Unlimited swipes',
+    'ni8dazgz': {
+      'en': 'MacBook Air',
       'sw': '',
     },
-    'aqgo82sk': {
-      'en': 'See who likes you',
+    'dx7507js': {
+      'en': 'San Francisco, USA',
       'sw': '',
     },
-    'vmhbi1cf': {
-      'en': 'Priority matching',
+    'tvfdnvb7': {
+      'en': 'Yesterday, 3:45 PM',
       'sw': '',
     },
-    'qeetiptb': {
-      'en': 'Payment Method',
+    'u84y79bu': {
+      'en': 'iPad Pro',
       'sw': '',
     },
-    'bt56e2ka': {
-      'en': 'Credit Card',
+    'p0m8yzqn': {
+      'en': 'London, UK',
       'sw': '',
     },
-    'vz5bpphm': {
-      'en': 'Subscribe Now',
+    '26whwme2': {
+      'en': '2 days ago, 9:15 AM',
       'sw': '',
     },
-    '4oje1iu7': {
+    'd0bi1tlg': {
+      'en': 'Windows PC',
+      'sw': '',
+    },
+    'x6gu3hs3': {
+      'en': 'Berlin, Germany',
+      'sw': '',
+    },
+    '71rm685r': {
+      'en': '1 week ago, 2:00 PM',
+      'sw': '',
+    },
+    'xq5iaz1d': {
+      'en': 'Manage Devices',
+      'sw': '',
+    },
+    'yk7cgaq6': {
+      'en': 'View All Devices',
+      'sw': '',
+    },
+    'xiur2zgw': {
+      'en': 'Security Tips',
+      'sw': '',
+    },
+    'bw36o7en': {
+      'en': 'Enable Two-Factor Authentication',
+      'sw': '',
+    },
+    '47irx0td': {
+      'en': 'Add an extra layer of security to your account by enabling 2FA.',
+      'sw': '',
+    },
+    'guc0pxyw': {
+      'en': 'Use Strong, Unique Passwords',
+      'sw': '',
+    },
+    'naochu0g': {
       'en':
-          'By subscribing, you agree to our Terms of Service and Privacy Policy',
+          'Create complex passwords and avoid using the same password across multiple accounts.',
       'sw': '',
     },
-    '470m526s': {
-      'en': 'Page Title',
-      'sw': 'Kichwa cha Ukurasa',
+    'q00rv00w': {
+      'en': 'Review Security Settings',
+      'sw': '',
     },
     'fjpfiyvm': {
       'en': 'Home',
