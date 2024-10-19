@@ -1289,7 +1289,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
                                                                                                                       'Reporter User': currentUserUid,
                                                                                                                       'Reported User': widget.userId,
-                                                                                                                      'Message': 'o',
+                                                                                                                      'Message': _model.test,
                                                                                                                       'Checked': false,
                                                                                                                     });
                                                                                                                     _model.love = false;
@@ -1318,18 +1318,48 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                   child: Column(
                                                                                                                     mainAxisSize: MainAxisSize.min,
                                                                                                                     children: [
-                                                                                                                      FlutterFlowIconButton(
-                                                                                                                        borderRadius: 20.0,
-                                                                                                                        buttonSize: 40.0,
-                                                                                                                        fillColor: FlutterFlowTheme.of(context).editProfile,
-                                                                                                                        icon: FaIcon(
-                                                                                                                          FontAwesomeIcons.flag,
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                          size: 20.0,
+                                                                                                                      Builder(
+                                                                                                                        builder: (context) => FlutterFlowIconButton(
+                                                                                                                          borderRadius: 20.0,
+                                                                                                                          buttonSize: 40.0,
+                                                                                                                          fillColor: FlutterFlowTheme.of(context).editProfile,
+                                                                                                                          icon: FaIcon(
+                                                                                                                            FontAwesomeIcons.flag,
+                                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                            size: 20.0,
+                                                                                                                          ),
+                                                                                                                          onPressed: () async {
+                                                                                                                            await ReportMessageTable().insert({
+                                                                                                                              'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
+                                                                                                                              'Reporter User': currentUserUid,
+                                                                                                                              'Reported User': widget.userId,
+                                                                                                                              'Message': _model.test,
+                                                                                                                              'Checked': false,
+                                                                                                                            });
+                                                                                                                            _model.love = false;
+                                                                                                                            _model.loveID = null;
+                                                                                                                            safeSetState(() {});
+                                                                                                                            await showDialog(
+                                                                                                                              context: context,
+                                                                                                                              builder: (dialogContext) {
+                                                                                                                                return Dialog(
+                                                                                                                                  elevation: 0,
+                                                                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                                                                  backgroundColor: Colors.transparent,
+                                                                                                                                  alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                                                  child: GestureDetector(
+                                                                                                                                    onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                                                                    child: const SizedBox(
+                                                                                                                                      height: 300.0,
+                                                                                                                                      width: 300.0,
+                                                                                                                                      child: ReportDoneWidget(),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              },
+                                                                                                                            );
+                                                                                                                          },
                                                                                                                         ),
-                                                                                                                        onPressed: () {
-                                                                                                                          print('IconButton pressed ...');
-                                                                                                                        },
                                                                                                                       ),
                                                                                                                       Padding(
                                                                                                                         padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
@@ -1355,7 +1385,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                   hoverColor: Colors.transparent,
                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                   onTap: () async {
-                                                                                                                    await Clipboard.setData(const ClipboardData(text: '00'));
+                                                                                                                    await Clipboard.setData(ClipboardData(text: _model.test!));
                                                                                                                     _model.love = false;
                                                                                                                     _model.loveID = null;
                                                                                                                     safeSetState(() {});
@@ -1385,8 +1415,23 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                           size: 20.0,
                                                                                                                         ),
-                                                                                                                        onPressed: () {
-                                                                                                                          print('IconButton pressed ...');
+                                                                                                                        onPressed: () async {
+                                                                                                                          await Clipboard.setData(ClipboardData(text: _model.test!));
+                                                                                                                          _model.love = false;
+                                                                                                                          _model.loveID = null;
+                                                                                                                          safeSetState(() {});
+                                                                                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                            SnackBar(
+                                                                                                                              content: Text(
+                                                                                                                                'Message Copied',
+                                                                                                                                style: TextStyle(
+                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                              duration: const Duration(milliseconds: 1000),
+                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                            ),
+                                                                                                                          );
                                                                                                                         },
                                                                                                                       ),
                                                                                                                       Padding(

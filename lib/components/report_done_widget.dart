@@ -101,8 +101,8 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(30.0, 20.0, 30.0, 0.0),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  Navigator.pop(context);
                 },
                 text: FFLocalizations.of(context).getText(
                   'yukcfss5' /* Done */,

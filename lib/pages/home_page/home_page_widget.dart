@@ -1048,59 +1048,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'Message',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'chatID':
-                                                                              serializeParam(
-                                                                            listViewChatRow.chatID,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'userId':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.id,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'image':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.profilePic,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'gender':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.gender,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'sender':
-                                                                              serializeParam(
-                                                                            listViewChatRow.lastMessageSentBy,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'messageNum':
-                                                                              serializeParam(
-                                                                            listViewChatRow.messageNum,
-                                                                            ParamType.int,
-                                                                          ),
-                                                                          'username':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.username,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'fullName':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.fullName,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'uSERID':
-                                                                              serializeParam(
-                                                                            rowUserUserRow?.userId?.toString(),
-                                                                            ParamType.String,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                      );
-
                                                                       if ((listViewChatRow.profile1 != null &&
                                                                               listViewChatRow.profile1 !=
                                                                                   '') ||
@@ -1123,6 +1070,59 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             'Chat_ID',
                                                                             listViewChatRow.chatID,
                                                                           ),
+                                                                        );
+
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'Message',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'chatID':
+                                                                                serializeParam(
+                                                                              listViewChatRow.chatID,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'userId':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.id,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'image':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.profilePic,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'gender':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.gender,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'sender':
+                                                                                serializeParam(
+                                                                              listViewChatRow.lastMessageSentBy,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'messageNum':
+                                                                                serializeParam(
+                                                                              listViewChatRow.messageNum,
+                                                                              ParamType.int,
+                                                                            ),
+                                                                            'username':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.username,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'fullName':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.fullName,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'uSERID':
+                                                                                serializeParam(
+                                                                              rowUserUserRow?.userId?.toString(),
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
                                                                         );
                                                                       }
                                                                       _model.token4 =
