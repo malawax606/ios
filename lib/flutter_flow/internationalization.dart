@@ -1613,39 +1613,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '1 week ago, 2:00 PM',
       'sw': '',
     },
-    'xq5iaz1d': {
-      'en': 'Manage Devices',
-      'sw': '',
-    },
-    'yk7cgaq6': {
-      'en': 'View All Devices',
-      'sw': '',
-    },
-    'xiur2zgw': {
-      'en': 'Security Tips',
-      'sw': '',
-    },
-    'bw36o7en': {
-      'en': 'Enable Two-Factor Authentication',
-      'sw': '',
-    },
-    '47irx0td': {
-      'en': 'Add an extra layer of security to your account by enabling 2FA.',
-      'sw': '',
-    },
-    'guc0pxyw': {
-      'en': 'Use Strong, Unique Passwords',
-      'sw': '',
-    },
-    'naochu0g': {
-      'en':
-          'Create complex passwords and avoid using the same password across multiple accounts.',
-      'sw': '',
-    },
-    'q00rv00w': {
-      'en': 'Review Security Settings',
-      'sw': '',
-    },
     'fjpfiyvm': {
       'en': 'Home',
       'sw': 'Nyumbani',
