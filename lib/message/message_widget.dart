@@ -1219,7 +1219,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                 ),
                                                                                                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                                                 child: Padding(
-                                                                                                                  padding: const EdgeInsets.all(3.0),
+                                                                                                                  padding: const EdgeInsets.all(1.0),
                                                                                                                   child: Text(
                                                                                                                     valueOrDefault<String>(
                                                                                                                       messagesMessageRow.love,
