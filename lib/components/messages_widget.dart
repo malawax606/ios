@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'messages_model.dart';
@@ -215,8 +216,20 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                               decoration: const BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Image.network(
-                                                columnMeUserRow!.profilePic!,
+                                              child: CachedNetworkImage(
+                                                fadeInDuration:
+                                                    const Duration(milliseconds: 500),
+                                                fadeOutDuration:
+                                                    const Duration(milliseconds: 500),
+                                                imageUrl: columnMeUserRow
+                                                                ?.profilePic !=
+                                                            null &&
+                                                        columnMeUserRow
+                                                                ?.profilePic !=
+                                                            ''
+                                                    ? columnMeUserRow!
+                                                        .profilePic!
+                                                    : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -266,8 +279,20 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                               decoration: const BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Image.network(
-                                                containerUserRow!.profilePic!,
+                                              child: CachedNetworkImage(
+                                                fadeInDuration:
+                                                    const Duration(milliseconds: 500),
+                                                fadeOutDuration:
+                                                    const Duration(milliseconds: 500),
+                                                imageUrl: containerUserRow
+                                                                ?.profilePic !=
+                                                            null &&
+                                                        containerUserRow
+                                                                ?.profilePic !=
+                                                            ''
+                                                    ? containerUserRow!
+                                                        .profilePic!
+                                                    : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -440,11 +465,11 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                             onTap: () async {
                                               _model
                                                   .addToUsers(widget.user!.id);
-                                              _model.myChats = columnMeUserRow
+                                              _model.myChats = columnMeUserRow!
                                                   .chatsIds
                                                   .toList()
                                                   .cast<String>();
-                                              _model.hisChat = containerUserRow
+                                              _model.hisChat = containerUserRow!
                                                   .chatsIds
                                                   .toList()
                                                   .cast<String>();
@@ -486,35 +511,13 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                     supaSerialize<DateTime>(
                                                         getCurrentTimestamp),
                                                 'Profile2': containerUserRow
-                                                                .profilePic !=
-                                                            null &&
-                                                        containerUserRow
-                                                                .profilePic !=
-                                                            ''
-                                                    ? containerUserRow
-                                                        .profilePic
-                                                    : (columnMeUserRow
-                                                                .gender ==
-                                                            'Lab (Rag)'
-                                                        ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                        : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                    .profilePic,
                                                 'Username1':
                                                     columnMeUserRow.username,
                                                 'Username2':
                                                     containerUserRow.username,
-                                                'Profile1': columnMeUserRow
-                                                                .profilePic !=
-                                                            null &&
-                                                        columnMeUserRow
-                                                                .profilePic !=
-                                                            ''
-                                                    ? columnMeUserRow
-                                                        .profilePic
-                                                    : (columnMeUserRow
-                                                                .gender ==
-                                                            'Lab (Rag)'
-                                                        ? 'https://i.postimg.cc/xCRJyTsk/974c9c2446eb62327642dbea0f5f1502-1.jpg'
-                                                        : 'https://i.postimg.cc/63Nb4zSW/95261256b08293c3b2d897a1f5cd9d13-1.jpg'),
+                                                'Profile1':
+                                                    columnMeUserRow.profilePic,
                                               });
                                               await MessageTable().insert({
                                                 'User': currentUserUid,

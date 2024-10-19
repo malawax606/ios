@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'report_done_model.dart';
@@ -97,6 +98,32 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
               color: Color(0xFF2FD25D),
               size: 100.0,
             ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(30.0, 20.0, 30.0, 0.0),
+              child: FFButtonWidget(
+                onPressed: () {
+                  print('Button pressed ...');
+                },
+                text: FFLocalizations.of(context).getText(
+                  'yukcfss5' /* Done */,
+                ),
+                options: FFButtonOptions(
+                  width: double.infinity,
+                  height: 45.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: const Color(0xFF6F61EF),
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Inter Tight',
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                  elevation: 0.0,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ),
           ],
         ),
       ),

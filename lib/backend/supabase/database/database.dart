@@ -9,6 +9,7 @@ export 'tables/access_token.dart';
 export 'tables/app_version.dart';
 export 'tables/comments.dart';
 export 'tables/update.dart';
+export 'tables/report_message.dart';
 export 'tables/chat.dart';
 export 'tables/user.dart';
 export 'tables/chat_room.dart';

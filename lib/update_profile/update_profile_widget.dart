@@ -1233,19 +1233,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                 options: [
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'xvvp0tub' /* Single */,
+                                                    'xvvp0tub' /* Wan sogursady */,
                                                   ),
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'ckr0owj7' /* Divorced */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'g8oygnvl' /* Widowed */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'mjymnosh' /* Separated */,
+                                                    'ckr0owj7' /* wali mangursan */,
                                                   )
                                                 ],
                                                 onChanged: (val) =>
@@ -1468,7 +1460,6 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                             'Married status':
                                                 _model.marriedValue,
                                             'Skin color': _model.skincolorValue,
-                                            'Email': currentUserEmail,
                                             'Online': supaSerialize<DateTime>(
                                                 getCurrentTimestamp),
                                             'About Me': _model

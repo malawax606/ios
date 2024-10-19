@@ -1021,16 +1021,10 @@ class _FormWidgetState extends State<FormWidget> {
                                               FormFieldController<String>(null),
                                           options: [
                                             FFLocalizations.of(context).getText(
-                                              'zbvoc4x3' /* Single */,
+                                              'zbvoc4x3' /* Wan sogursady */,
                                             ),
                                             FFLocalizations.of(context).getText(
-                                              'fre7vpth' /* Divorced */,
-                                            ),
-                                            FFLocalizations.of(context).getText(
-                                              '71z6i5jc' /* Widowed */,
-                                            ),
-                                            FFLocalizations.of(context).getText(
-                                              'z7yict2m' /* Separated */,
+                                              'z7yict2m' /* wali mangursan */,
                                             )
                                           ],
                                           onChanged: (val) => safeSetState(
@@ -1208,7 +1202,8 @@ class _FormWidgetState extends State<FormWidget> {
                                 (_model.marriedValue != null &&
                                     _model.marriedValue != '') &&
                                 (_model.countryy != null &&
-                                    _model.countryy != '')) {
+                                    _model.countryy != '') &&
+                                (_model.uploadedFileUrl != '')) {
                               await UserTable().insert({
                                 'id': currentUserUid,
                                 'created_at': supaSerialize<DateTime>(

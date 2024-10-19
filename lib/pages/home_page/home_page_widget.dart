@@ -1101,9 +1101,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         }.withoutNulls,
                                                                       );
 
-                                                                      _model.token4 =
-                                                                          await actions
-                                                                              .getAccessToken();
                                                                       if ((listViewChatRow.profile1 != null &&
                                                                               listViewChatRow.profile1 !=
                                                                                   '') ||
@@ -1112,12 +1109,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         await ChatTable()
                                                                             .update(
                                                                           data: {
-                                                                            'Profile1': homePageUserRow?.profilePic != null && homePageUserRow?.profilePic != ''
-                                                                                ? homePageUserRow?.profilePic
-                                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                            'Profile2': rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
-                                                                                ? rowUserUserRow?.profilePic
-                                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            'Profile1':
+                                                                                homePageUserRow?.profilePic,
+                                                                            'Profile2':
+                                                                                rowUserUserRow?.profilePic,
                                                                             'Username1':
                                                                                 homePageUserRow?.username,
                                                                             'Username2':
@@ -1134,6 +1129,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               ),
                                                                         );
                                                                       }
+                                                                      _model.token4 =
+                                                                          await actions
+                                                                              .getAccessToken();
                                                                       await AccessTokenTable()
                                                                           .update(
                                                                         data: {
@@ -1411,44 +1409,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                            'Display');
-                                                      },
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          homePageUserRow
-                                                              ?.username,
-                                                          'User',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter Tight',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        homePageUserRow
+                                                            ?.username,
+                                                        'User',
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Inter Tight',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                     ),
                                                     if (homePageUserRow!
                                                             .vipProfilee! &&

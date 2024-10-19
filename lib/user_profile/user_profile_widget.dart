@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'user_profile_model.dart';
@@ -109,18 +110,6 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                 onPressed: () async {
                   context.pop();
                 },
-              ),
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  'cwuksexy' /* Profile */,
-                ),
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'Inter Tight',
-                      color: const Color(0xFFB4BBB8),
-                      fontSize: 21.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w500,
-                    ),
               ),
               actions: [
                 FlutterFlowIconButton(
@@ -228,8 +217,13 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                     PageTransition(
                                       type: PageTransitionType.fade,
                                       child: FlutterFlowExpandedImageView(
-                                        image: Image.network(
-                                          userProfileUserRow?.profilePic !=
+                                        image: CachedNetworkImage(
+                                          fadeInDuration:
+                                              const Duration(milliseconds: 0),
+                                          fadeOutDuration:
+                                              const Duration(milliseconds: 0),
+                                          imageUrl: userProfileUserRow
+                                                          ?.profilePic !=
                                                       null &&
                                                   userProfileUserRow
                                                           ?.profilePic !=
@@ -259,8 +253,13 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                   transitionOnUserGestures: true,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(75.0),
-                                    child: Image.network(
-                                      userProfileUserRow?.profilePic != null &&
+                                    child: CachedNetworkImage(
+                                      fadeInDuration: const Duration(milliseconds: 0),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 0),
+                                      imageUrl: userProfileUserRow
+                                                      ?.profilePic !=
+                                                  null &&
                                               userProfileUserRow?.profilePic !=
                                                   ''
                                           ? userProfileUserRow!.profilePic!
@@ -657,47 +656,20 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        Stack(
-                                          children: [
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode ==
-                                                'en')
-                                              Text(
-                                                userProfileUserRow.gender ==
-                                                        'Lab (Rag)'
-                                                    ? 'Male'
-                                                    : 'Female',
-                                                style:
+                                        Text(
+                                          valueOrDefault<String>(
+                                            userProfileUserRow.gender,
+                                            'Empty',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
                                               ),
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode !=
-                                                'en')
-                                              Text(
-                                                userProfileUserRow.gender ==
-                                                        'Lab (Rag)'
-                                                    ? 'Lab (Rag)'
-                                                    : 'Dheddig (Dumar)',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                          ],
                                         ),
                                       ],
                                     ),
@@ -720,47 +692,20 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        Stack(
-                                          children: [
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode ==
-                                                'en')
-                                              Text(
-                                                userProfileUserRow.job ==
-                                                        'Wan shaqeya'
-                                                    ? 'I work'
-                                                    : 'I don,t work',
-                                                style:
+                                        Text(
+                                          valueOrDefault<String>(
+                                            userProfileUserRow.job,
+                                            'Empty',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
                                               ),
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode !=
-                                                'en')
-                                              Text(
-                                                userProfileUserRow.job ==
-                                                        'Wan shaqeya'
-                                                    ? 'Wan shaqeya'
-                                                    : 'Mashaqeyi',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                          ],
                                         ),
                                       ],
                                     ),
@@ -783,82 +728,20 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        Stack(
-                                          children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                userProfileUserRow.skinColor,
-                                                'Empty',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode ==
-                                                'en')
-                                              Text(
-                                                () {
-                                                  if (userProfileUserRow
-                                                          .skinColor ==
-                                                      'Cadan') {
-                                                    return 'Light';
-                                                  } else if (userProfileUserRow
-                                                          .skinColor ==
-                                                      'Marin') {
-                                                    return 'Medium';
-                                                  } else {
-                                                    return 'Dark';
-                                                  }
-                                                }(),
-                                                style:
+                                        Text(
+                                          valueOrDefault<String>(
+                                            userProfileUserRow.skinColor,
+                                            'Empty',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
                                               ),
-                                            if (FFLocalizations.of(context)
-                                                    .languageCode !=
-                                                'en')
-                                              Text(
-                                                () {
-                                                  if (userProfileUserRow
-                                                          .skinColor ==
-                                                      'Cadan') {
-                                                    return 'Cadan';
-                                                  } else if (userProfileUserRow
-                                                          .skinColor ==
-                                                      'Marin') {
-                                                    return 'Marin';
-                                                  } else {
-                                                    return 'Madow';
-                                                  }
-                                                }(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                          ],
                                         ),
                                       ],
                                     ),

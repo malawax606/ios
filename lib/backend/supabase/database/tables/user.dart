@@ -108,9 +108,6 @@ class UserRow extends SupabaseDataRow {
   String? get uid => getField<String>('UID');
   set uid(String? value) => setField<String>('UID', value);
 
-  bool? get admin => getField<bool>('Admin');
-  set admin(bool? value) => setField<bool>('Admin', value);
-
   bool? get ageDone => getField<bool>('Age_Done');
   set ageDone(bool? value) => setField<bool>('Age_Done', value);
 
@@ -238,4 +235,7 @@ class UserRow extends SupabaseDataRow {
 
   bool get noProfile => getField<bool>('No Profile')!;
   set noProfile(bool value) => setField<bool>('No Profile', value);
+
+  bool get admin => getField<bool>('Admin')!;
+  set admin(bool value) => setField<bool>('Admin', value);
 }

@@ -264,64 +264,54 @@ class _DisplayWidgetState extends State<DisplayWidget> {
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        setAppLanguage(context, 'sw');
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: FFLocalizations.of(context).languageCode != 'en'
+                            ? const Color(0xB480E7DA)
+                            : FlutterFlowTheme.of(context).primary,
+                        borderRadius: BorderRadius.circular(12.0),
+                        border: Border.all(
                           color:
                               FFLocalizations.of(context).languageCode != 'en'
-                                  ? const Color(0xB480E7DA)
-                                  : FlutterFlowTheme.of(context).primary,
-                          borderRadius: BorderRadius.circular(12.0),
-                          border: Border.all(
-                            color:
-                                FFLocalizations.of(context).languageCode != 'en'
-                                    ? FlutterFlowTheme.of(context).info
-                                    : FlutterFlowTheme.of(context).info,
-                            width: 1.0,
-                          ),
+                                  ? FlutterFlowTheme.of(context).info
+                                  : FlutterFlowTheme.of(context).info,
+                          width: 1.0,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/somalia.png',
-                                  width: 100.0,
-                                  height: 100.0,
-                                  fit: BoxFit.cover,
-                                ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/somalia.png',
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'u29rprt5' /* Af-Somali */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'u29rprt5' /* Af-Somali */,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

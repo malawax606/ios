@@ -260,6 +260,8 @@ dynamic deserializeParam<T>(
             return CommentsRow(data);
           case UpdateRow:
             return UpdateRow(data);
+          case ReportMessageRow:
+            return ReportMessageRow(data);
           case ChatRow:
             return ChatRow(data);
           case UserRow:

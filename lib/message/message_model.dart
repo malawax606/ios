@@ -39,13 +39,16 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
 
   String? message;
 
+  bool? reportMessage;
+
   ///  State fields for stateful widgets in this page.
 
+  Completer<List<MessageRow>>? requestCompleter1;
   // State field(s) for Message widget.
   FocusNode? messageFocusNode;
   TextEditingController? messageTextController;
   String? Function(BuildContext, String?)? messageTextControllerValidator;
-  Completer<List<AccessTokenRow>>? requestCompleter;
+  Completer<List<AccessTokenRow>>? requestCompleter2;
 
   @override
   void initState(BuildContext context) {}
@@ -57,7 +60,7 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
   }
 
   /// Additional helper methods.
-  Future waitForRequestCompleted({
+  Future waitForRequestCompleted1({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {
@@ -65,7 +68,22 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
     while (true) {
       await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter?.isCompleted ?? false;
+      final requestComplete = requestCompleter1?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForRequestCompleted2({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter2?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

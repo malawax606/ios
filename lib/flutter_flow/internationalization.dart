@@ -233,10 +233,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'About Me',
       'sw': 'Kuhusu Mimi',
     },
-    'cwuksexy': {
-      'en': 'Profile',
-      'sw': 'Wasifu',
-    },
     'abygf1q5': {
       'en': 'Home',
       'sw': 'Nyumbani',
@@ -244,6 +240,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Message
   {
+    '851jdurs': {
+      'en': '❤️',
+      'sw': '',
+    },
+    'gmv8wcf6': {
+      'en': '😂',
+      'sw': '',
+    },
+    '6z39kbze': {
+      'en': '😡',
+      'sw': '',
+    },
+    'vz5it9g7': {
+      'en': '👍',
+      'sw': '',
+    },
+    'gx1qiaq4': {
+      'en': '😒',
+      'sw': '',
+    },
+    'm87fyq7s': {
+      'en': '🤭',
+      'sw': '',
+    },
+    'yw6behyx': {
+      'en': '😳',
+      'sw': '',
+    },
+    '8thnfpmn': {
+      'en': '👊',
+      'sw': '',
+    },
+    'yhu5z6eq': {
+      'en': 'Report',
+      'sw': '',
+    },
+    'giauzmew': {
+      'en': 'Copy',
+      'sw': '',
+    },
+    '68qsmidz': {
+      'en': 'Copy',
+      'sw': '',
+    },
+    'kbylux12': {
+      'en': 'Delete',
+      'sw': '',
+    },
     'jxtmnjad': {
       'en': 'Message...',
       'sw': 'Ujumbe...',
@@ -464,19 +508,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Rangi ya ngozi',
     },
     'zbvoc4x3': {
-      'en': 'Single',
+      'en': 'Wan sogursady',
       'sw': 'Mtu mmoja',
     },
-    'fre7vpth': {
-      'en': 'Divorced',
-      'sw': 'Wameachwa',
-    },
-    '71z6i5jc': {
-      'en': 'Widowed',
-      'sw': 'Mjane',
-    },
     'z7yict2m': {
-      'en': 'Separated',
+      'en': 'wali mangursan',
       'sw': 'Imetenganishwa',
     },
     'vxys8391': {
@@ -743,20 +779,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Rangi ya ngozi',
     },
     'xvvp0tub': {
-      'en': 'Single',
+      'en': 'Wan sogursady',
       'sw': 'Mtu mmoja',
     },
     'ckr0owj7': {
-      'en': 'Divorced',
+      'en': 'wali mangursan',
       'sw': 'Wameachwa',
-    },
-    'g8oygnvl': {
-      'en': 'Widowed',
-      'sw': 'Mjane',
-    },
-    'mjymnosh': {
-      'en': 'Separated',
-      'sw': 'Imetenganishwa',
     },
     '2bbe3ygr': {
       'en': 'Married Status',
@@ -1515,6 +1543,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'tl4ovidu': {
       'en': 'Thanks for reporting',
       'sw': 'Asante kwa kuripoti',
+    },
+    'yukcfss5': {
+      'en': 'Done',
+      'sw': '',
     },
   },
   // More
