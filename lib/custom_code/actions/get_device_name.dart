@@ -14,22 +14,23 @@ import 'dart:io';
 
 Future<String> getDeviceName() async {
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-  String deviceName;
+  String deviceModel;
 
   // For Android devices
   if (Platform.isAndroid) {
     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-    deviceName = androidInfo.model;
+    deviceModel = androidInfo.model;
   }
   // For iOS devices
   else if (Platform.isIOS) {
     IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-    deviceName = iosInfo.name ?? 'Unknown Device'; // Use null-ish operator
+    deviceModel =
+        iosInfo.utsname.machine ?? 'Unknown Device'; // Use null-ish operator
   } else {
-    deviceName = 'Unknown Device';
+    deviceModel = 'Unknown Device';
   }
 
-  return deviceName;
+  return deviceModel;
 }
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

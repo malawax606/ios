@@ -34,7 +34,7 @@ dependencies:
   cloud_firestore_platform_interface: 6.2.3
   cloud_firestore_web: 3.12.3
   collection: 1.18.0
-  device_info_plus: ^8.1.0
+  device_info_plus: ^9.1.0
   device_info_plus_platform_interface: 7.0.0
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
