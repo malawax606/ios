@@ -27,3 +27,5 @@ export '/user_profile_update/user_profile_update_widget.dart'
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
 export '/email_change/email_change_widget.dart' show EmailChangeWidget;
 export '/display/display_widget.dart' show DisplayWidget;
+export '/vpn/vpn_widget.dart' show VpnWidget;
+export '/net/net_widget.dart' show NetWidget;

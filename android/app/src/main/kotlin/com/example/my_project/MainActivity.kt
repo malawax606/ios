@@ -1,4 +1,4 @@
-package com.shukansi.somm
+package com.shukansi.som
 
 import io.flutter.embedding.android.FlutterActivity
 

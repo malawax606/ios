@@ -443,7 +443,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               false,
                                                             )
                                                             .order('Online'),
-                                                        limit: 600,
+                                                        limit: 1000,
                                                       )))
                                                 .future,
                                             builder: (context, snapshot) {

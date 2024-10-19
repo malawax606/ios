@@ -112,11 +112,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "565995859325-38ouhh0potpd3icmpbv9q10n4vma7l72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shukansi.somm",
+            "certificate_hash": "3aa8a3f574e89b31bbc389def747ab2010efecb1"
+          }
+        },
+        {
           "client_id": "565995859325-4dsgq8nk8ramhn2hb5iu5i1ob6dpkffq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.shukansi.somm",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "565995859325-irng2ef91ucgksqifpnbu0osub391hui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shukansi.somm",
+            "certificate_hash": "adeb8d9395b05e572397a2d85d6c6790237eac43"
           }
         },
         {

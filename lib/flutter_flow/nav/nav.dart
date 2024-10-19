@@ -74,13 +74,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const CheckWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const CheckWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage2',
@@ -309,6 +309,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Display',
           path: '/display',
           builder: (context, params) => const DisplayWidget(),
+        ),
+        FFRoute(
+          name: 'Vpn-',
+          path: '/vpn',
+          builder: (context, params) => const VpnWidget(),
+        ),
+        FFRoute(
+          name: 'Net',
+          path: '/net',
+          builder: (context, params) => const NetWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

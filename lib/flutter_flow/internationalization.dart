@@ -1149,6 +1149,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Check
   {
+    'cesonx2w': {
+      'en': 'Checking...',
+      'sw': '',
+    },
     '93j8kbl3': {
       'en': 'Home',
       'sw': 'Nyumbani',
@@ -1462,6 +1466,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'w5vtg8kh': {
       'en': 'Home',
       'sw': 'Home',
+    },
+  },
+  // Vpn-
+  {
+    '897uq6ab': {
+      'en': 'VPN Connection Detected',
+      'sw': '',
+    },
+    'tryle5wc': {
+      'en':
+          'For security reasons, we cannot allow the use of VPN while using this app. Please turn off your VPN and try again.',
+      'sw': '',
+    },
+    '2esxb1dy': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
+  // Net
+  {
+    'dbg92qcb': {
+      'en': 'Oops! No Internet Connection',
+      'sw': '',
+    },
+    'fny164u1': {
+      'en': 'Please check your internet connection and try again.',
+      'sw': '',
+    },
+    '2vbnjfc4': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
     },
   },
   // Messages

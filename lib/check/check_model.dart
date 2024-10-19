@@ -8,6 +8,13 @@ class CheckModel extends FlutterFlowModel<CheckWidget> {
 
   UserRow? user;
 
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Custom Action - connectVpn] action in Check widget.
+  bool? vpn;
+  // Stores action output result for [Custom Action - connectNet] action in Check widget.
+  bool? net;
+
   @override
   void initState(BuildContext context) {}
 
