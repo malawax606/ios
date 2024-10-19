@@ -1637,6 +1637,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Nyumbani',
     },
   },
+  // Update_App
+  {
+    '05n2x7cw': {
+      'en': 'New Version Available',
+      'sw': '',
+    },
+    'x4yuwwhi': {
+      'en':
+          'We\'ve added exciting new features and fixed some bugs. Please update to continue using the app.',
+      'sw': '',
+    },
+    '6fwz6hen': {
+      'en': 'Update Now',
+      'sw': '',
+    },
+    '6ygnhhcs': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
   // Messages
   {
     'b7on9534': {

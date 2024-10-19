@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -31,19 +32,40 @@ class _CheckWidgetState extends State<CheckWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.vpn = await actions.connectVpn();
+      _model.versio = await actions.appVersion();
+      _model.versionSupa = await SupabaseAppVesrionCall.call(
+        searchString: '1',
+      );
+
       _model.net = await actions.connectNet();
       if (_model.vpn == false) {
         if (_model.net == true) {
-          context.goNamed(
-            'HomePage',
-            extra: <String, dynamic>{
-              kTransitionInfoKey: const TransitionInfo(
-                hasTransition: true,
-                transitionType: PageTransitionType.fade,
-                duration: Duration(milliseconds: 0),
-              ),
-            },
-          );
+          if (_model.versio ==
+              SupabaseAppVesrionCall.version(
+                (_model.versionSupa?.jsonBody ?? ''),
+              )) {
+            context.goNamed(
+              'HomePage',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: const TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.fade,
+                  duration: Duration(milliseconds: 0),
+                ),
+              },
+            );
+          } else {
+            context.goNamed(
+              'Update_App',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: const TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.fade,
+                  duration: Duration(milliseconds: 0),
+                ),
+              },
+            );
+          }
         } else {
           context.goNamed(
             'Net',

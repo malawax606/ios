@@ -32,3 +32,4 @@ export '/net/net_widget.dart' show NetWidget;
 export '/payment/payment_widget.dart' show PaymentWidget;
 export '/pay/pay_widget.dart' show PayWidget;
 export '/test/test_widget.dart' show TestWidget;
+export '/update_app/update_app_widget.dart' show UpdateAppWidget;
