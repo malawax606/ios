@@ -241,7 +241,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Message
   {
     '851jdurs': {
-      'en': '❤️',
+      'en': '🩷',
       'sw': '',
     },
     'gmv8wcf6': {

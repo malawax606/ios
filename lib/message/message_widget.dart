@@ -803,7 +803,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                 onTap: () async {
                                                                                                                   await MessageTable().update(
                                                                                                                     data: {
-                                                                                                                      'Love': '❤️',
+                                                                                                                      'Love': '🩷',
                                                                                                                     },
                                                                                                                     matchingRows: (rows) => rows.eq(
                                                                                                                       'id',
@@ -817,7 +817,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                 },
                                                                                                                 child: Text(
                                                                                                                   FFLocalizations.of(context).getText(
-                                                                                                                    '851jdurs' /* ❤️ */,
+                                                                                                                    '851jdurs' /* 🩷 */,
                                                                                                                   ),
                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
