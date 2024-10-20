@@ -59,7 +59,7 @@ class _TestWidgetState extends State<TestWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'pfsypg2e' /* Page Title */,
+              'h0uwbw9u' /* Page Title */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',

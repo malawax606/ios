@@ -460,7 +460,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('pay');
+                                context.pushNamed('LoginActivity');
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -558,7 +558,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('pay');
+                                context.pushNamed('LoginActivity');
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,

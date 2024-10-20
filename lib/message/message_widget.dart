@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -78,6 +79,13 @@ class _MessageWidgetState extends State<MessageWidget>
           ),
         );
       }
+      await actions.supabaseRealtime(
+        'Message',
+        () async {
+          safeSetState(() => _model.requestCompleter1 = null);
+          await _model.waitForRequestCompleted1();
+        },
+      );
     });
 
     _model.messageTextController ??= TextEditingController();
@@ -500,7 +508,7 @@ class _MessageWidgetState extends State<MessageWidget>
                           child: SizedBox(
                             height: 200.0,
                             child: MoreWidget(
-                              id: '',
+                              id: widget.userId!,
                               image: widget.image!,
                               username: widget.username!,
                               fullName: widget.fullName!,
@@ -1211,28 +1219,27 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                         children: [
                                                                                                           Align(
                                                                                                             alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                            child: SafeArea(
-                                                                                                              child: Container(
-                                                                                                                decoration: BoxDecoration(
-                                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                                  shape: BoxShape.circle,
-                                                                                                                ),
-                                                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                                child: Padding(
-                                                                                                                  padding: const EdgeInsets.all(1.0),
-                                                                                                                  child: Text(
-                                                                                                                    valueOrDefault<String>(
-                                                                                                                      messagesMessageRow.love,
-                                                                                                                      '👍',
-                                                                                                                    ),
-                                                                                                                    textAlign: TextAlign.center,
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Inter',
-                                                                                                                          fontSize: 18.0,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                        ),
-                                                                                                                  ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
-                                                                                                                ),
+                                                                                                            child: Card(
+                                                                                                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                                              elevation: 0.0,
+                                                                                                              shape: RoundedRectangleBorder(
+                                                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                                              ),
+                                                                                                              child: Padding(
+                                                                                                                padding: const EdgeInsets.all(1.0),
+                                                                                                                child: Text(
+                                                                                                                  valueOrDefault<String>(
+                                                                                                                    messagesMessageRow.love,
+                                                                                                                    '👍',
+                                                                                                                  ),
+                                                                                                                  textAlign: TextAlign.center,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Inter',
+                                                                                                                        fontSize: 16.0,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
+                                                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),

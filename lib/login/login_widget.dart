@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -170,6 +171,22 @@ class _LoginWidgetState extends State<LoginWidget>
                               if (user == null) {
                                 return;
                               }
+                              _model.country = await CountryCall.call();
+
+                              _model.deviceName =
+                                  await actions.getCurrentDeviceMarketingName();
+                              await LoginActivityTable().insert({
+                                'created_at': supaSerialize<DateTime>(
+                                    getCurrentTimestamp),
+                                'Device Name': _model.deviceName,
+                                'Country': CountryCall.country(
+                                  (_model.country?.jsonBody ?? ''),
+                                ),
+                                'City': CountryCall.city(
+                                  (_model.country?.jsonBody ?? ''),
+                                ),
+                                'UserID': currentUserUid,
+                              });
                               if (valueOrDefault(
                                           currentUserDocument?.gender, '') !=
                                       '') {

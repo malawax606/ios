@@ -1559,58 +1559,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Nyumbani',
     },
   },
-  // pay
+  // LoginActivity
   {
     'pc8y7eix': {
       'en': 'Recent Login Activity',
-      'sw': '',
-    },
-    'g47ezdwj': {
-      'en': 'iPhone 12 Pro',
-      'sw': '',
-    },
-    'h10aro7j': {
-      'en': 'New York, USA',
-      'sw': '',
-    },
-    'xwox6cve': {
-      'en': 'Today, 10:30 AM',
-      'sw': '',
-    },
-    'ni8dazgz': {
-      'en': 'MacBook Air',
-      'sw': '',
-    },
-    'dx7507js': {
-      'en': 'San Francisco, USA',
-      'sw': '',
-    },
-    'tvfdnvb7': {
-      'en': 'Yesterday, 3:45 PM',
-      'sw': '',
-    },
-    'u84y79bu': {
-      'en': 'iPad Pro',
-      'sw': '',
-    },
-    'p0m8yzqn': {
-      'en': 'London, UK',
-      'sw': '',
-    },
-    '26whwme2': {
-      'en': '2 days ago, 9:15 AM',
-      'sw': '',
-    },
-    'd0bi1tlg': {
-      'en': 'Windows PC',
-      'sw': '',
-    },
-    'x6gu3hs3': {
-      'en': 'Berlin, Germany',
-      'sw': '',
-    },
-    '71rm685r': {
-      'en': '1 week ago, 2:00 PM',
       'sw': '',
     },
     'fjpfiyvm': {
@@ -1628,7 +1580,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Button',
       'sw': '',
     },
-    'pfsypg2e': {
+    '470m526s': {
       'en': 'Page Title',
       'sw': 'Kichwa cha Ukurasa',
     },

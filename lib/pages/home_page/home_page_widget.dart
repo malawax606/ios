@@ -1052,25 +1052,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       if (listViewChatRow
                                                                               .done ==
                                                                           false) {
-                                                                        await ChatTable()
-                                                                            .update(
-                                                                          data: {
-                                                                            'Profile1':
-                                                                                homePageUserRow?.profilePic,
-                                                                            'Profile2':
-                                                                                rowUserUserRow?.profilePic,
-                                                                            'Username1':
-                                                                                homePageUserRow?.username,
-                                                                            'Username2':
-                                                                                rowUserUserRow?.username,
-                                                                          },
-                                                                          matchingRows: (rows) =>
-                                                                              rows.eq(
-                                                                            'Chat_ID',
-                                                                            listViewChatRow.chatID,
-                                                                          ),
-                                                                        );
-
                                                                         context
                                                                             .pushNamed(
                                                                           'Message',
@@ -1122,6 +1103,27 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               ParamType.String,
                                                                             ),
                                                                           }.withoutNulls,
+                                                                        );
+
+                                                                        await ChatTable()
+                                                                            .update(
+                                                                          data: {
+                                                                            'Profile1':
+                                                                                homePageUserRow?.profilePic,
+                                                                            'Profile2':
+                                                                                rowUserUserRow?.profilePic,
+                                                                            'Username1':
+                                                                                homePageUserRow?.username,
+                                                                            'Username2':
+                                                                                rowUserUserRow?.username,
+                                                                            'Done':
+                                                                                true,
+                                                                          },
+                                                                          matchingRows: (rows) =>
+                                                                              rows.eq(
+                                                                            'Chat_ID',
+                                                                            listViewChatRow.chatID,
+                                                                          ),
                                                                         );
                                                                       }
                                                                       _model.token4 =

@@ -163,6 +163,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HelpCenter',
           path: '/helpCenter',
+          requireAuth: true,
           builder: (context, params) => const HelpCenterWidget(),
         ),
         FFRoute(
@@ -183,6 +184,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Check',
           path: '/check',
+          requireAuth: true,
           builder: (context, params) => const CheckWidget(),
         ),
         FFRoute(
@@ -203,6 +205,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Live_Audio',
           path: '/liveAudio',
+          requireAuth: true,
           builder: (context, params) => LiveAudioWidget(
             id: params.getParam(
               'id',
@@ -326,9 +329,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const PaymentWidget(),
         ),
         FFRoute(
-          name: 'pay',
-          path: '/pay',
-          builder: (context, params) => const PayWidget(),
+          name: 'LoginActivity',
+          path: '/loginActivity',
+          requireAuth: true,
+          builder: (context, params) => const LoginActivityWidget(),
         ),
         FFRoute(
           name: 'Test',
@@ -338,6 +342,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Update_App',
           path: '/updateApp',
+          requireAuth: true,
           builder: (context, params) => const UpdateAppWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

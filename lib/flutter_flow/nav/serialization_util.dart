@@ -274,6 +274,8 @@ dynamic deserializeParam<T>(
             return StoriesRow(data);
           case EmailRow:
             return EmailRow(data);
+          case LoginActivityRow:
+            return LoginActivityRow(data);
           case OnlineRow:
             return OnlineRow(data);
           case MessageRow:

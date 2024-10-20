@@ -10,3 +10,4 @@ export 'connect_net.dart' show connectNet;
 export 'get_device_name.dart' show getDeviceName;
 export 'get_current_device_marketing_name.dart'
     show getCurrentDeviceMarketingName;
+export 'supabase_realtime.dart' show supabaseRealtime;

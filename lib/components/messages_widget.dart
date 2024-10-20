@@ -463,117 +463,143 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              _model
-                                                  .addToUsers(widget.user!.id);
-                                              _model.myChats = columnMeUserRow!
-                                                  .chatsIds
-                                                  .toList()
-                                                  .cast<String>();
-                                              _model.hisChat = containerUserRow!
-                                                  .chatsIds
-                                                  .toList()
-                                                  .cast<String>();
-                                              _model.myChatNum =
-                                                  columnMeUserRow.chatsNum;
-                                              _model.hisChatNum =
-                                                  containerUserRow.chatsNum;
-                                              safeSetState(() {});
-                                              _model.addToUsers(currentUserUid);
-                                              _model.addToMyChats(
-                                                  '$currentUserUid${widget.user?.id}');
-                                              _model.addToHisChat(
-                                                  '$currentUserUid${widget.user?.id}');
-                                              _model.myChatNum =
-                                                  _model.myChatNum! + 1;
-                                              _model.hisChatNum =
-                                                  _model.hisChatNum! + 1;
-                                              safeSetState(() {});
-                                              Navigator.pop(context);
-                                              context.safePop();
-                                              _model.doneee =
-                                                  await ChatTable().insert({
-                                                'User': currentUserUid,
-                                                'last_message': _model
-                                                    .messageTextController.text,
-                                                'last_message_sent_by':
+                                              var shouldSetState = false;
+                                              if (_model.messageTextController
+                                                          .text !=
+                                                      '') {
+                                                _model.addToUsers(
+                                                    widget.user!.id);
+                                                _model.myChats =
+                                                    columnMeUserRow!.chatsIds
+                                                        .toList()
+                                                        .cast<String>();
+                                                _model.hisChat =
+                                                    containerUserRow!.chatsIds
+                                                        .toList()
+                                                        .cast<String>();
+                                                _model.myChatNum =
+                                                    columnMeUserRow.chatsNum;
+                                                _model.hisChatNum =
+                                                    containerUserRow.chatsNum;
+                                                safeSetState(() {});
+                                                _model
+                                                    .addToUsers(currentUserUid);
+                                                _model.addToMyChats(
+                                                    '$currentUserUid${widget.user?.id}');
+                                                _model.addToHisChat(
+                                                    '$currentUserUid${widget.user?.id}');
+                                                _model.myChatNum =
+                                                    _model.myChatNum! + 1;
+                                                _model.hisChatNum =
+                                                    _model.hisChatNum! + 1;
+                                                safeSetState(() {});
+                                                Navigator.pop(context);
+                                                context.safePop();
+                                                _model.doneee =
+                                                    await ChatTable().insert({
+                                                  'User': currentUserUid,
+                                                  'last_message': _model
+                                                      .messageTextController
+                                                      .text,
+                                                  'last_message_sent_by':
+                                                      currentUserUid,
+                                                  'last_message_seen_by': '',
+                                                  'user_a': currentUserUid,
+                                                  'user_b': widget.user?.id,
+                                                  'user_chated':
+                                                      widget.user?.id,
+                                                  'Mesage_seen': false,
+                                                  'Chat_ID':
+                                                      '$currentUserUid${widget.user?.id}',
+                                                  'Message_Num': 1,
+                                                  'Users': _model.users,
+                                                  'Users_Done': true,
+                                                  'last_mesage_sent_time':
+                                                      supaSerialize<DateTime>(
+                                                          getCurrentTimestamp),
+                                                  'Profile2': containerUserRow
+                                                      .profilePic,
+                                                  'Username1':
+                                                      columnMeUserRow.username,
+                                                  'Username2': containerUserRow
+                                                      .username,
+                                                  'Profile1': columnMeUserRow
+                                                      .profilePic,
+                                                });
+                                                shouldSetState = true;
+                                                await MessageTable().insert({
+                                                  'User': currentUserUid,
+                                                  'Text': _model
+                                                      .messageTextController
+                                                      .text,
+                                                  'Chat_ID':
+                                                      _model.doneee?.chatID,
+                                                });
+                                                await UserTable().update(
+                                                  data: {
+                                                    'Chats_Num':
+                                                        _model.myChatNum,
+                                                    'Chats_ids': _model.myChats,
+                                                  },
+                                                  matchingRows: (rows) =>
+                                                      rows.eq(
+                                                    'id',
                                                     currentUserUid,
-                                                'last_message_seen_by': '',
-                                                'user_a': currentUserUid,
-                                                'user_b': widget.user?.id,
-                                                'user_chated': widget.user?.id,
-                                                'Mesage_seen': false,
-                                                'Chat_ID':
-                                                    '$currentUserUid${widget.user?.id}',
-                                                'Message_Num': 1,
-                                                'Users': _model.users,
-                                                'Users_Done': true,
-                                                'last_mesage_sent_time':
-                                                    supaSerialize<DateTime>(
-                                                        getCurrentTimestamp),
-                                                'Profile2': containerUserRow
-                                                    .profilePic,
-                                                'Username1':
-                                                    columnMeUserRow.username,
-                                                'Username2':
-                                                    containerUserRow.username,
-                                                'Profile1':
-                                                    columnMeUserRow.profilePic,
-                                              });
-                                              await MessageTable().insert({
-                                                'User': currentUserUid,
-                                                'Text': _model
-                                                    .messageTextController.text,
-                                                'Chat_ID':
-                                                    _model.doneee?.chatID,
-                                              });
-                                              await UserTable().update(
-                                                data: {
-                                                  'Chats_Num': _model.myChatNum,
-                                                  'Chats_ids': _model.myChats,
-                                                },
-                                                matchingRows: (rows) => rows.eq(
-                                                  'id',
-                                                  currentUserUid,
-                                                ),
-                                              );
-                                              await UserTable().update(
-                                                data: {
-                                                  'Chats_Num':
-                                                      _model.hisChatNum,
-                                                  'Chats_ids': _model.hisChat,
-                                                },
-                                                matchingRows: (rows) => rows.eq(
-                                                  'id',
-                                                  widget.user?.id,
-                                                ),
-                                              );
-                                              safeSetState(() => _model
-                                                  .requestCompleter = null);
-                                              await _model
-                                                  .waitForRequestCompleted();
-                                              await NotificationnssCall.call(
-                                                token: stackTokenAccessTokenRow
-                                                    ?.token,
-                                                fcm: containerUserRow.fcmToken,
-                                                title:
-                                                    columnMeUserRow.username,
-                                                body: _model
-                                                    .messageTextController.text,
-                                              );
+                                                  ),
+                                                );
+                                                await UserTable().update(
+                                                  data: {
+                                                    'Chats_Num':
+                                                        _model.hisChatNum,
+                                                    'Chats_ids': _model.hisChat,
+                                                  },
+                                                  matchingRows: (rows) =>
+                                                      rows.eq(
+                                                    'id',
+                                                    widget.user?.id,
+                                                  ),
+                                                );
+                                                safeSetState(() => _model
+                                                    .requestCompleter = null);
+                                                await _model
+                                                    .waitForRequestCompleted();
+                                                await NotificationnssCall.call(
+                                                  token:
+                                                      stackTokenAccessTokenRow
+                                                          ?.token,
+                                                  fcm: containerUserRow
+                                                      .fcmToken,
+                                                  title:
+                                                      columnMeUserRow.username,
+                                                  body: _model
+                                                      .messageTextController
+                                                      .text,
+                                                );
 
-                                              _model.accessToken = await actions
-                                                  .getAccessToken();
-                                              await AccessTokenTable().update(
-                                                data: {
-                                                  'Token': _model.accessToken,
-                                                },
-                                                matchingRows: (rows) => rows.eq(
-                                                  'id',
-                                                  1,
-                                                ),
-                                              );
+                                                _model.accessToken =
+                                                    await actions
+                                                        .getAccessToken();
+                                                shouldSetState = true;
+                                                await AccessTokenTable().update(
+                                                  data: {
+                                                    'Token': _model.accessToken,
+                                                  },
+                                                  matchingRows: (rows) =>
+                                                      rows.eq(
+                                                    'id',
+                                                    1,
+                                                  ),
+                                                );
+                                              } else {
+                                                if (shouldSetState) {
+                                                  safeSetState(() {});
+                                                }
+                                                return;
+                                              }
 
-                                              safeSetState(() {});
+                                              if (shouldSetState) {
+                                                safeSetState(() {});
+                                              }
                                             },
                                             child: Text(
                                               FFLocalizations.of(context)

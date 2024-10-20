@@ -16,6 +16,7 @@ export 'tables/chat_room.dart';
 export 'tables/reports.dart';
 export 'tables/stories.dart';
 export 'tables/email.dart';
+export 'tables/login_activity.dart';
 export 'tables/online.dart';
 export 'tables/message.dart';
 export 'tables/report.dart';

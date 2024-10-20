@@ -33,7 +33,6 @@ class _ReportDoneWidgetState extends State<ReportDoneWidget>
 
     animationsMap.addAll({
       'iconOnPageLoadAnimation': AnimationInfo(
-        loop: true,
         reverse: true,
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
