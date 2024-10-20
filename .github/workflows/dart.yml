@@ -57,7 +57,7 @@ jobs:
           architecture: x64
 
     
-      - run: flutter build apk --release
+      - run: flutter build apk --split-per-abi
 
       - name: Upload Android APK to release
         uses: svenstaro/upload-release-action@v2
