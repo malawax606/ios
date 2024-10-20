@@ -1561,10 +1561,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // LoginActivity
   {
-    'pc8y7eix': {
-      'en': 'Recent Login Activity',
-      'sw': '',
-    },
     'fjpfiyvm': {
       'en': 'Home',
       'sw': 'Nyumbani',
@@ -1572,17 +1568,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Test
   {
-    'gfya3kta': {
-      'en': 'Hello World',
-      'sw': '',
-    },
-    'rq6kdjxy': {
-      'en': 'Button',
-      'sw': '',
-    },
     '470m526s': {
       'en': 'Page Title',
       'sw': 'Kichwa cha Ukurasa',
+    },
+    '4q3qq1ig': {
+      'en': 'No Login Activity',
+      'sw': '',
+    },
+    'umhpzwzz': {
+      'en':
+          'You don\'t have any login activity history yet. Your recent login attempts will appear here when you start using the app more frequently.',
+      'sw': '',
     },
     'rgy6tfd6': {
       'en': 'Home',
@@ -1707,6 +1704,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '51i1hb6s': {
       'en': 'Unblock',
       'sw': 'Ondoa kizuizi',
+    },
+  },
+  // No_LoginActivity
+  {
+    'fk1cf2as': {
+      'en': 'No Login Activity',
+      'sw': '',
+    },
+    '1zptldog': {
+      'en':
+          'You don\'t have any login activity history yet. Your recent login attempts will appear here when you start using the app more frequently.',
+      'sw': '',
     },
   },
   // Miscellaneous

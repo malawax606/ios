@@ -1,12 +1,12 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'test_model.dart';
 export 'test_model.dart';
 
 class TestWidget extends StatefulWidget {
+  /// Create page to tell user he dosent have login activity history
   const TestWidget({super.key});
 
   @override
@@ -74,84 +74,41 @@ class _TestWidgetState extends State<TestWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
-                FFLocalizations.of(context).getText(
-                  'gfya3kta' /* Hello World */,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.history_rounded,
+                  color: FlutterFlowTheme.of(context).secondaryText,
+                  size: 100.0,
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
-                    ),
-              ),
-              FFButtonWidget(
-                onPressed: () async {
-                  final datePickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: getCurrentTimestamp,
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime(2050),
-                    builder: (context, child) {
-                      return wrapInMaterialDatePickerTheme(
-                        context,
-                        child!,
-                        headerBackgroundColor:
-                            FlutterFlowTheme.of(context).primary,
-                        headerForegroundColor:
-                            FlutterFlowTheme.of(context).info,
-                        headerTextStyle:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: 'Inter Tight',
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                        pickerBackgroundColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        pickerForegroundColor:
-                            FlutterFlowTheme.of(context).primaryText,
-                        selectedDateTimeBackgroundColor:
-                            FlutterFlowTheme.of(context).primary,
-                        selectedDateTimeForegroundColor:
-                            FlutterFlowTheme.of(context).info,
-                        actionButtonForegroundColor:
-                            FlutterFlowTheme.of(context).primaryText,
-                        iconSize: 24.0,
-                      );
-                    },
-                  );
-
-                  if (datePickedDate != null) {
-                    safeSetState(() {
-                      _model.datePicked = DateTime(
-                        datePickedDate.year,
-                        datePickedDate.month,
-                        datePickedDate.day,
-                      );
-                    });
-                  }
-                },
-                text: FFLocalizations.of(context).getText(
-                  'rq6kdjxy' /* Button */,
-                ),
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: const Color(0xFF6F61EF),
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                Text(
+                  FFLocalizations.of(context).getText(
+                    '4q3qq1ig' /* No Login Activity */,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Inter Tight',
-                        color: Colors.white,
                         letterSpacing: 0.0,
                       ),
-                  elevation: 0.0,
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
-              ),
-            ],
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'umhpzwzz' /* You don't have any login activ... */,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ].divide(const SizedBox(height: 24.0)),
+            ),
           ),
         ),
       ),
