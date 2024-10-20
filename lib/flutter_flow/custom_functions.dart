@@ -12,6 +12,7 @@ import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/backend/sqlite/sqlite_manager.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String formatDate(DateTime inputDate) {

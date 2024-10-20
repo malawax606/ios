@@ -1547,6 +1547,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // LoginActivity
   {
+    'alakrbb5': {
+      'en': 'LoginActivity',
+      'sw': '',
+    },
     'fjpfiyvm': {
       'en': 'Home',
       'sw': 'Nyumbani',
@@ -1558,13 +1562,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Page Title',
       'sw': 'Kichwa cha Ukurasa',
     },
-    '4q3qq1ig': {
-      'en': 'No Login Activity',
+    'qd6g1be3': {
+      'en': 'Button',
       'sw': '',
     },
-    'umhpzwzz': {
-      'en':
-          'You don\'t have any login activity history yet. Your recent login attempts will appear here when you start using the app more frequently.',
+    'ltae2kvo': {
+      'en': 'Button',
       'sw': '',
     },
     'rgy6tfd6': {

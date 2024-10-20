@@ -1,6 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/sqlite/sqlite_manager.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'test_model.dart';
 export 'test_model.dart';
@@ -74,41 +77,196 @@ class _TestWidgetState extends State<TestWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.history_rounded,
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                  size: 100.0,
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    '4q3qq1ig' /* No Login Activity */,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FFButtonWidget(
+                    onPressed: () async {
+                      await SQLiteManager.instance.add(
+                        userID: currentUserUid,
+                        text: 'Test',
+                      );
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'qd6g1be3' /* Button */,
+                    ),
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: const Color(0xFF6F61EF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Inter Tight',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'umhpzwzz' /* You don't have any login activ... */,
+                  FFButtonWidget(
+                    onPressed: () async {
+                      await SQLiteManager.instance.add(
+                        userID: '1235',
+                        text: 'Test',
+                      );
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'ltae2kvo' /* Button */,
+                    ),
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: const Color(0xFF6F61EF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        letterSpacing: 0.0,
-                      ),
+                ],
+              ),
+              FutureBuilder<List<GetRow>>(
+                future: SQLiteManager.instance.get(
+                  id: currentUserUid,
                 ),
-              ].divide(const SizedBox(height: 24.0)),
-            ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  final listViewGetRowList = snapshot.data!;
+
+                  return ListView.separated(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: listViewGetRowList.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 7.0),
+                    itemBuilder: (context, listViewIndex) {
+                      final listViewGetRow = listViewGetRowList[listViewIndex];
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            valueOrDefault<String>(
+                              listViewGetRow.text,
+                              '0',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          Text(
+                            valueOrDefault<String>(
+                              listViewGetRow.userID,
+                              '0',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                child: FutureBuilder<List<GetAllRow>>(
+                  future: SQLiteManager.instance.getAll(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    final listViewGetAllRowList = snapshot.data!;
+
+                    return ListView.separated(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: listViewGetAllRowList.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 7.0),
+                      itemBuilder: (context, listViewIndex) {
+                        final listViewGetAllRow =
+                            listViewGetAllRowList[listViewIndex];
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              valueOrDefault<String>(
+                                listViewGetAllRow.text,
+                                '0',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            Text(
+                              valueOrDefault<String>(
+                                listViewGetAllRow.userID,
+                                '0',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
