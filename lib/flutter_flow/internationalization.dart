@@ -1724,7 +1724,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Ili kupakia data, programu hii inahitaji ruhusa ya kufikia maktaba ya picha.',
     },
     'rxv37cag': {
-      'en': 'j',
+      'en': 'Please enable it to get notification',
       'sw': 'j',
     },
     'b4ai7hvs': {
@@ -1736,7 +1736,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'o',
     },
     'swm1apdr': {
-      'en': 'Please enable it',
+      'en': 'Please enable it to go live',
       'sw': 'Tafadhali iwashe',
     },
     'cjcy1ihh': {

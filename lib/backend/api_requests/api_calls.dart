@@ -193,6 +193,51 @@ class SupabaseUserCall {
       ));
 }
 
+class SupabaseMessageCall {
+  static Future<ApiCallResponse> call({
+    List<String>? searchStringList,
+  }) async {
+    final searchString = _serializeList(searchStringList);
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Supabase Message',
+      apiUrl:
+          'GET https://intubuvndadrxutcpxnl.supabase.co/rest/v1/Message?Users=ilike.%{SearchString}%&select=*',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludHVidXZuZGFkcnh1dGNweG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ4ODAyNjcsImV4cCI6MjAxMDQ1NjI2N30.bFQEMlnOY848Q8ukX3ROsPX2wMIpDRSMOtDuCjITh3U',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? profile(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Profile_Pic''',
+      ));
+  static String? username(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Username''',
+      ));
+  static String? looking(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Looking''',
+      ));
+  static String? userId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].User_Id''',
+      ));
+}
+
 class SupabaseAppVesrionCall {
   static Future<ApiCallResponse> call({
     String? searchString = '',

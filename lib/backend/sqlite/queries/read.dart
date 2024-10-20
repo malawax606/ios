@@ -14,7 +14,6 @@ Future<List<GetRow>> performGet(
   String? id,
 }) {
   const query = '''
-> King:
 SELECT * FROM Messages WHERE userId = id;
 
 ''';
@@ -36,7 +35,6 @@ Future<List<GetAllRow>> performGetAll(
   Database database,
 ) {
   const query = '''
-> King:
 SELECT * FROM Messages ;
 
 ''';

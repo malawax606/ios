@@ -197,7 +197,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     onTap: () async {
                                                       _model.url =
                                                           updateProfileUserRow
-                                                              .profilePic;
+                                                              ?.profilePic;
                                                       safeSetState(() {});
                                                       final selectedMedia =
                                                           await selectMedia(
@@ -302,7 +302,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                               (rows) => rows.eq(
                                                             'Profile1',
                                                             updateProfileUserRow
-                                                                .profilePic,
+                                                                ?.profilePic,
                                                           ),
                                                         );
                                                         await ChatTable()
@@ -315,7 +315,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                               (rows) => rows.eq(
                                                             'Profile2',
                                                             updateProfileUserRow
-                                                                .profilePic,
+                                                                ?.profilePic,
                                                           ),
                                                         );
                                                         await UserTable()
@@ -352,18 +352,25 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                           fit: BoxFit.cover,
                                                           image:
                                                               CachedNetworkImageProvider(
-                                                            updateProfileUserRow!
-                                                                .profilePic!,
+                                                            updateProfileUserRow
+                                                                            ?.profilePic !=
+                                                                        null &&
+                                                                    updateProfileUserRow
+                                                                            ?.profilePic !=
+                                                                        ''
+                                                                ? updateProfileUserRow!
+                                                                    .profilePic!
+                                                                : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                           ),
                                                         ),
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Visibility(
                                                         visible: !((updateProfileUserRow
-                                                                        .profilePic ==
+                                                                        ?.profilePic ==
                                                                     null ||
                                                                 updateProfileUserRow
-                                                                        .profilePic ==
+                                                                        ?.profilePic ==
                                                                     '') ||
                                                             (_model.uploadedFileUrl ==
                                                                     '')),
@@ -403,7 +410,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                             .usernameTextController ??=
                                                         TextEditingController(
                                                       text: updateProfileUserRow
-                                                          .username,
+                                                          ?.username,
                                                     ),
                                                     focusNode: _model
                                                         .usernameFocusNode,
@@ -525,7 +532,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                             .countryTextController ??=
                                                         TextEditingController(
                                                       text: updateProfileUserRow
-                                                          .country,
+                                                          ?.country,
                                                     ),
                                                     focusNode:
                                                         _model.countryFocusNode,
@@ -646,7 +653,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .fullNameTextController ??=
                                                     TextEditingController(
                                                   text: updateProfileUserRow
-                                                      .fullName,
+                                                      ?.fullName,
                                                 ),
                                                 focusNode:
                                                     _model.fullNameFocusNode,
@@ -786,7 +793,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .ageValueController ??=
                                                     FormFieldController<String>(
                                                   _model.ageValue ??=
-                                                      updateProfileUserRow.age,
+                                                      updateProfileUserRow?.age,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -993,7 +1000,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.genderValue ??=
                                                       updateProfileUserRow
-                                                          .gender,
+                                                          ?.gender,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1093,7 +1100,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .jobValueController ??=
                                                     FormFieldController<String>(
                                                   _model.jobValue ??=
-                                                      updateProfileUserRow.job,
+                                                      updateProfileUserRow?.job,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1163,7 +1170,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.skincolorValue ??=
                                                       updateProfileUserRow
-                                                          .skinColor,
+                                                          ?.skinColor,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1237,7 +1244,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                     FormFieldController<String>(
                                                   _model.marriedValue ??=
                                                       updateProfileUserRow
-                                                          .marriedStatus,
+                                                          ?.marriedStatus,
                                                 ),
                                                 options: [
                                                   FFLocalizations.of(context)
@@ -1297,7 +1304,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         .aboutmeTextController ??=
                                                     TextEditingController(
                                                   text: updateProfileUserRow
-                                                      .aboutMe,
+                                                      ?.aboutMe,
                                                 ),
                                                 focusNode:
                                                     _model.aboutmeFocusNode,
@@ -1439,7 +1446,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           },
                                           matchingRows: (rows) => rows.eq(
                                             'Username1',
-                                            updateProfileUserRow.username,
+                                            updateProfileUserRow?.username,
                                           ),
                                         );
                                         await ChatTable().update(
@@ -1449,7 +1456,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           },
                                           matchingRows: (rows) => rows.eq(
                                             'Username2',
-                                            updateProfileUserRow.username,
+                                            updateProfileUserRow?.username,
                                           ),
                                         );
                                         await UserTable().update(
@@ -1481,7 +1488,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                         );
                                         context.safePop();
                                         await actions.localNotification(
-                                          updateProfileUserRow.fullName,
+                                          updateProfileUserRow?.fullName,
                                           'Waxad wax ka badash xogtada qof wuxu arki dona xogta ad qoraty',
                                         );
 

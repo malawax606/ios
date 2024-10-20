@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/sqlite/sqlite_manager.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -113,10 +114,18 @@ class _TestWidgetState extends State<TestWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
+                      _model.user = await SupabaseUserCall.call(
+                        searchString: currentUserUid,
+                      );
+
                       await SQLiteManager.instance.add(
                         userID: '1235',
-                        text: 'Test',
+                        text: SupabaseUserCall.username(
+                          (_model.user?.jsonBody ?? ''),
+                        ),
                       );
+
+                      safeSetState(() {});
                     },
                     text: FFLocalizations.of(context).getText(
                       'ltae2kvo' /* Button */,

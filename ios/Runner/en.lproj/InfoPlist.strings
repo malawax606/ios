@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "p";
-PermissionGroupNotification = "j";
+PermissionGroupNotification = "Please enable it to get notification";
 NSLocationWhenInUseUsageDescription = "o";
-NSMicrophoneUsageDescription = "Please enable it";
+NSMicrophoneUsageDescription = "Please enable it to go live";
