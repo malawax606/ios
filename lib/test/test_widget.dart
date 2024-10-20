@@ -184,19 +184,7 @@ class _TestWidgetState extends State<TestWidget> {
                           Text(
                             valueOrDefault<String>(
                               listViewGetRow.text,
-                              '0',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          Text(
-                            valueOrDefault<String>(
-                              listViewGetRow.userID,
-                              '0',
+                              '000',
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -247,19 +235,7 @@ class _TestWidgetState extends State<TestWidget> {
                             Text(
                               valueOrDefault<String>(
                                 listViewGetAllRow.text,
-                                '0',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            Text(
-                              valueOrDefault<String>(
-                                listViewGetAllRow.userID,
-                                '0',
+                                '000',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium

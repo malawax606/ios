@@ -45,7 +45,6 @@ class GetAllRow extends SqliteRow {
 
   String? get userID => data['UserID'] as String?;
   String? get text => data['Text'] as String?;
-  int? get id => data['id'] as int?;
 }
 
 /// END GET ALL
