@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class PayModel extends FlutterFlowModel<PayWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - getDeviceName] action in pay widget.
+  // Stores action output result for [Custom Action - getDeviceMarketingName] action in Text widget.
   String? deviceName;
 
   @override

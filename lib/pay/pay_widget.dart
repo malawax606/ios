@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'pay_model.dart';
 export 'pay_model.dart';
 
@@ -25,11 +24,6 @@ class _PayWidgetState extends State<PayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PayModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.deviceName = await actions.getDeviceName();
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -65,17 +59,28 @@ class _PayWidgetState extends State<PayWidget> {
               context.pop();
             },
           ),
-          title: Text(
-            valueOrDefault<String>(
-              _model.deviceName,
-              '000',
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              _model.deviceName = await actions.getDeviceMarketingName();
+
+              safeSetState(() {});
+            },
+            child: Text(
+              valueOrDefault<String>(
+                _model.deviceName,
+                '000',
+              ),
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Inter Tight',
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    fontSize: 22.0,
+                    letterSpacing: 0.0,
+                  ),
             ),
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Inter Tight',
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
           ),
           actions: const [],
           centerTitle: true,
