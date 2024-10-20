@@ -77,4 +77,7 @@ class ChatRow extends SupabaseDataRow {
 
   String? get username2 => getField<String>('Username2');
   set username2(String? value) => setField<String>('Username2', value);
+
+  bool get done => getField<bool>('Done')!;
+  set done(bool value) => setField<bool>('Done', value);
 }

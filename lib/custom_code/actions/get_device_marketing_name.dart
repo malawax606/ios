@@ -13,10 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:device_marketing_names/device_marketing_names.dart';
 
 Future<String> getDeviceMarketingName() async {
-  final deviceMarketingNames = DeviceMarketingNames();
-
+  // No need to instantiate, it's a static method
   try {
-    String deviceName = await deviceMarketingNames.getMarketingName();
+    String deviceName = await DeviceMarketingNames.getMarketingName();
     return deviceName;
   } catch (e) {
     return "Unknown Device";

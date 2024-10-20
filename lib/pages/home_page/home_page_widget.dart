@@ -1049,11 +1049,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      if ((listViewChatRow.profile1 != null &&
-                                                                              listViewChatRow.profile1 !=
-                                                                                  '') ||
-                                                                          (listViewChatRow.profile2 != null &&
-                                                                              listViewChatRow.profile2 != '')) {
+                                                                      if (listViewChatRow
+                                                                              .done ==
+                                                                          false) {
                                                                         await ChatTable()
                                                                             .update(
                                                                           data: {
