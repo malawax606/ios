@@ -14,7 +14,7 @@ Future<List<GetRow>> performGet(
   String? id,
 }) {
   const query = '''
-SELECT * FROM Messages WHERE userId = 'id';
+SELECT * FROM Messages WHERE UserID = 'id';
 
 ''';
   return _readQuery(database, query, (d) => GetRow(d));
