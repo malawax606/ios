@@ -12,14 +12,16 @@ import 'package:flutter/material.dart';
 
 import 'package:device_marketing_names/device_marketing_names.dart';
 
-Future<String> getDeviceMarketingName() async {
-  // No need to instantiate, call the static method
+Future<String> getCurrentDeviceMarketingName() async {
   try {
-    // If you want a single matching name (like "iPhone 13 Pro Max")
-    String deviceName = await DeviceMarketingNames.getSingleName();
+    // Instantiate the DeviceMarketingNames class
+    final deviceNames = DeviceMarketingNames();
 
-    // Alternatively, if you want all matching names separated by a "/"
-    // String deviceName = await DeviceMarketingNames.getNames();
+    // Get one marketing name of the current device
+    String deviceName = await deviceNames.getSingleName();
+
+    // Optionally, you can also get all names separated by " / "
+    // String deviceName = await deviceNames.getNames();
 
     return deviceName;
   } catch (e) {

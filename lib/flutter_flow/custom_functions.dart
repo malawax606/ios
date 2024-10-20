@@ -16,7 +16,16 @@ import '/auth/firebase_auth/auth_util.dart';
 
 String formatDate(DateTime inputDate) {
   final now = DateTime.now();
+  final differenceInMinutes = now.difference(inputDate).inMinutes;
+  final differenceInHours = now.difference(inputDate).inHours;
   final difference = now.difference(inputDate).inDays;
+
+  // Show minutes or hours ago for anything within the last 5 hours
+  if (differenceInMinutes < 60) {
+    return "$differenceInMinutes minutes ago"; // Show minutes ago for less than 1 hour
+  } else if (differenceInHours < 5) {
+    return "$differenceInHours hour${differenceInHours > 1 ? 's' : ''} ago"; // Show "1 hour ago" or "2 hours ago"
+  }
 
   if (difference == 0) {
     return "Today";

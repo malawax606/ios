@@ -65,7 +65,7 @@ class _PayWidgetState extends State<PayWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              _model.deviceName = await actions.getDeviceMarketingName();
+              _model.deviceName = await actions.getCurrentDeviceMarketingName();
 
               safeSetState(() {});
             },

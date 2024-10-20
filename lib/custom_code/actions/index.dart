@@ -8,4 +8,5 @@ export 'get_f_c_m.dart' show getFCM;
 export 'connect_vpn.dart' show connectVpn;
 export 'connect_net.dart' show connectNet;
 export 'get_device_name.dart' show getDeviceName;
-export 'get_device_marketing_name.dart' show getDeviceMarketingName;
+export 'get_current_device_marketing_name.dart'
+    show getCurrentDeviceMarketingName;
