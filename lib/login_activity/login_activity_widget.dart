@@ -91,10 +91,12 @@ class _LoginActivityWidgetState extends State<LoginActivityWidget> {
                       const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                   child: FutureBuilder<List<LoginActivityRow>>(
                     future: LoginActivityTable().queryRows(
-                      queryFn: (q) => q.eq(
-                        'UserID',
-                        currentUserUid,
-                      ),
+                      queryFn: (q) => q
+                          .eq(
+                            'UserID',
+                            currentUserUid,
+                          )
+                          .order('created_at'),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
