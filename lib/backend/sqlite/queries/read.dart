@@ -14,7 +14,7 @@ Future<List<GetRow>> performGet(
   String? id,
 }) {
   const query = '''
-SELECT * FROM Messages WHERE userId = id;
+SELECT * FROM Messages WHERE userId = 'id';
 
 ''';
   return _readQuery(database, query, (d) => GetRow(d));
@@ -25,7 +25,7 @@ class GetRow extends SqliteRow {
 
   String? get userID => data['UserID'] as String?;
   String? get text => data['Text'] as String?;
-  String? get id => data['id'] as String?;
+  int? get id => data['id'] as int?;
 }
 
 /// END GET
@@ -36,7 +36,6 @@ Future<List<GetAllRow>> performGetAll(
 ) {
   const query = '''
 SELECT * FROM Messages ;
-
 ''';
   return _readQuery(database, query, (d) => GetAllRow(d));
 }
@@ -46,7 +45,7 @@ class GetAllRow extends SqliteRow {
 
   String? get userID => data['UserID'] as String?;
   String? get text => data['Text'] as String?;
-  String? get id => data['id'] as String?;
+  int? get id => data['id'] as int?;
 }
 
 /// END GET ALL
