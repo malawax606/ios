@@ -1226,21 +1226,18 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                               shape: RoundedRectangleBorder(
                                                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                                                               ),
-                                                                                                              child: Padding(
-                                                                                                                padding: const EdgeInsets.all(1.0),
-                                                                                                                child: Text(
-                                                                                                                  valueOrDefault<String>(
-                                                                                                                    messagesMessageRow.love,
-                                                                                                                    '👍',
-                                                                                                                  ),
-                                                                                                                  textAlign: TextAlign.center,
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'Inter',
-                                                                                                                        fontSize: 16.0,
-                                                                                                                        letterSpacing: 0.0,
-                                                                                                                      ),
-                                                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
-                                                                                                              ),
+                                                                                                              child: Text(
+                                                                                                                valueOrDefault<String>(
+                                                                                                                  messagesMessageRow.love,
+                                                                                                                  '👍',
+                                                                                                                ),
+                                                                                                                textAlign: TextAlign.center,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Inter',
+                                                                                                                      fontSize: 16.0,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
+                                                                                                              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation9']!),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ],
@@ -1709,7 +1706,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                             ),
                                                                                             alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                             child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisSize: MainAxisSize.min,
                                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                                               children: [
                                                                                                 Text(
@@ -1717,6 +1714,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                     messagesMessageRow.love,
                                                                                                     '👍',
                                                                                                   ),
+                                                                                                  textAlign: TextAlign.center,
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 16.0,
