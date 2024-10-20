@@ -1486,11 +1486,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                             currentUserUid,
                                           ),
                                         );
-                                        context.safePop();
                                         await actions.localNotification(
                                           updateProfileUserRow?.fullName,
                                           'Waxad wax ka badash xogtada qof wuxu arki dona xogta ad qoraty',
                                         );
+                                        context.safePop();
 
                                         safeSetState(() {});
                                       },
