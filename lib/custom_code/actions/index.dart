@@ -11,4 +11,4 @@ export 'get_device_name.dart' show getDeviceName;
 export 'get_current_device_marketing_name.dart'
     show getCurrentDeviceMarketingName;
 export 'supabase_realtime.dart' show supabaseRealtime;
-export 'local_notification.dart' show localNotification;
+export 'notification_action.dart' show notificationAction;

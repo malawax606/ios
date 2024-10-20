@@ -13,53 +13,31 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-Future localNotification(
-  String? title,
-  String? content,
-) async {
-  // Send Local Notification only Android
-  // Initialize the FlutterLocalNotificationsPlugin
+Future notificationAction() async {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-
-  // Configure the Android initialization settings
   var initializationSettingsAndroid =
       AndroidInitializationSettings('@mipmap/ic_launcher');
-
-  // Configure the initialization settings for the FlutterLocalNotificationsPlugin
+  var initializationSettingsIOS = DarwinInitializationSettings();
   var initializationSettings = InitializationSettings(
-    android: initializationSettingsAndroid,
-    iOS: null,
-    macOS: null,
-  );
-
-  // Initialize the FlutterLocalNotificationsPlugin with the initialization settings
+      android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-  // Configure the notification details
   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-    'channel_id',
-    'channel_name',
-    importance: Importance.max,
-    priority: Priority.high,
-    ticker: 'ticker',
-  );
+      'random_channel_id', 'channel_name',
+      channelDescription: 'channel_description',
+      importance: Importance.max,
+      priority: Priority.high,
+      ticker: 'ticker');
+  var iOSPlatformChannelSpecifics = DarwinNotificationDetails();
+  var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics);
 
-  // Configure the notification
-  var notificationDetails = NotificationDetails(
-    android: androidPlatformChannelSpecifics,
-    iOS: null,
-    macOS: null,
-  );
-
-  // Show the notification
-  await flutterLocalNotificationsPlugin.show(
-    0,
-    title ?? '', // Use title parameter here
-    content ?? '', // Use content parameter here
-    notificationDetails,
-    payload: 'item x',
-  );
+  await flutterLocalNotificationsPlugin.show(0, 'Test Notificación',
+      'Esto es un test de push notification', platformChannelSpecifics,
+      payload: 'test');
 }
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

@@ -1486,10 +1486,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                             currentUserUid,
                                           ),
                                         );
-                                        await actions.localNotification(
-                                          updateProfileUserRow?.fullName,
-                                          'Waxad wax ka badash xogtada qof wuxu arki dona xogta ad qoraty',
-                                        );
+                                        await actions.notificationAction();
                                         context.safePop();
 
                                         safeSetState(() {});
