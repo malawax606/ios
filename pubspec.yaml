@@ -59,6 +59,7 @@ dependencies:
   firebase_storage_web: 3.9.5
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.3.1
+  flutter_local_notifications: ^17.2.3
   flutter_native_splash: 2.3.1
   flutter_plugin_android_lifecycle: 2.0.20
   font_awesome_flutter: 10.7.0

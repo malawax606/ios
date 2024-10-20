@@ -1331,63 +1331,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomePage
   {
-    'poood59y': {
-      'en': 'Explore',
-      'sw': 'Chunguza',
-    },
-    '1giy2wio': {
-      'en': 'Chat',
-      'sw': 'Soga',
-    },
-    'qu94a8s5': {
-      'en': 'Profile',
-      'sw': 'Wasifu',
-    },
-    'ko5t9ugq': {
-      'en': 'Edit Profile',
-      'sw': 'Badilisha Wasifu',
-    },
-    'i5w3egzd': {
-      'en': 'Account Information',
-      'sw': 'Taarifa za Akaunti',
-    },
-    'uwluuo5l': {
-      'en': 'Security',
-      'sw': 'Usalama',
-    },
-    '8z6sqpp3': {
-      'en': 'Display',
-      'sw': 'Onyesho',
-    },
-    'dlex6wwg': {
-      'en': 'Help Center',
-      'sw': 'Kituo cha Usaidizi',
-    },
-    '2uqsym08': {
-      'en': 'Privacy Policy',
-      'sw': 'Sera ya Faragha',
-    },
-    'nepdxyob': {
-      'en': 'Log Out',
-      'sw': 'Toka nje',
-    },
-    'umurlsl0': {
-      'en': 'New Version Available',
-      'sw': 'Toleo Jipya Linapatikana',
-    },
-    'zsh8cw9m': {
-      'en':
-          'We\'ve added exciting new features and fixed some bugs. Please update to continue using the app.',
-      'sw':
-          'Tumeongeza vipengele vipya vya kusisimua na kurekebisha hitilafu kadhaa. Tafadhali sasisha ili kuendelea kutumia programu.',
-    },
-    'y578yq0d': {
-      'en': 'Update Now',
-      'sw': 'Sasisha Sasa',
-    },
     'baids9km': {
       'en': 'Alafdoon',
       'sw': 'Alafdoon',
+    },
+    'sm3913o9': {
+      'en': 'Explore',
+      'sw': '',
+    },
+    'e8h5uj2y': {
+      'en': 'Chat',
+      'sw': '',
+    },
+    '3oghbixs': {
+      'en': 'Profile',
+      'sw': '',
+    },
+    '4wwro3qz': {
+      'en': 'Edit Profile',
+      'sw': '',
+    },
+    '8yuy90gl': {
+      'en': 'Account Information',
+      'sw': '',
+    },
+    '48e1sur7': {
+      'en': 'Security',
+      'sw': '',
+    },
+    '7wn0wu6m': {
+      'en': 'Notification',
+      'sw': '',
+    },
+    '1jigud42': {
+      'en': 'Display',
+      'sw': '',
+    },
+    'dlqshc1n': {
+      'en': 'Help Center',
+      'sw': '',
+    },
+    'q1pums2p': {
+      'en': 'Log Out',
+      'sw': '',
     },
     '06vzjxv5': {
       'en': 'Home',
