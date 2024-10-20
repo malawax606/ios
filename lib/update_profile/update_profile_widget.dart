@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -1471,6 +1472,10 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                           ),
                                         );
                                         context.safePop();
+                                        await actions.localNotification(
+                                          updateProfileUserRow.fullName,
+                                          'Waxad wax ka badash xogtada qof wuxu arki dona xogta ad qoraty',
+                                        );
 
                                         safeSetState(() {});
                                       },
