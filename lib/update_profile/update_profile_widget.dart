@@ -290,47 +290,55 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                         }
                                                       }
 
-                                                      await ChatTable().update(
-                                                        data: {
-                                                          'Profile1': _model
-                                                              .uploadedFileUrl,
-                                                        },
-                                                        matchingRows: (rows) =>
-                                                            rows.eq(
-                                                          'Profile1',
-                                                          updateProfileUserRow
-                                                              .profilePic,
-                                                        ),
-                                                      );
-                                                      await ChatTable().update(
-                                                        data: {
-                                                          'Profile2': _model
-                                                              .uploadedFileUrl,
-                                                        },
-                                                        matchingRows: (rows) =>
-                                                            rows.eq(
-                                                          'Profile2',
-                                                          updateProfileUserRow
-                                                              .profilePic,
-                                                        ),
-                                                      );
-                                                      await UserTable().update(
-                                                        data: {
-                                                          'Profile_Pic': _model
-                                                              .uploadedFileUrl,
-                                                        },
-                                                        matchingRows: (rows) =>
-                                                            rows.eq(
-                                                          'id',
-                                                          currentUserUid,
-                                                        ),
-                                                      );
-                                                      await deleteSupabaseFileFromPublicUrl(
-                                                          _model.url!);
-                                                      FFAppState().Profile =
-                                                          _model
-                                                              .uploadedFileUrl;
-                                                      safeSetState(() {});
+                                                      if (_model.uploadedFileUrl !=
+                                                              '') {
+                                                        await ChatTable()
+                                                            .update(
+                                                          data: {
+                                                            'Profile1': _model
+                                                                .uploadedFileUrl,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows.eq(
+                                                            'Profile1',
+                                                            updateProfileUserRow
+                                                                .profilePic,
+                                                          ),
+                                                        );
+                                                        await ChatTable()
+                                                            .update(
+                                                          data: {
+                                                            'Profile2': _model
+                                                                .uploadedFileUrl,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows.eq(
+                                                            'Profile2',
+                                                            updateProfileUserRow
+                                                                .profilePic,
+                                                          ),
+                                                        );
+                                                        await UserTable()
+                                                            .update(
+                                                          data: {
+                                                            'Profile_Pic': _model
+                                                                .uploadedFileUrl,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows.eq(
+                                                            'id',
+                                                            currentUserUid,
+                                                          ),
+                                                        );
+                                                        await deleteSupabaseFileFromPublicUrl(
+                                                            _model.url!);
+                                                        FFAppState().Profile =
+                                                            _model
+                                                                .uploadedFileUrl;
+                                                        safeSetState(() {});
+                                                      } else {
+                                                        return;
+                                                      }
                                                     },
                                                     child: Container(
                                                       width: 120.0,
