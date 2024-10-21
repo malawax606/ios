@@ -305,6 +305,13 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                                                 ?.profilePic,
                                                           ),
                                                         );
+                                                        FFAppState()
+                                                            .updateUserStruct(
+                                                          (e) => e
+                                                            ..profilePic = _model
+                                                                .uploadedFileUrl,
+                                                        );
+                                                        safeSetState(() {});
                                                         await ChatTable()
                                                             .update(
                                                           data: {
@@ -1486,7 +1493,10 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                             currentUserUid,
                                           ),
                                         );
-                                        await actions.notificationAction();
+                                        await actions.localNotification(
+                                          'yyy',
+                                          'ghfghfgh',
+                                        );
                                         context.safePop();
 
                                         safeSetState(() {});

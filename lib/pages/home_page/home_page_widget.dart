@@ -14,6 +14,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -37,14 +38,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.user = await SupabaseUserCall.call(
+        searchString: currentUserUid,
+      );
+
+      FFAppState().updateUserStruct(
+        (e) => e
+          ..profilePic = SupabaseUserCall.profile(
+            (_model.user?.jsonBody ?? ''),
+          ),
+      );
+      safeSetState(() {});
       _model.version = await actions.appVersion();
       await requestPermission(notificationsPermission);
       _model.versionApi = await SupabaseAppVesrionCall.call(
         searchString: '1',
-      );
-
-      _model.user = await SupabaseUserCall.call(
-        searchString: currentUserUid,
       );
 
       _model.url = await ImageUploadCall.call(
@@ -144,6 +152,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return FutureBuilder<List<UserRow>>(
       future: (_model.requestCompleter2 ??= Completer<List<UserRow>>()
             ..complete(UserTable().querySingleRow(
@@ -1371,13 +1381,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       FlutterFlowExpandedImageView(
                                                     image: Image.network(
                                                       valueOrDefault<String>(
-                                                        homePageUserRow?.profilePic !=
-                                                                    null &&
-                                                                homePageUserRow
-                                                                        ?.profilePic !=
+                                                        FFAppState()
+                                                                        .User
+                                                                        .profilePic !=
                                                                     ''
-                                                            ? homePageUserRow
-                                                                ?.profilePic
+                                                            ? FFAppState()
+                                                                .User
+                                                                .profilePic
                                                             : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                         'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                       ),
@@ -1385,13 +1395,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                     allowRotation: false,
                                                     tag: valueOrDefault<String>(
-                                                      homePageUserRow?.profilePic !=
-                                                                  null &&
-                                                              homePageUserRow
-                                                                      ?.profilePic !=
+                                                      FFAppState()
+                                                                      .User
+                                                                      .profilePic !=
                                                                   ''
-                                                          ? homePageUserRow
-                                                              ?.profilePic
+                                                          ? FFAppState()
+                                                              .User
+                                                              .profilePic
                                                           : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                       'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                     ),
@@ -1402,13 +1412,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             },
                                             child: Hero(
                                               tag: valueOrDefault<String>(
-                                                homePageUserRow?.profilePic !=
-                                                            null &&
-                                                        homePageUserRow
-                                                                ?.profilePic !=
+                                                FFAppState()
+                                                                .User
+                                                                .profilePic !=
                                                             ''
-                                                    ? homePageUserRow
-                                                        ?.profilePic
+                                                    ? FFAppState()
+                                                        .User
+                                                        .profilePic
                                                     : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                               ),
@@ -1418,13 +1428,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     BorderRadius.circular(60.0),
                                                 child: Image.network(
                                                   valueOrDefault<String>(
-                                                    homePageUserRow?.profilePic !=
-                                                                null &&
-                                                            homePageUserRow
-                                                                    ?.profilePic !=
+                                                    FFAppState()
+                                                                    .User
+                                                                    .profilePic !=
                                                                 ''
-                                                        ? homePageUserRow
-                                                            ?.profilePic
+                                                        ? FFAppState()
+                                                            .User
+                                                            .profilePic
                                                         : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                     'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                   ),

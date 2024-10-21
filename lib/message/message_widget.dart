@@ -18,6 +18,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'message_model.dart';
 export 'message_model.dart';
 
@@ -260,6 +261,8 @@ class _MessageWidgetState extends State<MessageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -1754,14 +1757,14 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                         fadeInDuration: const Duration(milliseconds: 500),
                                                                                         fadeOutDuration: const Duration(milliseconds: 500),
                                                                                         imageUrl: valueOrDefault<String>(
-                                                                                          pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                          FFAppState().User.profilePic != '' ? FFAppState().User.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                           'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                         ),
                                                                                         fit: BoxFit.contain,
                                                                                       ),
                                                                                       allowRotation: true,
                                                                                       tag: valueOrDefault<String>(
-                                                                                        pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                        FFAppState().User.profilePic != '' ? FFAppState().User.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                         'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                                       ),
                                                                                       useHeroAnimation: true,
@@ -1771,7 +1774,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                               },
                                                                               child: Hero(
                                                                                 tag: valueOrDefault<String>(
-                                                                                  pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                  FFAppState().User.profilePic != '' ? FFAppState().User.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                   'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$messagesIndex',
                                                                                 ),
                                                                                 transitionOnUserGestures: true,
@@ -1786,7 +1789,7 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                     fadeInDuration: const Duration(milliseconds: 500),
                                                                                     fadeOutDuration: const Duration(milliseconds: 500),
                                                                                     imageUrl: valueOrDefault<String>(
-                                                                                      pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != '' ? pageMeUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                                      FFAppState().User.profilePic != '' ? FFAppState().User.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                       'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                                                     ),
                                                                                     fit: BoxFit.cover,

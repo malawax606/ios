@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -45,6 +48,16 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _English = prefs.getString('ff_English') ?? _English;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_User')) {
+        try {
+          final serializedData = prefs.getString('ff_User') ?? '{}';
+          _User = UserStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
     });
   }
 
@@ -165,6 +178,18 @@ class FFAppState extends ChangeNotifier {
   set English(String value) {
     _English = value;
     prefs.setString('ff_English', value);
+  }
+
+  UserStruct _User = UserStruct();
+  UserStruct get User => _User;
+  set User(UserStruct value) {
+    _User = value;
+    prefs.setString('ff_User', value.serialize());
+  }
+
+  void updateUserStruct(Function(UserStruct) updateFn) {
+    updateFn(_User);
+    prefs.setString('ff_User', _User.serialize());
   }
 }
 

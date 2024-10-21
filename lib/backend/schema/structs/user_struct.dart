@@ -8,33 +8,48 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UserStruct extends FFFirebaseStruct {
   UserStruct({
-    String? name,
+    DateTime? createdAt,
+    String? fullName,
     String? username,
-    String? profilePic,
     String? gender,
     String? age,
     String? country,
-    String? bio,
-    String? work,
     String? city,
+    bool? verify,
+    bool? vipProfilee,
+    String? job,
+    String? marriedstatus,
+    String? skincolor,
+    String? profilePic,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _name = name,
+  })  : _createdAt = createdAt,
+        _fullName = fullName,
         _username = username,
-        _profilePic = profilePic,
         _gender = gender,
         _age = age,
         _country = country,
-        _bio = bio,
-        _work = work,
         _city = city,
+        _verify = verify,
+        _vipProfilee = vipProfilee,
+        _job = job,
+        _marriedstatus = marriedstatus,
+        _skincolor = skincolor,
+        _profilePic = profilePic,
         super(firestoreUtilData);
 
-  // "Name" field.
-  String? _name;
-  String get name => _name ?? '';
-  set name(String? val) => _name = val;
+  // "created_at" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  set createdAt(DateTime? val) => _createdAt = val;
 
-  bool hasName() => _name != null;
+  bool hasCreatedAt() => _createdAt != null;
+
+  // "Full_Name" field.
+  String? _fullName;
+  String get fullName => _fullName ?? '';
+  set fullName(String? val) => _fullName = val;
+
+  bool hasFullName() => _fullName != null;
 
   // "Username" field.
   String? _username;
@@ -43,21 +58,14 @@ class UserStruct extends FFFirebaseStruct {
 
   bool hasUsername() => _username != null;
 
-  // "Profile_pic" field.
-  String? _profilePic;
-  String get profilePic => _profilePic ?? '';
-  set profilePic(String? val) => _profilePic = val;
-
-  bool hasProfilePic() => _profilePic != null;
-
-  // "gender" field.
+  // "Gender" field.
   String? _gender;
   String get gender => _gender ?? '';
   set gender(String? val) => _gender = val;
 
   bool hasGender() => _gender != null;
 
-  // "age" field.
+  // "Age" field.
   String? _age;
   String get age => _age ?? '';
   set age(String? val) => _age = val;
@@ -71,20 +79,6 @@ class UserStruct extends FFFirebaseStruct {
 
   bool hasCountry() => _country != null;
 
-  // "bio" field.
-  String? _bio;
-  String get bio => _bio ?? '';
-  set bio(String? val) => _bio = val;
-
-  bool hasBio() => _bio != null;
-
-  // "work" field.
-  String? _work;
-  String get work => _work ?? '';
-  set work(String? val) => _work = val;
-
-  bool hasWork() => _work != null;
-
   // "City" field.
   String? _city;
   String get city => _city ?? '';
@@ -92,52 +86,102 @@ class UserStruct extends FFFirebaseStruct {
 
   bool hasCity() => _city != null;
 
+  // "verify" field.
+  bool? _verify;
+  bool get verify => _verify ?? false;
+  set verify(bool? val) => _verify = val;
+
+  bool hasVerify() => _verify != null;
+
+  // "Vip_Profilee" field.
+  bool? _vipProfilee;
+  bool get vipProfilee => _vipProfilee ?? false;
+  set vipProfilee(bool? val) => _vipProfilee = val;
+
+  bool hasVipProfilee() => _vipProfilee != null;
+
+  // "Job" field.
+  String? _job;
+  String get job => _job ?? '';
+  set job(String? val) => _job = val;
+
+  bool hasJob() => _job != null;
+
+  // "Marriedstatus" field.
+  String? _marriedstatus;
+  String get marriedstatus => _marriedstatus ?? '';
+  set marriedstatus(String? val) => _marriedstatus = val;
+
+  bool hasMarriedstatus() => _marriedstatus != null;
+
+  // "Skincolor" field.
+  String? _skincolor;
+  String get skincolor => _skincolor ?? '';
+  set skincolor(String? val) => _skincolor = val;
+
+  bool hasSkincolor() => _skincolor != null;
+
+  // "Profile_Pic" field.
+  String? _profilePic;
+  String get profilePic => _profilePic ?? '';
+  set profilePic(String? val) => _profilePic = val;
+
+  bool hasProfilePic() => _profilePic != null;
+
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(
-        name: data['Name'] as String?,
+        createdAt: data['created_at'] as DateTime?,
+        fullName: data['Full_Name'] as String?,
         username: data['Username'] as String?,
-        profilePic: data['Profile_pic'] as String?,
-        gender: data['gender'] as String?,
-        age: data['age'] as String?,
+        gender: data['Gender'] as String?,
+        age: data['Age'] as String?,
         country: data['Country'] as String?,
-        bio: data['bio'] as String?,
-        work: data['work'] as String?,
         city: data['City'] as String?,
+        verify: data['verify'] as bool?,
+        vipProfilee: data['Vip_Profilee'] as bool?,
+        job: data['Job'] as String?,
+        marriedstatus: data['Marriedstatus'] as String?,
+        skincolor: data['Skincolor'] as String?,
+        profilePic: data['Profile_Pic'] as String?,
       );
 
   static UserStruct? maybeFromMap(dynamic data) =>
       data is Map ? UserStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'Name': _name,
+        'created_at': _createdAt,
+        'Full_Name': _fullName,
         'Username': _username,
-        'Profile_pic': _profilePic,
-        'gender': _gender,
-        'age': _age,
+        'Gender': _gender,
+        'Age': _age,
         'Country': _country,
-        'bio': _bio,
-        'work': _work,
         'City': _city,
+        'verify': _verify,
+        'Vip_Profilee': _vipProfilee,
+        'Job': _job,
+        'Marriedstatus': _marriedstatus,
+        'Skincolor': _skincolor,
+        'Profile_Pic': _profilePic,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'Name': serializeParam(
-          _name,
+        'created_at': serializeParam(
+          _createdAt,
+          ParamType.DateTime,
+        ),
+        'Full_Name': serializeParam(
+          _fullName,
           ParamType.String,
         ),
         'Username': serializeParam(
           _username,
           ParamType.String,
         ),
-        'Profile_pic': serializeParam(
-          _profilePic,
-          ParamType.String,
-        ),
-        'gender': serializeParam(
+        'Gender': serializeParam(
           _gender,
           ParamType.String,
         ),
-        'age': serializeParam(
+        'Age': serializeParam(
           _age,
           ParamType.String,
         ),
@@ -145,24 +189,45 @@ class UserStruct extends FFFirebaseStruct {
           _country,
           ParamType.String,
         ),
-        'bio': serializeParam(
-          _bio,
-          ParamType.String,
-        ),
-        'work': serializeParam(
-          _work,
-          ParamType.String,
-        ),
         'City': serializeParam(
           _city,
+          ParamType.String,
+        ),
+        'verify': serializeParam(
+          _verify,
+          ParamType.bool,
+        ),
+        'Vip_Profilee': serializeParam(
+          _vipProfilee,
+          ParamType.bool,
+        ),
+        'Job': serializeParam(
+          _job,
+          ParamType.String,
+        ),
+        'Marriedstatus': serializeParam(
+          _marriedstatus,
+          ParamType.String,
+        ),
+        'Skincolor': serializeParam(
+          _skincolor,
+          ParamType.String,
+        ),
+        'Profile_Pic': serializeParam(
+          _profilePic,
           ParamType.String,
         ),
       }.withoutNulls;
 
   static UserStruct fromSerializableMap(Map<String, dynamic> data) =>
       UserStruct(
-        name: deserializeParam(
-          data['Name'],
+        createdAt: deserializeParam(
+          data['created_at'],
+          ParamType.DateTime,
+          false,
+        ),
+        fullName: deserializeParam(
+          data['Full_Name'],
           ParamType.String,
           false,
         ),
@@ -171,18 +236,13 @@ class UserStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        profilePic: deserializeParam(
-          data['Profile_pic'],
-          ParamType.String,
-          false,
-        ),
         gender: deserializeParam(
-          data['gender'],
+          data['Gender'],
           ParamType.String,
           false,
         ),
         age: deserializeParam(
-          data['age'],
+          data['Age'],
           ParamType.String,
           false,
         ),
@@ -191,18 +251,38 @@ class UserStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        bio: deserializeParam(
-          data['bio'],
-          ParamType.String,
-          false,
-        ),
-        work: deserializeParam(
-          data['work'],
-          ParamType.String,
-          false,
-        ),
         city: deserializeParam(
           data['City'],
+          ParamType.String,
+          false,
+        ),
+        verify: deserializeParam(
+          data['verify'],
+          ParamType.bool,
+          false,
+        ),
+        vipProfilee: deserializeParam(
+          data['Vip_Profilee'],
+          ParamType.bool,
+          false,
+        ),
+        job: deserializeParam(
+          data['Job'],
+          ParamType.String,
+          false,
+        ),
+        marriedstatus: deserializeParam(
+          data['Marriedstatus'],
+          ParamType.String,
+          false,
+        ),
+        skincolor: deserializeParam(
+          data['Skincolor'],
+          ParamType.String,
+          false,
+        ),
+        profilePic: deserializeParam(
+          data['Profile_Pic'],
           ParamType.String,
           false,
         ),
@@ -214,47 +294,72 @@ class UserStruct extends FFFirebaseStruct {
   @override
   bool operator ==(Object other) {
     return other is UserStruct &&
-        name == other.name &&
+        createdAt == other.createdAt &&
+        fullName == other.fullName &&
         username == other.username &&
-        profilePic == other.profilePic &&
         gender == other.gender &&
         age == other.age &&
         country == other.country &&
-        bio == other.bio &&
-        work == other.work &&
-        city == other.city;
+        city == other.city &&
+        verify == other.verify &&
+        vipProfilee == other.vipProfilee &&
+        job == other.job &&
+        marriedstatus == other.marriedstatus &&
+        skincolor == other.skincolor &&
+        profilePic == other.profilePic;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [name, username, profilePic, gender, age, country, bio, work, city]);
+  int get hashCode => const ListEquality().hash([
+        createdAt,
+        fullName,
+        username,
+        gender,
+        age,
+        country,
+        city,
+        verify,
+        vipProfilee,
+        job,
+        marriedstatus,
+        skincolor,
+        profilePic
+      ]);
 }
 
 UserStruct createUserStruct({
-  String? name,
+  DateTime? createdAt,
+  String? fullName,
   String? username,
-  String? profilePic,
   String? gender,
   String? age,
   String? country,
-  String? bio,
-  String? work,
   String? city,
+  bool? verify,
+  bool? vipProfilee,
+  String? job,
+  String? marriedstatus,
+  String? skincolor,
+  String? profilePic,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     UserStruct(
-      name: name,
+      createdAt: createdAt,
+      fullName: fullName,
       username: username,
-      profilePic: profilePic,
       gender: gender,
       age: age,
       country: country,
-      bio: bio,
-      work: work,
       city: city,
+      verify: verify,
+      vipProfilee: vipProfilee,
+      job: job,
+      marriedstatus: marriedstatus,
+      skincolor: skincolor,
+      profilePic: profilePic,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

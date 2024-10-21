@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'messages_model.dart';
 export 'messages_model.dart';
 
@@ -53,6 +54,8 @@ class _MessagesWidgetState extends State<MessagesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return FutureBuilder<List<UserRow>>(
       future: UserTable().querySingleRow(
         queryFn: (q) => q.eq(
@@ -221,14 +224,13 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                     const Duration(milliseconds: 500),
                                                 fadeOutDuration:
                                                     const Duration(milliseconds: 500),
-                                                imageUrl: columnMeUserRow
-                                                                ?.profilePic !=
-                                                            null &&
-                                                        columnMeUserRow
-                                                                ?.profilePic !=
+                                                imageUrl: FFAppState()
+                                                                .User
+                                                                .profilePic !=
                                                             ''
-                                                    ? columnMeUserRow!
-                                                        .profilePic!
+                                                    ? FFAppState()
+                                                        .User
+                                                        .profilePic
                                                     : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
                                                 fit: BoxFit.cover,
                                               ),
