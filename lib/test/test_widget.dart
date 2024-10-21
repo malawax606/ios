@@ -1,10 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
-import '/backend/sqlite/sqlite_manager.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'test_model.dart';
 export 'test_model.dart';
@@ -87,10 +88,11 @@ class _TestWidgetState extends State<TestWidget> {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      await SQLiteManager.instance.add(
-                        userID: currentUserUid,
-                        text: 'ag',
-                      );
+                      await OnlineTable().insert({
+                        'uid': currentUserUid,
+                      });
+                      safeSetState(() => _model.requestCompleter = null);
+                      await _model.waitForRequestCompleted();
                     },
                     text: FFLocalizations.of(context).getText(
                       'qd6g1be3' /* Button */,
@@ -112,97 +114,17 @@ class _TestWidgetState extends State<TestWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  FFButtonWidget(
-                    onPressed: () async {
-                      _model.user = await SupabaseUserCall.call(
-                        searchString: currentUserUid,
-                      );
-
-                      await SQLiteManager.instance.add(
-                        userID: 'hhhhh',
-                        text: SupabaseUserCall.username(
-                          (_model.user?.jsonBody ?? ''),
-                        ),
-                      );
-
-                      safeSetState(() {});
-                    },
-                    text: FFLocalizations.of(context).getText(
-                      'ltae2kvo' /* Button */,
-                    ),
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFF6F61EF),
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                              ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
                 ],
               ),
-              FutureBuilder<List<GetRow>>(
-                future: SQLiteManager.instance.get(
-                  id: currentUserUid,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  final listViewGetRowList = snapshot.data!;
-
-                  return ListView.separated(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listViewGetRowList.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 7.0),
-                    itemBuilder: (context, listViewIndex) {
-                      final listViewGetRow = listViewGetRowList[listViewIndex];
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            valueOrDefault<String>(
-                              listViewGetRow.text,
-                              '000',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-              ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: FutureBuilder<List<GetAllRow>>(
-                  future: SQLiteManager.instance.getAll(),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                child: FutureBuilder<List<OnlineRow>>(
+                  future:
+                      (_model.requestCompleter ??= Completer<List<OnlineRow>>()
+                            ..complete(OnlineTable().queryRows(
+                              queryFn: (q) => q.order('online'),
+                            )))
+                          .future,
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -218,25 +140,22 @@ class _TestWidgetState extends State<TestWidget> {
                         ),
                       );
                     }
-                    final listViewGetAllRowList = snapshot.data!;
+                    List<OnlineRow> listViewOnlineRowList = snapshot.data!;
 
                     return ListView.separated(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: listViewGetAllRowList.length,
+                      itemCount: listViewOnlineRowList.length,
                       separatorBuilder: (_, __) => const SizedBox(height: 7.0),
                       itemBuilder: (context, listViewIndex) {
-                        final listViewGetAllRow =
-                            listViewGetAllRowList[listViewIndex];
+                        final listViewOnlineRow =
+                            listViewOnlineRowList[listViewIndex];
                         return Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              valueOrDefault<String>(
-                                listViewGetAllRow.text,
-                                '000',
-                              ),
+                              functions.formatDate(listViewOnlineRow.online),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

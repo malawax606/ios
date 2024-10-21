@@ -1566,10 +1566,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Button',
       'sw': '',
     },
-    'ltae2kvo': {
-      'en': 'Button',
-      'sw': '',
-    },
     'rgy6tfd6': {
       'en': 'Home',
       'sw': 'Nyumbani',
