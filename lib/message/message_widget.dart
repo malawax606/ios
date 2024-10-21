@@ -478,28 +478,29 @@ class _MessageWidgetState extends State<MessageWidget>
                                   ),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  6.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                dateTimeFormat(
-                                  "relative",
-                                  rowUserRow!.online!,
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
+                            if (rowUserRow?.showLastSeen == true)
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  dateTimeFormat(
+                                    "relative",
+                                    rowUserRow!.online!,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w200,
+                                      ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w200,
-                                    ),
                               ),
-                            ),
                           ],
                         ),
                       ),

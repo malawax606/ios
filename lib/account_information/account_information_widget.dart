@@ -125,6 +125,7 @@ class _AccountInformationWidgetState extends State<AccountInformationWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: const Color(0xFFB4BBB8),
                                     fontSize: 23.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,

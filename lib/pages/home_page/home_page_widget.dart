@@ -586,9 +586,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        if (gridViewNoUserRow
-                                                                .online ==
-                                                            getCurrentTimestamp)
+                                                        if (functions
+                                                            .onlineCheck(
+                                                                gridViewNoUserRow
+                                                                    .online!))
                                                           Container(
                                                             width: 10.0,
                                                             height: 10.0,
@@ -966,9 +967,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          55.0,
+                                                                          60.0,
                                                                       height:
-                                                                          55.0,
+                                                                          60.0,
                                                                       clipBehavior:
                                                                           Clip.antiAlias,
                                                                       decoration:
@@ -995,43 +996,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     ),
                                                                   ),
                                                                 ),
-                                                                if ((listViewChatRow
-                                                                            .lastMessageSentBy !=
-                                                                        currentUserUid) &&
-                                                                    (listViewChatRow
-                                                                            .mesageSeen ==
-                                                                        false))
-                                                                  Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            12.0,
-                                                                        height:
-                                                                            12.0,
-                                                                        decoration:
-                                                                            const BoxDecoration(
-                                                                          color:
-                                                                              Color(0xFFF80606),
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        alignment: const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                      ),
-                                                                    ),
-                                                                  ),
                                                               ],
                                                             ),
                                                           ],
@@ -1205,6 +1169,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1230,10 +1195,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           MainAxisSize
                                                                               .max,
                                                                       children: [
-                                                                        if ((listViewChatRow.mesageSeen ==
-                                                                                true) &&
-                                                                            (listViewChatRow.lastMessageSentBy ==
-                                                                                currentUserUid))
+                                                                        if (((listViewChatRow.mesageSeen == true) && (listViewChatRow.lastMessageSentBy == currentUserUid)) &&
+                                                                            (rowUserUserRow?.messageRead ==
+                                                                                true))
                                                                           const Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 7.0,
@@ -1247,10 +1211,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if ((listViewChatRow.mesageSeen ==
-                                                                                false) &&
-                                                                            (listViewChatRow.lastMessageSentBy ==
-                                                                                currentUserUid))
+                                                                        if (((listViewChatRow.mesageSeen == false) && (listViewChatRow.lastMessageSentBy == currentUserUid)) ||
+                                                                            (rowUserUserRow?.messageRead ==
+                                                                                false))
                                                                           Padding(
                                                                             padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 7.0,

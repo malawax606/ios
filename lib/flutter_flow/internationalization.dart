@@ -988,6 +988,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Allow Messages',
       'sw': 'Ruhusu Ujumbe',
     },
+    'yunim8gt': {
+      'en': 'Show Messages Read',
+      'sw': '',
+    },
     '3duv53h4': {
       'en': 'Show Last Seen',
       'sw': 'Onyesha Kuonekana Mara ya Mwisho',

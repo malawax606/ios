@@ -582,7 +582,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '3duv53h4' /* Show Last Seen */,
+                                            'yunim8gt' /* Show Messages Read */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleMedium
@@ -596,10 +596,156 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                     Builder(
                                       builder: (context) => Switch.adaptive(
                                         value: _model.switchValue3 ??=
-                                            securityUserRow!.showLastSeen,
+                                            securityUserRow!.allowMessages,
                                         onChanged: (newValue) async {
                                           safeSetState(() =>
                                               _model.switchValue3 = newValue);
+                                          if (newValue) {
+                                            if (securityUserRow?.vipProfilee ==
+                                                true) {
+                                              await UserTable().update(
+                                                data: {
+                                                  'Message_Read': true,
+                                                },
+                                                matchingRows: (rows) => rows.eq(
+                                                  'id',
+                                                  currentUserUid,
+                                                ),
+                                              );
+                                              safeSetState(() => _model
+                                                  .requestCompleter = null);
+                                              await _model
+                                                  .waitForRequestCompleted();
+                                            } else {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus(),
+                                                      child: const SizedBox(
+                                                        height: 300.0,
+                                                        width: 350.0,
+                                                        child: NeedBuyWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            }
+                                          } else {
+                                            if (securityUserRow?.vipProfilee ==
+                                                true) {
+                                              await UserTable().update(
+                                                data: {
+                                                  'Message_Read': false,
+                                                },
+                                                matchingRows: (rows) => rows.eq(
+                                                  'id',
+                                                  currentUserUid,
+                                                ),
+                                              );
+                                              safeSetState(() => _model
+                                                  .requestCompleter = null);
+                                              await _model
+                                                  .waitForRequestCompleted();
+                                            } else {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus(),
+                                                      child: const SizedBox(
+                                                        height: 300.0,
+                                                        width: 350.0,
+                                                        child: NeedBuyWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            }
+                                          }
+                                        },
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        activeTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                        inactiveTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                        inactiveThumbColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                      ),
+                                    ),
+                                  ].divide(const SizedBox(width: 16.0)),
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '3duv53h4' /* Show Last Seen */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleMedium
+                                              .override(
+                                                fontFamily: 'Inter Tight',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Builder(
+                                      builder: (context) => Switch.adaptive(
+                                        value: _model.switchValue4 ??=
+                                            securityUserRow!.showLastSeen,
+                                        onChanged: (newValue) async {
+                                          safeSetState(() =>
+                                              _model.switchValue4 = newValue);
                                           if (newValue) {
                                             if (securityUserRow?.vipProfilee ==
                                                 true) {

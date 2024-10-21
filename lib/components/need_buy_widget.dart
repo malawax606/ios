@@ -87,6 +87,8 @@ class _NeedBuyWidgetState extends State<NeedBuyWidget> {
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 2.0),
             child: FFButtonWidget(
               onPressed: () async {
+                Navigator.pop(context);
+
                 context.pushNamed('Payment');
               },
               text: FFLocalizations.of(context).getText(

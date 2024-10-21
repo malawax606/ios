@@ -41,3 +41,10 @@ String formatDate(DateTime inputDate) {
     return DateFormat('MM/dd/yy').format(inputDate);
   }
 }
+
+bool onlineCheck(DateTime activeTime) {
+  // If time of activeTime is below 5 minutes return true
+  final now = DateTime.now();
+  final difference = now.difference(activeTime);
+  return difference.inMinutes < 5;
+}

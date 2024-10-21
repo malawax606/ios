@@ -14,6 +14,8 @@ class SecurityModel extends FlutterFlowModel<SecurityWidget> {
   bool? switchValue2;
   // State field(s) for Switch widget.
   bool? switchValue3;
+  // State field(s) for Switch widget.
+  bool? switchValue4;
 
   @override
   void initState(BuildContext context) {}

@@ -247,4 +247,7 @@ class UserRow extends SupabaseDataRow {
 
   bool get showLastSeen => getField<bool>('Show Last Seen')!;
   set showLastSeen(bool value) => setField<bool>('Show Last Seen', value);
+
+  bool get messageRead => getField<bool>('Message_Read')!;
+  set messageRead(bool value) => setField<bool>('Message_Read', value);
 }
