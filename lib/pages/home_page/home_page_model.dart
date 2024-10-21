@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'dart:async';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';
@@ -19,10 +20,11 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   Completer<List<UserRow>>? requestCompleter2;
   // Stores action output result for [Backend Call - API (country)] action in HomePage widget.
   ApiCallResponse? country;
-  // Stores action output result for [Backend Call - API (Country Falg)] action in HomePage widget.
-  ApiCallResponse? flg;
-  // Stores action output result for [Custom Action - getFCM] action in HomePage widget.
-  String? fcm;
+  InstantTimer? instantTimer;
+  // Stores action output result for [Custom Action - connectVpn] action in HomePage widget.
+  bool? vpn;
+  // Stores action output result for [Custom Action - connectNet] action in HomePage widget.
+  bool? net;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -45,6 +47,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   @override
   void dispose() {
+    instantTimer?.cancel();
     tabBarController?.dispose();
   }
 

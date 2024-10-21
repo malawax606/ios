@@ -25,8 +25,8 @@ Future localNotification(
   var initializationSettingsAndroid =
       AndroidInitializationSettings('@mipmap/ic_launcher');
 
-  // Configure the iOS initialization settings
-  var initializationSettingsIOS = IOSInitializationSettings(
+  // Configure the iOS/macOS initialization settings (renamed to DarwinInitializationSettings)
+  var initializationSettingsIOS = DarwinInitializationSettings(
     requestAlertPermission: true,
     requestBadgePermission: true,
     requestSoundPermission: true,
@@ -38,7 +38,8 @@ Future localNotification(
   // Configure the initialization settings for FlutterLocalNotificationsPlugin
   var initializationSettings = InitializationSettings(
     android: initializationSettingsAndroid,
-    iOS: initializationSettingsIOS,
+    iOS:
+        initializationSettingsIOS, // Use DarwinInitializationSettings for iOS/macOS
   );
 
   // Initialize the FlutterLocalNotificationsPlugin with the initialization settings
@@ -53,15 +54,16 @@ Future localNotification(
     ticker: 'ticker',
   );
 
-  // Configure the iOS notification details
-  var iosPlatformChannelSpecifics = IOSNotificationDetails(
+  // Configure the iOS notification details (renamed to DarwinNotificationDetails)
+  var iosPlatformChannelSpecifics = DarwinNotificationDetails(
     sound: 'default', // Optional: Specify a sound if needed
   );
 
   // Configure the notification details
   var notificationDetails = NotificationDetails(
     android: androidPlatformChannelSpecifics,
-    iOS: iosPlatformChannelSpecifics,
+    iOS:
+        iosPlatformChannelSpecifics, // Use DarwinNotificationDetails for iOS/macOS
   );
 
   // Show the notification
@@ -73,5 +75,6 @@ Future localNotification(
     payload: 'item x',
   );
 }
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

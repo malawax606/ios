@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -104,12 +105,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
           currentUserUid,
         ),
       );
-      _model.flg = await CountryFalgCall.call(
-        code: CountryCall.code(
-          (_model.country?.jsonBody ?? ''),
-        ),
-      );
-
       await requestPermission(microphonePermission);
       if (!(valueOrDefault(currentUserDocument?.gender, '') != '')) {
         context.goNamed(
@@ -123,15 +118,38 @@ class _HomePageWidgetState extends State<HomePageWidget>
           },
         );
       }
-      _model.fcm = await actions.getFCM();
-      await UserTable().update(
-        data: {
-          'FCM_TOKEN': _model.fcm,
+      _model.instantTimer = InstantTimer.periodic(
+        duration: const Duration(milliseconds: 1000),
+        callback: (timer) async {
+          _model.vpn = await actions.connectVpn();
+          _model.net = await actions.connectNet();
+          if (_model.vpn == false) {
+            if (_model.net != true) {
+              context.goNamed(
+                'Net',
+                extra: <String, dynamic>{
+                  kTransitionInfoKey: const TransitionInfo(
+                    hasTransition: true,
+                    transitionType: PageTransitionType.fade,
+                    duration: Duration(milliseconds: 0),
+                  ),
+                },
+              );
+            }
+          } else {
+            context.goNamed(
+              'Vpn-',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: const TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.fade,
+                  duration: Duration(milliseconds: 0),
+                ),
+              },
+            );
+          }
         },
-        matchingRows: (rows) => rows.eq(
-          'id',
-          currentUserUid,
-        ),
+        startImmediately: true,
       );
     });
 
