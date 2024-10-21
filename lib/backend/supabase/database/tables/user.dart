@@ -238,4 +238,13 @@ class UserRow extends SupabaseDataRow {
 
   bool get admin => getField<bool>('Admin')!;
   set admin(bool value) => setField<bool>('Admin', value);
+
+  bool get showOnline => getField<bool>('Show Online')!;
+  set showOnline(bool value) => setField<bool>('Show Online', value);
+
+  bool get allowMessages => getField<bool>('Allow Messages')!;
+  set allowMessages(bool value) => setField<bool>('Allow Messages', value);
+
+  bool get showLastSeen => getField<bool>('Show Last Seen')!;
+  set showLastSeen(bool value) => setField<bool>('Show Last Seen', value);
 }

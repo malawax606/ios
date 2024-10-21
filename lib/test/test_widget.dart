@@ -89,7 +89,7 @@ class _TestWidgetState extends State<TestWidget> {
                     onPressed: () async {
                       await SQLiteManager.instance.add(
                         userID: currentUserUid,
-                        text: 'Test',
+                        text: 'ag',
                       );
                     },
                     text: FFLocalizations.of(context).getText(
@@ -119,7 +119,7 @@ class _TestWidgetState extends State<TestWidget> {
                       );
 
                       await SQLiteManager.instance.add(
-                        userID: '1235',
+                        userID: 'hhhhh',
                         text: SupabaseUserCall.username(
                           (_model.user?.jsonBody ?? ''),
                         ),

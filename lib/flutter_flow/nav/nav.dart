@@ -343,6 +343,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/updateApp',
           requireAuth: true,
           builder: (context, params) => const UpdateAppWidget(),
+        ),
+        FFRoute(
+          name: 'Notification',
+          path: '/notification',
+          builder: (context, params) => const NotificationWidget(),
+        ),
+        FFRoute(
+          name: 'Test2',
+          path: '/test2',
+          builder: (context, params) => const Test2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

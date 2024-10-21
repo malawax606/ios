@@ -33,3 +33,5 @@ export '/payment/payment_widget.dart' show PaymentWidget;
 export '/login_activity/login_activity_widget.dart' show LoginActivityWidget;
 export '/test/test_widget.dart' show TestWidget;
 export '/update_app/update_app_widget.dart' show UpdateAppWidget;
+export '/notification/notification_widget.dart' show NotificationWidget;
+export '/test2/test2_widget.dart' show Test2Widget;

@@ -1729,6 +1729,35 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                             ),
                                                                                           ),
                                                                                         ),
+                                                                                        Container(
+                                                                                          decoration: BoxDecoration(
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            shape: BoxShape.circle,
+                                                                                          ),
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                            children: [
+                                                                                              Padding(
+                                                                                                padding: const EdgeInsets.all(2.0),
+                                                                                                child: Text(
+                                                                                                  valueOrDefault<String>(
+                                                                                                    messagesMessageRow.love,
+                                                                                                    '👍',
+                                                                                                  ),
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Inter',
+                                                                                                        color: Colors.black,
+                                                                                                        fontSize: 15.5,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.w500,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
                                                                                       ],
                                                                                     ),
                                                                                   ),
@@ -2144,39 +2173,6 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                           .messageTextController
                                                                           ?.clear();
                                                                     });
-                                                                    if ((yesChatRow?.profile1 !=
-                                                                                null &&
-                                                                            yesChatRow?.profile1 !=
-                                                                                '') ||
-                                                                        (yesChatRow?.profile2 !=
-                                                                                null &&
-                                                                            yesChatRow?.profile2 !=
-                                                                                '')) {
-                                                                      await ChatTable()
-                                                                          .update(
-                                                                        data: {
-                                                                          'Profile1': pageMeUserRow?.profilePic != null && pageMeUserRow?.profilePic != ''
-                                                                              ? pageMeUserRow?.profilePic
-                                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                          'Profile2': bodyUserRow.profilePic != null && bodyUserRow.profilePic != ''
-                                                                              ? bodyUserRow.profilePic
-                                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                          'Username1':
-                                                                              pageMeUserRow?.username,
-                                                                          'Username2':
-                                                                              '',
-                                                                        },
-                                                                        matchingRows: (rows) => rows
-                                                                            .eq(
-                                                                              'Chat_ID',
-                                                                              widget.chatID,
-                                                                            )
-                                                                            .contains(
-                                                                              'Users',
-                                                                              '{$currentUserUid}',
-                                                                            ),
-                                                                      );
-                                                                    }
                                                                     safeSetState(() =>
                                                                         _model.requestCompleter2 =
                                                                             null);

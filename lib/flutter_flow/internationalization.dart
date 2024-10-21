@@ -1004,25 +1004,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Blocked Users',
       'sw': 'Watumiaji Waliozuiwa',
     },
-    'kcmg9nph': {
-      'en': 'Message Filtering',
-      'sw': 'Kuchuja Ujumbe',
-    },
     'b9yfx4ks': {
       'en': 'Account Security',
       'sw': 'Usalama wa Akaunti',
     },
-    '2qmbh4wb': {
-      'en': 'Change Email',
-      'sw': 'Badilisha Barua pepe',
-    },
     '300kqupg': {
       'en': 'Login Activity',
       'sw': 'Shughuli ya Kuingia',
-    },
-    'ss8tnp7o': {
-      'en': 'Linked Accounts',
-      'sw': 'Akaunti Zilizounganishwa',
     },
     'zvhotsug': {
       'en': 'Home',
@@ -1595,6 +1583,78 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Nyumbani',
     },
   },
+  // Notification
+  {
+    '8rpqz3hv': {
+      'en': 'Customize your notification preferences',
+      'sw': '',
+    },
+    'e1ouaz9x': {
+      'en': 'Profile Views',
+      'sw': '',
+    },
+    'uhdk8fg5': {
+      'en': 'Get notified when someone views your profile',
+      'sw': '',
+    },
+    'binr7ebv': {
+      'en': 'New Messages',
+      'sw': '',
+    },
+    'vpfyxxr6': {
+      'en': 'Receive notifications for new messages',
+      'sw': '',
+    },
+    'rneymxat': {
+      'en': 'App Updates',
+      'sw': '',
+    },
+    'm5307ihr': {
+      'en': 'Stay informed about new features',
+      'sw': '',
+    },
+    's8upqni9': {
+      'en':
+          'Note: Turning off notifications may cause you to miss important updates and interactions.',
+      'sw': '',
+    },
+    '1j2b58bn': {
+      'en': 'Notifications',
+      'sw': 'Kichwa cha Ukurasa',
+    },
+    'kb19w3h4': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
+  // Test2
+  {
+    '6rylm3k1': {
+      'en': 'Oops! Subscription Needed',
+      'sw': '',
+    },
+    'nj9nqe8g': {
+      'en':
+          'To access this feature, you need an active subscription. Unlock premium content and features by subscribing today!',
+      'sw': '',
+    },
+    'nszg5zvd': {
+      'en': 'Subscribe Now',
+      'sw': '',
+    },
+    'ba303195': {
+      'en': 'Restore Purchase',
+      'sw': '',
+    },
+    'pfsypg2e': {
+      'en': 'Page Title',
+      'sw': 'Kichwa cha Ukurasa',
+    },
+    '94a60s6j': {
+      'en': 'Home',
+      'sw': 'Nyumbani',
+    },
+  },
   // Messages
   {
     'b7on9534': {
@@ -1704,6 +1764,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '1zptldog': {
       'en':
           'You don\'t have any login activity history yet. Your recent login attempts will appear here when you start using the app more frequently.',
+      'sw': '',
+    },
+  },
+  // NeedBuy
+  {
+    '3rbs1nwu': {
+      'en': 'Oops! Subscription Needed',
+      'sw': '',
+    },
+    '4814bkbq': {
+      'en':
+          'To access this feature, you need an active subscription. Unlock premium content and features by subscribing today!',
+      'sw': '',
+    },
+    'mlso9ssf': {
+      'en': 'Subscribe Now',
+      'sw': '',
+    },
+    'l16tzbjl': {
+      'en': 'Restore Purchase',
       'sw': '',
     },
   },

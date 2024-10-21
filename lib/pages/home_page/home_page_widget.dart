@@ -119,7 +119,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         );
       }
       _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 100),
         callback: (timer) async {
           _model.vpn = await actions.connectVpn();
           _model.net = await actions.connectNet();
@@ -1739,8 +1739,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context
-                                                        .pushNamed('Display');
+                                                    context.pushNamed(
+                                                        'Notification');
                                                   },
                                                   child: Row(
                                                     mainAxisSize:

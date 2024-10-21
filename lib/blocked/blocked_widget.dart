@@ -206,7 +206,7 @@ class _BlockedWidgetState extends State<BlockedWidget> {
                                         height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .accent1,
+                                              .primary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: ClipRRect(

@@ -63,4 +63,7 @@ class MessageRow extends SupabaseDataRow {
   String? get replyReplyNew => getField<String>('Reply_Reply_New');
   set replyReplyNew(String? value) =>
       setField<String>('Reply_Reply_New', value);
+
+  List<String> get users => getListField<String>('Users');
+  set users(List<String>? value) => setListField<String>('Users', value);
 }
