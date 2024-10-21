@@ -1484,6 +1484,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
     '2atq5d12': {
+      'en': 'Hide Last Seen',
+      'sw': '',
+    },
+    'pr3jx3ex': {
       'en': 'Hide Online Status',
       'sw': '',
     },
@@ -1499,8 +1503,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Ad-Free Experience',
       'sw': '',
     },
-    'dzno9t24': {
-      'en': 'Select Payment Method',
+    'eez44hr4': {
+      'en': 'Message Blocker',
       'sw': '',
     },
     'vyn6pso3': {
@@ -1526,6 +1530,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '57vtov4h': {
       'en':
           'By subscribing, you agree to our Terms of Service and Privacy Policy',
+      'sw': '',
+    },
+    'iqwmhuet': {
+      'en': 'Subscription',
       'sw': '',
     },
     'cqllgfp2': {

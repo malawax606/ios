@@ -50,14 +50,26 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
+            icon: const Icon(
+              FFIcons.kaltArrowLeftSvgrepoCom,
+              color: Color(0xFFB4BBB8),
               size: 30.0,
             ),
             onPressed: () async {
               context.pop();
             },
+          ),
+          title: Text(
+            FFLocalizations.of(context).getText(
+              'iqwmhuet' /* Subscription */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Inter',
+                  color: const Color(0xFFB4BBB8),
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
           actions: const [],
           centerTitle: true,
@@ -124,13 +136,34 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
+                                Icons.timer_sharp,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '2atq5d12' /* Hide Last Seen */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ].divide(const SizedBox(width: 8.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
                                 FFIcons.khistorySvgrepoCom,
                                 color: FlutterFlowTheme.of(context).success,
                                 size: 24.0,
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '2atq5d12' /* Hide Online Status */,
+                                  'pr3jx3ex' /* Hide Online Status */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -204,6 +237,27 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                               ),
                             ].divide(const SizedBox(width: 8.0)),
                           ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.chat_bubble_outline,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'eez44hr4' /* Message Blocker */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ].divide(const SizedBox(width: 8.0)),
+                          ),
                         ].divide(const SizedBox(height: 16.0)),
                       ),
                     ),
@@ -211,19 +265,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'dzno9t24' /* Select Payment Method */,
-                  ),
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Inter Tight',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 15.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'vyn6pso3' /* Subscription Plan */,

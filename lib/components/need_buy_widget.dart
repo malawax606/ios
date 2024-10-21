@@ -86,8 +86,8 @@ class _NeedBuyWidgetState extends State<NeedBuyWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 2.0),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                context.pushNamed('Payment');
               },
               text: FFLocalizations.of(context).getText(
                 'mlso9ssf' /* Subscribe Now */,

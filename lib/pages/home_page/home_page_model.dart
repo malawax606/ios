@@ -23,8 +23,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   InstantTimer? instantTimer;
   // Stores action output result for [Custom Action - connectVpn] action in HomePage widget.
   bool? vpn;
-  // Stores action output result for [Custom Action - connectNet] action in HomePage widget.
-  bool? net;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

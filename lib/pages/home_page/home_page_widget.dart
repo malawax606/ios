@@ -122,21 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         duration: const Duration(milliseconds: 100),
         callback: (timer) async {
           _model.vpn = await actions.connectVpn();
-          _model.net = await actions.connectNet();
-          if (_model.vpn == false) {
-            if (_model.net != true) {
-              context.goNamed(
-                'Net',
-                extra: <String, dynamic>{
-                  kTransitionInfoKey: const TransitionInfo(
-                    hasTransition: true,
-                    transitionType: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 0),
-                  ),
-                },
-              );
-            }
-          } else {
+          if (_model.vpn != false) {
             context.goNamed(
               'Vpn-',
               extra: <String, dynamic>{
