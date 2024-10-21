@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -191,6 +193,20 @@ class FFAppState extends ChangeNotifier {
     updateFn(_User);
     prefs.setString('ff_User', _User.serialize());
   }
+
+  final _yyManager = FutureRequestManager<List<MessageRow>>();
+  Future<List<MessageRow>> yy({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<MessageRow>> Function() requestFn,
+  }) =>
+      _yyManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearYyCache() => _yyManager.clear();
+  void clearYyCacheKey(String? uniqueKey) => _yyManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

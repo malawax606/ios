@@ -193,16 +193,14 @@ class SupabaseUserCall {
       ));
 }
 
-class SupabaseMessageCall {
+class SupabaseChatCall {
   static Future<ApiCallResponse> call({
-    List<String>? searchStringList,
+    String? searchString = '',
   }) async {
-    final searchString = _serializeList(searchStringList);
-
     return ApiManager.instance.makeApiCall(
-      callName: 'Supabase Message',
+      callName: 'Supabase Chat',
       apiUrl:
-          'GET https://intubuvndadrxutcpxnl.supabase.co/rest/v1/Message?Users=ilike.%{SearchString}%&select=*',
+          'https://intubuvndadrxutcpxnl.supabase.co/rest/v1/Chat?or=( Chat_ID.ilike.*$searchString*)&select=*',
       callType: ApiCallType.GET,
       headers: {
         'apikey':
@@ -220,21 +218,9 @@ class SupabaseMessageCall {
     );
   }
 
-  static String? profile(dynamic response) => castToType<String>(getJsonField(
+  static int? chatNumber(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$[:].Profile_Pic''',
-      ));
-  static String? username(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$[:].Username''',
-      ));
-  static String? looking(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$[:].Looking''',
-      ));
-  static String? userId(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$[:].User_Id''',
+        r'''$[:].Message_Num''',
       ));
 }
 

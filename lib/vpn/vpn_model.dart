@@ -1,10 +1,12 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'vpn_widget.dart' show VpnWidget;
 import 'package:flutter/material.dart';
 
 class VpnModel extends FlutterFlowModel<VpnWidget> {
   ///  State fields for stateful widgets in this page.
 
+  InstantTimer? instantTimer;
   // Stores action output result for [Custom Action - connectVpn] action in Vpn- widget.
   bool? vpn;
   // Stores action output result for [Custom Action - connectNet] action in Vpn- widget.
@@ -14,5 +16,7 @@ class VpnModel extends FlutterFlowModel<VpnWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    instantTimer?.cancel();
+  }
 }

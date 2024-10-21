@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
@@ -73,6 +74,7 @@ class _MessageWidgetState extends State<MessageWidget>
         await ChatTable().update(
           data: {
             'Mesage_seen': true,
+            'Message_Num': 0,
           },
           matchingRows: (rows) => rows.eq(
             'Chat_ID',
@@ -83,9 +85,26 @@ class _MessageWidgetState extends State<MessageWidget>
       await actions.supabaseRealtime(
         'Message',
         () async {
-          safeSetState(() => _model.requestCompleter1 = null);
+          safeSetState(() {
+            FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+            _model.requestCompleted1 = false;
+          });
           await _model.waitForRequestCompleted1();
         },
+      );
+      _model.instantTimer = InstantTimer.periodic(
+        duration: const Duration(milliseconds: 10),
+        callback: (timer) async {
+          _model.chat = await SupabaseChatCall.call(
+            searchString: widget.chatID,
+          );
+
+          _model.messageNum = SupabaseChatCall.chatNumber(
+            (_model.chat?.jsonBody ?? ''),
+          );
+          safeSetState(() {});
+        },
+        startImmediately: true,
       );
     });
 
@@ -661,27 +680,39 @@ class _MessageWidgetState extends State<MessageWidget>
                                                       10.0, 5.0, 10.0, 95.0),
                                               child: FutureBuilder<
                                                   List<MessageRow>>(
-                                                future: (_model
-                                                            .requestCompleter1 ??=
-                                                        Completer<
-                                                            List<MessageRow>>()
-                                                          ..complete(
-                                                              MessageTable()
-                                                                  .queryRows(
-                                                            queryFn: (q) => q
-                                                                .eq(
-                                                                  'Chat_ID',
-                                                                  widget
-                                                                      .chatID,
-                                                                )
-                                                                .eq(
-                                                                  'Delete',
-                                                                  false,
-                                                                )
-                                                                .order(
-                                                                    'created_at'),
-                                                          )))
-                                                    .future,
+                                                future: FFAppState()
+                                                    .yy(
+                                                  uniqueQueryKey:
+                                                      valueOrDefault<String>(
+                                                    widget.chatID,
+                                                    '0',
+                                                  ),
+                                                  requestFn: () =>
+                                                      MessageTable().queryRows(
+                                                    queryFn: (q) => q
+                                                        .eq(
+                                                          'Chat_ID',
+                                                          widget.chatID,
+                                                        )
+                                                        .eq(
+                                                          'Delete',
+                                                          false,
+                                                        )
+                                                        .order('created_at'),
+                                                  ),
+                                                )
+                                                    .then((result) {
+                                                  try {
+                                                    _model.requestCompleted1 =
+                                                        true;
+                                                    _model.requestLastUniqueKey1 =
+                                                        valueOrDefault<String>(
+                                                      widget.chatID,
+                                                      '0',
+                                                    );
+                                                  } finally {}
+                                                  return result;
+                                                }),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -821,7 +852,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -856,7 +890,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -890,7 +927,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -924,7 +964,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -958,7 +1001,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -992,7 +1038,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -1026,7 +1075,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -1060,7 +1112,10 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                                                       _model.loveID,
                                                                                                                     ),
                                                                                                                   );
-                                                                                                                  safeSetState(() => _model.requestCompleter1 = null);
+                                                                                                                  safeSetState(() {
+                                                                                                                    FFAppState().clearYyCacheKey(_model.requestLastUniqueKey1);
+                                                                                                                    _model.requestCompleted1 = false;
+                                                                                                                  });
                                                                                                                   _model.love = false;
                                                                                                                   _model.loveID = null;
                                                                                                                   safeSetState(() {});
@@ -1739,21 +1794,18 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsets.all(2.0),
-                                                                                                child: Text(
-                                                                                                  valueOrDefault<String>(
-                                                                                                    messagesMessageRow.love,
-                                                                                                    '👍',
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Inter',
-                                                                                                        color: Colors.black,
-                                                                                                        fontSize: 15.5,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w500,
-                                                                                                      ),
+                                                                                              Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  messagesMessageRow.love,
+                                                                                                  '👍',
                                                                                                 ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: Colors.black,
+                                                                                                      fontSize: 15.5,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                    ),
                                                                                               ),
                                                                                             ],
                                                                                           ),
@@ -2132,6 +2184,11 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                           widget
                                                                               .chatID,
                                                                     });
+                                                                    _model.messageNum =
+                                                                        _model.messageNum! +
+                                                                            1;
+                                                                    safeSetState(
+                                                                        () {});
                                                                     await ChatTable()
                                                                         .update(
                                                                       data: {
@@ -2150,8 +2207,8 @@ class _MessageWidgetState extends State<MessageWidget>
                                                                             widget.userId,
                                                                         'Mesage_seen':
                                                                             false,
-                                                                        'Message Un':
-                                                                            '',
+                                                                        'Message_Num':
+                                                                            _model.messageNum,
                                                                       },
                                                                       matchingRows:
                                                                           (rows) =>

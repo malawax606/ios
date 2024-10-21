@@ -835,206 +835,209 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              FutureBuilder<List<UserRow>>(
-                                                future:
-                                                    UserTable().querySingleRow(
-                                                  queryFn: (q) => q.eq(
-                                                    'id',
-                                                    listViewChatRow.userA ==
-                                                            currentUserUid
-                                                        ? listViewChatRow.userB
-                                                        : listViewChatRow.userA,
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    1.0, -1.0),
+                                                child: FutureBuilder<
+                                                    List<UserRow>>(
+                                                  future: UserTable()
+                                                      .querySingleRow(
+                                                    queryFn: (q) => q.eq(
+                                                      'id',
+                                                      listViewChatRow.userA ==
+                                                              currentUserUid
+                                                          ? listViewChatRow
+                                                              .userB
+                                                          : listViewChatRow
+                                                              .userA,
+                                                    ),
                                                   ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<UserRow>
-                                                      rowUserUserRowList =
-                                                      snapshot.data!;
+                                                      );
+                                                    }
+                                                    List<UserRow>
+                                                        rowUserUserRowList =
+                                                        snapshot.data!;
 
-                                                  final rowUserUserRow =
-                                                      rowUserUserRowList
-                                                              .isNotEmpty
-                                                          ? rowUserUserRowList
-                                                              .first
-                                                          : null;
+                                                    final rowUserUserRow =
+                                                        rowUserUserRowList
+                                                                .isNotEmpty
+                                                            ? rowUserUserRowList
+                                                                .first
+                                                            : null;
 
-                                                  return Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Stack(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    1.0, -1.0),
-                                                            children: [
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    PageTransition(
-                                                                      type: PageTransitionType
-                                                                          .fade,
-                                                                      child:
-                                                                          FlutterFlowExpandedImageView(
-                                                                        image:
-                                                                            CachedNetworkImage(
-                                                                          fadeInDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          fadeOutDuration:
-                                                                              const Duration(milliseconds: 500),
-                                                                          imageUrl:
-                                                                              valueOrDefault<String>(
+                                                    return Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Stack(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      1.0,
+                                                                      -1.0),
+                                                              children: [
+                                                                InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await Navigator
+                                                                        .push(
+                                                                      context,
+                                                                      PageTransition(
+                                                                        type: PageTransitionType
+                                                                            .fade,
+                                                                        child:
+                                                                            FlutterFlowExpandedImageView(
+                                                                          image:
+                                                                              CachedNetworkImage(
+                                                                            fadeInDuration:
+                                                                                const Duration(milliseconds: 500),
+                                                                            fadeOutDuration:
+                                                                                const Duration(milliseconds: 500),
+                                                                            imageUrl:
+                                                                                valueOrDefault<String>(
+                                                                              rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != '' ? rowUserUserRow?.profilePic : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                              'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            ),
+                                                                            fit:
+                                                                                BoxFit.contain,
+                                                                          ),
+                                                                          allowRotation:
+                                                                              true,
+                                                                          tag: valueOrDefault<
+                                                                              String>(
                                                                             rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
                                                                                 ? rowUserUserRow?.profilePic
                                                                                 : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                            'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
                                                                           ),
-                                                                          fit: BoxFit
-                                                                              .contain,
+                                                                          useHeroAnimation:
+                                                                              true,
                                                                         ),
-                                                                        allowRotation:
-                                                                            true,
-                                                                        tag: valueOrDefault<
-                                                                            String>(
-                                                                          rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
-                                                                              ? rowUserUserRow?.profilePic
-                                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                          'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
-                                                                        ),
-                                                                        useHeroAnimation:
-                                                                            true,
                                                                       ),
+                                                                    );
+                                                                  },
+                                                                  child: Hero(
+                                                                    tag: valueOrDefault<
+                                                                        String>(
+                                                                      rowUserUserRow?.profilePic != null &&
+                                                                              rowUserUserRow?.profilePic !=
+                                                                                  ''
+                                                                          ? rowUserUserRow
+                                                                              ?.profilePic
+                                                                          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                      'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
                                                                     ),
-                                                                  );
-                                                                },
-                                                                child: Hero(
-                                                                  tag: valueOrDefault<
-                                                                      String>(
-                                                                    rowUserUserRow?.profilePic !=
-                                                                                null &&
-                                                                            rowUserUserRow?.profilePic !=
-                                                                                ''
-                                                                        ? rowUserUserRow
-                                                                            ?.profilePic
-                                                                        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                    'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg' '$listViewIndex',
-                                                                  ),
-                                                                  transitionOnUserGestures:
-                                                                      true,
-                                                                  child:
-                                                                      Container(
-                                                                    width: 55.0,
-                                                                    height:
-                                                                        55.0,
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
-                                                                    decoration:
-                                                                        const BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        CachedNetworkImage(
-                                                                      fadeInDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      fadeOutDuration:
-                                                                          const Duration(
-                                                                              milliseconds: 500),
-                                                                      imageUrl:
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                        rowUserUserRow?.profilePic != null &&
-                                                                                rowUserUserRow?.profilePic != ''
-                                                                            ? rowUserUserRow?.profilePic
-                                                                            : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
-                                                                      ),
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              if ((listViewChatRow
-                                                                          .lastMessageSentBy !=
-                                                                      currentUserUid) &&
-                                                                  (listViewChatRow
-                                                                          .mesageSeen ==
-                                                                      false))
-                                                                Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                    transitionOnUserGestures:
+                                                                        true,
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          12.0,
+                                                                          55.0,
                                                                       height:
-                                                                          12.0,
+                                                                          55.0,
+                                                                      clipBehavior:
+                                                                          Clip.antiAlias,
                                                                       decoration:
                                                                           const BoxDecoration(
-                                                                        color: Color(
-                                                                            0xFFF80606),
                                                                         shape: BoxShape
                                                                             .circle,
                                                                       ),
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        fadeInDuration:
+                                                                            const Duration(milliseconds: 500),
+                                                                        fadeOutDuration:
+                                                                            const Duration(milliseconds: 500),
+                                                                        imageUrl:
+                                                                            valueOrDefault<String>(
+                                                                          rowUserUserRow?.profilePic != null && rowUserUserRow?.profilePic != ''
+                                                                              ? rowUserUserRow?.profilePic
+                                                                              : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                          'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+                                                                        ),
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                            ],
-                                                          ),
-                                                          InkWell(
+                                                                if ((listViewChatRow
+                                                                            .lastMessageSentBy !=
+                                                                        currentUserUid) &&
+                                                                    (listViewChatRow
+                                                                            .mesageSeen ==
+                                                                        false))
+                                                                  Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            12.0,
+                                                                        height:
+                                                                            12.0,
+                                                                        decoration:
+                                                                            const BoxDecoration(
+                                                                          color:
+                                                                              Color(0xFFF80606),
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                        alignment: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Expanded(
+                                                          child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
                                                             focusColor: Colors
@@ -1166,107 +1169,134 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               safeSetState(
                                                                   () {});
                                                             },
-                                                            child: Column(
+                                                            child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
                                                               children: [
-                                                                Row(
+                                                                Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          7.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          rowUserUserRow
-                                                                              ?.username,
-                                                                          'User',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              letterSpacing: 0.0,
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              7.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              rowUserUserRow?.username,
+                                                                              'User',
                                                                             ),
-                                                                      ),
-                                                                    ),
-                                                                    if (rowUserUserRow
-                                                                            ?.vipProfilee ??
-                                                                        true)
-                                                                      const Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            3.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .verified_sharp,
-                                                                          color:
-                                                                              Color(0xFF0992F9),
-                                                                          size:
-                                                                              15.0,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Inter',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
                                                                         ),
-                                                                      ),
+                                                                        if (rowUserUserRow?.vipProfilee ??
+                                                                            true)
+                                                                          const Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                3.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.verified_sharp,
+                                                                              color: Color(0xFF0992F9),
+                                                                              size: 15.0,
+                                                                            ),
+                                                                          ),
+                                                                      ],
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        if ((listViewChatRow.mesageSeen ==
+                                                                                true) &&
+                                                                            (listViewChatRow.lastMessageSentBy ==
+                                                                                currentUserUid))
+                                                                          const Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                7.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.done_all_rounded,
+                                                                              color: Color(0xFF1975FB),
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        if ((listViewChatRow.mesageSeen ==
+                                                                                false) &&
+                                                                            (listViewChatRow.lastMessageSentBy ==
+                                                                                currentUserUid))
+                                                                          Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                7.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.done_all_rounded,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              7.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              listViewChatRow.lastMessage,
+                                                                              '.',
+                                                                            ).maybeHandleOverflow(
+                                                                              maxChars: 26,
+                                                                              replacement: '…',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Inter',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ],
                                                                 ),
-                                                                Row(
+                                                                Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .end,
                                                                   children: [
-                                                                    if ((listViewChatRow.mesageSeen ==
-                                                                            true) &&
-                                                                        (listViewChatRow.lastMessageSentBy ==
-                                                                            currentUserUid))
-                                                                      const Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            7.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .done_all_rounded,
-                                                                          color:
-                                                                              Color(0xFF1975FB),
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ),
-                                                                    if ((listViewChatRow.mesageSeen ==
-                                                                            false) &&
-                                                                        (listViewChatRow.lastMessageSentBy ==
-                                                                            currentUserUid))
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            7.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .done_all_rounded,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ),
                                                                     Padding(
                                                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           7.0,
@@ -1275,76 +1305,76 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          listViewChatRow
-                                                                              .lastMessage,
-                                                                          '.',
-                                                                        ).maybeHandleOverflow(
-                                                                          maxChars:
-                                                                              26,
-                                                                          replacement:
-                                                                              '…',
-                                                                        ),
+                                                                        functions
+                                                                            .formatDate(listViewChatRow.lastMesageSentTime),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
+                                                                              fontSize: 13.0,
                                                                               letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
                                                                     ),
+                                                                    if ((listViewChatRow.lastMessageSentBy !=
+                                                                            currentUserUid) &&
+                                                                        (listViewChatRow.messageNum >
+                                                                            0))
+                                                                      Align(
+                                                                        alignment: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              5.0,
+                                                                              3.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                20.0,
+                                                                            height:
+                                                                                20.0,
+                                                                            decoration:
+                                                                                const BoxDecoration(
+                                                                              color: Color(0xFFF80606),
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              valueOrDefault<String>(
+                                                                                formatNumber(
+                                                                                  listViewChatRow.messageNum,
+                                                                                  formatType: FormatType.compact,
+                                                                                ),
+                                                                                '1',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    color: Colors.white,
+                                                                                    fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
                                                                   ],
                                                                 ),
                                                               ],
                                                             ),
                                                           ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            7.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  functions.formatDate(
-                                                                      listViewChatRow
-                                                                          .lastMesageSentTime),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ].divide(const SizedBox(height: 15.0)),
                                           ),
@@ -1457,48 +1487,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'Test',
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  homePageUserRow?.username,
-                                                  'User',
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .headlineSmall
-                                                    .override(
-                                                      fontFamily: 'Inter Tight',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontSize: 20.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                homePageUserRow?.username,
+                                                'User',
                                               ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    fontFamily: 'Inter Tight',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                             if (homePageUserRow!.vipProfilee! &&
                                                 !homePageUserRow.verify!)

@@ -35,7 +35,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   String? token;
   // Stores action output result for [Custom Action - getAccessToken] action in Tab widget.
   String? token2;
-  // Stores action output result for [Custom Action - getAccessToken] action in Column widget.
+  // Stores action output result for [Custom Action - getAccessToken] action in Row widget.
   String? token4;
   // Stores action output result for [Custom Action - getAccessToken] action in Tab widget.
   String? token3;

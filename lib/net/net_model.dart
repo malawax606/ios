@@ -1,10 +1,12 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'net_widget.dart' show NetWidget;
 import 'package:flutter/material.dart';
 
 class NetModel extends FlutterFlowModel<NetWidget> {
   ///  State fields for stateful widgets in this page.
 
+  InstantTimer? instantTimer;
   // Stores action output result for [Custom Action - connectVpn] action in Net widget.
   bool? vpn;
   // Stores action output result for [Custom Action - connectNet] action in Net widget.
@@ -14,5 +16,7 @@ class NetModel extends FlutterFlowModel<NetWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    instantTimer?.cancel();
+  }
 }

@@ -1,5 +1,7 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'dart:async';
 import 'message_widget.dart' show MessageWidget;
 import 'package:flutter/material.dart';
@@ -45,7 +47,11 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  Completer<List<MessageRow>>? requestCompleter1;
+  bool requestCompleted1 = false;
+  String? requestLastUniqueKey1;
+  InstantTimer? instantTimer;
+  // Stores action output result for [Backend Call - API (Supabase Chat)] action in Message widget.
+  ApiCallResponse? chat;
   // State field(s) for Message widget.
   FocusNode? messageFocusNode;
   TextEditingController? messageTextController;
@@ -57,6 +63,7 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
 
   @override
   void dispose() {
+    instantTimer?.cancel();
     messageFocusNode?.dispose();
     messageTextController?.dispose();
   }
@@ -70,7 +77,7 @@ class MessageModel extends FlutterFlowModel<MessageWidget> {
     while (true) {
       await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter1?.isCompleted ?? false;
+      final requestComplete = requestCompleted1;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }
